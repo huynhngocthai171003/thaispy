@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Học Python với Thầy Thái</title>
+  <!-- loader-->
+
+  <!--favicon-->
+  <link rel="icon" href="../images/logo.png" type="image/x-icon">
+  <!-- Vector CSS -->
+  <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+  <!-- simplebar CSS-->
+  <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+  <!-- Bootstrap core CSS-->
+  <link href="../css/bootstrap.min.css" rel="stylesheet" />
+  <!-- animate CSS-->
+  <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+  <!-- Icons CSS-->
+  <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+  <!-- Sidebar CSS-->
+  <link href="../css/sidebar-menu.css" rel="stylesheet" />
+  <!-- Custom Style-->
+  <link href="../css/app-style.css" rel="stylesheet" />
+  <!-- Bootstrap 5 CSS -->
+<!-- Prism.js CSS -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+<!-- Prism.js -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+<!-- Plugin for line numbers + copy -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet"/>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css" rel="stylesheet"/>
+
+
+  <!-- Bootstrap 5 JS + Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+  .card-header{
+    font-size: 18px;
+  }
+  .card-body h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #f3f6f9;
+}
+
+.card-body ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+.card-body ul li {
+  margin-bottom: 0.5rem;
+  font-size: 18px;
+}
+
+p{
+  font-size: 18px;
+}
+
+
+
+</style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+  <!-- Start wrapper-->
+  <div id="wrapper">
+
+    <!--Start sidebar-wrapper-->
+    <div id="sidebar-placeholder"></div>
+
+    <!--End sidebar-wrapper-->
+
+    <!--Start topbar header-->
+    <header class="topbar-nav">
+      <nav class="navbar navbar-expand fixed-top">
+        <ul class="navbar-nav mr-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link toggle-menu" href="javascript:void();">
+              <i class="icon-menu menu-icon"></i>
+            </a>
+          </li>
+
+        </ul>
+
+
+      </nav>
+    </header>
+    <!--End topbar header-->
+
+    <div class="clearfix"></div>
+
+    <div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Kiểu dữ liệu trong Python <small class="text-muted">6 phút đọc</small></h3>
+        </div>
+        <div class="card-body">
+          <p>Kiểu dữ liệu là một khái niệm quan trọng trong lập trình, giúp xác định loại dữ liệu mà một biến có thể lưu trữ và các phép toán có thể thực hiện trên dữ liệu đó. Python là một ngôn ngữ lập trình mạnh mẽ và linh hoạt, hỗ trợ nhiều kiểu dữ liệu khác nhau. Bài viết này sẽ hướng dẫn chi tiết về các kiểu dữ liệu trong Python, bao gồm khái niệm, phân loại và cách chuyển đổi giữa các kiểu dữ liệu.</p>
+
+          <h3>Kiểu dữ liệu là gì?</h3>
+          <p>Kiểu dữ liệu (data type) là một phân loại dữ liệu mô tả đặc điểm và hành vi của giá trị mà biến lưu trữ. Trong Python, tất cả mọi thứ đều là đối tượng và các kiểu dữ liệu là các lớp được dựng sẵn.</p>
+
+          <h3>Các kiểu dữ liệu trong Python</h3>
+          <p>Python cung cấp nhiều kiểu dữ liệu cơ bản:</p>
+          <ul>
+            <li><strong>Số (Numeric):</strong> <code>int</code>, <code>float</code>, <code>complex</code></li>
+            <li><strong>Chuỗi (String):</strong> <code>str</code></li>
+            <li><strong>Dãy (Sequence):</strong> <code>list</code>, <code>tuple</code>, <code>range</code></li>
+            <li><strong>Nhị phân (Binary):</strong> <code>bytes</code>, <code>bytearray</code>, <code>memoryview</code></li>
+            <li><strong>Ánh xạ (Mapping):</strong> <code>dict</code></li>
+            <li><strong>Boolean:</strong> <code>bool</code></li>
+            <li><strong>Tập hợp (Set):</strong> <code>set</code>, <code>frozenset</code></li>
+            <li><strong>Không giá trị:</strong> <code>NoneType</code></li>
+          </ul>
+
+          <h3>1. Kiểu dữ liệu số (Numeric)</h3>
+         <p>Kiểu dữ liệu số trong Python được sử dụng để lưu trữ các giá trị số. Các giá trị số bao gồm số nguyên (integer), số thực (floating-point), và số phức (complex).</p>
+          <ul>
+            <li><strong>int:</strong> Lưu trữ các số nguyên, không giới hạn độ dài.</li>
+            <li><strong>float:</strong> Lưu trữ các số thực, chính xác đến 15 chữ số thập phân.</li>
+            <li><strong>complex:</strong> Lưu trữ các số phức, có dạng <code>a + bj</code> với <code>a</code> và <code>b</code> là các số thực và <code>j</code> là đơn vị ảo.</li>
+          </ul>
+          <pre class="line-numbers"><code class="language-python">num1 = 5
+print(type(num1))  # int
+
+num2 = 2.5
+print(type(num2))  # float
+
+num3 = 1 + 2j
+print(type(num3))  # complex</code></pre>
+
+          <h3>2. Kiểu dữ liệu chuỗi (String)</h3>
+          <p>Chuỗi là một dãy các ký tự được đặt trong dấu ngoặc đơn hoặc dấu ngoặc kép. Python hỗ trợ các ký tự Unicode.</p>
+          <pre class="line-numbers"><code class="language-python">name = 'Python'
+print(name)
+
+message = "Python for beginners"
+print(message)</code></pre>
+
+           <h3>3. Kiểu dữ liệu dãy (Sequence Data Types)</h3>
+          <p>Dãy là một tập hợp các mục được sắp xếp. Python có ba kiểu dữ liệu dãy chính: list, tuple, và range.</p>
+          <ul>
+            <li><strong>list:</strong> Danh sách là một dãy các mục có thể thay đổi, được đặt trong dấu ngoặc vuông <code>[]</code>.</li>
+            <li><strong>tuple:</strong> Tuple là một dãy các mục không thể thay đổi, được đặt trong dấu ngoặc đơn <code>()</code>.</li>
+            <li><strong>range:</strong> Range là một dãy các số nguyên, thường được sử dụng trong vòng lặp.</li>
+          </ul>
+          <pre class="line-numbers"><code class="language-python"># List
+fruits = ["apple", "banana", "cherry"]
+print(fruits)
+
+# Tuple
+coordinates = (10.0, 20.0)
+print(coordinates)
+
+# Range
+numbers = range(5)
+print(list(numbers))</code></pre>
+
+          <h3>4. Kiểu dữ liệu nhị phân (Binary Data Types)</h3>
+          <p>Python hỗ trợ các kiểu dữ liệu nhị phân như <code>bytes</code>, <code>bytearray</code>, và <code>memoryview</code>.</p>
+          <ul>
+            <li><strong>bytes:</strong> Lưu trữ các dãy byte không thể thay đổi.</li>
+            <li><strong>bytearray:</strong> Lưu trữ các dãy byte có thể thay đổi.</li>
+            <li><strong>memoryview:</strong> Cung cấp một giao diện để truy cập vào bộ nhớ của các đối tượng khác.</li>
+          </ul>
+          <pre class="line-numbers"><code class="language-python"># Bytes
+data = b"Hello"
+print(data)
+
+# Bytearray
+data = bytearray(5)
+print(data)
+
+# Memoryview
+data = memoryview(bytes(5))
+print(data)</code></pre>
+
+          <h3>5. Kiểu ánh xạ (Mapping)</h3>
+          <p>Kiểu dữ liệu ánh xạ trong Python là từ điển (dictionary), lưu trữ các cặp khóa-giá trị.</p>
+          <pre class="line-numbers"><code class="language-python">person = {"name": "John", "age": 30}
+print(person)</code></pre>
+
+          <h3>6. Kiểu boolean</h3>
+          <p>Kiểu dữ liệu boolean trong Python chỉ có hai giá trị: True và False.</p>
+          <pre class="line-numbers"><code class="language-python">is_active = True
+print(is_active, 'là kiểu', type(is_active))</code></pre>
+
+          <h3>7. Kiểu tập hợp (Set)</h3>
+          <p>Tập hợp là một tập hợp các mục duy nhất, không có thứ tự.</p>
+          <pre class="line-numbers"><code class="language-python">student_ids = {112, 114, 116, 118, 115}
+print(student_ids)</code></pre>
+
+          <h3>8. Kiểu NoneType</h3>
+          <p>NoneType là kiểu dữ liệu đặc biệt trong Python, đại diện cho giá trị không có giá trị.</p>
+          <pre class="line-numbers"><code class="language-python">value = None
+print(value, 'là kiểu', type(value))</code></pre>
+
+          <h3>Chuyển đổi kiểu dữ liệu</h3>
+          <p>Chuyển đổi kiểu dữ liệu là quá trình chuyển đổi dữ liệu từ kiểu này sang kiểu khác. Python hỗ trợ hai loại chuyển đổi kiểu dữ liệu: chuyển đổi ngầm định (implicit conversion) và chuyển đổi tường minh (explicit conversion).</p>
+          <h4>Chuyển đổi ngầm định (Implicit Type Conversion)</h4>
+          <p>Chuyển đổi ngầm định là khi Python tự động chuyển đổi một kiểu dữ liệu sang kiểu khác mà không cần sự can thiệp của người dùng.</p>
+          <pre class="line-numbers"><code class="language-python">a_int = 1
+b_float = 1.0
+c_sum = a_int + b_float
+
+print(c_sum)
+print(type(c_sum))</code></pre>
+
+          <h4>Chuyển đổi tường minh (Explicit Type Conversion)</h4>
+          <p>Chuyển đổi tường minh, còn được gọi là ép kiểu, là khi người dùng tự chuyển đổi kiểu dữ liệu của một đối tượng sang kiểu dữ liệu khác bằng cách sử dụng các hàm chuyển đổi tích hợp sẵn như int(), float(), str(), v.v.
+
+</p>
+          <pre class="line-numbers"><code class="language-python">num_string = '12'
+num_integer = 23
+
+print("Kiểu dữ liệu của num_string trước khi ép kiểu:", type(num_string))
+
+# Ép kiểu tường minh
+num_string = int(num_string)
+
+print("Kiểu dữ liệu của num_string sau khi ép kiểu:", type(num_string))
+
+num_sum = num_integer + num_string
+print("Tổng:", num_sum)
+print("Kiểu dữ liệu của num_sum:", type(num_sum))</code></pre>
+
+          <h3>Các hàm chuyển đổi kiểu phổ biến</h3>
+          <p>Python cung cấp nhiều hàm chuyển đổi kiểu dữ liệu để chuyển đổi giữa các kiểu dữ liệu khác nhau.
+
+</p>
+
+        <ul>
+            <li><code>int()</code>: Chuyển đổi một giá trị sang kiểu số nguyên.</li>
+            <li><code>float()</code>: Chuyển đổi một giá trị sang kiểu số thực.</li>
+            <li><code>str()</code>: Chuyển đổi một giá trị sang kiểu chuỗi.</li>
+            <li><code>bool()</code>: Chuyển đổi một giá trị sang kiểu boolean.</li>
+            <li><code>list()</code>: Chuyển đổi một giá trị sang kiểu danh sách.</li>
+            <li><code>tuple()</code>: Chuyển đổi một giá trị sang kiểu tuple.</li>
+            <li><code>set()</code>: Chuyển đổi một giá trị sang kiểu tập hợp.</li>
+            <li><code>dict()</code>: Chuyển đổi một giá trị sang kiểu từ điển.</li>
+          </ul>
+          <pre class="line-numbers"><code class="language-python"># Chuyển đổi sang số nguyên
+x = int("10")
+print(x, 'là kiểu', type(x))
+
+# Chuyển đổi sang số thực
+y = float("10.5")
+print(y, 'là kiểu', type(y))
+
+# Chuyển đổi sang chuỗi
+z = str(10)
+print(z, 'là kiểu', type(z))
+
+# Chuyển đổi sang boolean
+a = bool(1)
+print(a, 'là kiểu', type(a))
+
+# Chuyển đổi sang danh sách
+b = list((1, 2, 3))
+print(b, 'là kiểu', type(b))
+
+# Chuyển đổi sang tuple
+c = tuple([1, 2, 3])
+print(c, 'là kiểu', type(c))
+
+# Chuyển đổi sang tập hợp
+d = set([1, 2, 3])
+print(d, 'là kiểu', type(d))
+
+# Chuyển đổi sang từ điển
+e = dict([(1, 'one'), (2, 'two')])
+print(e, 'là kiểu', type(e))</code></pre>
+
+          <h3>Kết luận</h3>
+          <p>Việc nắm vững các kiểu dữ liệu trong Python là rất quan trọng để trở thành một lập trình viên Python thành thạo. Bài viết này đã giới thiệu chi tiết về các khái niệm cơ bản như kiểu dữ liệu là gì, các kiểu dữ liệu trong Python, các loại kiểu dữ liệu trong Python, chuyển đổi kiểu dữ liệu trong Python, và các hàm chuyển đổi kiểu dữ liệu. Hy vọng rằng bạn đã có thể hiểu rõ hơn về cách sử dụng các kiểu dữ liệu trong Python và sẵn sàng viết mã Python của riêng mình.</p>
+        
+        <h3>Bài tập luyện tập</h3>
+          <ul>
+            <li>🧠 <strong>Bài tập 1:</strong> Tạo biến và in ra bằng f-string<br>Tạo các biến để lưu thông tin cá nhân (tên, tuổi, chiều cao, tình trạng là sinh viên) và in ra bằng <code>print(f"...")</code>.</li>
+            <li>🔍 <strong>Bài tập 2:</strong> Kiểm tra kiểu dữ liệu<br>Tạo 4 biến với các kiểu <code>int</code>, <code>str</code>, <code>float</code>, <code>bool</code>. In ra kiểu dữ liệu của từng biến bằng <code>type()</code> và <code>print(f"...")</code>.</li>
+            <li>⟳ <strong>Bài tập 3:</strong> Ép kiểu<br>Tạo một biến là chuỗi số <code>"123"</code>. Ép kiểu nó sang <code>int</code>, <code>float</code>, <code>bool</code>, rồi in ra kết quả và kiểu dữ liệu mới của từng biến.</li>
+            <li>🧰 <strong>Bài tập 4:</strong> Gán nhiều biến một lúc<br>Gán 3 giá trị khác nhau (<code>int</code>, <code>float</code>, <code>str</code>) cho 3 biến trong một dòng. Sau đó in ra giá trị từng biến bằng <code>print(f"...")</code>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+      <div class="container">
+        <div class="text-center">
+          Huỳnh Ngọc Thái
+        </div>
+      </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+      <div class="switcher-icon">
+        <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+      </div>
+      <div class="right-sidebar-content">
+
+        <p class="mb-0">Gaussion Texture</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme1"></li>
+          <li id="theme2"></li>
+          <li id="theme3"></li>
+          <li id="theme4"></li>
+          <li id="theme5"></li>
+          <li id="theme6"></li>
+        </ul>
+
+        <p class="mb-0">Gradient Background</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme7"></li>
+          <li id="theme8"></li>
+          <li id="theme9"></li>
+          <li id="theme10"></li>
+          <li id="theme11"></li>
+          <li id="theme12"></li>
+          <li id="theme13"></li>
+          <li id="theme14"></li>
+          <li id="theme15"></li>
+        </ul>
+
+      </div>
+    </div>
+    <!--end color switcher-->
+
+  </div><!--End wrapper-->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+
+  <!-- simplebar js -->
+  <script src="../plugins/simplebar/js/simplebar.js"></script>
+  <!-- sidebar-menu js -->
+  <script src="../js/sidebar-menu.js"></script>
+  <!-- loader scripts -->
+  <script src="../js/jquery.loading-indicator.js"></script>
+  <!-- Custom scripts -->
+  <script src="../js/app-script.js"></script>
+  <!-- Chart js -->
+
+  <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+  <!-- Index js -->
+
+   <script>
+    $("#sidebar-placeholder").load("layout.html");
+
+  </script>
+
+
+</body>
+
+</html>
