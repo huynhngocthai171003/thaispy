@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Học Python với Thầy Thái</title>
+  <!-- loader-->
+
+  <!--favicon-->
+  <link rel="icon" href="../images/logo.png" type="image/x-icon">
+  <!-- Vector CSS -->
+  <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+  <!-- simplebar CSS-->
+  <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+  <!-- Bootstrap core CSS-->
+  <link href="../css/bootstrap.min.css" rel="stylesheet" />
+  <!-- animate CSS-->
+  <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+  <!-- Icons CSS-->
+  <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+  <!-- Sidebar CSS-->
+  <link href="../css/sidebar-menu.css" rel="stylesheet" />
+  <!-- Custom Style-->
+  <link href="../css/app-style.css" rel="stylesheet" />
+  <!-- Bootstrap 5 CSS -->
+<!-- Prism.js CSS -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+<!-- Prism.js -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+<!-- Plugin for line numbers + copy -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet"/>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css" rel="stylesheet"/>
+
+
+  <!-- Bootstrap 5 JS + Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+  .card-header{
+    font-size: 18px;
+  }
+  .card-body h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #f3f6f9;
+}
+
+.card-body ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+.card-body ul li {
+  margin-bottom: 0.5rem;
+  font-size: 18px;
+}
+
+p{
+  font-size: 18px;
+}
+
+
+
+</style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+  <!-- Start wrapper-->
+  <div id="wrapper">
+
+    <!--Start sidebar-wrapper-->
+    <div id="sidebar-placeholder"></div>
+
+    <!--End sidebar-wrapper-->
+
+    <!--Start topbar header-->
+    <header class="topbar-nav">
+      <nav class="navbar navbar-expand fixed-top">
+        <ul class="navbar-nav mr-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link toggle-menu" href="javascript:void();">
+              <i class="icon-menu menu-icon"></i>
+            </a>
+          </li>
+
+        </ul>
+
+
+      </nav>
+    </header>
+    <!--End topbar header-->
+
+    <div class="clearfix"></div>
+
+    <div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Chuyển đổi kiểu dữ liệu trong Python <small class="text-muted">8 phút đọc</small></h3>
+        </div>
+        <div class="card-body">
+          <p>Type casting, hay còn gọi là chuyển đổi kiểu dữ liệu, là quá trình chuyển đổi một kiểu dữ liệu này sang kiểu dữ liệu khác. Trong Python, type casting rất quan trọng để đảm bảo tính tương thích giữa các kiểu dữ liệu khác nhau và tăng cường tính linh hoạt của mã nguồn. Bài viết này sẽ hướng dẫn chi tiết về type casting trong Python, bao gồm các chủ đề như type casting trong Python, implicit casting, explicit casting, hàm int(), chuyển đổi chuỗi sang số nguyên, chuyển đổi chuỗi nhị phân sang số nguyên, chuyển đổi chuỗi bát phân sang số nguyên, chuyển đổi chuỗi thập lục phân sang số nguyên, hàm float(), hàm str(), chuyển đổi các kiểu dữ liệu dãy, và các hàm chuyển đổi kiểu dữ liệu.</p>
+
+          <h3>Type Casting trong Python</h3>
+          <p>Type casting trong Python là quá trình chuyển đổi một đối tượng từ kiểu dữ liệu này sang kiểu dữ liệu khác. Python hỗ trợ hai loại type casting: implicit casting (chuyển đổi ngầm định) và explicit casting (chuyển đổi tường minh).</p>
+
+          <h4>Chuyển đổi Ngầm định trong Python (Python Implicit Casting)</h4>
+          <p>Chuyển đổi ngầm định là quá trình Python tự động chuyển đổi một kiểu dữ liệu này sang kiểu dữ liệu khác mà không cần sự can thiệp của người dùng. Điều này thường xảy ra khi một giá trị của kiểu dữ liệu này được gán cho một biến của kiểu dữ liệu khác, và kiểu dữ liệu đích có thể đại diện an toàn cho giá trị nguồn mà không mất độ chính xác hoặc dữ liệu.</p>
+          <pre><code class="language-python"># Chuyển đổi ngầm định từ int sang float
+a = 10  # int
+b = 5.5  # float
+c = a + b  # a được chuyển đổi ngầm định sang float trước khi thực hiện phép cộng
+print(c)  # Output: 15.5
+print(type(c))  # Output: &lt;class 'float'&gt;</code></pre>
+
+          <h4>Chuyển đổi Tường minh trong Python (Python Explicit Casting)</h4>
+          <p>Chuyển đổi tường minh, hay còn gọi là ép kiểu tường minh, là quá trình người dùng tự chuyển đổi kiểu dữ liệu của một đối tượng sang kiểu dữ liệu khác bằng cách sử dụng các hàm chuyển đổi tích hợp sẵn như  <code>int()</code>, <code>float()</code>, <code>str()</code>, v.v.</p>
+          <pre><code class="language-python"># Chuyển đổi tường minh từ float sang int
+a = 5.5
+b = int(a)
+print(b)  # Output: 5
+print(type(b))  # Output: &lt;class 'int'&gt;</code></pre>
+
+          <h4>Hàm int() trong Python</h4>
+          <p>Hàm <code>int()</code> trong Python được sử dụng để chuyển đổi một giá trị thành số nguyên. Hàm này có thể chuyển đổi một chuỗi hoặc một số thành số nguyên.</p>
+          <pre><code class="language-python"># Chuyển đổi chuỗi thành số nguyên
+x = '123'
+print(int(x))
+
+# Chuyển đổi số thực thành số nguyên
+y = 3.14
+print(int(y))
+
+# Chuyển đổi chuỗi nhị phân thành số nguyên
+z = '1010'
+print(int(z, 2))</code></pre>
+
+          <h4>Chuyển đổi Chuỗi sang Số Nguyên</h4>
+          <p>Chuyển đổi chuỗi sang số nguyên là một trong những thao tác phổ biến trong lập trình. Bạn có thể sử dụng hàm int() để thực hiện việc này.</p>
+          <pre><code class="language-python">number_str = "10"
+number_int = int(number_str)
+print(number_int)
+print(type(number_int))</code></pre>
+
+          <h4>Chuyển đổi Chuỗi Nhị Phân sang Số Nguyên</h4>
+          <p>Bạn có thể chuyển đổi một chuỗi nhị phân sang số nguyên bằng cách sử dụng hàm int() với tham số cơ số là 2.</p>
+          <pre><code class="language-python">binary_str = "1101"
+binary_int = int(binary_str, 2)
+print(binary_int)  # Output: 13</code></pre>
+
+          <h4>Chuyển đổi Chuỗi Bát Phân sang Số Nguyên</h4>
+          <p>Bạn có thể chuyển đổi một chuỗi bát phân sang số nguyên bằng cách sử dụng hàm int() với tham số cơ số là 8.</p>
+          <pre><code class="language-python">octal_str = "17"
+octal_int = int(octal_str, 8)
+print(octal_int)  # Output: 15</code></pre>
+
+          <h4>Chuyển đổi Chuỗi Thập Lục Phân sang Số Nguyên</h4>
+          <p>Bạn có thể chuyển đổi một chuỗi thập lục phân sang số nguyên bằng cách sử dụng hàm int() với tham số cơ số là 16.</p>
+          <pre><code class="language-python">hex_str = "1A"
+hex_int = int(hex_str, 16)
+print(hex_int)  # Output: 26</code></pre>
+
+          <h4>Hàm float() trong Python</h4>
+          <p>Hàm <code>float()</code> trong Python được sử dụng để chuyển đổi một giá trị thành số thực. Hàm này có thể chuyển đổi một chuỗi hoặc một số thành số thực.</p>
+          <pre><code class="language-python">x = '3.14'
+print(float(x))
+
+y = 5
+print(float(y))</code></pre>
+
+          <h4>Hàm str() trong Python</h4>
+          <p>Hàm <code>str()</code> rong Python được sử dụng để chuyển đổi một giá trị thành chuỗi. Hàm này có thể chuyển đổi bất kỳ kiểu dữ liệu nào thành chuỗi.</p>
+          <pre><code class="language-python">x = 10
+print(str(x))
+
+y = 3.14
+print(str(y))</code></pre>
+
+          <h4>Chuyển đổi các Kiểu Dữ liệu Dãy</h4>
+          <p>Python cung cấp các hàm để chuyển đổi giữa các kiểu dữ liệu dãy như danh sách (list), tuple, và chuỗi (string).</p>
+          <pre><code class="language-python"># Tuple sang list
+tuple_data = (1, 2, 3)
+list_data = list(tuple_data)
+print(list_data)
+
+# List sang tuple
+list_data = [1, 2, 3]
+tuple_data = tuple(list_data)
+print(tuple_data)
+
+# String sang list
+string_data = "hello"
+list_data = list(string_data)
+print(list_data)</code></pre>
+
+          <h4>Các Hàm Chuyển đổi Kiểu Dữ liệu Phổ biến</h4>
+          <p>Python cung cấp nhiều hàm chuyển đổi kiểu dữ liệu để chuyển đổi giữa các kiểu dữ liệu khác nhau.</p>
+          <ul>
+            <li><code>int()</code>: Chuyển thành số nguyên.</li>
+            <li><code>float()</code>: Chuyển thành số thực.</li>
+            <li><code>str()</code>: Chuyển thành chuỗi.</li>
+            <li><code>list()</code>: Chuyển thành danh sách.</li>
+            <li><code>tuple()</code>: Chuyển thành tuple.</li>
+            <li><code>set()</code>: Chuyển thành tập hợp.</li>
+            <li><code>dict()</code>: Chuyển thành từ điển.</li>
+          </ul>
+          <pre><code class="language-python">x = '123'
+print(int(x))  # Output: 123
+
+y = 5
+print(float(y))  # Output: 5.0
+
+z = 3.14
+print(str(z))  # Output: '3.14'
+
+tuple_data = (1, 2, 3)
+list_data = list(tuple_data)
+print(list_data)
+
+list_data = [1, 2, 3]
+tuple_data = tuple(list_data)
+print(tuple_data)</code></pre>
+
+          <h3>Kết luận</h3>
+          <p>Type casting là một công cụ mạnh mẽ trong Python, cho phép lập trình viên chuyển đổi giữa các kiểu dữ liệu khác nhau một cách linh hoạt và hiệu quả. Bài viết này đã giới thiệu chi tiết về các khái niệm cơ bản như type casting trong Python, implicit casting, explicit casting, hàm int(), chuyển đổi chuỗi sang số nguyên, chuyển đổi chuỗi nhị phân sang số nguyên, chuyển đổi chuỗi bát phân sang số nguyên, chuyển đổi chuỗi thập lục phân sang số nguyên, hàm float(), hàm str(), chuyển đổi các kiểu dữ liệu dãy, và các hàm chuyển đổi kiểu dữ liệu. Hy vọng rằng bạn đã có thể hiểu rõ hơn về cách sử dụng type casting trong Python và sẵn sàng viết mã Python của riêng mình.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+      <div class="container">
+        <div class="text-center">
+          Huỳnh Ngọc Thái
+        </div>
+      </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+      <div class="switcher-icon">
+        <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+      </div>
+      <div class="right-sidebar-content">
+
+        <p class="mb-0">Gaussion Texture</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme1"></li>
+          <li id="theme2"></li>
+          <li id="theme3"></li>
+          <li id="theme4"></li>
+          <li id="theme5"></li>
+          <li id="theme6"></li>
+        </ul>
+
+        <p class="mb-0">Gradient Background</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme7"></li>
+          <li id="theme8"></li>
+          <li id="theme9"></li>
+          <li id="theme10"></li>
+          <li id="theme11"></li>
+          <li id="theme12"></li>
+          <li id="theme13"></li>
+          <li id="theme14"></li>
+          <li id="theme15"></li>
+        </ul>
+
+      </div>
+    </div>
+    <!--end color switcher-->
+
+  </div><!--End wrapper-->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+
+  <!-- simplebar js -->
+  <script src="../plugins/simplebar/js/simplebar.js"></script>
+  <!-- sidebar-menu js -->
+  <script src="../js/sidebar-menu.js"></script>
+  <!-- loader scripts -->
+  <script src="../js/jquery.loading-indicator.js"></script>
+  <!-- Custom scripts -->
+  <script src="../js/app-script.js"></script>
+  <!-- Chart js -->
+
+  <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+  <!-- Index js -->
+
+   <script>
+    $("#sidebar-placeholder").load("layout.html");
+
+  </script>
+
+
+</body>
+
+</html>
