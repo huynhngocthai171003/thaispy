@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Học Python với Thầy Thái</title>
+    <!-- loader-->
+
+    <!--favicon-->
+    <link rel="icon" href="../images/logo.png" type="image/x-icon">
+    <!-- Vector CSS -->
+    <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <!-- simplebar CSS-->
+    <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- animate CSS-->
+    <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+    <!-- Icons CSS-->
+    <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+    <!-- Sidebar CSS-->
+    <link href="../css/sidebar-menu.css" rel="stylesheet" />
+    <!-- Custom Style-->
+    <link href="../css/app-style.css" rel="stylesheet" />
+    <!-- Bootstrap 5 CSS -->
+    <!-- Prism.js CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <!-- Prism.js -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Plugin for line numbers + copy -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet" />
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css"
+        rel="stylesheet" />
+
+
+    <!-- Bootstrap 5 JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .card-header {
+            font-size: 18px;
+        }
+
+        .card-body h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #f3f6f9;
+        }
+
+        .card-body ul {
+            padding-left: 1.2rem;
+            list-style-type: disc;
+        }
+
+        .card-body ul li {
+            margin-bottom: 0.5rem;
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .example {
+            display: none;
+            margin-top: 5px;
+            padding: 10px;
+
+            border-left: 4px solid #007bff;
+        }
+
+        .param-row:hover {
+            border: solid 2px yellow;
+            cursor: pointer;
+        }
+
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <!--Start sidebar-wrapper-->
+        <div id="sidebar-placeholder"></div>
+
+        <!--End sidebar-wrapper-->
+
+        <!--Start topbar header-->
+        <header class="topbar-nav">
+            <nav class="navbar navbar-expand fixed-top">
+                <ul class="navbar-nav mr-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link toggle-menu" href="javascript:void();">
+                            <i class="icon-menu menu-icon"></i>
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </nav>
+        </header>
+        <!--End topbar header-->
+
+        <div class="clearfix"></div>
+
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Chương 2: Đối tượng App <small class="text-muted"
+                                    style="color: darkgray !important;">Tạo và điều khiển cửa sổ giao diện chính với
+                                    guizero</small></h3>
+                        </div>
+                        <div class="card-body">
+
+                            <h3>App là gì?</h3>
+                            <p><code>App</code> là cửa sổ chính trong ứng dụng guizero. Đây là nơi chứa tất cả các thành
+                                phần giao diện như nút bấm, văn bản, hình ảnh,... Một ứng dụng chỉ có duy nhất một
+                                <code>App</code>, và bạn cần gọi <code>display()</code> để hiển thị nó.</p>
+
+                            <h3>Cách tạo App</h3>
+                            <pre><code class="language-python">from guizero import App
+app = App()
+app.display()</code></pre>
+
+                            <table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Tên tham số</th>
+                                        <th>Kiểu dữ liệu</th>
+                                        <th>Mặc định</th>
+                                        <th>Bắt buộc</th>
+                                        <th>Mô tả</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="param-row" onclick="toggleExample('ex-title')">
+                                        <td>title</td>
+                                        <td>chuỗi</td>
+                                        <td>"guizero"</td>
+                                        <td>Không</td>
+                                        <td>Tiêu đề cửa sổ</td>
+                                    </tr>
+                                    <tr id="ex-title" class="example">
+                                        <td colspan="5">
+                                            💬 <strong>Giải thích:</strong> Tiêu đề hiển thị trên thanh tiêu đề cửa
+                                            sổ.<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, Text
+app = App(title="Ứng dụng của tôi")
+text = Text(app, text="Xin chào!")
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-width')">
+                                        <td>width</td>
+                                        <td>số nguyên</td>
+                                        <td>500</td>
+                                        <td>Không</td>
+                                        <td>Chiều rộng cửa sổ (px)</td>
+                                    </tr>
+                                    <tr id="ex-width" class="example">
+                                        <td colspan="5">
+                                            💬 <strong>Giải thích:</strong> Đặt chiều rộng cửa sổ tính bằng pixel.<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App
+app = App(width=800)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-height')">
+                                        <td>height</td>
+                                        <td>số nguyên</td>
+                                        <td>500</td>
+                                        <td>Không</td>
+                                        <td>Chiều cao cửa sổ (px)</td>
+                                    </tr>
+                                    <tr id="ex-height" class="example">
+                                        <td colspan="5">
+                                            💬 <strong>Giải thích:</strong> Đặt chiều cao cửa sổ tính bằng pixel.<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App
+app = App(height=600)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-layout')">
+                                        <td>layout</td>
+                                        <td>chuỗi</td>
+                                        <td>"auto"</td>
+                                        <td>Không</td>
+                                        <td>Bố cục: "auto" hoặc "grid"</td>
+                                    </tr>
+                                    <tr id="ex-layout" class="example">
+                                        <td colspan="5">
+                                            💬 <strong>Giải thích:</strong> Thiết lập cách sắp xếp các thành phần trong
+                                            cửa sổ.<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, Text
+app = App(layout="grid")
+Text(app, text="Chào", grid=[0,0])
+Text(app, text="bạn", grid=[1,0])
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-bg')">
+                                        <td>bg</td>
+                                        <td>chuỗi màu</td>
+                                        <td>None</td>
+                                        <td>Không</td>
+                                        <td>Màu nền cửa sổ</td>
+                                    </tr>
+                                    <tr id="ex-bg" class="example">
+                                        <td colspan="5">
+                                            💬 <strong>Giải thích:</strong> Có thể là tên màu tiếng Anh hoặc mã màu
+                                            HEX.<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App
+app = App(bg="lightblue")
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-visible')">
+                                        <td>visible</td>
+                                        <td>boolean</td>
+                                        <td>True</td>
+                                        <td>Không</td>
+                                        <td>Cửa sổ hiển thị ngay khi tạo</td>
+                                    </tr>
+                                    <tr id="ex-visible" class="example">
+                                        <td colspan="5">
+                                            💬 <strong>Giải thích:</strong> Nếu đặt là False, cửa sổ sẽ không hiện khi
+                                            khởi tạo.<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App
+app = App(visible=False)
+# có thể dùng app.show() sau đó để hiển thị
+app.show()
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                            <script>
+                                function toggleExample(id) {
+                                    const ex = document.getElementById(id);
+                                    ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+                                }
+                            </script>
+
+                            <h3>Phương thức của App</h3>
+                            <table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Phương thức</th>
+                                        <th>Tham số</th>
+                                        <th>Trả về</th>
+                                        <th>Mô tả</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-cancel')">
+                                        <td>cancel(...)</td>
+                                        <td>command</td>
+                                        <td>–</td>
+                                        <td>Hủy cuộc gọi đã hẹn</td>
+                                    </tr>
+                                    <tr id="ex-cancel" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Hủy cuộc gọi đã hẹn<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, Text, PushButton
+def update_text():
+    text.value = &quot;Không nên thấy dòng này&quot;
+app = App()
+text = Text(app, text=&quot;Sẽ không thay đổi&quot;)
+job = app.after(3000, update_text)
+PushButton(app, text=&quot;Huỷ&quot;, command=lambda: app.cancel(job))
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-disable')">
+                                        <td>disable()</td>
+                                        <td>–</td>
+                                        <td>–</td>
+                                        <td>Vô hiệu hóa tất cả widget</td>
+                                    </tr>
+                                    <tr id="ex-disable" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Vô hiệu hóa tất cả widget<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, Text, PushButton
+def disable_all():
+    app.disable()
+app = App()
+Text(app, text=&quot;App sẽ bị vô hiệu hóa&quot;)
+PushButton(app, text=&quot;Disable&quot;, command=disable_all)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-enable')">
+                                        <td>enable()</td>
+                                        <td>–</td>
+                                        <td>–</td>
+                                        <td>Kích hoạt lại widget</td>
+                                    </tr>
+                                    <tr id="ex-enable" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Kích hoạt lại widget<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, Text, PushButton
+def toggle():
+    app.disable()
+    app.after(2000, app.enable)
+app = App()
+Text(app, text=&quot;Sẽ bật lại sau 2s&quot;)
+PushButton(app, text=&quot;Tạm ẩn&quot;, command=toggle)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-error')">
+                                        <td>error(...)</td>
+                                        <td>title, text</td>
+                                        <td>–</td>
+                                        <td>Popup lỗi</td>
+                                    </tr>
+                                    <tr id="ex-error" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Popup lỗi<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, PushButton
+def show_error():
+    app.error(&quot;Lỗi&quot;, &quot;Có lỗi xảy ra!&quot;)
+app = App()
+PushButton(app, text=&quot;Lỗi&quot;, command=show_error)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-focus')">
+                                        <td>focus()</td>
+                                        <td>–</td>
+                                        <td>–</td>
+                                        <td>Đặt tiêu điểm</td>
+                                    </tr>
+                                    <tr id="ex-focus" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Đặt tiêu điểm<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App
+app = App()
+app.focus()
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-hide')">
+                                        <td>hide()</td>
+                                        <td>–</td>
+                                        <td>–</td>
+                                        <td>Ẩn cửa sổ</td>
+                                    </tr>
+                                    <tr id="ex-hide" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Ẩn cửa sổ<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, PushButton
+def hide_app():
+    app.hide()
+app = App()
+PushButton(app, text=&quot;Ẩn&quot;, command=hide_app)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-info')">
+                                        <td>info(...)</td>
+                                        <td>title, text</td>
+                                        <td>–</td>
+                                        <td>Popup thông tin</td>
+                                    </tr>
+                                    <tr id="ex-info" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Popup thông tin<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, PushButton
+def show_info():
+    app.info(&quot;Thông tin&quot;, &quot;Đây là thông báo.&quot;)
+app = App()
+PushButton(app, text=&quot;Thông tin&quot;, command=show_info)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-question')">
+                                        <td>question(...)</td>
+                                        <td>title, text, initial_value</td>
+                                        <td>Giá trị hoặc None</td>
+                                        <td>Hộp nhập liệu từ người dùng</td>
+                                    </tr>
+                                    <tr id="ex-question" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Hộp nhập liệu từ người dùng<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, PushButton
+def ask_input():
+    name = app.question(&quot;Tên&quot;, &quot;Nhập tên của bạn:&quot;)
+    print(&quot;Tên:&quot;, name)
+app = App()
+PushButton(app, text=&quot;Hỏi tên&quot;, command=ask_input)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-repeat')">
+                                        <td>repeat(...)</td>
+                                        <td>time, command, args</td>
+                                        <td>–</td>
+                                        <td>Gọi hàm định kỳ</td>
+                                    </tr>
+                                    <tr id="ex-repeat" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Gọi hàm định kỳ<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, Text
+def update():
+    text.value = &quot;Đã cập nhật!&quot;
+app = App()
+text = Text(app, text=&quot;Chờ cập nhật...&quot;)
+app.repeat(2000, update)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-select_color')">
+                                        <td>select_color(...)</td>
+                                        <td>color</td>
+                                        <td>Mã màu hoặc None</td>
+                                        <td>Chọn màu</td>
+                                    </tr>
+                                    <tr id="ex-select_color" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Chọn màu<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, PushButton
+def pick_color():
+    color = app.select_color()
+    print(&quot;Màu đã chọn:&quot;, color)
+app = App()
+PushButton(app, text=&quot;Chọn màu&quot;, command=pick_color)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-select_file')">
+                                        <td>select_file(...)</td>
+                                        <td>title, folder, filetypes, save, filename</td>
+                                        <td>Đường dẫn hoặc ""</td>
+                                        <td>Chọn file</td>
+                                    </tr>
+                                    <tr id="ex-select_file" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Chọn file<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, PushButton
+def pick_file():
+    file = app.select_file()
+    print(&quot;File:&quot;, file)
+app = App()
+PushButton(app, text=&quot;Chọn file&quot;, command=pick_file)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-select_folder')">
+                                        <td>select_folder(...)</td>
+                                        <td>title, folder</td>
+                                        <td>Đường dẫn hoặc ""</td>
+                                        <td>Chọn thư mục</td>
+                                    </tr>
+                                    <tr id="ex-select_folder" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Chọn thư mục<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, PushButton
+def pick_folder():
+    folder = app.select_folder()
+    print(&quot;Thư mục:&quot;, folder)
+app = App()
+PushButton(app, text=&quot;Chọn thư mục&quot;, command=pick_folder)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-set_full_screen')">
+                                        <td>set_full_screen(...)</td>
+                                        <td>keybind</td>
+                                        <td>–</td>
+                                        <td>Bật toàn màn hình</td>
+                                    </tr>
+                                    <tr id="ex-set_full_screen" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Bật toàn màn hình<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App
+app = App()
+app.set_full_screen()
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-show')">
+                                        <td>show()</td>
+                                        <td>–</td>
+                                        <td>–</td>
+                                        <td>Hiện cửa sổ</td>
+                                    </tr>
+                                    <tr id="ex-show" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Hiện cửa sổ<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, PushButton
+def show_app():
+    app.show()
+app = App(visible=False)
+PushButton(app, text=&quot;Hiện&quot;, command=show_app)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-update')">
+                                        <td>update()</td>
+                                        <td>–</td>
+                                        <td>–</td>
+                                        <td>Cập nhật UI</td>
+                                    </tr>
+                                    <tr id="ex-update" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Cập nhật UI<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, Text
+app = App()
+text = Text(app, text=&quot;Chờ...&quot;)
+text.value = &quot;Đang cập nhật...&quot;
+app.update()
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+
+                                    <tr class="param-row" onclick="toggleExample('ex-add_tk_widget')">
+                                        <td>add_tk_widget(...)</td>
+                                        <td>tk_widget, grid, align, visible, enabled, width, height</td>
+                                        <td>Widget</td>
+                                        <td>Thêm widget từ Tkinter (nâng cao)</td>
+                                    </tr>
+                                    <tr id="ex-add_tk_widget" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Thêm widget từ Tkinter (nâng cao)<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App
+import tkinter as tk
+
+tk_label = tk.Label(text=&quot;Label từ Tkinter&quot;)
+app = App()
+app.add_tk_widget(tk_label)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-exit_full_screen')">
+                                        <td>exit_full_screen()</td>
+                                        <td>–</td>
+                                        <td>–</td>
+                                        <td>Thoát toàn màn hình</td>
+                                    </tr>
+                                    <tr id="ex-exit_full_screen" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Thoát toàn màn hình<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, PushButton
+def exit_full():
+    app.exit_full_screen()
+app = App()
+PushButton(app, text=&quot;Thoát full screen&quot;, command=exit_full)
+app.set_full_screen()
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+
+                                    <tr class="param-row" onclick="toggleExample('ex-after')">
+                                        <td>after(...)</td>
+                                        <td>time, command, args</td>
+                                        <td>–</td>
+                                        <td>Gọi hàm sau thời gian nhất định</td>
+                                    </tr>
+                                    <tr id="ex-after" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Gọi hàm sau thời gian nhất định<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, Text
+def change_text():
+    text.value = &quot;Sau 3 giây&quot;
+app = App()
+text = Text(app, text=&quot;Đợi...&quot;)
+app.after(3000, change_text)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-destroy')">
+                                        <td>destroy()</td>
+                                        <td>–</td>
+                                        <td>–</td>
+                                        <td>Đóng App</td>
+                                    </tr>
+                                    <tr id="ex-destroy" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Đóng App<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, PushButton
+def close():
+    app.destroy()
+app = App()
+PushButton(app, text=&quot;Thoát&quot;, command=close)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-display')">
+                                        <td>display()</td>
+                                        <td>–</td>
+                                        <td>–</td>
+                                        <td>Hiển thị App (bắt buộc)</td>
+                                    </tr>
+                                    <tr id="ex-display" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Hiển thị App (bắt buộc)<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, Text
+app = App()
+Text(app, text=&quot;Chào bạn&quot;)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-warn')">
+                                        <td>warn(...)</td>
+                                        <td>title, text</td>
+                                        <td>–</td>
+                                        <td>Popup cảnh báo</td>
+                                    </tr>
+                                    <tr id="ex-warn" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Popup cảnh báo<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, PushButton
+def show_warning():
+    app.warn(&quot;Cảnh báo&quot;, &quot;Bạn có chắc không?&quot;)
+app = App()
+PushButton(app, text=&quot;Cảnh báo&quot;, command=show_warning)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-yesno')">
+                                        <td>yesno(...)</td>
+                                        <td>title, text</td>
+                                        <td>True hoặc False</td>
+                                        <td>Hộp chọn Yes/No</td>
+                                    </tr>
+                                    <tr id="ex-yesno" class="example">
+                                        <td colspan="4">
+                                            💬 <strong>Giải thích:</strong> Hộp chọn Yes/No<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, PushButton
+def confirm():
+    if app.yesno(&quot;Xác nhận&quot;, &quot;Bạn chắc chứ?&quot;):
+        print(&quot;Đồng ý&quot;)
+    else:
+        print(&quot;Từ chối&quot;)
+app = App()
+PushButton(app, text=&quot;Hỏi&quot;, command=confirm)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                            <script>
+                                function toggleExample(id) {
+                                    const ex = document.getElementById(id);
+                                    ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+                                }
+                            </script>
+
+                            <h3>Thuộc tính của App</h3>
+                            <table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Tên thuộc tính</th>
+                                        <th>Kiểu dữ liệu</th>
+                                        <th>Mô tả</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-bg')">
+                                        <td>bg</td>
+                                        <td>chuỗi màu</td>
+                                        <td>Màu nền của App</td>
+                                    </tr>
+                                    <tr id="ex-bg" class="example">
+                                        <td colspan="3">
+                                            💬 <strong>Giải thích:</strong> Màu nền của App<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App
+app = App(bg=&quot;lightblue&quot;)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-children')">
+                                        <td>children</td>
+                                        <td>danh sách</td>
+                                        <td>Các widget con</td>
+                                    </tr>
+                                    <tr id="ex-children" class="example">
+                                        <td colspan="3">
+                                            💬 <strong>Giải thích:</strong> Các widget con<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, Text
+app = App()
+Text(app, text=&quot;A&quot;)
+Text(app, text=&quot;B&quot;)
+print(app.children)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-enabled')">
+                                        <td>enabled</td>
+                                        <td>boolean</td>
+                                        <td>App có đang được bật</td>
+                                    </tr>
+                                    <tr id="ex-enabled" class="example">
+                                        <td colspan="3">
+                                            💬 <strong>Giải thích:</strong> App có đang được bật<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App
+app = App()
+print(app.enabled)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-font')">
+                                        <td>font</td>
+                                        <td>chuỗi</td>
+                                        <td>Font mặc định</td>
+                                    </tr>
+                                    <tr id="ex-font" class="example">
+                                        <td colspan="3">
+                                            💬 <strong>Giải thích:</strong> Font mặc định<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, Text
+app = App()
+app.font = &quot;Courier&quot;
+Text(app, text=&quot;Xin chào!&quot;)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-full_screen')">
+                                        <td>full_screen</td>
+                                        <td>boolean</td>
+                                        <td>App đang toàn màn hình</td>
+                                    </tr>
+                                    <tr id="ex-full_screen" class="example">
+                                        <td colspan="3">
+                                            💬 <strong>Giải thích:</strong> App đang toàn màn hình<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, PushButton
+def toggle():
+    app.full_screen = not app.full_screen
+app = App()
+PushButton(app, text=&quot;Toggle full screen&quot;, command=toggle)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-height')">
+                                        <td>height</td>
+                                        <td>số nguyên</td>
+                                        <td>Chiều cao App</td>
+                                    </tr>
+                                    <tr id="ex-height" class="example">
+                                        <td colspan="3">
+                                            💬 <strong>Giải thích:</strong> Chiều cao App<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App
+app = App()
+print(app.height)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-width')">
+                                        <td>width</td>
+                                        <td>số nguyên</td>
+                                        <td>Chiều rộng App</td>
+                                    </tr>
+                                    <tr id="ex-width" class="example">
+                                        <td colspan="3">
+                                            💬 <strong>Giải thích:</strong> Chiều rộng App<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App
+app = App()
+print(app.width)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-image')">
+                                        <td>image</td>
+                                        <td>chuỗi</td>
+                                        <td>Ảnh biểu tượng cửa sổ</td>
+                                    </tr>
+                                    <tr id="ex-image" class="example">
+                                        <td colspan="3">
+                                            💬 <strong>Giải thích:</strong> Ảnh biểu tượng cửa sổ<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App
+app = App(image=&quot;icon.gif&quot;)  # Đảm bảo file icon.gif tồn tại
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-layout')">
+                                        <td>layout</td>
+                                        <td>chuỗi</td>
+                                        <td>"auto" hoặc "grid"</td>
+                                    </tr>
+                                    <tr id="ex-layout" class="example">
+                                        <td colspan="3">
+                                            💬 <strong>Giải thích:</strong> "auto" hoặc "grid"<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, Text
+app = App(layout=&quot;grid&quot;)
+Text(app, text=&quot;1&quot;, grid=[0,0])
+Text(app, text=&quot;2&quot;, grid=[1,0])
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-text_size')">
+                                        <td>text_size</td>
+                                        <td>số</td>
+                                        <td>Kích thước chữ</td>
+                                    </tr>
+                                    <tr id="ex-text_size" class="example">
+                                        <td colspan="3">
+                                            💬 <strong>Giải thích:</strong> Kích thước chữ<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, Text
+app = App()
+app.text_size = 20
+Text(app, text=&quot;To lên!&quot;)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-text_color')">
+                                        <td>text_color</td>
+                                        <td>chuỗi màu</td>
+                                        <td>Màu chữ</td>
+                                    </tr>
+                                    <tr id="ex-text_color" class="example">
+                                        <td colspan="3">
+                                            💬 <strong>Giải thích:</strong> Màu chữ<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, Text
+app = App()
+app.text_color = &quot;red&quot;
+Text(app, text=&quot;Chữ đỏ&quot;)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-text_bold')">
+                                        <td>text_bold</td>
+                                        <td>boolean</td>
+                                        <td>Chữ in đậm</td>
+                                    </tr>
+                                    <tr id="ex-text_bold" class="example">
+                                        <td colspan="3">
+                                            💬 <strong>Giải thích:</strong> Chữ in đậm<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, Text
+app = App()
+app.text_bold = True
+Text(app, text=&quot;Chữ đậm&quot;)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-text_italic')">
+                                        <td>text_italic</td>
+                                        <td>boolean</td>
+                                        <td>Chữ nghiêng</td>
+                                    </tr>
+                                    <tr id="ex-text_italic" class="example">
+                                        <td colspan="3">
+                                            💬 <strong>Giải thích:</strong> Chữ nghiêng<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, Text
+app = App()
+app.text_italic = True
+Text(app, text=&quot;Chữ nghiêng&quot;)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-text_underline')">
+                                        <td>text_underline</td>
+                                        <td>boolean</td>
+                                        <td>Chữ gạch chân</td>
+                                    </tr>
+                                    <tr id="ex-text_underline" class="example">
+                                        <td colspan="3">
+                                            💬 <strong>Giải thích:</strong> Chữ gạch chân<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, Text
+app = App()
+app.text_underline = True
+Text(app, text=&quot;Chữ gạch chân&quot;)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-text_overstrike')">
+                                        <td>text_overstrike</td>
+                                        <td>boolean</td>
+                                        <td>Chữ gạch ngang</td>
+                                    </tr>
+                                    <tr id="ex-text_overstrike" class="example">
+                                        <td colspan="3">
+                                            💬 <strong>Giải thích:</strong> Chữ gạch ngang<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App, Text
+app = App()
+app.text_overstrike = True
+Text(app, text=&quot;Chữ gạch ngang&quot;)
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-tk')">
+                                        <td>tk</td>
+                                        <td>Tk object</td>
+                                        <td>Đối tượng Tkinter gốc</td>
+                                    </tr>
+                                    <tr id="ex-tk" class="example">
+                                        <td colspan="3">
+                                            💬 <strong>Giải thích:</strong> Đối tượng Tkinter gốc<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App
+app = App()
+print(app.tk)  # Truy cập đối tượng Tk
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-title')">
+                                        <td>title</td>
+                                        <td>chuỗi</td>
+                                        <td>Tiêu đề cửa sổ</td>
+                                    </tr>
+                                    <tr id="ex-title" class="example">
+                                        <td colspan="3">
+                                            💬 <strong>Giải thích:</strong> Tiêu đề cửa sổ<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App
+app = App()
+app.title = &quot;Tiêu đề mới&quot;
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-visible')">
+                                        <td>visible</td>
+                                        <td>boolean</td>
+                                        <td>App có hiển thị không</td>
+                                    </tr>
+                                    <tr id="ex-visible" class="example">
+                                        <td colspan="3">
+                                            💬 <strong>Giải thích:</strong> App có hiển thị không<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App
+app = App(visible=False)
+app.visible = True
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="param-row" onclick="toggleExample('ex-when_closed')">
+                                        <td>when_closed</td>
+                                        <td>hàm</td>
+                                        <td>Gọi khi App đóng</td>
+                                    </tr>
+                                    <tr id="ex-when_closed" class="example">
+                                        <td colspan="3">
+                                            💬 <strong>Giải thích:</strong> Gọi khi App đóng<br>
+                                            🧪 <strong>Ví dụ:</strong>
+                                            <pre><code class="language-python">from guizero import App
+def goodbye():
+    print(&quot;App đã đóng&quot;)
+app = App()
+app.when_closed = goodbye
+app.display()</code></pre>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                            <br>
+                            <h2>Truy cập và sử dụng thuộc tính trong <code>guizero</code></h2>
+
+                            <p>Bạn có thể tham chiếu đến một thuộc tính theo cú pháp
+                                <code>&lt;tên widget&gt;.&lt;thuộc tính&gt;</code>.</p>
+
+                            <p>Ví dụ, nếu đối tượng <code>App</code> của bạn có tên là <code>app</code> thì bạn sẽ viết:
+                            </p>
+                            <pre><code class="language-python">app.title</code></pre>
+
+                            <p>Bạn có thể <strong>gán giá trị</strong> cho thuộc tính:</p>
+                            <pre><code class="language-python">app.title = "Hello world"</code></pre>
+
+                            <p>Hoặc <strong>lấy giá trị</strong của thuộc tính để sử dụng:</p>
+                            <pre><code class="language-python">print(app.title)</code></pre>
+
+                            <script>
+                                function toggleExample(id) {
+                                    const ex = document.getElementById(id);
+                                    ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+                                }
+                            </script>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                Huỳnh Ngọc Thái
+            </div>
+        </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+        <div class="switcher-icon">
+            <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+        </div>
+        <div class="right-sidebar-content">
+
+            <p class="mb-0">Gaussion Texture</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme1"></li>
+                <li id="theme2"></li>
+                <li id="theme3"></li>
+                <li id="theme4"></li>
+                <li id="theme5"></li>
+                <li id="theme6"></li>
+            </ul>
+
+            <p class="mb-0">Gradient Background</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme7"></li>
+                <li id="theme8"></li>
+                <li id="theme9"></li>
+                <li id="theme10"></li>
+                <li id="theme11"></li>
+                <li id="theme12"></li>
+                <li id="theme13"></li>
+                <li id="theme14"></li>
+                <li id="theme15"></li>
+            </ul>
+
+        </div>
+    </div>
+    <!--end color switcher-->
+
+    </div><!--End wrapper-->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- simplebar js -->
+    <script src="../plugins/simplebar/js/simplebar.js"></script>
+    <!-- sidebar-menu js -->
+    <script src="../js/sidebar-menu.js"></script>
+    <!-- loader scripts -->
+    <script src="../js/jquery.loading-indicator.js"></script>
+    <!-- Custom scripts -->
+    <script src="../js/app-script.js"></script>
+    <!-- Chart js -->
+
+    <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+    <!-- Index js -->
+
+    <script>
+        $("#sidebar-placeholder").load("layout.html");
+
+    </script>
+
+
+</body>
+
+</html>
