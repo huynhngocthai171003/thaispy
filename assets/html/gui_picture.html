@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Học Python với Thầy Thái</title>
+    <!-- loader-->
+
+    <!--favicon-->
+    <link rel="icon" href="../images/logo.png" type="image/x-icon">
+    <!-- Vector CSS -->
+    <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <!-- simplebar CSS-->
+    <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- animate CSS-->
+    <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+    <!-- Icons CSS-->
+    <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+    <!-- Sidebar CSS-->
+    <link href="../css/sidebar-menu.css" rel="stylesheet" />
+    <!-- Custom Style-->
+    <link href="../css/app-style.css" rel="stylesheet" />
+    <!-- Bootstrap 5 CSS -->
+    <!-- Prism.js CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <!-- Prism.js -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Plugin for line numbers + copy -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet" />
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css"
+        rel="stylesheet" />
+
+
+    <!-- Bootstrap 5 JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .card-header {
+            font-size: 18px;
+        }
+
+        .card-body h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #f3f6f9;
+        }
+
+        .card-body ul {
+            padding-left: 1.2rem;
+            list-style-type: disc;
+        }
+
+        .card-body ul li {
+            margin-bottom: 0.5rem;
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .example {
+            display: none;
+            margin-top: 5px;
+            padding: 10px;
+
+            border-left: 4px solid #007bff;
+        }
+
+        .param-row:hover {
+            border: solid 2px yellow;
+            cursor: pointer;
+        }
+
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <!--Start sidebar-wrapper-->
+        <div id="sidebar-placeholder"></div>
+
+        <!--End sidebar-wrapper-->
+
+        <!--Start topbar header-->
+        <header class="topbar-nav">
+            <nav class="navbar navbar-expand fixed-top">
+                <ul class="navbar-nav mr-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link toggle-menu" href="javascript:void();">
+                            <i class="icon-menu menu-icon"></i>
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </nav>
+        </header>
+        <!--End topbar header-->
+
+        <div class="clearfix"></div>
+
+       <div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Đối tượng Picture <small class="text-muted">Hiển thị hình ảnh trong ứng dụng guizero</small></h3>
+        </div>
+        <div class="card-body">
+          <h3>Picture là gì?</h3>
+          <p><code>Picture</code> là một widget dùng để hiển thị hình ảnh.</p>
+
+          <h3>Cách tạo Picture</h3>
+          <pre><code class="language-python">from guizero import App, Picture
+
+app = App()
+picture = Picture(app, image="test.gif")
+app.display()</code></pre>
+          <p>Nếu ảnh nằm trong thư mục con:</p>
+          <pre><code class="language-python">picture = Picture(app, image="images/test.gif")</code></pre>
+
+        
+         <!-- PHẦN THAM SỐ KHỞI TẠO CỦA PICTURE -->
+<h3>Tham số khởi tạo Picture</h3>
+<table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Tên tham số</th>
+      <th>Kiểu dữ liệu</th>
+      <th>Mặc định</th>
+      <th>Bắt buộc</th>
+      <th>Mô tả</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <!-- master -->
+    <tr class="param-row" onclick="toggleExample('ex-master')">
+      <td>master</td><td>App / Window / Box</td><td>-</td><td>Có</td><td>Container chứa widget</td>
+    </tr>
+    <tr id="ex-master" class="example" style="display: none;">
+      <td colspan="5">
+        💬 <strong>Giải thích:</strong> Là `App`, `Window` hoặc `Box` chứa widget.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, Picture
+app = App()
+pic = Picture(app)
+app.display()
+        </code></pre>
+      </td>
+    </tr>
+
+    <!-- image -->
+    <tr class="param-row" onclick="toggleExample('ex-image')">
+      <td>image</td><td>chuỗi / đối tượng ảnh</td><td>None</td><td>Không</td><td>Đường dẫn ảnh hoặc đối tượng tkinter.PhotoImage / PIL.Image</td>
+    </tr>
+    <tr id="ex-image" class="example" style="display: none;">
+      <td colspan="5">
+        💬 <strong>Giải thích:</strong> Hiển thị ảnh ngay khi khởi tạo.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, Picture
+app = App()
+pic = Picture(app, image="logo.png")
+app.display()
+        </code></pre>
+      </td>
+    </tr>
+
+    <!-- align -->
+    <tr class="param-row" onclick="toggleExample('ex-align')">
+      <td>align</td><td>chuỗi</td><td>None</td><td>Không</td><td>Canh lề trong container</td>
+    </tr>
+    <tr id="ex-align" class="example" style="display: none;">
+      <td colspan="5">
+        💬 <strong>Giải thích:</strong> Các giá trị gồm "top", "bottom", "left", "right".<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, Picture
+app = App()
+pic = Picture(app, image="pic.gif", align="top")
+app.display()
+        </code></pre>
+      </td>
+    </tr>
+
+    <!-- grid -->
+    <tr class="param-row" onclick="toggleExample('ex-grid')">
+      <td>grid</td><td>list [int, int]</td><td>None</td><td>Không</td><td>Vị trí [x, y] nếu dùng layout grid</td>
+    </tr>
+    <tr id="ex-grid" class="example" style="display: none;">
+      <td colspan="5">
+        💬 <strong>Giải thích:</strong> Dùng khi App có layout="grid".<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, Picture
+app = App(layout="grid")
+pic = Picture(app, image="img.gif", grid=[0, 1])
+app.display()
+        </code></pre>
+      </td>
+    </tr>
+
+    <!-- visible -->
+    <tr class="param-row" onclick="toggleExample('ex-visible')">
+      <td>visible</td><td>boolean</td><td>True</td><td>Không</td><td>Hiển thị ngay khi tạo</td>
+    </tr>
+    <tr id="ex-visible" class="example" style="display: none;">
+      <td colspan="5">
+        💬 <strong>Giải thích:</strong> Nếu đặt là False, ảnh sẽ ẩn ban đầu.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, Picture
+app = App()
+pic = Picture(app, image="img.gif", visible=False)
+pic.show()  # Hiển thị lại
+app.display()
+        </code></pre>
+      </td>
+    </tr>
+
+    <!-- enabled -->
+    <tr class="param-row" onclick="toggleExample('ex-enabled')">
+      <td>enabled</td><td>boolean</td><td>None</td><td>Không</td><td>Trạng thái kích hoạt của widget</td>
+    </tr>
+    <tr id="ex-enabled" class="example" style="display: none;">
+      <td colspan="5">
+        💬 <strong>Giải thích:</strong> Nếu không chỉ định, sẽ kế thừa từ container cha.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, Picture
+app = App()
+pic = Picture(app, image="img.gif", enabled=False)
+app.display()
+        </code></pre>
+      </td>
+    </tr>
+
+    <!-- width -->
+    <tr class="param-row" onclick="toggleExample('ex-width')">
+      <td>width</td><td>số</td><td>None</td><td>Không</td><td>Chiều rộng (px)</td>
+    </tr>
+    <tr id="ex-width" class="example" style="display: none;">
+      <td colspan="5">
+        💬 <strong>Giải thích:</strong> Đặt chiều rộng khởi tạo cho ảnh.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, Picture
+app = App()
+pic = Picture(app, image="pic.gif", width=200)
+app.display()
+        </code></pre>
+      </td>
+    </tr>
+
+    <!-- height -->
+    <tr class="param-row" onclick="toggleExample('ex-height')">
+      <td>height</td><td>số</td><td>None</td><td>Không</td><td>Chiều cao (px)</td>
+    </tr>
+    <tr id="ex-height" class="example" style="display: none;">
+      <td colspan="5">
+        💬 <strong>Giải thích:</strong> Đặt chiều cao khởi tạo cho ảnh.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, Picture
+app = App()
+pic = Picture(app, image="pic.gif", height=150)
+app.display()
+        </code></pre>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+
+
+          <!-- PHẦN PHƯƠNG THỨC CỦA PICTURE -->
+<h3>Phương thức của Picture</h3>
+<table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Phương thức</th>
+      <th>Tham số</th>
+      <th>Trả về</th>
+      <th>Mô tả</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="param-row" onclick="toggleExample('ex-after1')">
+      <td>after(time, command, args=None)</td>
+      <td>int, function, list</td>
+      <td>-</td>
+      <td>Gọi hàm sau thời gian nhất định</td>
+    </tr>
+    <tr id="ex-after1" class="example" style="display: none;">
+      <td colspan="4">
+        💬 <strong>Giải thích:</strong> Gọi một hàm sau khoảng thời gian (miligiây).<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">from guizero import App, Picture
+
+def thay_doi_anh():
+    picture.image = "new.gif"
+
+app = App()
+picture = Picture(app, image="start.gif")
+picture.after(2000, thay_doi_anh)
+app.display()
+</code></pre>
+      </td>
+    </tr>
+
+    <tr class="param-row" onclick="toggleExample('ex-cancel1')">
+      <td>cancel(command)</td>
+      <td>function</td>
+      <td>-</td>
+      <td>Hủy cuộc gọi đã lên lịch</td>
+    </tr>
+    <tr id="ex-cancel1" class="example" style="display: none;">
+      <td colspan="4">
+        💬 <strong>Giải thích:</strong> Hủy hàm được đặt bằng `after()` hoặc `repeat()`.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">from guizero import App, Picture
+
+def thay_doi_anh():
+    picture.image = "new.gif"
+
+app = App()
+picture = Picture(app, image="old.gif")
+picture.after(5000, thay_doi_anh)
+picture.cancel(thay_doi_anh)  # Hủy gọi thay_doi_anh
+app.display()
+</code></pre>
+      </td>
+    </tr>
+
+    <tr class="param-row" onclick="toggleExample('ex-destroy1')">
+      <td>destroy()</td>
+      <td>-</td>
+      <td>-</td>
+      <td>Hủy widget</td>
+    </tr>
+    <tr id="ex-destroy1" class="example" style="display: none;">
+      <td colspan="4">
+        💬 <strong>Giải thích:</strong> Loại bỏ widget khỏi App.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">from guizero import App, Picture, PushButton
+
+def xoa_hinh():
+    picture.destroy()
+
+app = App()
+picture = Picture(app, image="img.gif")
+button = PushButton(app, text="Xóa ảnh", command=xoa_hinh)
+app.display()
+</code></pre>
+      </td>
+    </tr>
+
+    <tr class="param-row" onclick="toggleExample('ex-disable1')">
+      <td>disable()</td>
+      <td>-</td>
+      <td>-</td>
+      <td>Vô hiệu hóa widget</td>
+    </tr>
+    <tr id="ex-disable1" class="example" style="display: none;">
+      <td colspan="4">
+        💬 <strong>Giải thích:</strong> Ngăn tương tác, làm mờ widget (nếu hỗ trợ).<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">picture.disable()</code></pre>
+      </td>
+    </tr>
+
+    <tr class="param-row" onclick="toggleExample('ex-enable1')">
+      <td>enable()</td>
+      <td>-</td>
+      <td>-</td>
+      <td>Kích hoạt lại widget</td>
+    </tr>
+    <tr id="ex-enable1" class="example" style="display: none;">
+      <td colspan="4">
+        💬 <strong>Giải thích:</strong> Khôi phục khả năng tương tác của widget.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">picture.enable()</code></pre>
+      </td>
+    </tr>
+
+    <tr class="param-row" onclick="toggleExample('ex-focus1')">
+      <td>focus()</td>
+      <td>-</td>
+      <td>-</td>
+      <td>Đặt tiêu điểm vào widget</td>
+    </tr>
+    <tr id="ex-focus1" class="example" style="display: none;">
+      <td colspan="4">
+        💬 <strong>Giải thích:</strong> Thường không có tác dụng với Picture, nhưng dùng được cho Entry/TextBox.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">picture.focus()</code></pre>
+      </td>
+    </tr>
+
+    <tr class="param-row" onclick="toggleExample('ex-hide1')">
+      <td>hide()</td>
+      <td>-</td>
+      <td>-</td>
+      <td>Ẩn widget</td>
+    </tr>
+    <tr id="ex-hide1" class="example" style="display: none;">
+      <td colspan="4">
+        💬 <strong>Giải thích:</strong> Ẩn khỏi giao diện, không xóa.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">picture.hide()</code></pre>
+      </td>
+    </tr>
+
+    <tr class="param-row" onclick="toggleExample('ex-repeat1')">
+      <td>repeat(time, command, args=None)</td>
+      <td>int, function, list</td>
+      <td>-</td>
+      <td>Gọi hàm định kỳ</td>
+    </tr>
+    <tr id="ex-repeat1" class="example" style="display: none;">
+      <td colspan="4">
+        💬 <strong>Giải thích:</strong> Lặp lại hàm mỗi khoảng thời gian.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">from guizero import App, Picture
+images = ["img1.gif", "img2.gif"]
+index = 0
+
+def cap_nhat_anh():
+    global index
+    index = (index + 1) % len(images)
+    picture.image = images[index]
+
+app = App()
+picture = Picture(app, image=images[0])
+picture.repeat(1000, cap_nhat_anh)
+app.display()
+</code></pre>
+      </td>
+    </tr>
+
+    <tr class="param-row" onclick="toggleExample('ex-resize1')">
+      <td>resize(width, height)</td>
+      <td>int, int</td>
+      <td>-</td>
+      <td>Thay đổi kích thước ảnh</td>
+    </tr>
+    <tr id="ex-resize1" class="example" style="display: none;">
+      <td colspan="4">
+        💬 <strong>Giải thích:</strong> Chỉ thay đổi kích thước hiển thị.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">picture.resize(300, 200)</code></pre>
+      </td>
+    </tr>
+
+    <tr class="param-row" onclick="toggleExample('ex-show1')">
+      <td>show()</td>
+      <td>-</td>
+      <td>-</td>
+      <td>Hiển thị widget nếu đã bị ẩn</td>
+    </tr>
+    <tr id="ex-show1" class="example" style="display: none;">
+      <td colspan="4">
+        💬 <strong>Giải thích:</strong> Dùng để hiển thị lại widget bị `hide()` trước đó.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">picture.show()</code></pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+
+
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+
+
+<!-- PHẦN THUỘC TÍNH CỦA PICTURE -->
+<h3>Thuộc tính của Picture</h3>
+<table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Tên thuộc tính</th>
+      <th>Kiểu dữ liệu</th>
+      <th>Mô tả</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <!-- image -->
+    <tr class="param-row" onclick="toggleExample('ex-image2')">
+      <td>image</td>
+      <td>chuỗi</td>
+      <td>Đường dẫn đến ảnh</td>
+    </tr>
+    <tr id="ex-image2" class="example" style="display: none;">
+      <td colspan="3">
+        💬 <strong>Giải thích:</strong> Gán ảnh hiển thị bằng đường dẫn file hoặc đối tượng ảnh.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, Picture
+
+app = App()
+picture = Picture(app)
+picture.image = "cat.gif"
+app.display()
+        </code></pre>
+      </td>
+    </tr>
+
+    <!-- width -->
+    <tr class="param-row" onclick="toggleExample('ex-width2')">
+      <td>width</td>
+      <td>số</td>
+      <td>Chiều rộng ảnh (px)</td>
+    </tr>
+    <tr id="ex-width2" class="example" style="display: none;">
+      <td colspan="3">
+        💬 <strong>Giải thích:</strong> Thay đổi chiều rộng hiển thị của ảnh.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, Picture
+
+app = App()
+picture = Picture(app, image="cat.gif")
+picture.width = 200
+app.display()
+        </code></pre>
+      </td>
+    </tr>
+
+    <!-- visible -->
+    <tr class="param-row" onclick="toggleExample('ex-visible2')">
+      <td>visible</td>
+      <td>boolean</td>
+      <td>Hiển thị hay không</td>
+    </tr>
+    <tr id="ex-visible2" class="example" style="display: none;">
+      <td colspan="3">
+        💬 <strong>Giải thích:</strong> Ẩn hoặc hiện ảnh.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, Picture, PushButton
+
+def an_anh():
+    picture.visible = False
+
+app = App()
+picture = Picture(app, image="cat.gif")
+PushButton(app, text="Ẩn ảnh", command=an_anh)
+app.display()
+        </code></pre>
+      </td>
+    </tr>
+
+    <!-- enabled -->
+    <tr class="param-row" onclick="toggleExample('ex-enabled2')">
+      <td>enabled</td>
+      <td>boolean</td>
+      <td>Trạng thái tương tác</td>
+    </tr>
+    <tr id="ex-enabled2" class="example" style="display: none;">
+      <td colspan="3">
+        💬 <strong>Giải thích:</strong> Dù Picture không tương tác, trạng thái này vẫn áp dụng.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, Picture
+
+app = App()
+picture = Picture(app, image="cat.gif")
+picture.enabled = False  # Không ảnh hưởng trực tiếp, nhưng vẫn hợp lệ
+app.display()
+        </code></pre>
+      </td>
+    </tr>
+
+    <!-- align -->
+    <tr class="param-row" onclick="toggleExample('ex-align2')">
+      <td>align</td>
+      <td>chuỗi</td>
+      <td>Căn lề trong container</td>
+    </tr>
+    <tr id="ex-align2" class="example" style="display: none;">
+      <td colspan="3">
+        💬 <strong>Giải thích:</strong> Canh trái, phải, trên hoặc dưới trong container.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, Box, Picture
+
+app = App()
+box = Box(app, align="top")
+picture = Picture(box, image="cat.gif", align="left")
+app.display()
+        </code></pre>
+      </td>
+    </tr>
+
+    <!-- bg -->
+    <tr class="param-row" onclick="toggleExample('ex-bg2')">
+      <td>bg</td>
+      <td>màu</td>
+      <td>Màu nền của widget</td>
+    </tr>
+    <tr id="ex-bg2" class="example" style="display: none;">
+      <td colspan="3">
+        💬 <strong>Giải thích:</strong> Đổi nền của khu vực chứa ảnh.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, Picture
+
+app = App()
+picture = Picture(app, image="cat.gif")
+picture.bg = "yellow"
+app.display()
+        </code></pre>
+      </td>
+    </tr>
+
+    <!-- grid -->
+    <tr class="param-row" onclick="toggleExample('ex-grid2')">
+      <td>grid</td>
+      <td>danh sách</td>
+      <td>Vị trí trong layout dạng lưới</td>
+    </tr>
+    <tr id="ex-grid2" class="example" style="display: none;">
+      <td colspan="3">
+        💬 <strong>Giải thích:</strong> Đặt vị trí widget trong App dùng grid layout.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, Picture
+
+app = App(layout="grid")
+picture = Picture(app, image="cat.gif", grid=[1, 0])
+app.display()
+        </code></pre>
+      </td>
+    </tr>
+
+    <!-- height -->
+    <tr class="param-row" onclick="toggleExample('ex-height2')">
+      <td>height</td>
+      <td>số</td>
+      <td>Chiều cao ảnh (px)</td>
+    </tr>
+    <tr id="ex-height2" class="example" style="display: none;">
+      <td colspan="3">
+        💬 <strong>Giải thích:</strong> Đặt chiều cao hiển thị của ảnh.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, Picture
+
+app = App()
+picture = Picture(app, image="cat.gif")
+picture.height = 100
+app.display()
+        </code></pre>
+      </td>
+    </tr>
+
+    <!-- master -->
+    <tr class="param-row" onclick="toggleExample('ex-master2')">
+      <td>master</td>
+      <td>App hoặc Box</td>
+      <td>Container chứa widget</td>
+    </tr>
+    <tr id="ex-master2" class="example" style="display: none;">
+      <td colspan="3">
+        💬 <strong>Giải thích:</strong> Cho biết widget cha mà Picture nằm trong đó.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, Picture
+
+app = App()
+picture = Picture(app, image="cat.gif")
+print(picture.master)  # In ra app
+app.display()
+        </code></pre>
+      </td>
+    </tr>
+
+    <!-- value -->
+    <tr class="param-row" onclick="toggleExample('ex-value2')">
+      <td>value</td>
+      <td>chuỗi</td>
+      <td>Giá trị ảnh hiển thị</td>
+    </tr>
+    <tr id="ex-value2" class="example" style="display: none;">
+      <td colspan="3">
+        💬 <strong>Giải thích:</strong> Tương tự như image; dùng để thay đổi hoặc lấy ảnh hiện tại.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, Picture
+
+app = App()
+picture = Picture(app, image="cat.gif")
+print(picture.value)  # In ra "cat.gif"
+picture.value = "dog.gif"
+app.display()
+        </code></pre>
+      </td>
+    </tr>
+
+    <!-- tk -->
+    <tr class="param-row" onclick="toggleExample('ex-tk2')">
+      <td>tk</td>
+      <td>tkinter.Label</td>
+      <td>Đối tượng nội bộ tkinter</td>
+    </tr>
+    <tr id="ex-tk2" class="example" style="display: none;">
+      <td colspan="3">
+        💬 <strong>Giải thích:</strong> Dùng khi bạn muốn tùy chỉnh widget nâng cao với tkinter.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, Picture
+
+app = App()
+picture = Picture(app, image="cat.gif")
+picture.tk.config(borderwidth=5, relief="solid")
+app.display()
+        </code></pre>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<p>
+  💡 <strong>Ghi chú:</strong> Truy cập thuộc tính bằng cú pháp <code>&lt;tên widget&gt;.&lt;tên thuộc tính&gt;</code>. 
+  Ví dụ, nếu đối tượng hình ảnh tên là <code>picture</code>, bạn có thể viết: <code>picture.value</code>.
+</p>
+<p>
+  🛠️ Bạn có thể <strong>gán giá trị</strong> cho thuộc tính (ví dụ: <code>picture.value = "star.gif"</code>) 
+  hoặc <strong>lấy giá trị</strong> để sử dụng (ví dụ: <code>print(picture.value)</code>).
+</p>
+<hr>
+<h3>🖼️ Sử dụng hình ảnh trong guizero</h3>
+
+<p>Các widget như <code>Picture</code> và <code>PushButton</code> cho phép bạn sử dụng hình ảnh trong giao diện GUI.</p>
+
+<pre><code class="language-python">from guizero import App, Picture
+
+app = App()
+picture = Picture(app, image="test.gif")
+app.display()
+</code></pre>
+
+<h4>📁 Các định dạng ảnh được hỗ trợ</h4>
+<ul>
+  <li>Tất cả hệ điều hành đều hỗ trợ định dạng <strong>GIF</strong>.</li>
+  <li><strong>Windows</strong> và <strong>Linux</strong> cũng hỗ trợ <strong>PNG</strong>.</li>
+  <li>Nếu bạn cài đặt thêm <code>PIL</code> (Python Imaging Library) bằng <code>pip</code>, bạn có thể sử dụng hầu hết các định dạng phổ biến như <strong>JPG, BMP, ICO, TIF</strong>, v.v.</li>
+</ul>
+
+<h4>🔍 Kiểm tra định dạng ảnh được hỗ trợ</h4>
+<p>Sử dụng đoạn mã sau để xem máy bạn hỗ trợ định dạng nào:</p>
+<pre><code class="language-python">from guizero import system_config
+print(system_config.supported_image_types)
+</code></pre>
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Hệ điều hành</th>
+      <th><em>Không có PIL</em></th>
+      <th><em>Có PIL</em></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Windows</td>
+      <td>GIF, PNG</td>
+      <td>GIF, Animated GIF, BMP, ICO, PNG, JPG, TIF</td>
+    </tr>
+    <tr>
+      <td>MacOS</td>
+      <td>GIF</td>
+      <td>GIF, Animated GIF, BMP, ICO, PNG, JPG, TIF</td>
+    </tr>
+    <tr>
+      <td>Linux</td>
+      <td>GIF, PNG</td>
+      <td>GIF, Animated GIF, BMP, ICO, PNG, JPG, TIF</td>
+    </tr>
+    <tr>
+      <td>Raspbian</td>
+      <td>GIF, PNG</td>
+      <td>GIF, Animated GIF, BMP, ICO, PNG, JPG, TIF</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>📐 Thay đổi kích thước hình ảnh</h4>
+<p>Khi thay đổi kích thước widget, hình ảnh sẽ được điều chỉnh theo kích thước mới:</p>
+<ul>
+  <li>Nếu <code>PIL</code> có sẵn: hình ảnh sẽ được <strong>co dãn (scale)</strong> đúng tỉ lệ.</li>
+  <li>Nếu không có <code>PIL</code>: hình ảnh sẽ bị <strong>cắt (crop)</strong>.</li>
+</ul>
+
+<h4>🎞️ Ảnh động (Animated GIF)</h4>
+<ul>
+  <li>Có <code>PIL</code>: guizero sẽ hiển thị ảnh GIF động.</li>
+  <li>Không có <code>PIL</code>: GIF sẽ hiển thị như ảnh tĩnh.</li>
+</ul>
+
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                Huỳnh Ngọc Thái
+            </div>
+        </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+        <div class="switcher-icon">
+            <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+        </div>
+        <div class="right-sidebar-content">
+
+            <p class="mb-0">Gaussion Texture</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme1"></li>
+                <li id="theme2"></li>
+                <li id="theme3"></li>
+                <li id="theme4"></li>
+                <li id="theme5"></li>
+                <li id="theme6"></li>
+            </ul>
+
+            <p class="mb-0">Gradient Background</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme7"></li>
+                <li id="theme8"></li>
+                <li id="theme9"></li>
+                <li id="theme10"></li>
+                <li id="theme11"></li>
+                <li id="theme12"></li>
+                <li id="theme13"></li>
+                <li id="theme14"></li>
+                <li id="theme15"></li>
+            </ul>
+
+        </div>
+    </div>
+    <!--end color switcher-->
+
+    </div><!--End wrapper-->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- simplebar js -->
+    <script src="../plugins/simplebar/js/simplebar.js"></script>
+    <!-- sidebar-menu js -->
+    <script src="../js/sidebar-menu.js"></script>
+    <!-- loader scripts -->
+    <script src="../js/jquery.loading-indicator.js"></script>
+    <!-- Custom scripts -->
+    <script src="../js/app-script.js"></script>
+    <!-- Chart js -->
+
+    <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+    <!-- Index js -->
+
+    <script>
+        $("#sidebar-placeholder").load("layout.html");
+
+    </script>
+
+
+</body>
+
+</html>
