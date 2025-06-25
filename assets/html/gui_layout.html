@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Học Python với Thầy Thái</title>
+    <!-- loader-->
+
+    <!--favicon-->
+    <link rel="icon" href="../images/logo.png" type="image/x-icon">
+    <!-- Vector CSS -->
+    <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <!-- simplebar CSS-->
+    <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- animate CSS-->
+    <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+    <!-- Icons CSS-->
+    <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+    <!-- Sidebar CSS-->
+    <link href="../css/sidebar-menu.css" rel="stylesheet" />
+    <!-- Custom Style-->
+    <link href="../css/app-style.css" rel="stylesheet" />
+    <!-- Bootstrap 5 CSS -->
+    <!-- Prism.js CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <!-- Prism.js -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Plugin for line numbers + copy -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet" />
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css"
+        rel="stylesheet" />
+
+
+    <!-- Bootstrap 5 JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .card-header {
+            font-size: 18px;
+        }
+
+        .card-body h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #f3f6f9;
+        }
+
+        .card-body ul {
+            padding-left: 1.2rem;
+            list-style-type: disc;
+        }
+
+        .card-body ul li {
+            margin-bottom: 0.5rem;
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .example {
+            display: none;
+            margin-top: 5px;
+            padding: 10px;
+
+            border-left: 4px solid #007bff;
+        }
+
+        .param-row:hover {
+            border: solid 2px yellow;
+            cursor: pointer;
+        }
+
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <!--Start sidebar-wrapper-->
+        <div id="sidebar-placeholder"></div>
+
+        <!--End sidebar-wrapper-->
+
+        <!--Start topbar header-->
+        <header class="topbar-nav">
+            <nav class="navbar navbar-expand fixed-top">
+                <ul class="navbar-nav mr-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link toggle-menu" href="javascript:void();">
+                            <i class="icon-menu menu-icon"></i>
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </nav>
+        </header>
+        <!--End topbar header-->
+
+        <div class="clearfix"></div>
+
+       <div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Layouts <small class="text-muted" style="color: darkgray !important;">Cách bố trí giao diện trong GUIZERO</small></h3>
+        </div>
+        <div class="card-body">
+
+<h3>Layouts</h3>
+<p>Bố cục của GUI là cách bạn sắp xếp các widget trong cửa sổ. Widget có thể được đặt vào các “container” (ví dụ: <code>App</code>, <code>Window</code>, <code>Box</code>) sử dụng hai loại bố cục:</p>
+<ul>
+<li><strong>auto</strong> – widget được đặt tự động</li>
+<li><strong>grid</strong> – bạn chỉ định vị trí widget trong một lưới</li>
+</ul>
+<p>Bạn thiết lập bố cục bằng tham số <code>layout</code> của container, ví dụ:</p>
+<pre><code class="language-python">app = App(layout="auto")
+app = App(layout="grid")</code></pre>
+<p>Nếu không chỉ định tham số <code>layout</code>, mặc định là <code>auto</code>.</p>
+
+<h4>Auto layout</h4>
+<p><code>auto</code> là bố cục mặc định khi tạo container. Tất cả widget sẽ được sắp xếp theo thứ tự tạo và căn giữa. Ví dụ:</p>
+<pre><code class="language-python">from guizero import App, Text
+app = App()
+text_1 = Text(app, text="on top")
+text_2 = Text(app, text="below")
+app.display()</code></pre>
+<div style="text-align:center;"><img src="../images/layout_auto.png" alt="Text on top and below"></div>
+
+<h5>Aligning</h5>
+<p>Các widget có thể được căn vào <code>top</code>, <code>bottom</code>, <code>left</code> hoặc <code>right</code> bằng thuộc tính <code>align</code>:</p>
+<pre><code class="language-python">from guizero import App, Text
+app = App()
+top_text = Text(app, text="at the top", align="top")
+bottom_text = Text(app, text="at the bottom", align="bottom")
+left_text = Text(app, text="to the left", align="left")
+right_text = Text(app, text="to the right", align="right")
+app.display()</code></pre>
+<div style="text-align:center;"><img src="../images/layout_auto_align.png" alt="Text aligned at each edge"></div>
+
+<p>Nếu căn nhiều widget cùng một phía, chúng sẽ xếp chồng lên nhau:</p>
+<pre><code class="language-python">from guizero import App, Text, TextBox, PushButton
+app = App()
+text = Text(app, text="label", align="left")
+text_box = TextBox(app, text="enter text", align="left")
+button = PushButton(app, text="submit", align="left")
+app.display()</code></pre>
+<div style="text-align:center;"><img src="../images//layout_auto_align_stack.png" alt="Widgets stacked at the side"></div>
+
+<p>Widget được xếp theo thứ tự tạo, widget tạo trước gần cạnh nhất.</p>
+
+<h5>Filling</h5>
+<p>Bạn có thể bật tính năng “fill” để widget chiếm toàn bộ không gian còn lại:</p>
+<pre><code class="language-python">from guizero import App, TextBox
+app = App()
+text_box = TextBox(app, text="enter text", width="fill")
+app.display()</code></pre>
+<div style="text-align:center;"><img src="../images/layout_fill_width.png" alt="TextBox full width"></div>
+
+<p>Hoặc một ListBox có thể lấp đầy bên trái bằng cách sử dụng fill cho chiều cao và căn lề về bên trái:</p>
+<pre><code class="language-python">from guizero import App, ListBox
+app = App()
+list_box = ListBox(app, items=["a list"], height="fill", align="left")
+app.display()</code></pre>
+<div style="text-align:center;"><img src="../images/layout_fill_height.png" alt="ListBox full height"></div>
+
+
+<p>Sử dụng fill cho cả chiều rộng và chiều cao sẽ khiến một widget chiếm toàn bộ không gian sẵn có:</p>
+<pre><code class="language-python">from guizero import App, PushButton
+app = App()
+button = PushButton(app, width="fill", height="fill")
+app.display()</code></pre>
+<div style="text-align:center;"><img src="../images/layout_fill_both.png" alt="PushButton full space"></div>
+
+
+<p>Khi nhiều widget sử dụng fill, trình quản lý cửa sổ (hệ điều hành) sẽ phân chia không gian tương ứng giữa tất cả các widget đã yêu cầu lấp đầy.</p>
+<pre><code class="language-python">from guizero import App, ListBox, PushButton
+app = App()
+list_box = ListBox(app, items=["a list","of items","yay"], height="fill", align="left")
+button = PushButton(app, width="fill", height="fill", align="right")
+app.display()</code></pre>
+<div style="text-align:center;"><img src="../images/layout_fill_multiple.png" alt="Two widgets fill"></div>
+
+<p><strong>Lưu ý:</strong> fill không phải lúc nào cũng hoạt động đúng, phụ thuộc hệ điều hành.</p>
+
+<h4>Grid layout</h4>
+<p>Bố cục dạng lưới (grid layout) cho phép bạn đặt các widget vào một lưới ảo.
+Khi tạo một widget, bạn cần truyền thêm một tham số gọi là grid, đây là một danh sách chứa tọa độ [x, y] xác định vị trí bạn muốn widget hiển thị, ví dụ như sau:</p>
+<pre><code class="language-python">app = App(layout="grid")
+text = Text(app, text="Hello world", grid=[0,1])</code></pre>
+<p>Bạn không cần chỉ định chiều rộng hoặc chiều cao của lưới — nó sẽ tự động mở rộng dựa trên tọa độ mà bạn cung cấp cho từng widget. Tuy nhiên, các ô trong lưới không chứa widget sẽ không có chiều cao hoặc chiều rộng.
+Điều này thực sự hữu ích khi tạo giao diện GUI mà bạn muốn các widget được căn hàng thẳng cột.
+Ví dụ, bạn có thể tạo một bàn phím số:</p>
+
+<div style="text-align:center;"><img src="../images/layout_grid_keypad.png" alt="Grid keypad"></div>
+
+<pre><code class="language-python">from guizero import App, PushButton
+app = App(layout="grid")
+button1 = PushButton(app, text="1", grid=[0,0])
+button2 = PushButton(app, text="2", grid=[1,0])
+button3 = PushButton(app, text="3", grid=[2,0])
+button4 = PushButton(app, text="4", grid=[0,1])
+button5 = PushButton(app, text="5", grid=[1,1])
+button6 = PushButton(app, text="6", grid=[2,1])
+button7 = PushButton(app, text="7", grid=[0,2])
+button8 = PushButton(app, text="8", grid=[1,2])
+button9 = PushButton(app, text="9", grid=[2,2])
+button0 = PushButton(app, text="0", grid=[1,3])
+app.display()</code></pre>
+
+<div style="text-align:center;"><img src="../images/layout_grid_form.png" alt="Form data layout"></div>
+
+<pre><code class="language-python">from guizero import App, Text, TextBox
+app = App(layout="grid")
+name_label = Text(app, text="Name", grid=[0,0], align="left")
+name = TextBox(app, grid=[1,0])
+surname_label = Text(app, text="Surname", grid=[0,1], align="left")
+surname = TextBox(app, grid=[1,1])
+dob_label = Text(app, text="Date of Birth", grid=[0,2], align="left")
+dob = TextBox(app, grid=[1,2])
+app.display()</code></pre>
+
+<h5>Spanning</h5>
+<p>Bạn có thể làm cho các widget chiếm nhiều cột hoặc hàng bằng cách chỉ định khoảng span trong tham số grid. Đây là tùy chọn, nhưng nếu sử dụng thì phải khai báo cả hai giá trị theo định dạng [x, y, xspan, yspan].</p>
+<p>Ví dụ dưới đây hiển thị một widget Text nằm tại vị trí (0,1) và chiếm hai cột (x) và một hàng (y):</p>
+<pre><code class="language-python">text = Text(app, text="Hello world", grid=[0,1,2,1])</code></pre>
+
+<p>Phương pháp bố cục này có thể được sử dụng để sắp xếp các widget có kích thước khác nhau nằm cạnh nhau.</p>
+
+<pre><code class="language-python">from guizero import App, Picture
+app = App(layout="grid")
+picture1 = Picture(app, image="std1.gif", grid=[0,0])
+picture2 = Picture(app, image="std2.gif", grid=[1,0])
+picture3 = Picture(app, image="tall1.gif", grid=[2,0,1,2])
+picture4 = Picture(app, image="wide1.gif", grid=[0,1,2,1])
+app.display()</code></pre>
+
+<div style="text-align:center;"><img src="../images/layout_grid_span.png" alt="Form data layout"></div>
+
+<h4>Boxes</h4>
+<p>Bằng cách sử dụng widget Box, bạn có thể chia giao diện GUI của mình thành các phần riêng biệt, cho phép bạn bố trí giao diện người dùng theo bất kỳ cách nào bạn muốn.</p>
+<div style="text-align:center;"><img src="../images/layout_boxes.png" alt="Boxes layout"></div>
+<pre><code class="language-python">from guizero import App, Box, Text, TextBox
+app = App()
+
+title_box = Box(app, width="fill", align="top", border=True)
+Text(title_box, text="title")
+
+buttons_box = Box(app, width="fill", align="bottom", border=True)
+Text(buttons_box, text="buttons")
+
+options_box = Box(app, height="fill", align="right", border=True)
+Text(options_box, text="options")
+
+content_box = Box(app, align="top", width="fill", border=True)
+Text(content_box, text="content")
+
+form_box = Box(content_box, layout="grid", width="fill", align="left", border=True)
+Text(form_box, grid=[0,0], text="form", align="right")
+Text(form_box, grid=[0,1], text="label", align="left")
+TextBox(form_box, grid=[1,1], text="data", width="fill")
+
+app.display()</code></pre>
+
+
+<p>Nếu bạn muốn tạo một tiêu đề ở góc trên bên trái của giao diện GUI, bạn có thể sử dụng một Box lấp đầy phần trên của App và đặt một widget Text bên trong, được căn lề trái.</p>
+
+<pre><code class="language-python">from guizero import App, Box, Text
+app = App()
+title_box = Box(app, width="fill", align="top")
+title = Text(title_box, text="title", align="left")
+app.display()</code></pre>
+
+<div style="text-align:center;"><img src="../images/layout_boxes_title.png" alt="Box with border"></div>
+
+<p>Bạn có thể thấy việc thiết kế bố cục dễ dàng hơn nếu các Box có đường viền, điều này có thể thực hiện bằng cách đặt tham số border của Box thành True.</p>
+<pre><code class="language-python">title_box = Box(app, width="fill", align="top", border=True)</code></pre>
+
+<div style="text-align:center;"><img src="../images/layout_boxes_border.png" alt="OK Cancel buttons"></div>
+
+
+<p>Một phương pháp tương tự có thể được dùng để đặt các nút 'OK' và 'Cancel' ở góc dưới bên phải của giao diện GUI. Hãy nhớ rằng các widget sẽ được xếp chồng bên phải theo thứ tự tạo, vì vậy nút cancel được tạo trước.</p>
+<pre><code class="language-python">from guizero import App, Box, PushButton
+app = App()
+buttons_box = Box(app, width="fill", align="bottom")
+cancel = PushButton(buttons_box, text="Cancel", align="right")
+ok = PushButton(buttons_box, text="OK", align="right")
+app.display()</code></pre>
+
+
+<div style="text-align:center;"><img src="../images/layout_boxes_buttons.png" alt="Nested boxes"></div>
+<p><strong>Lưu ý:</strong> Bạn có thể đặt một Box bên trong một Box khác, cho phép bạn lồng các hộp với nhau và định vị các widget.</p>
+<p><strong>Tip:</strong> Khi tạo giao diện GUI, bạn có thể thấy dễ dàng hơn nếu thiết kế trước trên giấy và ghi chú vị trí các Box sẽ được đặt.</p>
+
+<h4>Tổng kết</h4>
+<ul>
+  <li><code>layout="auto"</code>: xếp tự động, căn giữa, hỗ trợ align và fill.</li>
+  <li><code>layout="grid"</code>: chỉ định vị trí, hỗ trợ span.</li>
+  <li><code>Box</code>: chia vùng bố cục, hỗ trợ lồng nhau.</li>
+</ul>
+
+<h3>Tải hình ảnh</h3>
+          <a href="../images/buổi_5.zip" download class="btn btn-primary">
+            Tải hình ảnh 
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                Huỳnh Ngọc Thái
+            </div>
+        </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+        <div class="switcher-icon">
+            <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+        </div>
+        <div class="right-sidebar-content">
+
+            <p class="mb-0">Gaussion Texture</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme1"></li>
+                <li id="theme2"></li>
+                <li id="theme3"></li>
+                <li id="theme4"></li>
+                <li id="theme5"></li>
+                <li id="theme6"></li>
+            </ul>
+
+            <p class="mb-0">Gradient Background</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme7"></li>
+                <li id="theme8"></li>
+                <li id="theme9"></li>
+                <li id="theme10"></li>
+                <li id="theme11"></li>
+                <li id="theme12"></li>
+                <li id="theme13"></li>
+                <li id="theme14"></li>
+                <li id="theme15"></li>
+            </ul>
+
+        </div>
+    </div>
+    <!--end color switcher-->
+
+    </div><!--End wrapper-->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- simplebar js -->
+    <script src="../plugins/simplebar/js/simplebar.js"></script>
+    <!-- sidebar-menu js -->
+    <script src="../js/sidebar-menu.js"></script>
+    <!-- loader scripts -->
+    <script src="../js/jquery.loading-indicator.js"></script>
+    <!-- Custom scripts -->
+    <script src="../js/app-script.js"></script>
+    <!-- Chart js -->
+
+    <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+    <!-- Index js -->
+
+    <script>
+        $("#sidebar-placeholder").load("layout.html");
+
+    </script>
+
+
+</body>
+
+</html>
