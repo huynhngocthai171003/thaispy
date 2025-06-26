@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Học Python với Thầy Thái</title>
+  <!-- loader-->
+
+  <!--favicon-->
+  <link rel="icon" href="../images/logo.png" type="image/x-icon">
+  <!-- Vector CSS -->
+  <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+  <!-- simplebar CSS-->
+  <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+  <!-- Bootstrap core CSS-->
+  <link href="../css/bootstrap.min.css" rel="stylesheet" />
+  <!-- animate CSS-->
+  <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+  <!-- Icons CSS-->
+  <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+  <!-- Sidebar CSS-->
+  <link href="../css/sidebar-menu.css" rel="stylesheet" />
+  <!-- Custom Style-->
+  <link href="../css/app-style.css" rel="stylesheet" />
+  <!-- Bootstrap 5 CSS -->
+<!-- Prism.js CSS -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+<!-- Prism.js -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+<!-- Plugin for line numbers + copy -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet"/>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css" rel="stylesheet"/>
+
+
+  <!-- Bootstrap 5 JS + Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+     body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #e0f7fa, #f8f9fa);
+    padding: 30px;
+    color: #212529;
+  }
+  .card-header{
+    font-size: 18px;
+  }
+  .card-body h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #f3f6f9;
+}
+
+.card-body ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+.card-body ul li {
+  margin-bottom: 0.5rem;
+  font-size: 18px;
+}
+
+p{
+  font-size: 18px;
+}
+
+ .card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  .card-header h3 {
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+    color: #222;
+  }
+
+  .card-header small {
+    color: #666;
+  }
+
+  .question {
+    display: none;
+    margin-bottom: 35px;
+    padding: 20px 25px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #d0ebff, #f1f3f5);
+    box-shadow: inset 0 0 0 3px #339af0;
+    color: #000;
+  }
+
+  .question.active {
+    display: block;
+  }
+
+  .question strong {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    display: block;
+    color: #0b7285;
+  }
+
+  label {
+    display: block;
+    padding: 12px 16px;
+    margin: -5px 0;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    color: #212529;
+  }
+
+  label:hover {
+    background-color: #e7f5ff;
+    border-color: #228be6;
+  }
+
+  input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+  }
+
+  .navigation {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .navigation button,
+  .submit-btn {
+    background-color: #228be6;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 6px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .navigation button:hover,
+  .submit-btn:hover {
+    background-color: #1864ab;
+  }
+
+  .submit-btn {
+    margin: 30px auto 0 auto;
+    display: block;
+  }
+
+  .result {
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-top: 30px;
+    color: #2b8a3e;
+  }
+
+  @media (max-width: 768px) {
+    .question strong {
+      font-size: 1rem;
+    }
+
+    label {
+      font-size: 0.95rem;
+    }
+
+    .navigation button,
+    .submit-btn {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+  .question-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 10px;
+}
+
+.question-nav button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #228be6;
+  background-color: white;
+  color: #228be6;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.question-nav button.active {
+  background-color: #228be6;
+  color: white;
+}
+
+.question-nav button.answered {
+  background-color: #82c91e;
+  color: white;
+}
+
+
+</style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+  <!-- Start wrapper-->
+  <div id="wrapper">
+
+    <!--Start sidebar-wrapper-->
+    <div id="sidebar-placeholder"></div>
+
+    <!--End sidebar-wrapper-->
+
+    <!--Start topbar header-->
+    <header class="topbar-nav">
+      <nav class="navbar navbar-expand fixed-top">
+        <ul class="navbar-nav mr-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link toggle-menu" href="javascript:void();">
+              <i class="icon-menu menu-icon"></i>
+            </a>
+          </li>
+
+        </ul>
+
+
+      </nav>
+    </header>
+    <!--End topbar header-->
+
+    <div class="clearfix"></div>
+
+    <div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Bài trắc nghiệm Python <small class="text-muted">Toán tử</small></h3>
+        </div>
+        <div class="card-body">
+          <form id="quizForm">
+            <div id="questionsContainer"></div>
+
+            <div class="navigation">
+              <button class="" type="button" onclick="prevQuestion()">⬅ Trước</button>
+              <button type="button" onclick="nextQuestion()">Tiếp ➡</button>
+            </div>
+<div class="question-nav" id="questionNav"></div>
+
+            <button type="button" class="submit-btn" onclick="submitQuiz()">Nộp bài</button>
+          </form>
+
+          <p class="result" id="resultText"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .question { display: none; margin-bottom: 30px; }
+  .question.active { display: block; }
+  .navigation { margin-top: 20px; }
+  .navigation button { margin-right: 10px; padding: 5px 15px; }
+  .submit-btn { margin-top: 20px; padding: 10px 20px; font-size: 16px; }
+  .result { font-weight: bold; color: green; margin-top: 20px; }
+</style>
+
+<script>
+const questions = [
+  {
+    question: "1. Toán tử logic nào trả về True nếu cả hai điều kiện đều đúng?",
+    options: ["or", "and", "not", "xor"],
+    answer: 1,
+    explanation: "`and` chỉ trả về `True` khi cả hai điều kiện đều đúng."
+  },
+  {
+    question: "2. Kết quả của biểu thức `3 > 2 and 4 < 5` là gì?",
+    options: ["True", "False", "None", "Error"],
+    answer: 0,
+    explanation: "Cả hai điều kiện đều đúng nên kết quả là `True`."
+  },
+  {
+    question: "3. Kết quả của biểu thức `not (True or False)` là gì?",
+    options: ["True", "False", "None", "Error"],
+    answer: 1,
+    explanation: "`True or False` là `True`, phủ định lại thành `False`."
+  },
+  {
+    question: "4. Toán tử gán nào sẽ nhân biến `x` với 2 và lưu kết quả vào `x`?",
+    options: ["x =* 2", "x **= 2", "x = x ** 2", "x *= 2"],
+    answer: 3,
+    explanation: "`x *= 2` là toán tử gán kết hợp, tương đương `x = x * 2`."
+  },
+  {
+    question: "5. Kết quả của biểu thức `5 != 3` là gì?",
+    options: ["True", "False", "Error", "None"],
+    answer: 0,
+    explanation: "`!=` là toán tử so sánh khác nhau. 5 khác 3 nên kết quả là `True`."
+  },
+  {
+    question: "6. Toán tử `in` được dùng để làm gì?",
+    options: [
+      "So sánh hai chuỗi",
+      "Kiểm tra phần tử có nằm trong chuỗi/danh sách không",
+      "Tạo vòng lặp",
+      "Nhập dữ liệu từ bàn phím"
+    ],
+    answer: 1,
+    explanation: "`in` dùng để kiểm tra thành viên trong một container như list, tuple, str."
+  },
+  {
+    question: "7. Kết quả của `4 >= 4` là gì?",
+    options: ["True", "False", "Error", "None"],
+    answer: 0,
+    explanation: "`>=` kiểm tra lớn hơn hoặc bằng. 4 >= 4 đúng nên là `True`."
+  },
+  {
+    question: "8. `not True and False` cho kết quả gì?",
+    options: ["True", "False", "None", "Error"],
+    answer: 1,
+    explanation: "`not True` là `False`, `False and False` là `False`."
+  },
+  {
+    question: "9. Toán tử nào được dùng để so sánh bằng trong Python?",
+    options: ["=", "==", "!=", ":="],
+    answer: 1,
+    explanation: "`==` là toán tử so sánh bằng. `=` là gán, `:=` là gán biểu thức."
+  },
+  {
+    question: "10. Kết quả của `'a' in 'cat'` là gì?",
+    options: ["True", "False", "None", "Error"],
+    answer: 0,
+    explanation: `'a' là một ký tự trong chuỗi 'cat' nên trả về True.`
+  }
+];
+
+
+  let currentQuestion = 0;
+  const userAnswers = Array(questions.length).fill(null);
+
+  function renderQuestions() {
+    const container = document.getElementById('questionsContainer');
+    container.innerHTML = "";
+    questions.forEach((q, index) => {
+      const div = document.createElement('div');
+      div.className = 'question' + (index === 0 ? ' active' : '');
+      div.innerHTML = `<strong>${q.question}</strong><br>` + q.options.map((opt, i) => `
+        <label>
+          <input type="radio" name="q${index}" value="${i}" onchange="userAnswers[${index}] = ${i}">
+          ${opt}
+        </label><br>`).join('');
+      container.appendChild(div);
+    });
+  }
+
+  function showQuestion(index) {
+  const all = document.querySelectorAll(".question");
+  all.forEach((q, i) => {
+    q.classList.toggle("active", i === index);
+  });
+  renderQuestionNav();
+}
+
+  function nextQuestion() {
+    if (currentQuestion < questions.length - 1) {
+      currentQuestion++;
+      showQuestion(currentQuestion);
+    }
+  }
+
+  function prevQuestion() {
+    if (currentQuestion > 0) {
+      currentQuestion--;
+      showQuestion(currentQuestion);
+    }
+  }
+
+  function submitQuiz() {
+  if (userAnswers.includes(null)) {
+    alert("Bạn cần trả lời tất cả câu hỏi trước khi nộp bài.");
+    return;
+  }
+
+  let score = 0;
+  let resultHTML = "";
+
+  questions.forEach((q, i) => {
+    const isCorrect = userAnswers[i] === q.answer;
+    if (isCorrect) score++;
+
+    const selected = q.options[userAnswers[i]];
+    const correct = q.options[q.answer];
+
+    resultHTML += `
+      <div style="margin-bottom: 15px;">
+        <strong>Câu ${i + 1}:</strong> ${q.question}<br>
+        ➤ Bạn chọn: <strong style="color:${isCorrect ? 'green' : 'red'}">${selected}</strong><br>
+        ${!isCorrect ? `✅ Đáp án đúng: <strong>${correct}</strong><br>📘 Giải thích: <em>${q.explanation}</em><br>` : ''}
+      </div>
+      <hr>
+    `;
+  });
+
+  document.getElementById('resultText').innerHTML = `
+    <p>✅ Bạn đã trả lời đúng <strong>${score}/${questions.length}</strong> câu.</p>
+    <div style="text-align: left; max-width: 800px; margin: 20px auto;">${resultHTML}</div>
+  `;
+}
+
+
+  // Khởi tạo khi tải
+  renderQuestions();
+  renderQuestionNav();
+
+
+  function renderQuestionNav() {
+  const nav = document.getElementById("questionNav");
+  nav.innerHTML = "";
+  questions.forEach((_, i) => {
+    const btn = document.createElement("button");
+    btn.textContent = i + 1;
+    btn.className = currentQuestion === i ? "active" : "";
+    if (userAnswers[i] !== null) {
+      btn.classList.add("answered");
+    }
+    btn.onclick = () => {
+      currentQuestion = i;
+      showQuestion(i);
+      renderQuestionNav();
+    };
+    nav.appendChild(btn);
+  });
+}
+
+</script>
+
+
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+      <div class="container">
+        <div class="text-center">
+          Huỳnh Ngọc Thái
+        </div>
+      </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+      <div class="switcher-icon">
+        <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+      </div>
+      <div class="right-sidebar-content">
+
+        <p class="mb-0">Gaussion Texture</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme1"></li>
+          <li id="theme2"></li>
+          <li id="theme3"></li>
+          <li id="theme4"></li>
+          <li id="theme5"></li>
+          <li id="theme6"></li>
+        </ul>
+
+        <p class="mb-0">Gradient Background</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme7"></li>
+          <li id="theme8"></li>
+          <li id="theme9"></li>
+          <li id="theme10"></li>
+          <li id="theme11"></li>
+          <li id="theme12"></li>
+          <li id="theme13"></li>
+          <li id="theme14"></li>
+          <li id="theme15"></li>
+        </ul>
+
+      </div>
+    </div>
+    <!--end color switcher-->
+
+  </div><!--End wrapper-->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+
+  <!-- simplebar js -->
+  <script src="../plugins/simplebar/js/simplebar.js"></script>
+  <!-- sidebar-menu js -->
+  <script src="../js/sidebar-menu.js"></script>
+  <!-- loader scripts -->
+  <script src="../js/jquery.loading-indicator.js"></script>
+  <!-- Custom scripts -->
+  <script src="../js/app-script.js"></script>
+  <!-- Chart js -->
+
+  <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+  <!-- Index js -->
+
+   <script>
+    $("#sidebar-placeholder").load("layout.html");
+
+  </script>
+
+
+</body>
+
+</html>
