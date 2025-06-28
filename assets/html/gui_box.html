@@ -611,7 +611,7 @@ function toggleExample(id) {
       <th>Mô tả</th>
     </tr>
   </thead>
-  <tbody>
+<tbody>
 
   <!-- align -->
   <tr class="param-row" onclick="toggleExample('ex-align2')">
@@ -624,7 +624,8 @@ function toggleExample(id) {
       <pre><code class="language-python">
 from guizero import App, Box
 app = App()
-box = Box(app, align="right")
+box = Box(app)
+box.align = "right"
 app.display()
       </code></pre>
     </td>
@@ -641,7 +642,8 @@ app.display()
       <pre><code class="language-python">
 from guizero import App, Box
 app = App()
-box = Box(app, bg="lightblue")
+box = Box(app)
+box.bg = "lightblue"
 app.display()
       </code></pre>
     </td>
@@ -658,7 +660,8 @@ app.display()
       <pre><code class="language-python">
 from guizero import App, Box
 app = App()
-box = Box(app, border=4)
+box = Box(app)
+box.border = 4
 app.display()
       </code></pre>
     </td>
@@ -678,7 +681,7 @@ app = App()
 box = Box(app)
 Text(box, text="A")
 Text(box, text="B")
-print(box.children)  # In ra danh sách widget con
+print(box.children)
 app.display()
       </code></pre>
     </td>
@@ -695,7 +698,8 @@ app.display()
       <pre><code class="language-python">
 from guizero import App, Box
 app = App()
-box = Box(app, enabled=False)
+box = Box(app)
+box.enabled = False
 app.display()
       </code></pre>
     </td>
@@ -712,7 +716,8 @@ app.display()
       <pre><code class="language-python">
 from guizero import App, Box
 app = App(layout="grid")
-box = Box(app, grid=[1,1])
+box = Box(app)
+box.grid = [1, 1]
 app.display()
       </code></pre>
     </td>
@@ -729,7 +734,9 @@ app.display()
       <pre><code class="language-python">
 from guizero import App, Box
 app = App()
-box = Box(app, width="fill", height=100)
+box = Box(app)
+box.width = "fill"
+box.height = 100
 app.display()
       </code></pre>
     </td>
@@ -767,6 +774,7 @@ from guizero import App, Box
 app = App()
 container = Box(app)
 box = Box(container)
+print(box.master)
 app.display()
       </code></pre>
     </td>
@@ -783,7 +791,8 @@ app.display()
       <pre><code class="language-python">
 from guizero import App, Box
 app = App()
-box = Box(app, visible=False)
+box = Box(app)
+box.visible = False
 box.show()
 app.display()
       </code></pre>
@@ -799,10 +808,10 @@ app.display()
       💬 <strong>Giải thích:</strong> Font chữ mặc định cho widget con (Text/TextBox).<br>
       🧪 <strong>Ví dụ:</strong>
       <pre><code class="language-python">
-from guizero import App, Box, Text
+from guizero import App, Text
 app = App()
-box = Box(app)
-Text(box, text="Hello", font="Times New Roman")
+text = Text(app, text="Hello")
+text.font = "Times New Roman"
 app.display()
       </code></pre>
     </td>
@@ -819,7 +828,8 @@ app.display()
       <pre><code class="language-python">
 from guizero import App, Text
 app = App()
-Text(app, text="Lớn hơn bình thường", size=20)
+text = Text(app, text="Lớn hơn bình thường")
+text.size = 20
 app.display()
       </code></pre>
     </td>
@@ -836,7 +846,8 @@ app.display()
       <pre><code class="language-python">
 from guizero import App, Text
 app = App()
-Text(app, text="Màu đỏ", color="red")
+text = Text(app, text="Màu đỏ")
+text.color = "red"
 app.display()
       </code></pre>
     </td>
@@ -853,7 +864,8 @@ app.display()
       <pre><code class="language-python">
 from guizero import App, Text
 app = App()
-Text(app, text="Đậm", font="Arial", size=14, font_weight="bold")
+text = Text(app, text="Đậm")
+text.font_weight = "bold"
 app.display()
       </code></pre>
     </td>
@@ -870,7 +882,8 @@ app.display()
       <pre><code class="language-python">
 from guizero import App, Text
 app = App()
-Text(app, text="Nghiêng", font="Arial", size=14, font_style="italic")
+text = Text(app, text="Nghiêng")
+text.font_style = "italic"
 app.display()
       </code></pre>
     </td>
@@ -882,10 +895,17 @@ app.display()
   </tr>
   <tr id="ex-text_underline2" class="example" style="display: none;">
     <td colspan="3">
-      💬 <strong>Giải thích:</strong> Văn bản có gạch chân nếu đặt là `True`.<br>
+      💬 <strong>Giải thích:</strong> guizero không hỗ trợ trực tiếp underline, cần dùng tkinter font.<br>
       🧪 <strong>Ví dụ:</strong>
       <pre><code class="language-python">
-# guizero hiện không hỗ trợ underline trực tiếp, cần tuỳ biến font qua tkinter
+from guizero import App, Text
+import tkinter.font
+app = App()
+t = Text(app, text="Gạch chân")
+f = tkinter.font.Font(t.tk, t.tk.cget("font"))
+f.configure(underline=True)
+t.tk.configure(font=f)
+app.display()
       </code></pre>
     </td>
   </tr>
@@ -896,8 +916,18 @@ app.display()
   </tr>
   <tr id="ex-text_overstrike2" class="example" style="display: none;">
     <td colspan="3">
-      💬 <strong>Giải thích:</strong> Văn bản bị gạch ngang nếu đặt là `True` (qua font đặc biệt).<br>
-      🧪 <strong>Gợi ý:</strong> Dùng tkinter hoặc custom font để tạo hiệu ứng này.
+      💬 <strong>Giải thích:</strong> guizero không hỗ trợ trực tiếp, dùng tkinter để tuỳ biến font.<br>
+      🧪 <strong>Gợi ý:</strong>
+      <pre><code class="language-python">
+from guizero import App, Text
+import tkinter.font
+app = App()
+t = Text(app, text="Gạch ngang")
+f = tkinter.font.Font(t.tk, t.tk.cget("font"))
+f.configure(overstrike=True)
+t.tk.configure(font=f)
+app.display()
+      </code></pre>
     </td>
   </tr>
 
@@ -913,13 +943,14 @@ app.display()
 from guizero import App, Box
 app = App()
 box = Box(app)
-print(box.tk)  # tkinter.Frame
+print(box.tk)
 app.display()
       </code></pre>
     </td>
   </tr>
 
 </tbody>
+
 
 </table>
 
