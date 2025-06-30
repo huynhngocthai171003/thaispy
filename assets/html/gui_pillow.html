@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Học Python với Thầy Thái</title>
+    <!-- loader-->
+
+    <!--favicon-->
+    <link rel="icon" href="../images/logo.png" type="image/x-icon">
+    <!-- Vector CSS -->
+    <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <!-- simplebar CSS-->
+    <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- animate CSS-->
+    <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+    <!-- Icons CSS-->
+    <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+    <!-- Sidebar CSS-->
+    <link href="../css/sidebar-menu.css" rel="stylesheet" />
+    <!-- Custom Style-->
+    <link href="../css/app-style.css" rel="stylesheet" />
+    <!-- Bootstrap 5 CSS -->
+    <!-- Prism.js CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <!-- Prism.js -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Plugin for line numbers + copy -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet" />
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css"
+        rel="stylesheet" />
+
+
+    <!-- Bootstrap 5 JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .card-header {
+            font-size: 18px;
+        }
+
+        .card-body h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #f3f6f9;
+        }
+
+        .card-body ul {
+            padding-left: 1.2rem;
+            list-style-type: disc;
+        }
+
+        .card-body ul li {
+            margin-bottom: 0.5rem;
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .example {
+            display: none;
+            margin-top: 5px;
+            padding: 10px;
+
+            border-left: 4px solid #007bff;
+        }
+
+        .param-row:hover {
+            border: solid 2px yellow;
+            cursor: pointer;
+        }
+
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <!--Start sidebar-wrapper-->
+        <div id="sidebar-placeholder"></div>
+
+        <!--End sidebar-wrapper-->
+
+        <!--Start topbar header-->
+        <header class="topbar-nav">
+            <nav class="navbar navbar-expand fixed-top">
+                <ul class="navbar-nav mr-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link toggle-menu" href="javascript:void();">
+                            <i class="icon-menu menu-icon"></i>
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </nav>
+        </header>
+        <!--End topbar header-->
+
+        <div class="clearfix"></div>
+
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Pillow <small class="text-muted" style="color: darkgray !important;">Thư viện xử lý ảnh
+                                    mạnh mẽ cho Python</small></h3>
+                        </div>
+                        <div class="card-body" style="font-size: 15px; line-height: 1.8;">
+
+                            <h3>Giới thiệu Pillow</h3>
+                            <ul>
+                                <li>Mở và chỉnh sửa hình ảnh với nhiều định dạng (JPEG, PNG, BMP...).</li>
+                                <li>Thao tác ảnh: thay đổi kích thước, cắt, xoay, áp dụng bộ lọc, vẽ lên hình ảnh...
+                                </li>
+                                <li>Chuyển đổi giữa các định dạng hình ảnh.</li>
+                                <li>Hỗ trợ xử lý pixel theo từng cấp độ.</li>
+                            </ul>
+
+                            <h3>Cài đặt</h3>
+                            <pre><code class="language-python">pip install pillow</code></pre>
+
+                            <h3>Các thành phần chính của Pillow</h3>
+                            <ol style="font-size: 18px;">
+                                <li>Mở hình ảnh (<code>Image.open</code>)</li>
+                                <li>Hiển thị hình ảnh (<code>Image.show</code>)</li>
+                                <li>Thao tác hình ảnh:
+                                    <ul>
+                                        <li>Thay đổi kích thước: <code>resize()</code></li>
+                                        <li>Cắt: <code>crop()</code></li>
+                                        <li>Xoay: <code>rotate()</code></li>
+                                        <li>Lật: <code>transpose()</code></li>
+                                    </ul>
+                                </li>
+                                <li>Vẽ lên hình ảnh (<code>ImageDraw</code>)</li>
+                                <li>Áp dụng bộ lọc (<code>ImageFilter</code>): làm mờ, sắc nét, nhiễu, phát hiện cạnh...
+                                </li>
+                                <li>Lưu hình ảnh (<code>save()</code>)</li>
+                            </ol>
+
+                            <h3>Sử dụng Pillow kết hợp guizero</h3>
+                            <h4>1. Mở và hiển thị hình ảnh</h4>
+                            <pre><code class="language-python">from PIL import Image
+
+image = Image.open("example.jpg")
+image.show()
+print(f"Size: {image.size}, Format: {image.format}, Mode: {image.mode}")</code></pre>
+
+                            <h4>2. Thay đổi kích thước ảnh trước khi hiển thị</h4>
+                            <h5>Cách 1: Giữ nguyên tỷ lệ với <code>thumbnail()</code></h5>
+                            <pre><code class="language-python">from guizero import App, Picture
+from PIL import Image
+
+image = Image.open("GUI/Source code/chuong5/topic_5/image1.png")  # Resize ảnh
+max_size = (200, 1000)
+image.thumbnail(max_size)
+
+# Chuyển đổi sang chế độ RGB nếu cần thiết
+if image.mode == "RGBA":
+    image = image.convert("RGB")
+
+image.save("processed_image.jpg")  # Lưu ảnh dưới dạng JPEG
+
+# Hiển thị trong guizero
+app = App("Hiển thị ảnh")
+picture = Picture(app, image="processed_image.jpg")
+app.display()</code></pre>
+
+                            <h5>Giải thích cơ chế thumbnail()</h5>
+                            <pre><code class="language-python">from PIL import Image
+
+img = Image.open("input.jpg")
+
+# Kích thước thumbnail
+thumbnail_size = (200, 200)
+
+# Tạo thumbnail (giữ nguyên tỷ lệ)
+img.thumbnail(thumbnail_size)
+
+print("Kích thước gốc:", img.size)  # Output: (200, 150)</code></pre>
+
+                            <p>Giải thích:</p>
+                            <ul>
+                                <li>Tỷ lệ gốc của hình ảnh là 4:3.</li>
+                                <li>Khi thu nhỏ hình ảnh về vừa với (200, 200), Pillow tự động tính toán:
+                                    <ul>
+                                        <li>Chiều rộng được thu nhỏ xuống 200px.</li>
+                                        <li>Chiều cao sẽ tính theo tỷ lệ và trở thành 150px.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <p>Kết quả: Hình ảnh mới có kích thước 200x150. Nếu thay đổi chiều cao thành 200px thì chiều
+                                rộng sẽ vượt quá giới hạn.</p>
+
+                            <h5>Trường hợp nếu cung cấp chiều cao và chiều rộng lệch</h5>
+                            <pre><code class="language-python">img = Image.open("input.jpg")
+img.thumbnail((300, 400))
+print("Kích thước sau khi thu nhỏ:", img.size)</code></pre>
+
+                            <p>Kết quả:</p>
+                            <ul>
+                                <li>Pillow sẽ giảm chiều rộng xuống 300px (giới hạn tối đa).</li>
+                                <li>Chiều cao sẽ tự động điều chỉnh theo tỷ lệ (2:1), nên trở thành 150px.</li>
+                                <li>Kết quả cuối cùng là ảnh có kích thước 300x150.</li>
+                            </ul>
+
+                            <h5>Quy tắc hoạt động của <code>thumbnail()</code></h5>
+                            <ol style="font-size: 18px;">
+                                <li>Giữ nguyên tỷ lệ gốc của hình ảnh.</li>
+                                <li>Giảm kích thước đến mức tối đa sao cho hình ảnh vẫn giữ được tỷ lệ.</li>
+                                <li>Không bao giờ làm hình ảnh lớn hơn giới hạn bạn đưa vào.</li>
+                            </ol>
+
+                            <p><strong>Lưu ý:</strong> Nếu bạn muốn bẻ méo ảnh để vừa kích thước chính xác, bạn cần dùng
+                                <code>resize()</code> thay vì <code>thumbnail()</code>.</p>
+
+                            <h5>Cách 2: Thay đổi kích thước chính xác (resize)</h5>
+                            <p>Phương thức <code>resize()</code> trong Pillow được sử dụng để thay đổi kích thước hình
+                                ảnh một cách chính xác, không giữ nguyên tỷ lệ gốc trừ khi bạn xử lý riêng.</p>
+
+                            <pre><code class="language-python">from PIL import Image
+from guizero import App, Picture
+
+# Mở hình ảnh
+img = Image.open("GUI/Source code/chuong5/topic_5/image1.png")
+
+# Kích thước mới
+new_size = (200, 300)
+
+# Thay đổi kích thước
+resized_img = img.resize(new_size, Image.Resampling.LANCZOS)
+
+# Kiểm tra mode và chuyển đổi nếu cần
+if resized_img.mode == "RGBA":
+    resized_img = resized_img.convert("RGB")  # Chuyển đổi sang RGB để lưu dưới dạng JPEG
+
+# Lưu hình ảnh sau khi resize
+resized_img.save("output_resized.jpg", format="JPEG")
+
+# Hiển thị kích thước mới
+app = App("Hiển thị ảnh")
+picture = Picture(app, image="output_resized.jpg")
+app.display()</code></pre>
+
+                            <h5>Hoạt động của <code>resize()</code></h5>
+                            <ol>
+                                <li><code>resize()</code> ép hình ảnh về kích thước bạn cung cấp, bất kể tỷ lệ gốc. Điều
+                                    này có thể làm méo hoặc kéo dài hình ảnh nếu tỷ lệ mới không khớp với tỷ lệ ban đầu.
+                                </li>
+                                <li>Bạn có thể sử dụng tham số <code>Image.Resampling</code> (trước đây là
+                                    <code>Image.ANTIALIAS</code>) để đảm bảo chất lượng hình ảnh sau khi thay đổi kích
+                                    thước.</li>
+                            </ol>
+
+                            <p><strong>Cú pháp:</strong></p>
+                            <pre><code class="language-python">resize(size, resample=Image.Resampling.LANCZOS)</code></pre>
+
+                            <ul>
+                                <li><strong>size</strong>: Một tuple (width, height) với chiều rộng và chiều cao (pixel)
+                                    mới.</li>
+                                <li><strong>resample</strong>: Thuật toán nội suy được sử dụng để thay đổi kích thước.
+                                    Một số tùy chọn:
+                                    <ol>
+                                        <li><code>Image.Resampling.NEAREST</code>: Nội suy gần nhất (chất lượng thấp
+                                            nhất, tốc độ nhanh nhất).</li>
+                                        <li><code>Image.Resampling.BOX</code>: Nội suy hộp (chất lượng trung bình).</li>
+                                        <li><code>Image.Resampling.BILINEAR</code>: Tuyến tính (chất lượng trung bình).
+                                        </li>
+                                        <li><code>Image.Resampling.HAMMING</code>: Hamming (mượt, khá tốt).</li>
+                                        <li><code>Image.Resampling.BICUBIC</code>: Bicubic (chất lượng cao).</li>
+                                        <li><code>Image.Resampling.LANCZOS</code>: Lanczos (chất lượng tốt nhất, thường
+                                            dùng).</li>
+                                    </ol>
+                                </li>
+                            </ul>
+
+                            <h5>So sánh các thuật toán nội suy</h5>
+                            <pre><code class="language-python">from PIL import Image
+from guizero import App, Picture
+
+# Mở hình ảnh gốc
+img = Image.open("GUI/Source code/chuong5/topic_5/image1.png")
+
+# Kích thước mới
+new_size = (200, 200)
+
+# Tạo các phiên bản ảnh với các phương pháp nội suy khác nhau
+resized_nearest = img.resize(new_size, resample=Image.Resampling.NEAREST)
+resized_box = img.resize(new_size, resample=Image.Resampling.BOX)
+resized_bilinear = img.resize(new_size, resample=Image.Resampling.BILINEAR)
+resized_hamming = img.resize(new_size, resample=Image.Resampling.HAMMING)
+resized_bicubic = img.resize(new_size, resample=Image.Resampling.BICUBIC)
+resized_lanczos = img.resize(new_size, resample=Image.Resampling.LANCZOS)
+
+# Chuyển sang RGB nếu cần
+if all(img.mode == "RGBA" for img in [resized_nearest, resized_box, resized_bilinear, resized_hamming, resized_bicubic, resized_lanczos]):
+    resized_nearest = resized_nearest.convert("RGB")
+    resized_box = resized_box.convert("RGB")
+    resized_bilinear = resized_bilinear.convert("RGB")
+    resized_hamming = resized_hamming.convert("RGB")
+    resized_bicubic = resized_bicubic.convert("RGB")
+    resized_lanczos = resized_lanczos.convert("RGB")
+
+# Lưu các hình ảnh để so sánh
+resized_nearest.save("output_nearest.jpg", format="JPEG")
+resized_box.save("output_box.jpg", format="JPEG")
+resized_bilinear.save("output_bilinear.jpg", format="JPEG")
+resized_hamming.save("output_hamming.jpg", format="JPEG")
+resized_bicubic.save("output_bicubic.jpg", format="JPEG")
+resized_lanczos.save("output_lanczos.jpg", format="JPEG")
+
+# Hiển thị các ảnh
+app = App("Hiển thị ảnh")
+Picture(app, image="output_nearest.jpg")
+Picture(app, image="output_box.jpg")
+Picture(app, image="output_bilinear.jpg")
+Picture(app, image="output_hamming.jpg")
+Picture(app, image="output_bicubic.jpg")
+Picture(app, image="output_lanczos.jpg")
+app.display()</code></pre>
+
+                            <h5>Chi tiết các thuật toán <code>Image.Resampling</code>:</h5>
+
+                            <ol>
+                                <li>
+                                    <strong>Image.Resampling.NEAREST</strong>:
+                                    <ul>
+                                        <li>Nội suy gần nhất, chọn giá trị màu từ pixel gần nhất mà không cần tính toán
+                                            trung gian.</li>
+                                        <li>Chất lượng thấp, nhanh nhất. Dùng cho pixel art hoặc cần tốc độ cao.</li>
+                                        <li><strong>Ứng dụng:</strong> Hình ảnh không quan trọng về chất lượng, tốc độ
+                                            ưu tiên.</li>
+                                        <li><strong>Kết quả:</strong> Hình ảnh có thể xuất hiện khối màu cứng, không
+                                            mượt.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <strong>Image.Resampling.BOX</strong>:
+                                    <ul>
+                                        <li>Tính trung bình giá trị pixel trong một hộp (box) xung quanh mỗi pixel.</li>
+                                        <li>Chất lượng trung bình, nhanh hơn các thuật toán cao cấp.</li>
+                                        <li><strong>Ứng dụng:</strong> Hình ảnh kích thước nhỏ hoặc vừa, không yêu cầu
+                                            độ chi tiết cao.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <strong>Image.Resampling.BILINEAR</strong>:
+                                    <ul>
+                                        <li>Tính trung bình hai chiều (x và y) giữa các pixel gần nhất.</li>
+                                        <li>Chất lượng trung bình, mượt hơn NEAREST, nhưng chi tiết có thể bị mất.</li>
+                                        <li><strong>Ứng dụng:</strong> Hình ảnh lớn hơn có thể sử dụng tốt mà không đòi
+                                            hỏi chi tiết cao.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <strong>Image.Resampling.HAMMING</strong>:
+                                    <ul>
+                                        <li>Một phương pháp mượt hóa cao hơn, giảm độ nhiễu trong khi giữ được chi tiết.
+                                        </li>
+                                        <li>Chất lượng tốt, phù hợp với ảnh nhỏ hoặc trung bình.</li>
+                                        <li><strong>Kết quả:</strong> Hình ảnh chất lượng cao, mượt và giảm nhiễu.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <strong>Image.Resampling.BICUBIC</strong>:
+                                    <ul>
+                                        <li>Tính toán dựa trên 16 pixel xung quanh mỗi pixel mới, cho phép chi tiết tốt
+                                            hơn.</li>
+                                        <li>Chất lượng cao hơn BILINEAR.</li>
+                                        <li><strong>Ứng dụng:</strong> Thay đổi kích thước hình ảnh chất lượng cao.</li>
+                                        <li><strong>Kết quả:</strong> Hình ảnh sắc nét, mượt, phù hợp với nội dung chi
+                                            tiết.</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <strong>Image.Resampling.LANCZOS</strong>:
+                                    <ul>
+                                        <li>Sử dụng một hàm sinc để lấy mẫu lại, mang lại chất lượng tốt nhất.</li>
+                                        <li>Tốn tài nguyên tính toán nhất.</li>
+                                        <li><strong>Ứng dụng:</strong> Khi cần chất lượng tối đa cho hình ảnh lớn hoặc
+                                            cần giữ lại nhiều chi tiết.</li>
+                                        <li><strong>Kết quả:</strong> Hình ảnh mượt và chi tiết nhất, lý tưởng cho in
+                                            ấn.</li>
+                                    </ul>
+                                </li>
+                            </ol>
+
+                            <h4>3. Cắt ảnh (crop)</h4>
+
+                            <p><strong>1.</strong> Cắt một phần hình ảnh bằng cách cung cấp tọa độ (x, y) của vùng cần
+                                cắt.<br>
+                                <strong>2.</strong> Dữ liệu đầu vào là một hình chữ nhật với 4 tọa độ: (left, top,
+                                right, bottom).<br>
+                                <strong>3.</strong> Trả về một ảnh mới chứa phần đã cắt.
+                            </p>
+
+                            <h5>Cú pháp:</h5>
+                            <pre><code class="language-python">cropped_image = image.crop((x1, y1, x2, y2))</code></pre>
+
+                            <h5>Ví dụ sử dụng crop kết hợp guizero</h5>
+                            <pre><code class="language-python">from PIL import Image, ImageDraw
+from guizero import App, Picture, Text
+
+img = Image.open("GUI/Source code/chuong5/topic_5/image1.png")
+original_size = img.size  # (width, height)
+crop_area = (50, 50, 300, 300)  # (left, top, right, bottom)
+cropped_image = img.crop(crop_area)
+cropped_size = cropped_image.size
+
+app = App("Vẽ văn bản lên ảnh tải lên")
+
+Text(app, text=f"Kích thước ban đầu: {original_size[0]} x {original_size[1]}", size=14)
+Text(app, text=f"Kích thước sau khi cắt: {cropped_size[0]} x {cropped_size[1]}", size=14)
+
+picture = Picture(app, image=cropped_image)
+app.display()</code></pre>
+
+                            <h4>4. Xoay ảnh (rotate)</h4>
+                            <p><strong>1.</strong> Xoay ảnh theo góc độ bất kỳ (đơn vị: độ).<br>
+                                <strong>2.</strong> Mặc định, Pillow xoay ảnh theo ngược chiều kim đồng hồ.
+                            </p>
+
+                            <h5>Cú pháp:</h5>
+                            <pre><code class="language-python">rotated_image = image.rotate(angle, expand=True)</code></pre>
+                            <ul>
+                                <li><strong>angle:</strong> Góc xoay (độ). Dương = ngược chiều kim đồng hồ, âm = xuôi
+                                    chiều kim đồng hồ.</li>
+                                <li><strong>expand=True:</strong> Tự động mở rộng ảnh nếu bị cắt khi xoay.</li>
+                            </ul>
+
+                            <h5>Ví dụ 1: Xoay ảnh 45 độ</h5>
+                            <pre><code class="language-python">from PIL import Image
+
+image = Image.open("example.jpg")
+rotated_image = image.rotate(45, expand=True)
+rotated_image.show()
+rotated_image.save("rotated_45.jpg")</code></pre>
+
+                            <h5>Ví dụ 2: Xoay ảnh 90 độ và giữ nguyên kích thước</h5>
+                            <pre><code class="language-python">rotated_image = image.rotate(90, expand=False)
+rotated_image.show()</code></pre>
+
+                            <h4>5. Lật ảnh (transpose)</h4>
+                            <p><strong>1.</strong> Lật ảnh theo nhiều hướng: lật ngang, lật dọc, xoay 90 độ, 180 độ, 270
+                                độ.<br>
+                                <strong>2.</strong> Sử dụng phương thức <code>transpose()</code>.
+                            </p>
+
+                            <h5>Các kiểu lật ảnh:</h5>
+                            <table style="width:100%; border-collapse: collapse;" border="1">
+                                <tr>
+                                    <th>Phương thức</th>
+                                    <th>Mô tả</th>
+                                </tr>
+                                <tr>
+                                    <td><code>Image.FLIP_LEFT_RIGHT</code></td>
+                                    <td>Lật ngang (phản chiếu gương)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Image.FLIP_TOP_BOTTOM</code></td>
+                                    <td>Lật dọc</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Image.ROTATE_90</code></td>
+                                    <td>Xoay 90 độ</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Image.ROTATE_180</code></td>
+                                    <td>Xoay 180 độ</td>
+                                </tr>
+                                <tr>
+                                    <td><code>Image.ROTATE_270</code></td>
+                                    <td>Xoay 270 độ</td>
+                                </tr>
+                            </table>
+
+                            <h5>Ví dụ 1: Lật ảnh ngang</h5>
+                            <pre><code class="language-python">from PIL import Image
+
+image = Image.open("example.jpg")
+flipped_image = image.transpose(Image.FLIP_LEFT_RIGHT)
+flipped_image.show()
+flipped_image.save("flipped_horizontal.jpg")</code></pre>
+
+                            <h5>Ví dụ 2: Lật ảnh dọc</h5>
+                            <pre><code class="language-python">flipped_image = image.transpose(Image.FLIP_TOP_BOTTOM)
+flipped_image.show()</code></pre>
+
+                            <h5>Ví dụ 3: Xoay ảnh 90, 180, 270 độ</h5>
+                            <pre><code class="language-python">rotated_90 = image.transpose(Image.ROTATE_90)
+rotated_180 = image.transpose(Image.ROTATE_180)
+rotated_270 = image.transpose(Image.ROTATE_270)
+
+rotated_90.show()
+rotated_180.show()
+rotated_270.show()</code></pre>
+                            <h4>6. Áp dụng bộ lọc lên ảnh</h4>
+                            <p>Trong thư viện Pillow, bộ lọc ảnh (<code>ImageFilter</code>) cung cấp nhiều tuỳ chọn để
+                                xử lý và cải thiện hình ảnh.</p>
+
+                            <h5>1. Làm mờ ảnh</h5>
+                            <ul>
+                                <li><strong>Chức năng:</strong> Làm mờ toàn bộ hình ảnh.</li>
+                                <li><strong>Sử dụng:</strong> <code>ImageFilter.BLUR</code></li>
+                            </ul>
+                            <pre><code class="language-python">from PIL import Image, ImageFilter
+
+image = Image.open("example.jpg")
+blurred_image = image.filter(ImageFilter.BLUR)
+
+blurred_image.save("blurred_image.jpg")
+blurred_image.show()</code></pre>
+
+                            <h5>2. Làm sắc nét ảnh</h5>
+                            <ul>
+                                <li><strong>Chức năng:</strong> Tăng độ sắc nét của hình ảnh.</li>
+                                <li><strong>Sử dụng:</strong> <code>ImageFilter.SHARPEN</code></li>
+                            </ul>
+                            <pre><code class="language-python">sharpened_image = image.filter(ImageFilter.SHARPEN)
+sharpened_image.save("sharpened_image.jpg")
+sharpened_image.show()</code></pre>
+
+                            <h5>3. Làm mờ Gaussian</h5>
+                            <ul>
+                                <li><strong>Chức năng:</strong> Làm mờ ảnh bằng phương pháp Gaussian.</li>
+                                <li><strong>Sử dụng:</strong> <code>ImageFilter.GaussianBlur(radius)</code></li>
+                            </ul>
+                            <pre><code class="language-python">gaussian_blur = image.filter(ImageFilter.GaussianBlur(5))
+gaussian_blur.save("gaussian_blur_image.jpg")
+gaussian_blur.show()</code></pre>
+
+                            <h5>4. Làm mịn ảnh</h5>
+                            <ul>
+                                <li><strong>Chức năng:</strong> Làm mịn ảnh bằng cách làm giảm chi tiết.</li>
+                                <li><strong>Sử dụng:</strong> <code>ImageFilter.SMOOTH</code></li>
+                            </ul>
+                            <pre><code class="language-python">smoothed_image = image.filter(ImageFilter.SMOOTH)
+smoothed_image.save("smoothed_image.jpg")
+smoothed_image.show()</code></pre>
+
+                            <h5>5. Làm mịn mạnh hơn</h5>
+                            <ul>
+                                <li><strong>Chức năng:</strong> Làm mịn ảnh mạnh hơn so với <code>SMOOTH</code>.</li>
+                                <li><strong>Sử dụng:</strong> <code>ImageFilter.SMOOTH_MORE</code></li>
+                            </ul>
+                            <pre><code class="language-python">smoothed_more_image = image.filter(ImageFilter.SMOOTH_MORE)
+smoothed_more_image.save("smoothed_more_image.jpg")
+smoothed_more_image.show()</code></pre>
+
+                            <h5>6. Phát hiện cạnh</h5>
+                            <ul>
+                                <li><strong>Chức năng:</strong> Chuyển ảnh sang dạng phát hiện cạnh rõ nét.</li>
+                                <li><strong>Sử dụng:</strong> <code>ImageFilter.FIND_EDGES</code></li>
+                            </ul>
+                            <pre><code class="language-python">edges_image = image.filter(ImageFilter.FIND_EDGES)
+edges_image.save("edges_image.jpg")
+edges_image.show()</code></pre>
+
+                            <h5>7. Tăng cường chi tiết</h5>
+                            <ul>
+                                <li><strong>Chức năng:</strong> Làm rõ chi tiết ảnh và các đường nét nhỏ.</li>
+                                <li><strong>Sử dụng:</strong> <code>ImageFilter.DETAIL</code></li>
+                            </ul>
+                            <pre><code class="language-python">detailed_image = image.filter(ImageFilter.DETAIL)
+detailed_image.save("detailed_image.jpg")
+detailed_image.show()</code></pre>
+
+                            <h5>8. Chuyển ảnh thành dạng nét nổi</h5>
+                            <ul>
+                                <li><strong>Chức năng:</strong> Tạo hiệu ứng nét nổi như tranh vẽ.</li>
+                                <li><strong>Sử dụng:</strong> <code>ImageFilter.CONTOUR</code></li>
+                            </ul>
+                            <pre><code class="language-python">contour_image = image.filter(ImageFilter.CONTOUR)
+contour_image.save("contour_image.jpg")
+contour_image.show()</code></pre>
+
+
+                            <h5>9. Tạo ảnh nổi (EMBOSS)</h5>
+                            <ul>
+                                <li><strong>Chức năng:</strong> Chuyển đổi ảnh thành dạng nổi 3D (giống khắc trên đá).
+                                </li>
+                                <li><strong>Sử dụng:</strong> <code>ImageFilter.EMBOSS</code></li>
+                            </ul>
+
+                            <pre><code class="language-python">from PIL import Image, ImageFilter
+
+# Mở ảnh
+image = Image.open("example.jpg")
+
+# Áp dụng bộ lọc Emboss
+embossed_image = image.filter(ImageFilter.EMBOSS)
+
+# Lưu ảnh
+embossed_image.save("embossed_image.jpg")
+embossed_image.show()
+</code></pre>
+
+                            <h5>10. Tùy chỉnh bộ lọc với Kernel</h5>
+                            <ul>
+                                <li><strong>Chức năng:</strong> Tạo bộ lọc tùy chỉnh bằng ma trận (Kernel). Thường dùng
+                                    để làm mờ, làm sắc nét hoặc phát hiện cạnh.</li>
+                            </ul>
+
+                            <pre><code class="language-python">from PIL import Image, ImageFilter
+
+# Mở ảnh
+image = Image.open("example.jpg")
+
+# Tạo kernel tùy chỉnh (làm sắc nét)
+kernel = ImageFilter.Kernel((3, 3), [-1, -1, -1, -1, 9, -1, -1, -1, -1], scale=None)
+
+# Áp dụng kernel tùy chỉnh
+custom_filtered_image = image.filter(kernel)
+
+# Lưu ảnh
+custom_filtered_image.save("custom_filtered_image.jpg")
+custom_filtered_image.show()
+</code></pre>
+
+                            <h5>Các tham số của ImageFilter.Kernel:</h5>
+                            <ul>
+                                <li><code>(3, 3)</code>: Kích thước kernel (3x3).</li>
+                                <li><code>[-1, -1, -1, -1, 9, -1, -1, -1, -1]</code>: Ma trận giá trị ảnh hưởng đến
+                                    pixel.</li>
+                                <li><code>scale=None</code>: Khi để None, Pillow sẽ tự động chuẩn hóa giá trị pixel để
+                                    không bị quá sáng hoặc tối.</li>
+                            </ul>
+
+                            <p><strong>Giải thích giá trị kernel:</strong></p>
+                            <ul>
+                                <li>Tổng các giá trị trong kernel là 1, nghĩa là ảnh không bị thay đổi độ sáng trung
+                                    bình.</li>
+                                <li>Giá trị 9 tại trung tâm làm nổi bật pixel trung tâm.</li>
+                                <li>Các giá trị -1 xung quanh giúp tăng độ tương phản, tạo hiệu ứng làm sắc nét
+                                    (sharpen).</li>
+                            </ul>
+
+                            <h4>7. Vẽ lên ảnh bằng Pillow</h4>
+
+                            <h5>1. Khởi tạo ảnh và công cụ vẽ</h5>
+                            <pre><code class="language-python">from PIL import Image, ImageDraw
+from guizero import App, Picture
+
+img = Image.new("RGB", (500, 400), "white")
+draw = ImageDraw.Draw(img)
+img.save("blank_image.png")
+
+app = App("Xem ảnh")
+picture = Picture(app, image="blank_image.png")
+app.display()
+</code></pre>
+
+                            <h4>2. Vẽ các hình cơ bản</h4>
+                            <h5>Vẽ đường thẳng</h5>
+                            <pre><code class="language-python">draw.line((50, 50, 300, 50), fill="red", width=5)   # Đường ngang
+draw.line((50, 50, 50, 300), fill="blue", width=5)  # Đường dọc
+img.save("lines.png")
+
+app = App("Vẽ đường thẳng")
+picture = Picture(app, image="lines.png")
+app.display()
+</code></pre>
+
+                            <p><strong>Giải thích:</strong></p>
+                            <ul>
+                                <li><code>(x1, y1, x2, y2)</code>: Tọa độ điểm đầu và điểm cuối của đường thẳng.</li>
+                                <li>Gốc tọa độ (0,0) ở góc trên bên trái.</li>
+                                <li>X tăng từ trái sang phải, Y tăng từ trên xuống dưới.</li>
+                                <li><code>fill="màu_sắc"</code>: Màu của đường kẻ.</li>
+                                <li><code>width=độ_rộng</code>: Độ rộng của đường (mặc định là 1 pixel).</li>
+                            </ul>
+
+                            <h5>Vẽ hình chữ nhật</h5>
+                            <pre><code class="language-python">draw.rectangle((100, 100, 300, 200), outline="black", width=3)       # Chỉ có viền
+draw.rectangle((320, 100, 450, 200), fill="yellow")                  # Có màu nền
+img.save("rectangles.png")
+
+app = App("Vẽ hình chữ nhật")
+picture = Picture(app, image="rectangles.png")
+app.display()
+</code></pre>
+
+                            <p><strong>Giải thích:</strong></p>
+                            <ul>
+                                <li><code>(x1, y1, x2, y2)</code>: Góc trên bên trái và dưới bên phải của hình chữ nhật.
+                                </li>
+                                <li><code>outline="màu_viền"</code>: Màu viền của hình.</li>
+                                <li><code>width=độ_rộng</code>: Độ rộng của viền.</li>
+                                <li><code>fill="màu_nền"</code>: Màu nền bên trong.</li>
+                            </ul>
+
+                            <h5>Vẽ hình tròn (ellipse)</h5>
+                            <pre><code class="language-python">draw.ellipse((150, 100, 250, 200), outline="green", width=3)
+draw.ellipse((270, 100, 370, 200), fill="pink")
+img.save("ellipses.png")
+
+app = App("Vẽ hình ellipse")
+picture = Picture(app, image="ellipses.png")
+app.display()
+</code></pre>
+
+                            <p><strong>Giải thích:</strong> <code>(x1, y1, x2, y2)</code> là hình chữ nhật bao quanh
+                                ellipse.</p>
+
+                            <h5>Vẽ hình đa giác</h5>
+                            <pre><code class="language-python">draw.polygon([(200, 50), (250, 100), (150, 100)], outline="purple", width=3)
+draw.polygon([(50, 250), (100, 350), (150, 250), (200, 350)], fill="cyan")
+img.save("polygons.png")
+
+app = App("Vẽ hình đa giác")
+picture = Picture(app, image="polygons.png")
+app.display()
+</code></pre>
+
+                            <p><strong>Giải thích:</strong> Danh sách các tọa độ <code>(x, y)</code> xác định các đỉnh
+                                của hình đa giác.</p>
+
+                            <h5>Vẽ điểm (pixel)</h5>
+                            <pre><code class="language-python">draw.point((50, 50), fill="black")
+draw.point([(60, 60), (70, 70), (80, 80)], fill="blue")
+img.save("points.png")
+
+app = App("Vẽ điểm")
+picture = Picture(app, image="points.png")
+app.display()
+</code></pre>
+
+                            <p><strong>Giải thích:</strong> <code>(x, y)</code> là tọa độ của điểm cần vẽ.</p>
+                            <h4>8. Vẽ văn bản lên ảnh</h4>
+                            <pre><code class="language-python">from PIL import Image, ImageDraw, ImageFont
+from guizero import App, Picture
+
+# Mở ảnh có sẵn
+img = Image.open("GUI/Source code/chuong5/topic_5/image1.png")
+
+# Tạo công cụ vẽ
+draw = ImageDraw.Draw(img)
+
+# Thiết lập font chữ
+try:
+    font = ImageFont.truetype("arial.ttf", 40)
+except:
+    font = ImageFont.load_default()
+
+# Vẽ văn bản lên ảnh
+draw.text((50, 50), "Hello, Guizero!", fill="red", font=font)
+
+# Lưu ảnh mới
+img.save("text_on_image.png")
+
+# Hiển thị ảnh đã chỉnh sửa
+app = App("Vẽ văn bản lên ảnh tải lên")
+picture = Picture(app, image="text_on_image.png")
+app.display()
+</code></pre>
+
+                            <h4>9. Tùy chỉnh màu sắc</h4>
+                            <pre><code class="language-python">draw.rectangle((100, 100, 300, 200), fill=(255, 255, 0))       # Màu vàng (RGB)
+draw.ellipse((150, 100, 250, 200), fill="#FF5733")             # Màu cam (HEX)
+draw.rectangle((50, 50, 150, 150), fill=(0, 255, 0, 128))      # Màu xanh lá với độ trong suốt (Alpha=128)
+img.save("colors.png")
+</code></pre>
+
+                            <p><strong>Định dạng màu sắc:</strong></p>
+                            <ul>
+                                <li>Tên màu: <code>fill="red"</code>, <code>fill="blue"</code>.</li>
+                                <li>Mã HEX: <code>fill="#00FF00"</code> (màu xanh lá cây).</li>
+                                <li>RGB tuple: <code>fill=(255, 0, 0)</code> (màu đỏ).</li>
+                                <li>RGBA (hỗ trợ độ trong suốt): <code>fill=(255, 0, 0, 128)</code> (đỏ, Alpha=128).
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <!--Start Back To Top Button-->
+        <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+        <!--End Back To Top Button-->
+
+        <!--Start footer-->
+        <footer class="footer">
+            <div class="container">
+                <div class="text-center">
+                    Huỳnh Ngọc Thái
+                </div>
+            </div>
+        </footer>
+        <!--End footer-->
+
+        <!--start color switcher-->
+        <div class="right-sidebar">
+            <div class="switcher-icon">
+                <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+            </div>
+            <div class="right-sidebar-content">
+
+                <p class="mb-0">Gaussion Texture</p>
+                <hr>
+
+                <ul class="switcher">
+                    <li id="theme1"></li>
+                    <li id="theme2"></li>
+                    <li id="theme3"></li>
+                    <li id="theme4"></li>
+                    <li id="theme5"></li>
+                    <li id="theme6"></li>
+                </ul>
+
+                <p class="mb-0">Gradient Background</p>
+                <hr>
+
+                <ul class="switcher">
+                    <li id="theme7"></li>
+                    <li id="theme8"></li>
+                    <li id="theme9"></li>
+                    <li id="theme10"></li>
+                    <li id="theme11"></li>
+                    <li id="theme12"></li>
+                    <li id="theme13"></li>
+                    <li id="theme14"></li>
+                    <li id="theme15"></li>
+                </ul>
+
+            </div>
+        </div>
+        <!--end color switcher-->
+
+    </div><!--End wrapper-->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- simplebar js -->
+    <script src="../plugins/simplebar/js/simplebar.js"></script>
+    <!-- sidebar-menu js -->
+    <script src="../js/sidebar-menu.js"></script>
+    <!-- loader scripts -->
+    <script src="../js/jquery.loading-indicator.js"></script>
+    <!-- Custom scripts -->
+    <script src="../js/app-script.js"></script>
+    <!-- Chart js -->
+
+    <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+    <!-- Index js -->
+
+    <script>
+        $("#sidebar-placeholder").load("layout.html");
+
+    </script>
+    
+
+
+</body>
+
+</html>
