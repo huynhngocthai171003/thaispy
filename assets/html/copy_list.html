@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Học Python với Thầy Thái</title>
+  <!-- loader-->
+
+  <!--favicon-->
+  <link rel="icon" href="../images/logo.png" type="image/x-icon">
+  <!-- Vector CSS -->
+  <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+  <!-- simplebar CSS-->
+  <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+  <!-- Bootstrap core CSS-->
+  <link href="../css/bootstrap.min.css" rel="stylesheet" />
+  <!-- animate CSS-->
+  <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+  <!-- Icons CSS-->
+  <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+  <!-- Sidebar CSS-->
+  <link href="../css/sidebar-menu.css" rel="stylesheet" />
+  <!-- Custom Style-->
+  <link href="../css/app-style.css" rel="stylesheet" />
+  <!-- Bootstrap 5 CSS -->
+<!-- Prism.js CSS -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+<!-- Prism.js -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+<!-- Plugin for line numbers + copy -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet"/>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css" rel="stylesheet"/>
+
+
+  <!-- Bootstrap 5 JS + Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+  .card-header{
+    font-size: 18px;
+  }
+  .card-body h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #f3f6f9;
+}
+
+.card-body ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+.card-body ul li {
+  margin-bottom: 0.5rem;
+  font-size: 18px;
+}
+
+p{
+  font-size: 18px;
+}
+
+
+
+</style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+  <!-- Start wrapper-->
+  <div id="wrapper">
+
+    <!--Start sidebar-wrapper-->
+    <div id="sidebar-placeholder"></div>
+
+    <!--End sidebar-wrapper-->
+
+    <!--Start topbar header-->
+    <header class="topbar-nav">
+      <nav class="navbar navbar-expand fixed-top">
+        <ul class="navbar-nav mr-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link toggle-menu" href="javascript:void();">
+              <i class="icon-menu menu-icon"></i>
+            </a>
+          </li>
+
+        </ul>
+
+
+      </nav>
+    </header>
+    <!--End topbar header-->
+
+    <div class="clearfix"></div>
+
+ <div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Copy List trong Python <small class="text-muted">9 phút đọc</small></h3>
+        </div>
+        <div class="card-body">
+
+          <p>Trong Python, việc sao chép (copy) một danh sách (list) là một thao tác quan trọng và thường xuyên được sử dụng. Có nhiều phương pháp để sao chép một danh sách, mỗi phương pháp có ưu và nhược điểm riêng. Bài viết này sẽ hướng dẫn chi tiết cách sao chép danh sách trong Python, kèm theo các ví dụ minh họa.</p>
+
+          <h4>Tại sao cần sao chép danh sách?</h4>
+          <p>Danh sách trong Python là một kiểu dữ liệu có thể thay đổi (mutable), nghĩa là bạn có thể thay đổi nội dung của nó mà không thay đổi danh tính của nó. Khi bạn sao chép một danh sách, bạn có thể muốn giữ nguyên danh sách gốc trong khi thực hiện các thay đổi trên bản sao. Điều này giúp tránh các tác động không mong muốn lên dữ liệu gốc.</p>
+
+          <h4>Các phương pháp sao chép danh sách</h4>
+
+          <h5>Sử dụng phép gán (Assignment)</h5>
+          <p>Phép gán không thực sự tạo ra một bản sao của danh sách mà chỉ tạo ra một tham chiếu mới đến cùng một đối tượng danh sách. Điều này có nghĩa là bất kỳ thay đổi nào trên danh sách mới cũng sẽ ảnh hưởng đến danh sách gốc.</p>
+          <pre class="line-numbers"><code class="language-python">original_list = [1, 2, 3, 4]
+copied_list = original_list
+
+copied_list.append(5)
+print("Original List:", original_list)
+print("Copied List:", copied_list)</code></pre>
+          <pre class="line-numbers"><code class="language-python"># Output:
+Original List: [1, 2, 3, 4, 5]
+Copied List: [1, 2, 3, 4, 5]</code></pre>
+
+          <h5>Sử dụng phương thức copy()</h5>
+          <p>Phương thức <code>copy()</code> tạo ra một bản sao nông (shallow copy) của danh sách. Bản sao nông chỉ sao chép các tham chiếu đến các đối tượng con, không sao chép các đối tượng con thực sự.</p>
+          <pre class="line-numbers"><code class="language-python">original_list = [1, 2, 3, 4]
+copied_list = original_list.copy()
+
+copied_list.append(5)
+print("Original List:", original_list)
+print("Copied List:", copied_list)</code></pre>
+          <pre class="line-numbers"><code class="language-python"># Output:
+Original List: [1, 2, 3, 4]
+Copied List: [1, 2, 3, 4, 5]</code></pre>
+
+          <h5>Sử dụng hàm list()</h5>
+          <p>Hàm <code>list()</code> cũng tạo ra một bản sao nông của danh sách.</p>
+          <pre class="line-numbers"><code class="language-python">original_list = [1, 2, 3, 4]
+copied_list = list(original_list)
+
+copied_list.append(5)
+print("Original List:", original_list)
+print("Copied List:", copied_list)</code></pre>
+          <pre class="line-numbers"><code class="language-python"># Output:
+Original List: [1, 2, 3, 4]
+Copied List: [1, 2, 3, 4, 5]</code></pre>
+
+          <h5>Sử dụng kỹ thuật slicing</h5>
+          <p>Kỹ thuật slicing là một cách ngắn gọn để tạo ra một bản sao nông của danh sách.</p>
+          <pre class="line-numbers"><code class="language-python">original_list = [1, 2, 3, 4]
+copied_list = original_list[:]
+
+copied_list.append(5)
+print("Original List:", original_list)
+print("Copied List:", copied_list)</code></pre>
+          <pre class="line-numbers"><code class="language-python"># Output:
+Original List: [1, 2, 3, 4]
+Copied List: [1, 2, 3, 4, 5]</code></pre>
+
+          <h5>Sử dụng hàm copy.copy()</h5>
+          <p>Hàm <code>copy.copy()</code> từ module copy tạo ra một bản sao nông của danh sách.</p>
+          <pre class="line-numbers"><code class="language-python">import copy
+
+original_list = [1, 2, 3, 4]
+copied_list = copy.copy(original_list)
+
+copied_list.append(5)
+print("Original List:", original_list)
+print("Copied List:", copied_list)</code></pre>
+          <pre class="line-numbers"><code class="language-python"># Output:
+Original List: [1, 2, 3, 4]
+Copied List: [1, 2, 3, 4, 5]</code></pre>
+
+          <h5>Sử dụng hàm copy.deepcopy()</h5>
+          <p>Hàm <code>copy.deepcopy()</code> tạo ra một bản sao sâu (deep copy) của danh sách. Bản sao sâu sao chép toàn bộ cấu trúc của danh sách, bao gồm cả các đối tượng con.</p>
+          <pre class="line-numbers"><code class="language-python">import copy
+
+original_list = [1, 2, [3, 4], 5]
+copied_list = copy.deepcopy(original_list)
+
+copied_list[2].append(6)
+print("Original List:", original_list)
+print("Copied List:", copied_list)</code></pre>
+          <pre class="line-numbers"><code class="language-python"># Output:
+Original List: [1, 2, [3, 4], 5]
+Copied List: [1, 2, [3, 4, 6], 5]</code></pre>
+
+          <h4>So sánh Shallow Copy và Deep Copy</h4>
+
+          <h5>Shallow Copy</h5>
+          <p>Shallow copy chỉ sao chép các tham chiếu đến các đối tượng con, không sao chép các đối tượng con thực sự. Điều này có nghĩa là nếu bạn thay đổi một đối tượng con trong bản sao, thay đổi đó cũng sẽ xuất hiện trong danh sách gốc.</p>
+          <pre class="line-numbers"><code class="language-python">import copy
+
+original_list = [1, 2, [3, 4], 5]
+shallow_copied_list = copy.copy(original_list)
+
+shallow_copied_list[2].append(6)
+print("Original List:", original_list)
+print("Shallow Copied List:", shallow_copied_list)</code></pre>
+          <pre class="line-numbers"><code class="language-python"># Output:
+Original List: [1, 2, [3, 4, 6], 5]
+Shallow Copied List: [1, 2, [3, 4, 6], 5]</code></pre>
+
+          <h5>Deep Copy</h5>
+          <p>Deep copy sao chép toàn bộ cấu trúc của danh sách, bao gồm cả các đối tượng con. Điều này có nghĩa là nếu bạn thay đổi một đối tượng con trong bản sao, thay đổi đó sẽ không ảnh hưởng đến danh sách gốc.</p>
+          <pre class="line-numbers"><code class="language-python">import copy
+
+original_list = [1, 2, [3, 4], 5]
+deep_copied_list = copy.deepcopy(original_list)
+
+deep_copied_list[2].append(6)
+print("Original List:", original_list)
+print("Deep Copied List:", deep_copied_list)</code></pre>
+          <pre class="line-numbers"><code class="language-python"># Output:
+Original List: [1, 2, [3, 4], 5]
+Deep Copied List: [1, 2, [3, 4, 6], 5]</code></pre>
+
+          <h4>Các phương pháp khác để sao chép danh sách</h4>
+
+          <h5>Sử dụng vòng lặp for và phương thức append()</h5>
+          <pre class="line-numbers"><code class="language-python">original_list = [1, 2, 3, 4]
+copied_list = []
+
+for item in original_list:
+    copied_list.append(item)
+
+copied_list.append(5)
+print("Original List:", original_list)
+print("Copied List:", copied_list)</code></pre>
+          <pre class="line-numbers"><code class="language-python"># Output:
+Original List: [1, 2, 3, 4]
+Copied List: [1, 2, 3, 4, 5]</code></pre>
+
+          <h5>Sử dụng list comprehension</h5>
+          <pre class="line-numbers"><code class="language-python">original_list = [1, 2, 3, 4]
+copied_list = [item for item in original_list]
+
+copied_list.append(5)
+print("Original List:", original_list)
+print("Copied List:", copied_list)</code></pre>
+          <pre class="line-numbers"><code class="language-python"># Output:
+Original List: [1, 2, 3, 4]
+Copied List: [1, 2, 3, 4, 5]</code></pre>
+
+          <h5>Sử dụng module json</h5>
+          <pre class="line-numbers"><code class="language-python">import json
+
+original_list = [1, 2, [3, 4], 5]
+copied_list = json.loads(json.dumps(original_list))
+
+copied_list[2].append(6)
+print("Original List:", original_list)
+print("Copied List:", copied_list)</code></pre>
+          <pre class="line-numbers"><code class="language-python"># Output:
+Original List: [1, 2, [3, 4], 5]
+Copied List: [1, 2, [3, 4, 6], 5]</code></pre>
+
+          <h4>Sao chép danh sách lồng nhau</h4>
+
+          <h5>Sử dụng vòng lặp lồng nhau</h5>
+          <pre class="line-numbers"><code class="language-python">original_list = [[1, 2], [3, 4], [5, 6]]
+copied_list = []
+
+for sublist in original_list:
+    copied_list.append(sublist[:])
+
+copied_list[0].append(7)
+print("Original List:", original_list)
+print("Copied List:", copied_list)</code></pre>
+          <pre class="line-numbers"><code class="language-python"># Output:
+Original List: [[1, 2], [3, 4], [5, 6]]
+Copied List: [[1, 2, 7], [3, 4], [5, 6]]</code></pre>
+
+          <h5>Sử dụng list comprehension</h5>
+          <pre class="line-numbers"><code class="language-python">original_list = [[1, 2], [3, 4], [5, 6]]
+copied_list = [sublist[:] for sublist in original_list]
+
+copied_list[0].append(7)
+print("Original List:", original_list)
+print("Copied List:", copied_list)</code></pre>
+          <pre class="line-numbers"><code class="language-python"># Output:
+Original List: [[1, 2], [3, 4], [5, 6]]
+Copied List: [[1, 2, 7], [3, 4], [5, 6]]</code></pre>
+
+          <h5>Sử dụng copy.deepcopy()</h5>
+          <pre class="line-numbers"><code class="language-python">import copy
+
+original_list = [[1, 2], [3, 4], [5, 6]]
+copied_list = copy.deepcopy(original_list)
+
+copied_list[0].append(7)
+print("Original List:", original_list)
+print("Copied List:", copied_list)</code></pre>
+          <pre class="line-numbers"><code class="language-python"># Output:
+Original List: [[1, 2], [3, 4], [5, 6]]
+Copied List: [[1, 2, 7], [3, 4], [5, 6]]</code></pre>
+
+          <h4>Kết luận</h4>
+          <p>Trong bài viết này, chúng ta đã tìm hiểu nhiều phương pháp khác nhau để sao chép danh sách trong Python, bao gồm cả sao chép nông (shallow copy) và sao chép sâu (deep copy). Mỗi phương pháp có ưu và nhược điểm riêng, và việc lựa chọn phương pháp nào phụ thuộc vào yêu cầu cụ thể của bạn. Hy vọng rằng các ví dụ minh họa này sẽ giúp bạn hiểu rõ hơn về cách sao chép danh sách trong Python và áp dụng chúng vào các bài toán thực tế của mình.</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+      <div class="container">
+        <div class="text-center">
+          Huỳnh Ngọc Thái
+        </div>
+      </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+      <div class="switcher-icon">
+        <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+      </div>
+      <div class="right-sidebar-content">
+
+        <p class="mb-0">Gaussion Texture</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme1"></li>
+          <li id="theme2"></li>
+          <li id="theme3"></li>
+          <li id="theme4"></li>
+          <li id="theme5"></li>
+          <li id="theme6"></li>
+        </ul>
+
+        <p class="mb-0">Gradient Background</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme7"></li>
+          <li id="theme8"></li>
+          <li id="theme9"></li>
+          <li id="theme10"></li>
+          <li id="theme11"></li>
+          <li id="theme12"></li>
+          <li id="theme13"></li>
+          <li id="theme14"></li>
+          <li id="theme15"></li>
+        </ul>
+
+      </div>
+    </div>
+    <!--end color switcher-->
+
+  </div><!--End wrapper-->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+
+  <!-- simplebar js -->
+  <script src="../plugins/simplebar/js/simplebar.js"></script>
+  <!-- sidebar-menu js -->
+  <script src="../js/sidebar-menu.js"></script>
+  <!-- loader scripts -->
+  <script src="../js/jquery.loading-indicator.js"></script>
+  <!-- Custom scripts -->
+  <script src="../js/app-script.js"></script>
+  <!-- Chart js -->
+
+  <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+  <!-- Index js -->
+
+  <script>
+    $("#sidebar-placeholder").load("layout.html");
+
+  </script>
+
+
+</body>
+
+</html> 

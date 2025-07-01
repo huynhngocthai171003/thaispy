@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Học Python với Thầy Thái</title>
+  <!-- loader-->
+
+  <!--favicon-->
+  <link rel="icon" href="../images/logo.png" type="image/x-icon">
+  <!-- Vector CSS -->
+  <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+  <!-- simplebar CSS-->
+  <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+  <!-- Bootstrap core CSS-->
+  <link href="../css/bootstrap.min.css" rel="stylesheet" />
+  <!-- animate CSS-->
+  <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+  <!-- Icons CSS-->
+  <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+  <!-- Sidebar CSS-->
+  <link href="../css/sidebar-menu.css" rel="stylesheet" />
+  <!-- Custom Style-->
+  <link href="../css/app-style.css" rel="stylesheet" />
+  <!-- Bootstrap 5 CSS -->
+<!-- Prism.js CSS -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+<!-- Prism.js -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+<!-- Plugin for line numbers + copy -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet"/>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css" rel="stylesheet"/>
+
+
+  <!-- Bootstrap 5 JS + Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+  .card-header{
+    font-size: 18px;
+  }
+  .card-body h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #f3f6f9;
+}
+
+.card-body ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+.card-body ul li {
+  margin-bottom: 0.5rem;
+  font-size: 18px;
+}
+
+p{
+  font-size: 18px;
+}
+
+
+
+</style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+  <!-- Start wrapper-->
+  <div id="wrapper">
+
+    <!--Start sidebar-wrapper-->
+    <div id="sidebar-placeholder"></div>
+
+    <!--End sidebar-wrapper-->
+
+    <!--Start topbar header-->
+    <header class="topbar-nav">
+      <nav class="navbar navbar-expand fixed-top">
+        <ul class="navbar-nav mr-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link toggle-menu" href="javascript:void();">
+              <i class="icon-menu menu-icon"></i>
+            </a>
+          </li>
+
+        </ul>
+
+
+      </nav>
+    </header>
+    <!--End topbar header-->
+
+    <div class="clearfix"></div>
+
+  <div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Xoá phần tử của List trong Python <small class="text-muted">7 phút đọc</small></h3>
+        </div>
+        <div class="card-body">
+          <p>Python cung cấp nhiều phương thức để xoá phần tử khỏi list, bao gồm <code>remove()</code>, <code>pop()</code>, <code>clear()</code>, và từ khoá <code>del</code>. Mỗi phương thức có cách sử dụng và ứng dụng riêng, phù hợp với các tình huống khác nhau.</p>
+
+          <h4>Phương thức remove()</h4>
+          <p>Phương thức <code>remove()</code> được sử dụng để xoá phần tử đầu tiên có giá trị chỉ định khỏi list. Nếu phần tử không tồn tại trong list, phương thức này sẽ gây ra lỗi <code>ValueError</code>.</p>
+
+          <p><strong>Cú pháp:</strong></p>
+          <pre class="line-numbers"><code class="language-python">list.remove(element)</code></pre>
+          <p><strong>Tham số:</strong></p>
+          <ul>
+            <li><code>element</code>: Phần tử cần xoá khỏi list.</li>
+          </ul>
+
+          <p><strong>Ví dụ:</strong></p>
+          <pre class="line-numbers"><code class="language-python">fruits = ['apple', 'banana', 'cherry', 'banana']
+fruits.remove('banana')
+print(fruits)  # Kết quả: ['apple', 'cherry', 'banana']</code></pre>
+          <p>Trong ví dụ trên, phần tử 'banana' đầu tiên đã bị xoá khỏi list <code>fruits</code>.</p>
+
+          <p><strong>Xử lý lỗi khi phần tử không tồn tại:</strong></p>
+          <pre class="line-numbers"><code class="language-python">fruits = ['apple', 'banana', 'cherry']
+try:
+    fruits.remove('orange')
+except ValueError:
+    print("Phần tử không tồn tại trong list")</code></pre>
+
+          <h4>Phương thức pop()</h4>
+          <p>Phương thức <code>pop()</code> xoá phần tử tại vị trí chỉ định và trả về giá trị của nó. Nếu không chỉ định vị trí, <code>pop()</code> sẽ xoá và trả về phần tử cuối cùng.</p>
+
+          <p><strong>Cú pháp:</strong></p>
+          <pre class="line-numbers"><code class="language-python">list.pop([index])</code></pre>
+          <p><strong>Tham số:</strong></p>
+          <ul>
+            <li><code>index</code> (tuỳ chọn): Vị trí của phần tử cần xoá. Nếu không chỉ định, phần tử cuối cùng sẽ bị xoá.</li>
+          </ul>
+
+          <p><strong>Ví dụ:</strong></p>
+          <pre class="line-numbers"><code class="language-python">fruits = ['apple', 'banana', 'cherry']
+print(fruits.pop(1))  # Kết quả: 'banana'
+print(fruits)         # Kết quả: ['apple', 'cherry']</code></pre>
+
+          <p>Nếu không chỉ định vị trí:</p>
+          <pre class="line-numbers"><code class="language-python">fruits = ['apple', 'banana', 'cherry']
+print(fruits.pop())  # Kết quả: 'cherry'
+print(fruits)        # Kết quả: ['apple', 'banana']</code></pre>
+
+          <h4>Từ khoá del</h4>
+          <p>Từ khoá <code>del</code> được sử dụng để xoá phần tử tại vị trí chỉ định hoặc xoá toàn bộ list.</p>
+
+          <p><strong>Cú pháp:</strong></p>
+          <pre class="line-numbers"><code class="language-python">del list[index]</code></pre>
+
+          <p><strong>Ví dụ:</strong></p>
+          <pre class="line-numbers"><code class="language-python">fruits = ['apple', 'banana', 'cherry']
+del fruits[1]
+print(fruits)  # Kết quả: ['apple', 'cherry']</code></pre>
+
+          <p>Xoá toàn bộ list:</p>
+          <pre class="line-numbers"><code class="language-python">fruits = ['apple', 'banana', 'cherry']
+del fruits
+# fruits giờ không còn tồn tại</code></pre>
+
+          <h4>Phương thức clear()</h4>
+          <p>Phương thức <code>clear()</code> xoá tất cả các phần tử trong list, nhưng không xoá list.</p>
+
+          <p><strong>Cú pháp:</strong></p>
+          <pre class="line-numbers"><code class="language-python">list.clear()</code></pre>
+
+          <p><strong>Ví dụ:</strong></p>
+          <pre class="line-numbers"><code class="language-python">fruits = ['apple', 'banana', 'cherry']
+fruits.clear()
+print(fruits)  # Kết quả: []</code></pre>
+
+          <h4>Xoá phần tử dựa trên điều kiện</h4>
+          <p>Bạn có thể sử dụng <code>list comprehension</code> hoặc hàm <code>filter()</code> để xoá phần tử dựa trên điều kiện.</p>
+
+          <p><strong>Sử dụng list comprehension:</strong></p>
+          <pre class="line-numbers"><code class="language-python">numbers = [1, 2, 3, 4, 5, 6]
+numbers = [num for num in numbers if num % 2 != 0]
+print(numbers)  # Kết quả: [1, 3, 5]</code></pre>
+
+          <p><strong>Sử dụng hàm filter():</strong></p>
+          <pre class="line-numbers"><code class="language-python">numbers = [1, 2, 3, 4, 5, 6]
+numbers = list(filter(lambda x: x % 2 != 0, numbers))
+print(numbers)  # Kết quả: [1, 3, 5]</code></pre>
+
+          <h4>Xoá phần tử trong list lồng nhau</h4>
+          <p>Khi làm việc với các list lồng nhau, bạn có thể sử dụng các phương thức trên để xoá phần tử từ các list con.</p>
+
+          <p><strong>Ví dụ:</strong></p>
+          <pre class="line-numbers"><code class="language-python">nested_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+nested_list[1].remove(5)
+print(nested_list)  # Kết quả: [[1, 2, 3], [4, 6], [7, 8, 9]]</code></pre>
+
+          <h4>Xoá phần tử trùng lặp</h4>
+          <p>Để xoá các phần tử trùng lặp trong list, bạn có thể sử dụng <code>set</code> hoặc <code>list comprehension</code>.</p>
+
+          <p><strong>Sử dụng set:</strong></p>
+          <pre class="line-numbers"><code class="language-python">numbers = [1, 2, 2, 3, 4, 4, 5]
+numbers = list(set(numbers))
+print(numbers)  # Kết quả: [1, 2, 3, 4, 5]</code></pre>
+
+          <p><strong>Sử dụng list comprehension:</strong></p>
+          <pre class="line-numbers"><code class="language-python">numbers = [1, 2, 2, 3, 4, 4, 5]
+seen = set()
+unique_numbers = [x for x in numbers if x not in seen and not seen.add(x)]
+print(unique_numbers)  # Kết quả: [1, 2, 3, 4, 5]</code></pre>
+
+          <h3>Kết luận</h3>
+          <p>Python cung cấp nhiều phương thức và kỹ thuật để xoá phần tử khỏi list, mỗi phương thức có ưu và nhược điểm riêng. Việc lựa chọn phương thức phù hợp phụ thuộc vào tình huống cụ thể và yêu cầu của bạn. Bằng cách nắm vững các phương thức này, bạn có thể dễ dàng thao tác và quản lý dữ liệu trong list một cách hiệu quả.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+      <div class="container">
+        <div class="text-center">
+          Huỳnh Ngọc Thái
+        </div>
+      </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+      <div class="switcher-icon">
+        <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+      </div>
+      <div class="right-sidebar-content">
+
+        <p class="mb-0">Gaussion Texture</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme1"></li>
+          <li id="theme2"></li>
+          <li id="theme3"></li>
+          <li id="theme4"></li>
+          <li id="theme5"></li>
+          <li id="theme6"></li>
+        </ul>
+
+        <p class="mb-0">Gradient Background</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme7"></li>
+          <li id="theme8"></li>
+          <li id="theme9"></li>
+          <li id="theme10"></li>
+          <li id="theme11"></li>
+          <li id="theme12"></li>
+          <li id="theme13"></li>
+          <li id="theme14"></li>
+          <li id="theme15"></li>
+        </ul>
+
+      </div>
+    </div>
+    <!--end color switcher-->
+
+  </div><!--End wrapper-->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+
+  <!-- simplebar js -->
+  <script src="../plugins/simplebar/js/simplebar.js"></script>
+  <!-- sidebar-menu js -->
+  <script src="../js/sidebar-menu.js"></script>
+  <!-- loader scripts -->
+  <script src="../js/jquery.loading-indicator.js"></script>
+  <!-- Custom scripts -->
+  <script src="../js/app-script.js"></script>
+  <!-- Chart js -->
+
+  <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+  <!-- Index js -->
+
+  <script>
+    $("#sidebar-placeholder").load("layout.html");
+
+  </script>
+
+
+</body>
+
+</html> 

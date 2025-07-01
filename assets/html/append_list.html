@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Học Python với Thầy Thái</title>
+  <!-- loader-->
+
+  <!--favicon-->
+  <link rel="icon" href="../images/logo.png" type="image/x-icon">
+  <!-- Vector CSS -->
+  <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+  <!-- simplebar CSS-->
+  <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+  <!-- Bootstrap core CSS-->
+  <link href="../css/bootstrap.min.css" rel="stylesheet" />
+  <!-- animate CSS-->
+  <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+  <!-- Icons CSS-->
+  <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+  <!-- Sidebar CSS-->
+  <link href="../css/sidebar-menu.css" rel="stylesheet" />
+  <!-- Custom Style-->
+  <link href="../css/app-style.css" rel="stylesheet" />
+  <!-- Bootstrap 5 CSS -->
+<!-- Prism.js CSS -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+<!-- Prism.js -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+<!-- Plugin for line numbers + copy -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet"/>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css" rel="stylesheet"/>
+
+
+  <!-- Bootstrap 5 JS + Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+  .card-header{
+    font-size: 18px;
+  }
+  .card-body h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #f3f6f9;
+}
+
+.card-body ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+.card-body ul li {
+  margin-bottom: 0.5rem;
+  font-size: 18px;
+}
+
+p{
+  font-size: 18px;
+}
+
+
+
+</style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+  <!-- Start wrapper-->
+  <div id="wrapper">
+
+    <!--Start sidebar-wrapper-->
+    <div id="sidebar-placeholder"></div>
+
+    <!--End sidebar-wrapper-->
+
+    <!--Start topbar header-->
+    <header class="topbar-nav">
+      <nav class="navbar navbar-expand fixed-top">
+        <ul class="navbar-nav mr-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link toggle-menu" href="javascript:void();">
+              <i class="icon-menu menu-icon"></i>
+            </a>
+          </li>
+
+        </ul>
+
+
+      </nav>
+    </header>
+    <!--End topbar header-->
+
+    <div class="clearfix"></div>
+
+   <div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Thêm phần tử vào List trong Python <small class="text-muted">8 phút đọc</small></h3>
+        </div>
+        <div class="card-body">
+          <p>Trong Python, danh sách (list) là một cấu trúc dữ liệu rất phổ biến và linh hoạt, cho phép lưu trữ nhiều giá trị trong một biến duy nhất. Việc thêm phần tử vào danh sách là một thao tác cơ bản nhưng rất quan trọng. Bài viết này sẽ hướng dẫn chi tiết cách thêm phần tử vào danh sách trong Python, bao gồm các phương pháp <code>append()</code>, <code>insert()</code>, <code>extend()</code>, và sử dụng toán tử <code>+</code>. Chúng ta cũng sẽ xem xét các ví dụ cụ thể để minh họa cách sử dụng từng phương pháp.</p>
+
+          <h4>Phương pháp append()</h4>
+          <p>Phương pháp <code>append()</code> được sử dụng để thêm một phần tử vào cuối danh sách. Đây là một trong những phương pháp đơn giản và phổ biến nhất để thêm phần tử vào danh sách.</p>
+
+          <p><strong>Cú pháp</strong></p>
+          <pre class="line-numbers"><code class="language-python">list.append(element)</code></pre>
+          <ul>
+            <li><code>list</code>: Danh sách mà bạn muốn thêm phần tử.</li>
+            <li><code>element</code>: Phần tử mà bạn muốn thêm vào danh sách.</li>
+          </ul>
+
+          <p><strong>Ví dụ</strong></p>
+          <pre class="line-numbers"><code class="language-python"># Tạo một danh sách các loại trái cây
+fruits = ['apple', 'banana', 'cherry']
+
+# Thêm một phần tử vào cuối danh sách
+fruits.append('orange')
+
+# In danh sách sau khi thêm phần tử
+print(fruits)</code></pre>
+          <p><strong>Kết quả:</strong></p>
+          <pre class="line-numbers"><code class="language-python">['apple', 'banana', 'cherry', 'orange']</code></pre>
+          <p>Trong ví dụ trên, phần tử 'orange' được thêm vào cuối danh sách <code>fruits</code>.</p>
+
+          <h4>Phương pháp insert()</h4>
+          <p>Phương pháp <code>insert()</code> cho phép bạn chèn một phần tử vào một vị trí cụ thể trong danh sách. Điều này rất hữu ích khi bạn cần thêm phần tử vào giữa danh sách hoặc vào một vị trí cụ thể nào đó.</p>
+
+          <p><strong>Cú pháp</strong></p>
+          <pre class="line-numbers"><code class="language-python">list.insert(index, element)</code></pre>
+          <ul>
+            <li><code>list</code>: Danh sách mà bạn muốn thêm phần tử.</li>
+            <li><code>index</code>: Vị trí mà bạn muốn chèn phần tử.</li>
+            <li><code>element</code>: Phần tử mà bạn muốn chèn vào danh sách.</li>
+          </ul>
+
+          <p><strong>Ví dụ</strong></p>
+          <pre class="line-numbers"><code class="language-python"># Tạo một danh sách các số nguyên tố
+prime_numbers = [2, 3, 5, 7]
+
+# Chèn phần tử 11 vào vị trí thứ 4 (chỉ số 3)
+prime_numbers.insert(3, 11)
+
+# In danh sách sau khi chèn phần tử
+print(prime_numbers)</code></pre>
+          <p><strong>Kết quả:</strong></p>
+          <pre class="line-numbers"><code class="language-python">[2, 3, 5, 11, 7]</code></pre>
+          <p>Trong ví dụ trên, phần tử 11 được chèn vào vị trí thứ 4 trong danh sách <code>prime_numbers</code>.</p>
+
+          <h4>Phương pháp extend()</h4>
+          <p>Phương pháp <code>extend()</code> được sử dụng để thêm các phần tử từ một iterable (như danh sách, tuple, set, v.v.) vào cuối danh sách hiện tại.</p>
+
+          <p><strong>Cú pháp</strong></p>
+          <pre class="line-numbers"><code class="language-python">list.extend(iterable)</code></pre>
+          <ul>
+            <li><code>list</code>: Danh sách mà bạn muốn thêm phần tử.</li>
+            <li><code>iterable</code>: Một iterable chứa các phần tử mà bạn muốn thêm vào danh sách.</li>
+          </ul>
+
+          <p><strong>Ví dụ</strong></p>
+          <pre class="line-numbers"><code class="language-python"># Tạo một danh sách các loại xe
+cars = ['Audi', 'BMW', 'Jaguar']
+
+# Tạo một danh sách các loại xe khác
+other_cars = ['Maruti', 'Tata']
+
+# Thêm các phần tử từ danh sách other_cars vào danh sách cars
+cars.extend(other_cars)
+
+# In danh sách sau khi thêm phần tử
+print(cars)</code></pre>
+          <p><strong>Kết quả:</strong></p>
+          <pre class="line-numbers"><code class="language-python">['Audi', 'BMW', 'Jaguar', 'Maruti', 'Tata']</code></pre>
+          <p>Trong ví dụ trên, các phần tử từ danh sách <code>other_cars</code> được thêm vào cuối danh sách <code>cars</code>.</p>
+
+          <h4>Sử dụng toán tử + để nối danh sách</h4>
+          <p>Toán tử <code>+</code> có thể được sử dụng để nối hai danh sách lại với nhau, tạo ra một danh sách mới chứa tất cả các phần tử từ cả hai danh sách ban đầu.</p>
+
+          <p><strong>Cú pháp</strong></p>
+          <pre class="line-numbers"><code class="language-python">new_list = list1 + list2</code></pre>
+
+          <p><strong>Ví dụ</strong></p>
+          <pre class="line-numbers"><code class="language-python">list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+
+# Nối hai danh sách lại với nhau
+new_list = list1 + list2
+
+print(new_list)</code></pre>
+          <p><strong>Kết quả:</strong></p>
+          <pre class="line-numbers"><code class="language-python">[1, 2, 3, 4, 5, 6]</code></pre>
+
+          <h4>Sử dụng List Comprehension</h4>
+          <p>List comprehension là một cách ngắn gọn và hiệu quả để tạo ra một danh sách mới bằng cách lặp qua các phần tử của một hoặc nhiều danh sách khác.</p>
+
+          <p><strong>Cú pháp</strong></p>
+          <pre class="line-numbers"><code class="language-python">new_list = [element for list in [list1, list2] for element in list]</code></pre>
+
+          <p><strong>Ví dụ</strong></p>
+          <pre class="line-numbers"><code class="language-python">list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+
+new_list = [element for list in [list1, list2] for element in list]
+
+print(new_list)</code></pre>
+          <p><strong>Kết quả:</strong></p>
+          <pre class="line-numbers"><code class="language-python">[1, 2, 3, 4, 5, 6]</code></pre>
+
+          <h4>Sử dụng itertools.chain()</h4>
+          <p>Hàm <code>itertools.chain()</code> từ module itertools có thể được sử dụng để nối nhiều iterable lại với nhau.</p>
+
+          <p><strong>Ví dụ</strong></p>
+          <pre class="line-numbers"><code class="language-python">import itertools
+
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+
+new_list = list(itertools.chain(list1, list2))
+
+print(new_list)</code></pre>
+          <p><strong>Kết quả:</strong></p>
+          <pre class="line-numbers"><code class="language-python">[1, 2, 3, 4, 5, 6]</code></pre>
+
+          <h4>Sử dụng toán tử * để nối danh sách</h4>
+          <p>Toán tử <code>*</code> có thể được sử dụng để nối nhiều danh sách lại với nhau trong Python 3.6 trở lên.</p>
+
+          <pre class="line-numbers"><code class="language-python">list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+
+new_list = [*list1, *list2]
+
+print(new_list)</code></pre>
+          <p><strong>Kết quả:</strong></p>
+          <pre class="line-numbers"><code class="language-python">[1, 2, 3, 4, 5, 6]</code></pre>
+
+          <h4>Sử dụng phương pháp +=</h4>
+          <p>Toán tử <code>+=</code> có thể được sử dụng để nối một danh sách với một danh sách khác. Phương pháp này thay đổi danh sách ban đầu.</p>
+
+          <pre class="line-numbers"><code class="language-python">list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+
+list1 += list2
+
+print(list1)</code></pre>
+          <p><strong>Kết quả:</strong></p>
+          <pre class="line-numbers"><code class="language-python">[1, 2, 3, 4, 5, 6]</code></pre>
+
+          <h3>Kết luận</h3>
+          <p>Trong Python, có nhiều cách để thêm phần tử vào danh sách, mỗi cách có ưu điểm và nhược điểm riêng. Phương pháp <code>append()</code> và <code>insert()</code> rất hữu ích khi bạn cần thêm một phần tử cụ thể vào danh sách. Phương pháp <code>extend()</code> và toán tử <code>+</code> rất hữu ích khi bạn cần nối hai danh sách lại với nhau. List comprehension và <code>itertools.chain()</code> cung cấp các cách tiếp cận linh hoạt và mạnh mẽ hơn để xử lý các danh sách phức tạp. Toán tử <code>*</code> và <code>+=</code> cung cấp các cách ngắn gọn và tiện lợi để nối danh sách.</p>
+
+          <p>Hy vọng bài viết này đã giúp bạn hiểu rõ hơn về cách thêm phần tử vào danh sách trong Python và cách sử dụng các phương pháp khác nhau để đạt được mục tiêu của bạn.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+      <div class="container">
+        <div class="text-center">
+          Huỳnh Ngọc Thái
+        </div>
+      </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+      <div class="switcher-icon">
+        <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+      </div>
+      <div class="right-sidebar-content">
+
+        <p class="mb-0">Gaussion Texture</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme1"></li>
+          <li id="theme2"></li>
+          <li id="theme3"></li>
+          <li id="theme4"></li>
+          <li id="theme5"></li>
+          <li id="theme6"></li>
+        </ul>
+
+        <p class="mb-0">Gradient Background</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme7"></li>
+          <li id="theme8"></li>
+          <li id="theme9"></li>
+          <li id="theme10"></li>
+          <li id="theme11"></li>
+          <li id="theme12"></li>
+          <li id="theme13"></li>
+          <li id="theme14"></li>
+          <li id="theme15"></li>
+        </ul>
+
+      </div>
+    </div>
+    <!--end color switcher-->
+
+  </div><!--End wrapper-->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+
+  <!-- simplebar js -->
+  <script src="../plugins/simplebar/js/simplebar.js"></script>
+  <!-- sidebar-menu js -->
+  <script src="../js/sidebar-menu.js"></script>
+  <!-- loader scripts -->
+  <script src="../js/jquery.loading-indicator.js"></script>
+  <!-- Custom scripts -->
+  <script src="../js/app-script.js"></script>
+  <!-- Chart js -->
+
+  <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+  <!-- Index js -->
+
+  <script>
+    $("#sidebar-placeholder").load("layout.html");
+
+  </script>
+
+
+</body>
+
+</html>
