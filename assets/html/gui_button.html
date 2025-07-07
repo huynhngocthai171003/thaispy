@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Học Python với Thầy Thái</title>
+    <!-- loader-->
+
+    <!--favicon-->
+    <link rel="icon" href="../images/logo.png" type="image/x-icon">
+    <!-- Vector CSS -->
+    <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <!-- simplebar CSS-->
+    <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- animate CSS-->
+    <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+    <!-- Icons CSS-->
+    <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+    <!-- Sidebar CSS-->
+    <link href="../css/sidebar-menu.css" rel="stylesheet" />
+    <!-- Custom Style-->
+    <link href="../css/app-style.css" rel="stylesheet" />
+    <!-- Bootstrap 5 CSS -->
+    <!-- Prism.js CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <!-- Prism.js -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Plugin for line numbers + copy -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet" />
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css"
+        rel="stylesheet" />
+
+
+    <!-- Bootstrap 5 JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .card-header {
+            font-size: 18px;
+        }
+
+        .card-body h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #f3f6f9;
+        }
+
+        .card-body ul {
+            padding-left: 1.2rem;
+            list-style-type: disc;
+        }
+
+        .card-body ul li {
+            margin-bottom: 0.5rem;
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .example {
+            display: none;
+            margin-top: 5px;
+            padding: 10px;
+
+            border-left: 4px solid #007bff;
+        }
+
+        .param-row:hover {
+            border: solid 2px yellow;
+            cursor: pointer;
+        }
+
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <!--Start sidebar-wrapper-->
+        <div id="sidebar-placeholder"></div>
+
+        <!--End sidebar-wrapper-->
+
+        <!--Start topbar header-->
+        <header class="topbar-nav">
+            <nav class="navbar navbar-expand fixed-top">
+                <ul class="navbar-nav mr-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link toggle-menu" href="javascript:void();">
+                            <i class="icon-menu menu-icon"></i>
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </nav>
+        </header>
+        <!--End topbar header-->
+
+        <div class="clearfix"></div>
+
+       <div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Đối tượng PushButton <small class="text-muted">Nút nhấn trong ứng dụng guizero</small></h3>
+        </div>
+        <div class="card-body">
+          <h3>PushButton là gì?</h3>
+          <p>Đối tượng <code>PushButton</code> hiển thị một nút có thể là văn bản hoặc hình ảnh, sẽ gọi một hàm khi được nhấn.</p>
+
+          <h3>Cách tạo PushButton</h3>
+          <pre><code class="language-python">from guizero import App, PushButton
+
+def do_nothing():
+    print("Button was pressed")
+
+app = App()
+button = PushButton(app, command=do_nothing)
+app.display()</code></pre>
+
+          <p>Tạo một PushButton có hình ảnh:</p>
+          <pre><code class="language-python">from guizero import App, PushButton
+
+def do_nothing():
+    print("A picture button was pressed")
+
+app = App()
+button = PushButton(app, image="button.gif", command=do_nothing)
+app.display()</code></pre>
+
+          <p><strong>Lưu ý:</strong> Tùy vào hệ điều hành và việc bạn có cài thêm các tính năng hình ảnh của guizero hay không sẽ quyết định các định dạng hình ảnh nào có thể sử dụng cho <code>PushButton</code>. Mặc định, GIF và PNG được hỗ trợ, trừ <strong>macOS</strong> chỉ hỗ trợ GIF.</p>
+
+          <h3>Tham số khởi tạo</h3>
+          <p>Khi tạo một đối tượng <code>PushButton</code>, bạn <strong>phải</strong> chỉ định <code>master</code> và <strong>có thể</strong> chỉ định các tham số khác.</p>
+          <pre><code class="language-python">button = PushButton(app)</code></pre>
+
+          <table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Tham số</th>
+                <th>Giá trị</th>
+                <th>Mặc định</th>
+                <th>Bắt buộc</th>
+                <th>Mô tả</th>
+              </tr>
+            </thead>
+            <tbody>
+
+<!-- master -->
+<tr class="param-row" onclick="toggleExample('ex-master-btn')">
+  <td>master</td>
+  <td>App, Window hoặc Box</td>
+  <td>Widget cha chứa nút này</td>
+</tr>
+<tr id="ex-master-btn" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Là widget cha mà nút sẽ được đặt vào.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Box, PushButton
+
+app = App()
+box = Box(app)
+button = PushButton(box, text="Click me")
+print(button.master)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- command -->
+<tr class="param-row" onclick="toggleExample('ex-command-btn')">
+  <td>command</td>
+  <td>tên hàm</td>
+  <td>Hàm được gọi khi nhấn nút</td>
+</tr>
+<tr id="ex-command-btn" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Hàm sẽ chạy khi nút được nhấn.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+def hello():
+    print("Xin chào!")
+
+app = App()
+PushButton(app, text="Chào", command=hello)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- align -->
+<tr class="param-row" onclick="toggleExample('ex-align-btn')">
+  <td>align</td>
+  <td>chuỗi</td>
+  <td>Căn lề trong container</td>
+</tr>
+<tr id="ex-align-btn" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Căn lề trái, phải, trên hoặc dưới.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Box, PushButton
+
+app = App()
+box = Box(app, align="top")
+PushButton(box, text="Nút trái", align="left")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- args -->
+<tr class="param-row" onclick="toggleExample('ex-args-btn')">
+  <td>args</td>
+  <td>danh sách</td>
+  <td>Tham số cho hàm</td>
+</tr>
+<tr id="ex-args-btn" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Danh sách đối số truyền vào hàm được gọi.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+def greet(name):
+    print(f"Xin chào {name}")
+
+app = App()
+PushButton(app, text="Gọi tên", command=greet, args=["Lan"])
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- grid -->
+<tr class="param-row" onclick="toggleExample('ex-grid-btn')">
+  <td>grid</td>
+  <td>[int, int]</td>
+  <td>Vị trí trong lưới</td>
+</tr>
+<tr id="ex-grid-btn" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Dùng khi App hoặc Box sử dụng layout="grid".<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App(layout="grid")
+PushButton(app, text="Nút ở (1,0)", grid=[1,0])
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- image -->
+<tr class="param-row" onclick="toggleExample('ex-image-btn')">
+  <td>image</td>
+  <td>chuỗi</td>
+  <td>Ảnh hiển thị trên nút</td>
+</tr>
+<tr id="ex-image-btn" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Đường dẫn tới ảnh (ưu tiên hơn text nếu có).<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+PushButton(app, image="cat.gif")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- padx -->
+<tr class="param-row" onclick="toggleExample('ex-padx-btn')">
+  <td>padx</td>
+  <td>số nguyên</td>
+  <td>Khoảng cách ngang</td>
+</tr>
+<tr id="ex-padx-btn" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Khoảng cách ngang giữa nội dung và viền nút.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+PushButton(app, text="Dãn ngang", padx=30)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- pady -->
+<tr class="param-row" onclick="toggleExample('ex-pady-btn')">
+  <td>pady</td>
+  <td>số nguyên</td>
+  <td>Khoảng cách dọc</td>
+</tr>
+<tr id="ex-pady-btn" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Khoảng cách dọc giữa nội dung và viền nút.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+PushButton(app, text="Dãn dọc", pady=25)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- text -->
+<tr class="param-row" onclick="toggleExample('ex-text-btn')">
+  <td>text</td>
+  <td>chuỗi</td>
+  <td>Văn bản hiển thị</td>
+</tr>
+<tr id="ex-text-btn" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Dòng chữ hiển thị trên nút.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+PushButton(app, text="Tôi là nút")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- visible -->
+<tr class="param-row" onclick="toggleExample('ex-visible-btn')">
+  <td>visible</td>
+  <td>boolean</td>
+  <td>Hiển thị hay không</td>
+</tr>
+<tr id="ex-visible-btn" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Cho phép ẩn/hiện nút.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+def an_nut():
+    button.visible = False
+
+app = App()
+button = PushButton(app, text="Ẩn tôi", command=an_nut)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- enabled -->
+<tr class="param-row" onclick="toggleExample('ex-enabled-btn')">
+  <td>enabled</td>
+  <td>boolean</td>
+  <td>Bật hoặc tắt tương tác</td>
+</tr>
+<tr id="ex-enabled-btn" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Nếu False, người dùng không thể nhấn nút.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+PushButton(app, text="Không thể nhấn", enabled=False)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- width -->
+<tr class="param-row" onclick="toggleExample('ex-width-btn')">
+  <td>width</td>
+  <td>kích thước</td>
+  <td>Chiều rộng nút</td>
+</tr>
+<tr id="ex-width-btn" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Chiều rộng nút (px, ký tự hoặc "fill").<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+PushButton(app, text="Rộng hơn", width=20)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- height -->
+<tr class="param-row" onclick="toggleExample('ex-height-btn')">
+  <td>height</td>
+  <td>kích thước</td>
+  <td>Chiều cao nút</td>
+</tr>
+<tr id="ex-height-btn" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Chiều cao nút (px, ký tự hoặc "fill").<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+PushButton(app, text="Cao hơn", height=5)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+
+</tbody>
+
+          </table>
+
+          <h3>Phương thức của PushButton</h3>
+          <table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Phương thức</th>
+                <th>Tham số</th>
+                <th>Trả về</th>
+                <th>Mô tả</th>
+              </tr>
+            </thead>
+            <tbody>
+
+<!-- after() -->
+<tr class="param-row" onclick="toggleExample('ex-after1')">
+  <td>after()</td>
+  <td>time, command, args</td>
+  <td>Gọi hàm sau khoảng thời gian (ms)</td>
+</tr>
+<tr id="ex-after1" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Gọi hàm sau một khoảng thời gian tính bằng mili giây.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+def chao():
+    print("Xin chào sau 2 giây!")
+
+app = App()
+PushButton(app, text="Bấm", command=lambda: app.after(2000, chao))
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- cancel() -->
+<tr class="param-row" onclick="toggleExample('ex-cancel1')">
+  <td>cancel()</td>
+  <td>command</td>
+  <td>Hủy hàm đã lên lịch</td>
+</tr>
+<tr id="ex-cancel1" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Hủy bỏ một hàm đã được lên lịch gọi bởi `after()` hoặc `repeat()`.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+def nhay():
+    print("Nút đang nhấp...")
+
+app = App()
+app.repeat(1000, nhay)
+PushButton(app, text="Dừng lại", command=lambda: app.cancel(nhay))
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- destroy() -->
+<tr class="param-row" onclick="toggleExample('ex-destroy1')">
+  <td>destroy()</td>
+  <td>-</td>
+  <td>Hủy widget</td>
+</tr>
+<tr id="ex-destroy1" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Loại bỏ widget khỏi giao diện và bộ nhớ.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+def xoa():
+    button.destroy()
+
+app = App()
+button = PushButton(app, text="Xóa tôi", command=xoa)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- disable() -->
+<tr class="param-row" onclick="toggleExample('ex-disable1')">
+  <td>disable()</td>
+  <td>-</td>
+  <td>Vô hiệu hóa nút</td>
+</tr>
+<tr id="ex-disable1" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Làm cho nút không thể nhấn được nữa.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+def khoa():
+    nut.disable()
+
+app = App()
+nut = PushButton(app, text="Tôi sẽ bị vô hiệu hóa", command=khoa)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- enable() -->
+<tr class="param-row" onclick="toggleExample('ex-enable1')">
+  <td>enable()</td>
+  <td>-</td>
+  <td>Kích hoạt lại nút</td>
+</tr>
+<tr id="ex-enable1" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Kích hoạt lại nút đã bị vô hiệu hóa.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+def bat():
+    nut.enable()
+
+app = App()
+nut = PushButton(app, text="Đang bị tắt")
+nut.disable()
+PushButton(app, text="Bật lại", command=bat)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- focus() -->
+<tr class="param-row" onclick="toggleExample('ex-focus1')">
+  <td>focus()</td>
+  <td>-</td>
+  <td>Đặt tiêu điểm vào nút</td>
+</tr>
+<tr id="ex-focus1" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Di chuyển tiêu điểm bàn phím tới nút.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+def lay_tieu_diem():
+    button.focus()
+
+app = App()
+button = PushButton(app, text="Tôi được chọn sau", command=lay_tieu_diem)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- hide() -->
+<tr class="param-row" onclick="toggleExample('ex-hide1')">
+  <td>hide()</td>
+  <td>-</td>
+  <td>Ẩn nút khỏi giao diện</td>
+</tr>
+<tr id="ex-hide1" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Làm cho nút biến mất khỏi giao diện.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+def an_di():
+    button.hide()
+
+app = App()
+button = PushButton(app, text="Ẩn tôi", command=an_di)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- padding() -->
+<tr class="param-row" onclick="toggleExample('ex-padding1')">
+  <td>padding()</td>
+  <td>padx, pady</td>
+  <td>Đặt khoảng cách viền nội dung</td>
+</tr>
+<tr id="ex-padding1" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Thay đổi padding (khoảng cách nội dung và viền).<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+button = PushButton(app, text="Tôi có padding")
+button.padding(30, 20)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- repeat() -->
+<tr class="param-row" onclick="toggleExample('ex-repeat1')">
+  <td>repeat()</td>
+  <td>time, command, args</td>
+  <td>Lặp gọi hàm</td>
+</tr>
+<tr id="ex-repeat1" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Lặp lại một hành động sau mỗi khoảng thời gian.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App
+
+def lap_lai():
+    print("Lặp...")
+
+app = App()
+app.repeat(1000, lap_lai)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- resize() -->
+<tr class="param-row" onclick="toggleExample('ex-resize1')">
+  <td>resize()</td>
+  <td>width, height</td>
+  <td>Đặt lại kích thước nút</td>
+</tr>
+<tr id="ex-resize1" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Thay đổi kích thước của nút sau khi đã tạo.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+def phong_to():
+    button.resize(30, 5)
+
+app = App()
+button = PushButton(app, text="To ra", command=phong_to)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- show() -->
+<tr class="param-row" onclick="toggleExample('ex-show1')">
+  <td>show()</td>
+  <td>-</td>
+  <td>Hiển thị lại nút</td>
+</tr>
+<tr id="ex-show1" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Hiện lại nút đã bị ẩn bằng `hide()`.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+def an():
+    button.hide()
+
+def hien():
+    button.show()
+
+app = App()
+button = PushButton(app, text="Ẩn tôi", command=an)
+PushButton(app, text="Hiện lại", command=hien)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- toggle() -->
+<tr class="param-row" onclick="toggleExample('ex-toggle1')">
+  <td>toggle()</td>
+  <td>-</td>
+  <td>Đổi trạng thái giữa bật/tắt</td>
+</tr>
+<tr id="ex-toggle1" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Bật hoặc tắt widget, phụ thuộc vào trạng thái hiện tại.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+def chuyen_trang_thai():
+    button.toggle()
+
+app = App()
+button = PushButton(app, text="Tôi sẽ bị tắt/mở")
+PushButton(app, text="Đổi trạng thái", command=chuyen_trang_thai)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- update_command() -->
+<tr class="param-row" onclick="toggleExample('ex-update_command1')">
+  <td>update_command()</td>
+  <td>command, args</td>
+  <td>Cập nhật hàm được gọi khi nhấn</td>
+</tr>
+<tr id="ex-update_command1" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Thay đổi hàm hoặc tham số gọi khi nhấn nút.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+def chao(ten):
+    print(f"Chào {ten}")
+
+def cap_nhat():
+    button.update_command(chao, ["Minh"])
+
+app = App()
+button = PushButton(app, text="Chưa làm gì")
+PushButton(app, text="Gán lệnh mới", command=cap_nhat)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+</tbody>
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+          </table>
+
+          <h3>Thuộc tính của PushButton</h3>
+          <table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Tên thuộc tính</th>
+                <th>Kiểu dữ liệu</th>
+                <th>Mô tả</th>
+              </tr>
+            </thead>
+           <tbody>
+
+<!-- align -->
+<tr class="param-row" onclick="toggleExample('ex-align2')">
+  <td>align</td>
+  <td>chuỗi</td>
+  <td>Căn lề trong container</td>
+</tr>
+<tr id="ex-align2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Căn lề trái, phải, trên hoặc dưới bên trong widget cha.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Box, PushButton
+
+app = App()
+box = Box(app, align="top")
+PushButton(box, text="Căn trái", align="left")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- bg -->
+<tr class="param-row" onclick="toggleExample('ex-bg2')">
+  <td>bg</td>
+  <td>màu sắc</td>
+  <td>Màu nền của nút</td>
+</tr>
+<tr id="ex-bg2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Đổi màu nền của nút.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+PushButton(app, text="Tôi có nền đỏ", bg="red")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- enabled -->
+<tr class="param-row" onclick="toggleExample('ex-enabled2')">
+  <td>enabled</td>
+  <td>boolean</td>
+  <td>True nếu nút đang bật</td>
+</tr>
+<tr id="ex-enabled2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Cho biết nút có đang hoạt động hay không.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+btn = PushButton(app, text="Không thể nhấn", enabled=False)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- font -->
+<tr class="param-row" onclick="toggleExample('ex-font2')">
+  <td>font</td>
+  <td>chuỗi</td>
+  <td>Font chữ của văn bản</td>
+</tr>
+<tr id="ex-font2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Đặt font chữ (VD: "Arial", "Times").<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+PushButton(app, text="Font Arial", font="Arial")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- grid -->
+<tr class="param-row" onclick="toggleExample('ex-grid2')">
+  <td>grid</td>
+  <td>danh sách</td>
+  <td>Tọa độ trong layout lưới</td>
+</tr>
+<tr id="ex-grid2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Xác định vị trí widget trong lưới.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App(layout="grid")
+PushButton(app, text="Góc trái trên", grid=[0,0])
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- height -->
+<tr class="param-row" onclick="toggleExample('ex-height2')">
+  <td>height</td>
+  <td>kích thước</td>
+  <td>Chiều cao của nút</td>
+</tr>
+<tr id="ex-height2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Đặt chiều cao nút bằng ký tự, pixel hoặc "fill".<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+PushButton(app, text="Cao hơn", height=4)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- image -->
+<tr class="param-row" onclick="toggleExample('ex-image2')">
+  <td>image</td>
+  <td>chuỗi / ảnh</td>
+  <td>Đường dẫn hoặc đối tượng ảnh</td>
+</tr>
+<tr id="ex-image2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Hiển thị ảnh thay vì chữ nếu có.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+PushButton(app, image="cat.gif")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- master -->
+<tr class="param-row" onclick="toggleExample('ex-master2')">
+  <td>master</td>
+  <td>App hoặc Box</td>
+  <td>Container chứa nút</td>
+</tr>
+<tr id="ex-master2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Widget cha chứa PushButton.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Box, PushButton
+
+app = App()
+box = Box(app)
+btn = PushButton(box, text="Nút trong box")
+print(btn.master)  # Box
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- text -->
+<tr class="param-row" onclick="toggleExample('ex-text2')">
+  <td>text</td>
+  <td>chuỗi</td>
+  <td>Văn bản hiển thị</td>
+</tr>
+<tr id="ex-text2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Văn bản được hiển thị trên nút.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+PushButton(app, text="Tôi là nút")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- text_color -->
+<tr class="param-row" onclick="toggleExample('ex-text_color2')">
+  <td>text_color</td>
+  <td>màu sắc</td>
+  <td>Màu văn bản</td>
+</tr>
+<tr id="ex-text_color2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Đổi màu văn bản hiển thị trên nút.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+PushButton(app, text="Chữ màu trắng", text_color="white", bg="black")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- text_size -->
+<tr class="param-row" onclick="toggleExample('ex-text_size2')">
+  <td>text_size</td>
+  <td>số nguyên</td>
+  <td>Kích cỡ chữ</td>
+</tr>
+<tr id="ex-text_size2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Thay đổi kích thước chữ.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+PushButton(app, text="Chữ lớn", text_size=20)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- text_bold -->
+<tr class="param-row" onclick="toggleExample('ex-text_bold2')">
+  <td>text_bold</td>
+  <td>boolean</td>
+  <td>Chữ in đậm</td>
+</tr>
+<tr id="ex-text_bold2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Làm văn bản trên nút in đậm.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+PushButton(app, text="Đậm", text_bold=True)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- text_italic -->
+<tr class="param-row" onclick="toggleExample('ex-text_italic2')">
+  <td>text_italic</td>
+  <td>boolean</td>
+  <td>Chữ nghiêng</td>
+</tr>
+<tr id="ex-text_italic2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Làm văn bản trên nút nghiêng.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+PushButton(app, text="Nghiêng", text_italic=True)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- text_underline -->
+<tr class="param-row" onclick="toggleExample('ex-text_underline2')">
+  <td>text_underline</td>
+  <td>boolean</td>
+  <td>Gạch dưới</td>
+</tr>
+<tr id="ex-text_underline2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Gạch dưới văn bản trên nút.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+PushButton(app, text="Gạch dưới", text_underline=True)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- text_overstrike -->
+<tr class="param-row" onclick="toggleExample('ex-text_overstrike2')">
+  <td>text_overstrike</td>
+  <td>boolean</td>
+  <td>Gạch ngang chữ</td>
+</tr>
+<tr id="ex-text_overstrike2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Gạch ngang văn bản của nút.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+PushButton(app, text="Gạch ngang", text_overstrike=True)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- tk -->
+<tr class="param-row" onclick="toggleExample('ex-tk2')">
+  <td>tk</td>
+  <td>tkinter.Button</td>
+  <td>Đối tượng tkinter</td>
+</tr>
+<tr id="ex-tk2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Truy cập đối tượng `tkinter.Button` gốc.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+btn = PushButton(app, text="Tùy chỉnh border")
+btn.tk.config(borderwidth=4, relief="ridge")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- value -->
+<tr class="param-row" onclick="toggleExample('ex-value2')">
+  <td>value</td>
+  <td>int</td>
+  <td>1 nếu được nhấn, 0 nếu không</td>
+</tr>
+<tr id="ex-value2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Cho biết nút đang được nhấn hay không.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+def check_value():
+    print("Đang nhấn" if btn.value == 1 else "Không nhấn")
+
+app = App()
+btn = PushButton(app, text="Kiểm tra", command=check_value)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- visible -->
+<tr class="param-row" onclick="toggleExample('ex-visible2')">
+  <td>visible</td>
+  <td>boolean</td>
+  <td>Nút có hiển thị hay không</td>
+</tr>
+<tr id="ex-visible2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Cho biết nút đang hiển thị hay không.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+def an():
+    btn.visible = False
+
+app = App()
+btn = PushButton(app, text="Tôi sẽ biến mất", command=an)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- width -->
+<tr class="param-row" onclick="toggleExample('ex-width2')">
+  <td>width</td>
+  <td>kích thước</td>
+  <td>Chiều rộng</td>
+</tr>
+<tr id="ex-width2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Thiết lập chiều rộng nút (số hoặc "fill").<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+
+app = App()
+PushButton(app, text="Nút rộng", width=25)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+</tbody>
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+          </table>
+
+          <p>💡 <strong>Ghi chú:</strong> Truy cập thuộc tính bằng cú pháp <code>&lt;tên widget&gt;.&lt;thuộc tính&gt;</code>. Ví dụ: <code>button.value</code></p>
+          <p>🛠️ Có thể <strong>gán giá trị</strong> như <code>button.bg = "red"</code> hoặc <strong>lấy giá trị</strong> như <code>print(button.bg)</code>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                Huỳnh Ngọc Thái
+            </div>
+        </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+        <div class="switcher-icon">
+            <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+        </div>
+        <div class="right-sidebar-content">
+
+            <p class="mb-0">Gaussion Texture</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme1"></li>
+                <li id="theme2"></li>
+                <li id="theme3"></li>
+                <li id="theme4"></li>
+                <li id="theme5"></li>
+                <li id="theme6"></li>
+            </ul>
+
+            <p class="mb-0">Gradient Background</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme7"></li>
+                <li id="theme8"></li>
+                <li id="theme9"></li>
+                <li id="theme10"></li>
+                <li id="theme11"></li>
+                <li id="theme12"></li>
+                <li id="theme13"></li>
+                <li id="theme14"></li>
+                <li id="theme15"></li>
+            </ul>
+
+        </div>
+    </div>
+    <!--end color switcher-->
+
+    </div><!--End wrapper-->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- simplebar js -->
+    <script src="../plugins/simplebar/js/simplebar.js"></script>
+    <!-- sidebar-menu js -->
+    <script src="../js/sidebar-menu.js"></script>
+    <!-- loader scripts -->
+    <script src="../js/jquery.loading-indicator.js"></script>
+    <!-- Custom scripts -->
+    <script src="../js/app-script.js"></script>
+    <!-- Chart js -->
+
+    <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+    <!-- Index js -->
+
+    <script>
+        $("#sidebar-placeholder").load("layout.html");
+
+    </script>
+
+
+</body>
+
+</html>

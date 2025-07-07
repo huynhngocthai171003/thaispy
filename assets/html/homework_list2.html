@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Học Python với Thầy Thái</title>
+  <!-- loader-->
+
+  <!--favicon-->
+  <link rel="icon" href="../images/logo.png" type="image/x-icon">
+  <!-- Vector CSS -->
+  <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+  <!-- simplebar CSS-->
+  <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+  <!-- Bootstrap core CSS-->
+  <link href="../css/bootstrap.min.css" rel="stylesheet" />
+  <!-- animate CSS-->
+  <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+  <!-- Icons CSS-->
+  <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+  <!-- Sidebar CSS-->
+  <link href="../css/sidebar-menu.css" rel="stylesheet" />
+  <!-- Custom Style-->
+  <link href="../css/app-style.css" rel="stylesheet" />
+  <!-- Bootstrap 5 CSS -->
+<!-- Prism.js CSS -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+<!-- Prism.js -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+<!-- Plugin for line numbers + copy -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet"/>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css" rel="stylesheet"/>
+
+
+  <!-- Bootstrap 5 JS + Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+  .card-header{
+    font-size: 18px;
+  }
+  .card-body h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #f3f6f9;
+}
+
+.card-body ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+.card-body ul li {
+  margin-bottom: 0.5rem;
+  font-size: 18px;
+}
+
+p{
+  font-size: 18px;
+}
+
+
+
+</style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+  <!-- Start wrapper-->
+  <div id="wrapper">
+
+    <!--Start sidebar-wrapper-->
+    <div id="sidebar-placeholder"></div>
+
+    <!--End sidebar-wrapper-->
+
+    <!--Start topbar header-->
+    <header class="topbar-nav">
+      <nav class="navbar navbar-expand fixed-top">
+        <ul class="navbar-nav mr-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link toggle-menu" href="javascript:void();">
+              <i class="icon-menu menu-icon"></i>
+            </a>
+          </li>
+
+        </ul>
+
+
+      </nav>
+    </header>
+    <!--End topbar header-->
+
+    <div class="clearfix"></div>
+
+    <div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+  <h3 class="mt-4">🧠 Bài tập Python: Danh sách (List)</h3>
+</div>
+<div class="card-body">
+
+  <h4>📘 Bài 1: Danh sách bạn thân</h4>
+  <ul>
+    <li>Tạo danh sách gồm tên 3 người bạn thân.</li>
+    <li>Thêm 1 người nữa vào cuối danh sách.</li>
+    <li>In ra số lượng người trong danh sách.</li>
+  </ul>
+
+  <h4>📗 Bài 2: Mua sắm cuối tuần</h4>
+  <ul>
+    <li>Tạo danh sách 5 món đồ cần mua.</li>
+    <li>Xoá món đồ thứ 2 trong danh sách.</li>
+    <li>Thêm một món mới vào đầu danh sách.</li>
+    <li>In lại danh sách đã cập nhật.</li>
+  </ul>
+
+  <h4>📙 Bài 3: Danh sách điểm số</h4>
+  <ul>
+    <li>Tạo danh sách gồm 4 điểm số bất kỳ (số thực).</li>
+    <li>Thay thế điểm thứ 3 bằng điểm mới do người dùng nhập.</li>
+    <li>Tính trung bình của 2 điểm đầu tiên.</li>
+  </ul>
+
+  <h4>📕 Bài 4: Thời khoá biểu</h4>
+  <ul>
+    <li>Tạo danh sách tên các môn học trong tuần.</li>
+    <li>Sắp xếp danh sách theo thứ tự A–Z.</li>
+    <li>In ra 3 môn đầu tiên (sử dụng slicing).</li>
+  </ul>
+
+  <h4>📒 Bài 5: Danh sách số yêu thích</h4>
+  <ul>
+    <li>Nhập vào 3 số nguyên và đưa vào list.</li>
+    <li>Kiểm tra số 7 có trong list không.</li>
+    <li>Nếu có, in ra vị trí (index) của nó.</li>
+  </ul>
+
+  <h4>📓 Bài 6: Quản lý tài khoản</h4>
+  <ul>
+    <li>Tạo danh sách chứa tên 3 tài khoản người dùng.</li>
+    <li>Nhập một tên bất kỳ, kiểm tra có tồn tại trong danh sách không.</li>
+    <li>Nếu có, xoá tài khoản đó khỏi danh sách và in lại danh sách.</li>
+  </ul>
+
+  <h4>📂 Bài 7: Danh sách phim yêu thích</h4>
+  <ul>
+    <li>Tạo danh sách chứa 4 tên phim bạn thích.</li>
+    <li>Thêm 1 phim mới vào giữa danh sách (dùng index).</li>
+    <li>In ra phim đầu và cuối danh sách.</li>
+  </ul>
+
+  <h4>📁 Bài 8: Dữ liệu nhiệt độ</h4>
+  <ul>
+    <li>Tạo danh sách gồm 5 nhiệt độ trong ngày.</li>
+    <li>In ra nhiệt độ cao nhất và thấp nhất (dùng <code>max()</code> và <code>min()</code>).</li>
+    <li>Tính trung bình của tất cả nhiệt độ.</li>
+  </ul>
+
+  <h4>📊 Bài 9: Quản lý danh sách lớp</h4>
+  <ul>
+    <li>Tạo danh sách tên 5 học sinh.</li>
+    <li>Thay tên học sinh thứ 2 bằng một tên mới.</li>
+    <li>Sắp xếp danh sách theo thứ tự A–Z và in ra 3 tên cuối cùng.</li>
+  </ul>
+
+  <h4>📈 Bài 10: Kiểm tra danh sách số tăng dần</h4>
+<ul>
+  <li>Tạo danh sách gồm 3 số nguyên bất kỳ.</li>
+  <li>Kiểm tra nếu các số trong danh sách theo thứ tự tăng dần (ví dụ: [2, 5, 9]) thì in "Danh sách tăng dần".</li>
+  <li>Ngược lại, in "Không tăng dần".</li>
+</ul>
+
+
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+      <div class="container">
+        <div class="text-center">
+          Huỳnh Ngọc Thái
+        </div>
+      </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+      <div class="switcher-icon">
+        <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+      </div>
+      <div class="right-sidebar-content">
+
+        <p class="mb-0">Gaussion Texture</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme1"></li>
+          <li id="theme2"></li>
+          <li id="theme3"></li>
+          <li id="theme4"></li>
+          <li id="theme5"></li>
+          <li id="theme6"></li>
+        </ul>
+
+        <p class="mb-0">Gradient Background</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme7"></li>
+          <li id="theme8"></li>
+          <li id="theme9"></li>
+          <li id="theme10"></li>
+          <li id="theme11"></li>
+          <li id="theme12"></li>
+          <li id="theme13"></li>
+          <li id="theme14"></li>
+          <li id="theme15"></li>
+        </ul>
+
+      </div>
+    </div>
+    <!--end color switcher-->
+
+  </div><!--End wrapper-->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+
+  <!-- simplebar js -->
+  <script src="../plugins/simplebar/js/simplebar.js"></script>
+  <!-- sidebar-menu js -->
+  <script src="../js/sidebar-menu.js"></script>
+  <!-- loader scripts -->
+  <script src="../js/jquery.loading-indicator.js"></script>
+  <!-- Custom scripts -->
+  <script src="../js/app-script.js"></script>
+  <!-- Chart js -->
+
+  <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+  <!-- Index js -->
+
+   <script>
+    $("#sidebar-placeholder").load("layout.html");
+
+  </script>
+
+
+</body>
+
+</html>

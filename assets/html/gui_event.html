@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Học Python với Thầy Thái</title>
+    <!-- loader-->
+
+    <!--favicon-->
+    <link rel="icon" href="../images/logo.png" type="image/x-icon">
+    <!-- Vector CSS -->
+    <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <!-- simplebar CSS-->
+    <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- animate CSS-->
+    <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+    <!-- Icons CSS-->
+    <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+    <!-- Sidebar CSS-->
+    <link href="../css/sidebar-menu.css" rel="stylesheet" />
+    <!-- Custom Style-->
+    <link href="../css/app-style.css" rel="stylesheet" />
+    <!-- Bootstrap 5 CSS -->
+    <!-- Prism.js CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <!-- Prism.js -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Plugin for line numbers + copy -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet" />
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css"
+        rel="stylesheet" />
+
+
+    <!-- Bootstrap 5 JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .card-header {
+            font-size: 18px;
+        }
+
+        .card-body h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #f3f6f9;
+        }
+
+        .card-body ul {
+            padding-left: 1.2rem;
+            list-style-type: disc;
+        }
+
+        .card-body ul li {
+            margin-bottom: 0.5rem;
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .example {
+            display: none;
+            margin-top: 5px;
+            padding: 10px;
+
+            border-left: 4px solid #007bff;
+        }
+
+        .param-row:hover {
+            border: solid 2px yellow;
+            cursor: pointer;
+        }
+
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <!--Start sidebar-wrapper-->
+        <div id="sidebar-placeholder"></div>
+
+        <!--End sidebar-wrapper-->
+
+        <!--Start topbar header-->
+        <header class="topbar-nav">
+            <nav class="navbar navbar-expand fixed-top">
+                <ul class="navbar-nav mr-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link toggle-menu" href="javascript:void();">
+                            <i class="icon-menu menu-icon"></i>
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </nav>
+        </header>
+        <!--End topbar header-->
+
+        <div class="clearfix"></div>
+
+       <div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Đối tượng PushButton <small class="text-muted">Nút nhấn trong ứng dụng guizero</small></h3>
+        
+        </div>
+        
+        
+        <div class="card-body">
+          <h3>Sự kiện (Events)</h3>
+<p>Bạn có thể thêm các sự kiện tùy chỉnh vào các widget trong <strong>guizero</strong> để gọi các hàm khi người dùng thực hiện các hành động sau:</p>
+
+<table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Hành động người dùng</th>
+      <th>Tên sự kiện trong code</th>
+    </tr>
+  </thead>
+  <tbody>
+<!-- when_clicked -->
+<tr class="param-row" onclick="toggleExample('ex-when_clicked')">
+  <td>khi nhấp chuột</td>
+  <td><code>when_clicked</code></td>
+  <td>Sự kiện tương ứng khi khi nhấp chuột</td>
+</tr>
+<tr id="ex-when_clicked" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Gán hàm thực hiện hành động khi xảy ra sự kiện <code>when_clicked</code>.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data=None):
+    print("Sự kiện xảy ra tại:", event_data.widget)
+
+app = App()
+widget = TextBox(app)
+widget.when_clicked = xu_ly
+app.display()
+    </code></pre>
+  </td>
+</tr>
+<!-- when_double_clicked -->
+<tr class="param-row" onclick="toggleExample('ex-when_double_clicked')">
+  <td>khi nhấp đúp chuột</td>
+  <td><code>when_double_clicked</code></td>
+  <td>Sự kiện tương ứng khi khi nhấp đúp chuột</td>
+</tr>
+<tr id="ex-when_double_clicked" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Gán hàm thực hiện hành động khi xảy ra sự kiện <code>when_double_clicked</code>.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data=None):
+    print("Sự kiện xảy ra tại:", event_data.widget)
+
+app = App()
+widget = TextBox(app)
+widget.when_double_clicked = xu_ly
+app.display()
+    </code></pre>
+  </td>
+</tr>
+<!-- when_left_button_pressed -->
+<tr class="param-row" onclick="toggleExample('ex-when_left_button_pressed')">
+  <td>khi nhấn nút chuột trái</td>
+  <td><code>when_left_button_pressed</code></td>
+  <td>Sự kiện tương ứng khi khi nhấn nút chuột trái</td>
+</tr>
+<tr id="ex-when_left_button_pressed" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Gán hàm xử lý khi nhấn nút chuột trái vào widget.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data=None):
+    print("Chuột trái được nhấn tại:", event_data.x, event_data.y)
+
+app = App()
+widget = TextBox(app)
+widget.when_left_button_pressed = xu_ly
+app.display()
+    </code></pre>
+  </td>
+</tr>
+<!-- when_left_button_released -->
+<tr class="param-row" onclick="toggleExample('ex-when_left_button_released')">
+  <td>khi nhả nút chuột trái</td>
+  <td><code>when_left_button_released</code></td>
+  <td>Sự kiện tương ứng khi khi nhả nút chuột trái</td>
+</tr>
+<tr id="ex-when_left_button_released" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Gán hàm xử lý khi thả nút chuột trái khỏi widget.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data=None):
+    print("Chuột trái được thả tại:", event_data.x, event_data.y)
+
+app = App()
+widget = TextBox(app)
+widget.when_left_button_released = xu_ly
+app.display()
+    </code></pre>
+  </td>
+</tr>
+<!-- when_right_button_pressed -->
+<tr class="param-row" onclick="toggleExample('ex-when_right_button_pressed')">
+  <td>khi nhấn nút chuột phải</td>
+  <td><code>when_right_button_pressed</code></td>
+  <td>Sự kiện tương ứng khi khi nhấn nút chuột phải</td>
+</tr>
+<tr id="ex-when_right_button_pressed" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Xử lý sự kiện nhấn nút chuột phải vào widget.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data=None):
+    print("Chuột phải nhấn tại:", event_data.x, event_data.y)
+
+app = App()
+widget = TextBox(app)
+widget.when_right_button_pressed = xu_ly
+app.display()
+    </code></pre>
+  </td>
+</tr>
+<!-- when_right_button_released -->
+<tr class="param-row" onclick="toggleExample('ex-when_right_button_released')">
+  <td>khi nhả nút chuột phải</td>
+  <td><code>when_right_button_released</code></td>
+  <td>Sự kiện tương ứng khi khi nhả nút chuột phải</td>
+</tr>
+<tr id="ex-when_right_button_released" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Xử lý sự kiện thả nút chuột phải khỏi widget.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data=None):
+    print("Chuột phải thả tại:", event_data.x, event_data.y)
+
+app = App()
+widget = TextBox(app)
+widget.when_right_button_released = xu_ly
+app.display()
+    </code></pre>
+  </td>
+</tr>
+<!-- when_key_pressed -->
+<tr class="param-row" onclick="toggleExample('ex-when_key_pressed')">
+  <td>khi nhấn một phím</td>
+  <td><code>when_key_pressed</code></td>
+  <td>Sự kiện tương ứng khi khi nhấn một phím</td>
+</tr>
+<tr id="ex-when_key_pressed" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Khi người dùng nhấn phím trong widget đang có focus.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data=None):
+    print("Phím nhấn:", event_data.key)
+
+app = App()
+widget = TextBox(app)
+widget.when_key_pressed = xu_ly
+app.display()
+    </code></pre>
+  </td>
+</tr>
+<!-- when_key_released -->
+<tr class="param-row" onclick="toggleExample('ex-when_key_released')">
+  <td>khi nhả một phím</td>
+  <td><code>when_key_released</code></td>
+  <td>Sự kiện tương ứng khi khi nhả một phím</td>
+</tr>
+<tr id="ex-when_key_released" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Khi người dùng nhả phím đã nhấn.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data=None):
+    print("Phím nhả:", event_data.key)
+
+app = App()
+widget = TextBox(app)
+widget.when_key_released = xu_ly
+app.display()
+    </code></pre>
+  </td>
+</tr>
+<!-- when_mouse_enters -->
+<tr class="param-row" onclick="toggleExample('ex-when_mouse_enters')">
+  <td>khi chuột đi vào widget</td>
+  <td><code>when_mouse_enters</code></td>
+  <td>Sự kiện tương ứng khi khi chuột đi vào widget</td>
+</tr>
+<tr id="ex-when_mouse_enters" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Sự kiện xảy ra khi con trỏ chuột đi vào vùng widget.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data=None):
+    print("Chuột đã đi vào")
+
+app = App()
+widget = TextBox(app)
+widget.when_mouse_enters = xu_ly
+app.display()
+    </code></pre>
+  </td>
+</tr>
+<!-- when_mouse_leaves -->
+<tr class="param-row" onclick="toggleExample('ex-when_mouse_leaves')">
+  <td>khi chuột rời khỏi widget</td>
+  <td><code>when_mouse_leaves</code></td>
+  <td>Sự kiện tương ứng khi khi chuột rời khỏi widget</td>
+</tr>
+<tr id="ex-when_mouse_leaves" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Khi con trỏ chuột rời khỏi widget đang được hover.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data=None):
+    print("Chuột đã rời khỏi")
+
+app = App()
+widget = TextBox(app)
+widget.when_mouse_leaves = xu_ly
+app.display()
+    </code></pre>
+  </td>
+</tr>
+<!-- when_mouse_dragged -->
+<tr class="param-row" onclick="toggleExample('ex-when_mouse_dragged')">
+  <td>khi chuột được kéo qua widget</td>
+  <td><code>when_mouse_dragged</code></td>
+  <td>Sự kiện tương ứng khi khi chuột được kéo qua widget</td>
+</tr>
+<tr id="ex-when_mouse_dragged" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Khi người dùng kéo chuột qua vùng widget.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data=None):
+    print("Chuột kéo qua tại:", event_data.x, event_data.y)
+
+app = App()
+widget = TextBox(app)
+widget.when_mouse_dragged = xu_ly
+app.display()
+    </code></pre>
+  </td>
+</tr>
+<!-- when_resized -->
+<tr class="param-row" onclick="toggleExample('ex-when_resized')">
+  <td>khi widget thay đổi kích thước</td>
+  <td><code>when_resized</code></td>
+  <td>Sự kiện tương ứng khi khi widget thay đổi kích thước</td>
+</tr>
+<tr id="ex-when_resized" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Gọi hàm khi widget được resize.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data=None):
+    print("Kích thước mới:", event_data.width, event_data.height)
+
+app = App()
+widget = TextBox(app)
+widget.when_resized = xu_ly
+app.display()
+    </code></pre>
+  </td>
+</tr>
+</tbody>
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+</table>
+
+<h4>Cách gán sự kiện:</h4>
+<pre><code class="language-python">def do_this():
+    print("Widget đã được nhấp")
+
+widget.when_clicked = do_this</code></pre>
+
+<h4>Dữ liệu sự kiện (Event Data)</h4>
+<p>Hàm được gọi có thể nhận thêm một tham số chứa thông tin chi tiết về sự kiện:</p>
+
+
+<!-- Bảng event_data hoàn chỉnh -->
+<table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Thuộc tính</th>
+      <th>Ý nghĩa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="param-row" onclick="toggleExample('ex-eventdata-widget')">
+      <td><strong>widget</strong></td>
+      <td>widget guizero đã tạo ra sự kiện</td>
+    </tr>
+    <tr id="ex-eventdata-widget" class="example" style="display: none;">
+      <td colspan="2">
+        💬 <strong>Giải thích:</strong> Đây là đối tượng widget (TextBox, Button, ...) nơi sự kiện xảy ra.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data):
+    print("Widget kích hoạt:", event_data.widget)
+
+app = App()
+text = TextBox(app)
+text.when_clicked = xu_ly
+app.display()</code></pre>
+      </td>
+    </tr>
+
+    <tr class="param-row" onclick="toggleExample('ex-eventdata-tk_event')">
+      <td><strong>tk_event</strong></td>
+      <td>đối tượng sự kiện của tkinter</td>
+    </tr>
+    <tr id="ex-eventdata-tk_event" class="example" style="display: none;">
+      <td colspan="2">
+        💬 <strong>Giải thích:</strong> Thông tin chi tiết gốc của sự kiện từ tkinter (ít khi dùng trực tiếp).<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data):
+    print("Sự kiện gốc:", event_data.tk_event)
+
+app = App()
+text = TextBox(app)
+text.when_clicked = xu_ly
+app.display()</code></pre>
+      </td>
+    </tr>
+
+    <tr class="param-row" onclick="toggleExample('ex-eventdata-key')">
+      <td><strong>key</strong></td>
+      <td>phím đã được nhấn (nếu có)</td>
+    </tr>
+    <tr id="ex-eventdata-key" class="example" style="display: none;">
+      <td colspan="2">
+        💬 <strong>Giải thích:</strong> Dùng để xác định phím người dùng nhấn trong sự kiện bàn phím.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data):
+    print("Phím nhấn:", event_data.key)
+
+app = App()
+text = TextBox(app)
+text.when_key_pressed = xu_ly
+app.display()</code></pre>
+      </td>
+    </tr>
+
+    <tr class="param-row" onclick="toggleExample('ex-eventdata-x')">
+      <td><strong>x</strong></td>
+      <td>tọa độ X của chuột trong widget</td>
+    </tr>
+    <tr id="ex-eventdata-x" class="example" style="display: none;">
+      <td colspan="2">
+        💬 <strong>Giải thích:</strong> Vị trí X chuột tính từ mép trái của widget.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data):
+    print("X nội bộ:", event_data.x)
+
+app = App()
+text = TextBox(app)
+text.when_mouse_dragged = xu_ly
+app.display()</code></pre>
+      </td>
+    </tr>
+
+    <tr class="param-row" onclick="toggleExample('ex-eventdata-y')">
+      <td><strong>y</strong></td>
+      <td>tọa độ Y của chuột trong widget</td>
+    </tr>
+    <tr id="ex-eventdata-y" class="example" style="display: none;">
+      <td colspan="2">
+        💬 <strong>Giải thích:</strong> Vị trí Y chuột tính từ mép trên của widget.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data):
+    print("Y nội bộ:", event_data.y)
+
+app = App()
+text = TextBox(app)
+text.when_mouse_dragged = xu_ly
+app.display()</code></pre>
+      </td>
+    </tr>
+
+    <tr class="param-row" onclick="toggleExample('ex-eventdata-display_x')">
+      <td><strong>display_x</strong></td>
+      <td>tọa độ X của chuột trên màn hình</td>
+    </tr>
+    <tr id="ex-eventdata-display_x" class="example" style="display: none;">
+      <td colspan="2">
+        💬 <strong>Giải thích:</strong> Vị trí X của con trỏ chuột trên toàn bộ màn hình.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data):
+    print("Màn hình X:", event_data.display_x)
+
+app = App()
+text = TextBox(app)
+text.when_mouse_dragged = xu_ly
+app.display()</code></pre>
+      </td>
+    </tr>
+
+    <tr class="param-row" onclick="toggleExample('ex-eventdata-display_y')">
+      <td><strong>display_y</strong></td>
+      <td>tọa độ Y của chuột trên màn hình</td>
+    </tr>
+    <tr id="ex-eventdata-display_y" class="example" style="display: none;">
+      <td colspan="2">
+        💬 <strong>Giải thích:</strong> Vị trí Y của con trỏ chuột trên toàn bộ màn hình.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data):
+    print("Màn hình Y:", event_data.display_y)
+
+app = App()
+text = TextBox(app)
+text.when_mouse_dragged = xu_ly
+app.display()</code></pre>
+      </td>
+    </tr>
+
+    <tr class="param-row" onclick="toggleExample('ex-eventdata-width')">
+      <td><strong>width</strong></td>
+      <td>chiều rộng của widget (chỉ có trong sự kiện thay đổi kích thước)</td>
+    </tr>
+    <tr id="ex-eventdata-width" class="example" style="display: none;">
+      <td colspan="2">
+        💬 <strong>Giải thích:</strong> Trả về chiều rộng mới của widget.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data):
+    print("Chiều rộng:", event_data.width)
+
+app = App()
+text = TextBox(app)
+text.when_resized = xu_ly
+app.display()</code></pre>
+      </td>
+    </tr>
+
+    <tr class="param-row" onclick="toggleExample('ex-eventdata-height')">
+      <td><strong>height</strong></td>
+      <td>chiều cao của widget (chỉ có trong sự kiện thay đổi kích thước)</td>
+    </tr>
+    <tr id="ex-eventdata-height" class="example" style="display: none;">
+      <td colspan="2">
+        💬 <strong>Giải thích:</strong> Trả về chiều cao mới của widget.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data):
+    print("Chiều cao:", event_data.height)
+
+app = App()
+text = TextBox(app)
+text.when_resized = xu_ly
+app.display()</code></pre>
+      </td>
+    </tr>
+
+    <tr class="param-row" onclick="toggleExample('ex-eventdata-keycode')">
+      <td><strong>keycode</strong></td>
+      <td>mã số của phím đã nhấn (chỉ áp dụng cho sự kiện phím)</td>
+    </tr>
+    <tr id="ex-eventdata-keycode" class="example" style="display: none;">
+      <td colspan="2">
+        💬 <strong>Giải thích:</strong> Giá trị số nguyên của phím được nhấn.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, TextBox
+
+def xu_ly(event_data):
+    print("Mã phím:", event_data.keycode)
+
+app = App()
+text = TextBox(app)
+text.when_key_pressed = xu_ly
+app.display()</code></pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+
+</table>
+
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+</table>
+<p><strong>📌 Lưu ý:</strong> Chỉ các thông tin liên quan tới sự kiện mới được cung cấp.<br>
+Ví dụ: <code>key</code> chỉ có khi xảy ra sự kiện bàn phím, <code>width/height</code> chỉ có khi widget thay đổi kích thước.</p>
+
+<h4>Ví dụ sử dụng dữ liệu sự kiện:</h4>
+<pre><code class="language-python">def clicked(event_data):
+    print("Widget được nhấn =", event_data.widget)
+    print("Vị trí chuột =", event_data.x, ".", event_data.y)
+
+widget.when_clicked = clicked</code></pre>
+
+<h4>Ví dụ đầy đủ</h4>
+<p>Làm nổi bật một ô nhập văn bản khi chuột đi vào và trả lại bình thường khi chuột rời khỏi:</p>
+<pre><code class="language-python">from guizero import App, TextBox
+
+def highlight():
+    text_box.bg = "lightblue"
+
+def lowlight():
+    text_box.bg = "white"
+
+app = App()
+text_box = TextBox(app)
+
+# Khi chuột đi vào TextBox
+text_box.when_mouse_enters = highlight
+# Khi chuột rời khỏi TextBox
+text_box.when_mouse_leaves = lowlight
+
+app.display()</code></pre>
+
+    
+    </div>
+    </div>
+  </div>
+</div>
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                Huỳnh Ngọc Thái
+            </div>
+        </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+        <div class="switcher-icon">
+            <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+        </div>
+        <div class="right-sidebar-content">
+
+            <p class="mb-0">Gaussion Texture</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme1"></li>
+                <li id="theme2"></li>
+                <li id="theme3"></li>
+                <li id="theme4"></li>
+                <li id="theme5"></li>
+                <li id="theme6"></li>
+            </ul>
+
+            <p class="mb-0">Gradient Background</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme7"></li>
+                <li id="theme8"></li>
+                <li id="theme9"></li>
+                <li id="theme10"></li>
+                <li id="theme11"></li>
+                <li id="theme12"></li>
+                <li id="theme13"></li>
+                <li id="theme14"></li>
+                <li id="theme15"></li>
+            </ul>
+
+        </div>
+    </div>
+    <!--end color switcher-->
+
+    </div><!--End wrapper-->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- simplebar js -->
+    <script src="../plugins/simplebar/js/simplebar.js"></script>
+    <!-- sidebar-menu js -->
+    <script src="../js/sidebar-menu.js"></script>
+    <!-- loader scripts -->
+    <script src="../js/jquery.loading-indicator.js"></script>
+    <!-- Custom scripts -->
+    <script src="../js/app-script.js"></script>
+    <!-- Chart js -->
+
+    <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+    <!-- Index js -->
+
+    <script>
+        $("#sidebar-placeholder").load("layout.html");
+
+    </script>
+
+
+</body>
+
+</html>
