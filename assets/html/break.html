@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Học Python với Thầy Thái</title>
+  <!-- loader-->
+
+  <!--favicon-->
+  <link rel="icon" href="../images/logo.png" type="image/x-icon">
+  <!-- Vector CSS -->
+  <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+  <!-- simplebar CSS-->
+  <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+  <!-- Bootstrap core CSS-->
+  <link href="../css/bootstrap.min.css" rel="stylesheet" />
+  <!-- animate CSS-->
+  <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+  <!-- Icons CSS-->
+  <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+  <!-- Sidebar CSS-->
+  <link href="../css/sidebar-menu.css" rel="stylesheet" />
+  <!-- Custom Style-->
+  <link href="../css/app-style.css" rel="stylesheet" />
+  <!-- Bootstrap 5 CSS -->
+<!-- Prism.js CSS -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+<!-- Prism.js -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+<!-- Plugin for line numbers + copy -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet"/>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css" rel="stylesheet"/>
+
+
+  <!-- Bootstrap 5 JS + Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+  .card-header{
+    font-size: 18px;
+  }
+  .card-body h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #f3f6f9;
+}
+
+.card-body ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+.card-body ul li {
+  margin-bottom: 0.5rem;
+  font-size: 18px;
+}
+
+p{
+  font-size: 18px;
+}
+
+
+
+</style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+  <!-- Start wrapper-->
+  <div id="wrapper">
+
+    <!--Start sidebar-wrapper-->
+    <div id="sidebar-placeholder"></div>
+
+    <!--End sidebar-wrapper-->
+
+    <!--Start topbar header-->
+    <header class="topbar-nav">
+      <nav class="navbar navbar-expand fixed-top">
+        <ul class="navbar-nav mr-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link toggle-menu" href="javascript:void();">
+              <i class="icon-menu menu-icon"></i>
+            </a>
+          </li>
+
+        </ul>
+
+
+      </nav>
+    </header>
+    <!--End topbar header-->
+
+    <div class="clearfix"></div>
+<div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Câu lệnh break trong Python <small class="text-muted">8 phút đọc</small></h3>
+        </div>
+        <div class="card-body">
+
+<p>Câu lệnh break là một trong những công cụ quan trọng trong Python để kiểm soát luồng thực thi của các vòng lặp. Nó cho phép bạn kết thúc vòng lặp ngay lập tức khi một điều kiện nhất định được thỏa mãn, giúp bạn tránh các vòng lặp vô hạn và tối ưu hóa hiệu suất của chương trình. Trong bài viết này, chúng ta sẽ tìm hiểu chi tiết về cú pháp, cách sử dụng và các ví dụ minh họa của câu lệnh break trong Python.</p>
+
+<h4>Cú pháp của câu lệnh break</h4>
+<p>Cú pháp của câu lệnh break rất đơn giản và dễ hiểu. Nó được sử dụng bên trong thân của vòng lặp for hoặc while để kết thúc vòng lặp ngay lập tức khi gặp phải câu lệnh này.</p>
+
+<p><strong>Cú pháp:</strong></p>
+<pre><code class="language-python">break</code></pre>
+
+<p>Câu lệnh break thường được sử dụng cùng với các câu lệnh điều kiện như if để kiểm tra một điều kiện nào đó trước khi quyết định kết thúc vòng lặp.</p>
+
+<h4>Ví dụ về câu lệnh break</h4>
+
+<h5>Ví dụ 1: Sử dụng break trong vòng lặp for</h5>
+<p>Trong ví dụ này, chúng ta sẽ sử dụng câu lệnh break để kết thúc vòng lặp for khi gặp một ký tự cụ thể trong chuỗi.</p>
+
+<pre><code class="language-python">for letter in 'Python':
+    if letter == 'h':
+        break
+    print('Current Letter:', letter)</code></pre>
+
+<p><strong>Kết quả:</strong></p>
+<pre><code class="language-python">Current Letter: P
+Current Letter: y
+Current Letter: t</code></pre>
+
+<p>Trong ví dụ này, vòng lặp for sẽ lặp qua từng ký tự trong chuỗi 'Python'. Khi gặp ký tự 'h', câu lệnh break sẽ được thực thi và vòng lặp sẽ kết thúc ngay lập tức.</p>
+
+<h5>Ví dụ 2: Sử dụng break trong vòng lặp while</h5>
+<p>Trong ví dụ này, chúng ta sẽ sử dụng câu lệnh break để kết thúc vòng lặp while khi giá trị của biến var giảm xuống còn 5.</p>
+
+<pre><code class="language-python">var = 10
+while var > 0:
+    print('Current variable value:', var)
+    var -= 1
+    if var == 5:
+        break
+print("Good bye!")</code></pre>
+
+<p><strong>Kết quả:</strong></p>
+<pre><code class="language-python">Current variable value: 10
+Current variable value: 9
+Current variable value: 8
+Current variable value: 7
+Current variable value: 6
+Good bye!</code></pre>
+
+<p>Trong ví dụ này, vòng lặp while sẽ tiếp tục chạy cho đến khi giá trị của var giảm xuống còn 5. Khi điều kiện var == 5 được thỏa mãn, câu lệnh break sẽ kết thúc vòng lặp.</p>
+
+<h4>Sử dụng break trong các vòng lặp lồng nhau</h4>
+<p>Khi sử dụng các vòng lặp lồng nhau, câu lệnh break sẽ chỉ kết thúc vòng lặp bên trong nhất mà nó nằm trong đó. Vòng lặp bên ngoài sẽ tiếp tục chạy bình thường.</p>
+
+<p>Ví dụ:</p>
+<pre><code class="language-python">for i in range(3):
+    for j in range(3):
+        if j == 1:
+            break
+        print(f'i: {i}, j: {j}')</code></pre>
+
+<p><strong>Kết quả:</strong></p>
+<pre><code class="language-python">i: 0, j: 0
+i: 1, j: 0
+i: 2, j: 0</code></pre>
+
+<p>Trong ví dụ này, khi j bằng 1, câu lệnh break sẽ kết thúc vòng lặp for bên trong, nhưng vòng lặp for bên ngoài vẫn tiếp tục chạy.</p>
+
+<h4>Sử dụng break để kiểm tra số nguyên tố</h4>
+<p>Câu lệnh break có thể được sử dụng để kiểm tra xem một số có phải là số nguyên tố hay không. Một số nguyên tố là số chỉ chia hết cho 1 và chính nó.</p>
+
+<p>Ví dụ:</p>
+<pre><code class="language-python">num = 37
+for i in range(2, num):
+    if num % i == 0:
+        print(f'{num} is not prime')
+        break
+else:
+    print(f'{num} is prime')</code></pre>
+
+<p><strong>Kết quả:</strong></p>
+<pre><code class="language-python">37 is prime</code></pre>
+
+<p>Trong ví dụ này, vòng lặp for sẽ kiểm tra xem num có chia hết cho bất kỳ số nào từ 2 đến num-1 hay không. Nếu có, câu lệnh break sẽ kết thúc vòng lặp và in ra rằng số đó không phải là số nguyên tố. Nếu không, khối lệnh else sẽ được thực thi và in ra rằng số đó là số nguyên tố.</p>
+
+<h4>Sử dụng break trong các ứng dụng thực tế</h4>
+<p>Câu lệnh break thường được sử dụng trong các ứng dụng thực tế để kiểm soát luồng thực thi của chương trình một cách hiệu quả. Dưới đây là một số ví dụ về cách sử dụng break trong các tình huống thực tế.</p>
+
+<h5>Ví dụ 1: Tìm kiếm trong danh sách</h5>
+<p>Trong ví dụ này, chúng ta sẽ sử dụng câu lệnh break để tìm kiếm một số trong danh sách. Nếu tìm thấy số đó, vòng lặp sẽ kết thúc ngay lập tức.</p>
+
+<pre><code class="language-python">numbers = [11, 33, 55, 39, 55, 75, 37, 21, 23, 41, 13]
+no = int(input('Enter a number: '))
+for num in numbers:
+    if num == no:
+        print('Number found in list')
+        break
+else:
+    print('Number not found in list')</code></pre>
+
+<p><strong>Kết quả:</strong></p>
+<pre><code class="language-python">Enter a number: 33
+Number found in list</code></pre>
+
+<p>Trong ví dụ này, người dùng nhập vào một số và chương trình sẽ tìm kiếm số đó trong danh sách numbers. Nếu tìm thấy, câu lệnh break sẽ kết thúc vòng lặp và in ra thông báo "Number found in list". Nếu không tìm thấy, khối lệnh else sẽ được thực thi và in ra thông báo "Number not found in list".</p>
+
+<h5>Ví dụ 2: Đọc tệp tin lớn</h5>
+<p>Trong ví dụ này, chúng ta sẽ sử dụng câu lệnh break để dừng việc đọc tệp tin khi gặp một dòng chứa từ khóa "ERROR".</p>
+
+<pre><code class="language-python">with open('large_file.txt', 'r') as file:
+    for line in file:
+        if 'ERROR' in line:
+            print('Error found! Stopping processing.')
+            break</code></pre>
+
+<p>Trong ví dụ này, chương trình sẽ đọc từng dòng của tệp tin large_file.txt. Khi gặp một dòng chứa từ khóa "ERROR", câu lệnh break sẽ kết thúc vòng lặp và dừng việc đọc tệp tin.</p>
+
+<h4>Kết luận</h4>
+<p>Câu lệnh break là một công cụ mạnh mẽ và linh hoạt trong Python, cho phép bạn kiểm soát luồng thực thi của các vòng lặp một cách hiệu quả. Bằng cách sử dụng câu lệnh break, bạn có thể kết thúc vòng lặp ngay lập tức khi một điều kiện nhất định được thỏa mãn, giúp tối ưu hóa hiệu suất của chương trình và tránh các vòng lặp vô hạn. Việc nắm vững cách sử dụng câu lệnh break sẽ giúp bạn viết mã Python ngắn gọn, dễ đọc và hiệu quả hơn.</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+      <div class="container">
+        <div class="text-center">
+          Huỳnh Ngọc Thái
+        </div>
+      </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+      <div class="switcher-icon">
+        <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+      </div>
+      <div class="right-sidebar-content">
+
+        <p class="mb-0">Gaussion Texture</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme1"></li>
+          <li id="theme2"></li>
+          <li id="theme3"></li>
+          <li id="theme4"></li>
+          <li id="theme5"></li>
+          <li id="theme6"></li>
+        </ul>
+
+        <p class="mb-0">Gradient Background</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme7"></li>
+          <li id="theme8"></li>
+          <li id="theme9"></li>
+          <li id="theme10"></li>
+          <li id="theme11"></li>
+          <li id="theme12"></li>
+          <li id="theme13"></li>
+          <li id="theme14"></li>
+          <li id="theme15"></li>
+        </ul>
+
+      </div>
+    </div>
+    <!--end color switcher-->
+
+  </div><!--End wrapper-->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+
+  <!-- simplebar js -->
+  <script src="../plugins/simplebar/js/simplebar.js"></script>
+  <!-- sidebar-menu js -->
+  <script src="../js/sidebar-menu.js"></script>
+  <!-- loader scripts -->
+  <script src="../js/jquery.loading-indicator.js"></script>
+  <!-- Custom scripts -->
+  <script src="../js/app-script.js"></script>
+  <!-- Chart js -->
+
+  <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+  <!-- Index js -->
+
+  <script>
+    $("#sidebar-placeholder").load("layout.html");
+
+  </script>
+
+
+</body>
+
+</html>
