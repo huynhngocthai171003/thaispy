@@ -177,6 +177,8 @@ app.display()</code></pre>
 <tr class="param-row" onclick="toggleExample('ex-master-btn')">
   <td>master</td>
   <td>App, Window hoặc Box</td>
+  <td>-</td>
+  <td>Có</td>
   <td>Widget cha chứa nút này</td>
 </tr>
 <tr id="ex-master-btn" class="example" style="display: none;">
@@ -199,6 +201,8 @@ app.display()
 <tr class="param-row" onclick="toggleExample('ex-command-btn')">
   <td>command</td>
   <td>tên hàm</td>
+  <td>None</td>
+  <td>-</td>
   <td>Hàm được gọi khi nhấn nút</td>
 </tr>
 <tr id="ex-command-btn" class="example" style="display: none;">
@@ -222,6 +226,8 @@ app.display()
 <tr class="param-row" onclick="toggleExample('ex-align-btn')">
   <td>align</td>
   <td>chuỗi</td>
+  <td>None</td>
+  <td>-</td>
   <td>Căn lề trong container</td>
 </tr>
 <tr id="ex-align-btn" class="example" style="display: none;">
@@ -243,6 +249,8 @@ app.display()
 <tr class="param-row" onclick="toggleExample('ex-args-btn')">
   <td>args</td>
   <td>danh sách</td>
+  <td>None</td>
+  <td>-</td>
   <td>Tham số cho hàm</td>
 </tr>
 <tr id="ex-args-btn" class="example" style="display: none;">
@@ -266,6 +274,8 @@ app.display()
 <tr class="param-row" onclick="toggleExample('ex-grid-btn')">
   <td>grid</td>
   <td>[int, int]</td>
+  <td>None</td>
+  <td>-</td>
   <td>Vị trí trong lưới</td>
 </tr>
 <tr id="ex-grid-btn" class="example" style="display: none;">
@@ -286,6 +296,8 @@ app.display()
 <tr class="param-row" onclick="toggleExample('ex-image-btn')">
   <td>image</td>
   <td>chuỗi</td>
+  <td>None</td>
+  <td>-</td>
   <td>Ảnh hiển thị trên nút</td>
 </tr>
 <tr id="ex-image-btn" class="example" style="display: none;">
@@ -306,6 +318,8 @@ app.display()
 <tr class="param-row" onclick="toggleExample('ex-padx-btn')">
   <td>padx</td>
   <td>số nguyên</td>
+  <td>None</td>
+  <td>-</td>
   <td>Khoảng cách ngang</td>
 </tr>
 <tr id="ex-padx-btn" class="example" style="display: none;">
@@ -326,6 +340,8 @@ app.display()
 <tr class="param-row" onclick="toggleExample('ex-pady-btn')">
   <td>pady</td>
   <td>số nguyên</td>
+  <td>None</td>
+  <td>-</td>
   <td>Khoảng cách dọc</td>
 </tr>
 <tr id="ex-pady-btn" class="example" style="display: none;">
@@ -346,6 +362,8 @@ app.display()
 <tr class="param-row" onclick="toggleExample('ex-text-btn')">
   <td>text</td>
   <td>chuỗi</td>
+  <td>"Button"</td>
+  <td>-</td>
   <td>Văn bản hiển thị</td>
 </tr>
 <tr id="ex-text-btn" class="example" style="display: none;">
@@ -366,6 +384,8 @@ app.display()
 <tr class="param-row" onclick="toggleExample('ex-visible-btn')">
   <td>visible</td>
   <td>boolean</td>
+  <td>True</td>
+  <td>Không</td>
   <td>Hiển thị hay không</td>
 </tr>
 <tr id="ex-visible-btn" class="example" style="display: none;">
@@ -388,7 +408,10 @@ app.display()
 <!-- enabled -->
 <tr class="param-row" onclick="toggleExample('ex-enabled-btn')">
   <td>enabled</td>
+  
   <td>boolean</td>
+  <td>None</td>
+  <td>Không</td>
   <td>Bật hoặc tắt tương tác</td>
 </tr>
 <tr id="ex-enabled-btn" class="example" style="display: none;">
@@ -409,6 +432,8 @@ app.display()
 <tr class="param-row" onclick="toggleExample('ex-width-btn')">
   <td>width</td>
   <td>kích thước</td>
+  <td>None</td>
+  <td>Không</td>
   <td>Chiều rộng nút</td>
 </tr>
 <tr id="ex-width-btn" class="example" style="display: none;">
@@ -429,6 +454,8 @@ app.display()
 <tr class="param-row" onclick="toggleExample('ex-height-btn')">
   <td>height</td>
   <td>kích thước</td>
+  <td>None</td>
+  <td>Không</td>
   <td>Chiều cao nút</td>
 </tr>
 <tr id="ex-height-btn" class="example" style="display: none;">
@@ -471,6 +498,7 @@ function toggleExample(id) {
 <tr class="param-row" onclick="toggleExample('ex-after1')">
   <td>after()</td>
   <td>time, command, args</td>
+  <td>-</td>
   <td>Gọi hàm sau khoảng thời gian (ms)</td>
 </tr>
 <tr id="ex-after1" class="example" style="display: none;">
@@ -494,6 +522,7 @@ app.display()
 <tr class="param-row" onclick="toggleExample('ex-cancel1')">
   <td>cancel()</td>
   <td>command</td>
+  <td>-</td>
   <td>Hủy hàm đã lên lịch</td>
 </tr>
 <tr id="ex-cancel1" class="example" style="display: none;">
@@ -518,6 +547,7 @@ app.display()
 <tr class="param-row" onclick="toggleExample('ex-destroy1')">
   <td>destroy()</td>
   <td>-</td>
+  <td>-</td>
   <td>Hủy widget</td>
 </tr>
 <tr id="ex-destroy1" class="example" style="display: none;">
@@ -541,6 +571,7 @@ app.display()
 <tr class="param-row" onclick="toggleExample('ex-disable1')">
   <td>disable()</td>
   <td>-</td>
+  <td>-</td>
   <td>Vô hiệu hóa nút</td>
 </tr>
 <tr id="ex-disable1" class="example" style="display: none;">
@@ -563,6 +594,7 @@ app.display()
 <!-- enable() -->
 <tr class="param-row" onclick="toggleExample('ex-enable1')">
   <td>enable()</td>
+  <td>-</td>
   <td>-</td>
   <td>Kích hoạt lại nút</td>
 </tr>
@@ -589,6 +621,7 @@ app.display()
 <tr class="param-row" onclick="toggleExample('ex-focus1')">
   <td>focus()</td>
   <td>-</td>
+  <td>-</td>
   <td>Đặt tiêu điểm vào nút</td>
 </tr>
 <tr id="ex-focus1" class="example" style="display: none;">
@@ -611,6 +644,7 @@ app.display()
 <!-- hide() -->
 <tr class="param-row" onclick="toggleExample('ex-hide1')">
   <td>hide()</td>
+  <td>-</td>
   <td>-</td>
   <td>Ẩn nút khỏi giao diện</td>
 </tr>
@@ -635,6 +669,7 @@ app.display()
 <tr class="param-row" onclick="toggleExample('ex-padding1')">
   <td>padding()</td>
   <td>padx, pady</td>
+  <td>-</td>
   <td>Đặt khoảng cách viền nội dung</td>
 </tr>
 <tr id="ex-padding1" class="example" style="display: none;">
@@ -656,6 +691,7 @@ app.display()
 <tr class="param-row" onclick="toggleExample('ex-repeat1')">
   <td>repeat()</td>
   <td>time, command, args</td>
+  <td>-</td>
   <td>Lặp gọi hàm</td>
 </tr>
 <tr id="ex-repeat1" class="example" style="display: none;">
@@ -679,6 +715,7 @@ app.display()
 <tr class="param-row" onclick="toggleExample('ex-resize1')">
   <td>resize()</td>
   <td>width, height</td>
+  <td>-</td>
   <td>Đặt lại kích thước nút</td>
 </tr>
 <tr id="ex-resize1" class="example" style="display: none;">
@@ -701,6 +738,7 @@ app.display()
 <!-- show() -->
 <tr class="param-row" onclick="toggleExample('ex-show1')">
   <td>show()</td>
+  <td>-</td>
   <td>-</td>
   <td>Hiển thị lại nút</td>
 </tr>
@@ -729,6 +767,7 @@ app.display()
 <tr class="param-row" onclick="toggleExample('ex-toggle1')">
   <td>toggle()</td>
   <td>-</td>
+  <td>-</td>
   <td>Đổi trạng thái giữa bật/tắt</td>
 </tr>
 <tr id="ex-toggle1" class="example" style="display: none;">
@@ -753,6 +792,7 @@ app.display()
 <tr class="param-row" onclick="toggleExample('ex-update_command1')">
   <td>update_command()</td>
   <td>command, args</td>
+  <td>-</td>
   <td>Cập nhật hàm được gọi khi nhấn</td>
 </tr>
 <tr id="ex-update_command1" class="example" style="display: none;">
@@ -810,9 +850,11 @@ function toggleExample(id) {
 from guizero import App, Box, PushButton
 
 app = App()
-box = Box(app, align="top")
-PushButton(box, text="Căn trái", align="left")
+box = Box(app)
+btn = PushButton(box, text="Căn trái")
+btn.align = "left"
 app.display()
+
     </code></pre>
   </td>
 </tr>
@@ -831,8 +873,10 @@ app.display()
 from guizero import App, PushButton
 
 app = App()
-PushButton(app, text="Tôi có nền đỏ", bg="red")
+btn = PushButton(app, text="Tôi có nền đỏ")
+btn.bg = "red"
 app.display()
+
     </code></pre>
   </td>
 </tr>
@@ -851,8 +895,10 @@ app.display()
 from guizero import App, PushButton
 
 app = App()
-btn = PushButton(app, text="Không thể nhấn", enabled=False)
+btn = PushButton(app, text="Không thể nhấn")
+btn.enabled = False
 app.display()
+
     </code></pre>
   </td>
 </tr>
@@ -871,8 +917,10 @@ app.display()
 from guizero import App, PushButton
 
 app = App()
-PushButton(app, text="Font Arial", font="Arial")
+btn = PushButton(app, text="Font Arial")
+btn.font = "Arial"
 app.display()
+
     </code></pre>
   </td>
 </tr>
@@ -891,8 +939,10 @@ app.display()
 from guizero import App, PushButton
 
 app = App(layout="grid")
-PushButton(app, text="Góc trái trên", grid=[0,0])
+btn = PushButton(app, text="Góc trái trên")
+btn.grid = [0, 0]
 app.display()
+
     </code></pre>
   </td>
 </tr>
@@ -911,8 +961,10 @@ app.display()
 from guizero import App, PushButton
 
 app = App()
-PushButton(app, text="Cao hơn", height=4)
+btn = PushButton(app, text="Cao hơn")
+btn.height = 4
 app.display()
+
     </code></pre>
   </td>
 </tr>
@@ -931,8 +983,10 @@ app.display()
 from guizero import App, PushButton
 
 app = App()
-PushButton(app, image="cat.gif")
+btn = PushButton(app)
+btn.image = "cat.gif"
 app.display()
+
     </code></pre>
   </td>
 </tr>
@@ -955,6 +1009,7 @@ box = Box(app)
 btn = PushButton(box, text="Nút trong box")
 print(btn.master)  # Box
 app.display()
+
     </code></pre>
   </td>
 </tr>
@@ -973,8 +1028,10 @@ app.display()
 from guizero import App, PushButton
 
 app = App()
-PushButton(app, text="Tôi là nút")
+btn = PushButton(app)
+btn.text = "Tôi là nút"
 app.display()
+
     </code></pre>
   </td>
 </tr>
@@ -993,8 +1050,11 @@ app.display()
 from guizero import App, PushButton
 
 app = App()
-PushButton(app, text="Chữ màu trắng", text_color="white", bg="black")
+btn = PushButton(app, text="Chữ màu trắng")
+btn.text_color = "white"
+btn.bg = "black"
 app.display()
+
     </code></pre>
   </td>
 </tr>
@@ -1013,8 +1073,10 @@ app.display()
 from guizero import App, PushButton
 
 app = App()
-PushButton(app, text="Chữ lớn", text_size=20)
+btn = PushButton(app, text="Chữ lớn")
+btn.text_size = 20
 app.display()
+
     </code></pre>
   </td>
 </tr>
@@ -1033,8 +1095,10 @@ app.display()
 from guizero import App, PushButton
 
 app = App()
-PushButton(app, text="Đậm", text_bold=True)
+btn = PushButton(app, text="Đậm")
+btn.text_bold = True
 app.display()
+
     </code></pre>
   </td>
 </tr>
@@ -1053,8 +1117,10 @@ app.display()
 from guizero import App, PushButton
 
 app = App()
-PushButton(app, text="Nghiêng", text_italic=True)
+btn = PushButton(app, text="Nghiêng")
+btn.text_italic = True
 app.display()
+
     </code></pre>
   </td>
 </tr>
@@ -1073,8 +1139,10 @@ app.display()
 from guizero import App, PushButton
 
 app = App()
-PushButton(app, text="Gạch dưới", text_underline=True)
+btn = PushButton(app, text="Gạch dưới")
+btn.text_underline = True
 app.display()
+
     </code></pre>
   </td>
 </tr>
@@ -1093,8 +1161,10 @@ app.display()
 from guizero import App, PushButton
 
 app = App()
-PushButton(app, text="Gạch ngang", text_overstrike=True)
+btn = PushButton(app, text="Gạch ngang")
+btn.text_overstrike = True
 app.display()
+
     </code></pre>
   </td>
 </tr>
@@ -1116,6 +1186,7 @@ app = App()
 btn = PushButton(app, text="Tùy chỉnh border")
 btn.tk.config(borderwidth=4, relief="ridge")
 app.display()
+
     </code></pre>
   </td>
 </tr>
@@ -1139,6 +1210,7 @@ def check_value():
 app = App()
 btn = PushButton(app, text="Kiểm tra", command=check_value)
 app.display()
+
     </code></pre>
   </td>
 </tr>
@@ -1162,6 +1234,7 @@ def an():
 app = App()
 btn = PushButton(app, text="Tôi sẽ biến mất", command=an)
 app.display()
+
     </code></pre>
   </td>
 </tr>
@@ -1180,8 +1253,10 @@ app.display()
 from guizero import App, PushButton
 
 app = App()
-PushButton(app, text="Nút rộng", width=25)
+btn = PushButton(app, text="Nút rộng")
+btn.width = 25
 app.display()
+
     </code></pre>
   </td>
 </tr>
