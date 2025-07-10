@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Học Python với Thầy Thái</title>
+    <!-- loader-->
+
+    <!--favicon-->
+    <link rel="icon" href="../images/logo.png" type="image/x-icon">
+    <!-- Vector CSS -->
+    <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <!-- simplebar CSS-->
+    <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- animate CSS-->
+    <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+    <!-- Icons CSS-->
+    <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+    <!-- Sidebar CSS-->
+    <link href="../css/sidebar-menu.css" rel="stylesheet" />
+    <!-- Custom Style-->
+    <link href="../css/app-style.css" rel="stylesheet" />
+    <!-- Bootstrap 5 CSS -->
+    <!-- Prism.js CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <!-- Prism.js -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Plugin for line numbers + copy -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet" />
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css"
+        rel="stylesheet" />
+
+
+    <!-- Bootstrap 5 JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .card-header {
+            font-size: 18px;
+        }
+
+        .card-body h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #f3f6f9;
+        }
+
+        .card-body ul {
+            padding-left: 1.2rem;
+            list-style-type: disc;
+        }
+
+        .card-body ul li {
+            margin-bottom: 0.5rem;
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <!--Start sidebar-wrapper-->
+        <div id="sidebar-placeholder"></div>
+
+        <!--End sidebar-wrapper-->
+
+        <!--Start topbar header-->
+        <header class="topbar-nav">
+            <nav class="navbar navbar-expand fixed-top">
+                <ul class="navbar-nav mr-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link toggle-menu" href="javascript:void();">
+                            <i class="icon-menu menu-icon"></i>
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </nav>
+        </header>
+        <!--End topbar header-->
+
+        <div class="clearfix"></div>
+
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Strings trong Python <small class="text-muted">6 phút đọc</small></h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Strings là một trong những kiểu dữ liệu cơ bản và quan trọng nhất trong Python. Chúng
+                                được sử dụng để lưu trữ và thao tác với văn bản. Trong bài viết này, chúng ta sẽ tìm
+                                hiểu chi tiết về cách tạo, truy cập, cập nhật, và sử dụng các phương thức tích hợp của
+                                strings trong Python. Bài viết sẽ bao gồm các ví dụ minh họa cụ thể để giúp bạn hiểu rõ
+                                hơn về cách làm việc với strings.</p>
+
+                            <h3>Tạo Strings trong Python</h3>
+                            <p>Trong Python, strings có thể được tạo bằng cách sử dụng dấu nháy đơn (') hoặc dấu nháy
+                                kép ("). Bạn cũng có thể sử dụng ba dấu nháy đơn (''') hoặc ba dấu nháy kép (""") để tạo
+                                ra các chuỗi nhiều dòng.</p>
+                            <pre class="line-numbers"><code class="language-python"># Tạo string bằng dấu nháy đơn
+string1 = 'Hello, Python!'
+print(string1)
+
+# Tạo string bằng dấu nháy kép
+string2 = "Hello, Python!"
+print(string2)
+
+# Tạo string nhiều dòng bằng ba dấu nháy đơn
+string3 = '''This is a
+multiline string.'''
+print(string3)
+
+# Tạo string nhiều dòng bằng ba dấu nháy kép
+string4 = """This is also a
+multiline string."""
+print(string4)</code></pre>
+
+                            <h3>Truy cập các giá trị trong Strings</h3>
+                            <p>Bạn có thể truy cập các ký tự trong một string bằng cách sử dụng chỉ số (index). Python
+                                sử dụng chỉ số bắt đầu từ 0, nghĩa là ký tự đầu tiên của string có chỉ số là 0. Bạn cũng
+                                có thể sử dụng chỉ số âm để truy cập các ký tự từ cuối string.</p>
+                            <pre class="line-numbers"><code class="language-python">string = "Hello, Python!"
+
+# Truy cập ký tự đầu tiên
+print(string[0])  # H
+
+# Truy cập ký tự thứ hai
+print(string[1])  # e
+
+# Truy cập ký tự cuối cùng
+print(string[-1])  # !
+
+# Truy cập ký tự thứ hai từ cuối
+print(string[-2])  # n</code></pre>
+
+                            <h3>Cập nhật Strings</h3>
+                            <p>Strings trong Python là bất biến (immutable), nghĩa là bạn không thể thay đổi nội dung
+                                của một string sau khi nó được tạo. Tuy nhiên, bạn có thể tạo một string mới bằng cách
+                                kết hợp các phần của string cũ với các giá trị mới.</p>
+                            <pre class="line-numbers"><code class="language-python">string = "Hello, Python!"
+
+# Tạo string mới bằng cách thay đổi một phần của string cũ
+new_string = string[:7] + "World!"
+print(new_string)</code></pre>
+
+                            <h3>Ký tự thoát (Escape Characters)</h3>
+                            <p>Ký tự thoát được sử dụng để biểu diễn các ký tự đặc biệt trong strings. Một số ký tự
+                                thoát phổ biến bao gồm:</p>
+                            <ul>
+                                <li>\n: Xuống dòng</li>
+                                <li>\t: Tab</li>
+                                <li>\\: Dấu gạch chéo ngược</li>
+                                <li>\': Dấu nháy đơn</li>
+                                <li>\": Dấu nháy kép</li>
+                            </ul>
+                            <pre class="line-numbers"><code class="language-python">string = "Hello,\nPython!\tWelcome to the world of \\strings\\."
+print(string)</code></pre>
+
+                            <h3>Toán tử đặc biệt với Strings</h3>
+                            <p>Python cung cấp một số toán tử đặc biệt để làm việc với strings, bao gồm:</p>
+                            <ul>
+                                <li>Toán tử cộng (+): Kết hợp hai strings</li>
+                                <li>Toán tử nhân (*): Lặp lại một string nhiều lần</li>
+                            </ul>
+                            <pre class="line-numbers"><code class="language-python">string1 = "Hello"
+string2 = "Python"
+
+# Kết hợp hai strings
+combined_string = string1 + ", " + string2 + "!"
+print(combined_string)
+
+# Lặp lại một string nhiều lần
+repeated_string = string1 * 3
+print(repeated_string)</code></pre>
+
+                            <h3>Toán tử định dạng chuỗi (String Formatting Operator)</h3>
+                            <p>Python cung cấp nhiều cách để định dạng chuỗi, bao gồm sử dụng toán tử %, phương thức
+                                format(), và f-strings.</p>
+                            <p>Ví dụ sử dụng toán tử %:</p>
+                            <pre class="line-numbers"><code class="language-python">name = "Python"
+age = 30
+
+formatted_string = "Hello, %s! You are %d years old." % (name, age)
+print(formatted_string)</code></pre>
+
+                            <p>Ví dụ sử dụng phương thức format():</p>
+                            <pre class="line-numbers"><code class="language-python">formatted_string = "Hello, {}! You are {} years old.".format(name, age)
+print(formatted_string)</code></pre>
+
+                            <p>Ví dụ sử dụng f-strings:</p>
+                            <pre class="line-numbers"><code class="language-python">formatted_string = f"Hello, {name}! You are {age} years old."
+print(formatted_string)</code></pre>
+
+                            <h3>Dấu nháy kép trong Strings Python</h3>
+                            <p>Bạn có thể sử dụng dấu nháy kép bên trong một string được bao quanh bởi dấu nháy đơn, và
+                                ngược lại.</p>
+                            <pre class="line-numbers"><code class="language-python">string1 = 'He said, "Python is awesome!"'
+string2 = "It's a beautiful day."
+
+print(string1)
+print(string2)</code></pre>
+
+                            <h3>Dấu nháy ba (Triple Quotes)</h3>
+                            <p>Dấu nháy ba (ba dấu nháy đơn hoặc ba dấu nháy kép) được sử dụng để tạo ra các chuỗi nhiều
+                                dòng.</p>
+                            <pre class="line-numbers"><code class="language-python">multiline_string = """This is a
+multiline string.
+It spans multiple lines."""
+print(multiline_string)</code></pre>
+
+                            <h3>Chuỗi nhiều dòng trong Python (Python Multiline Strings)</h3>
+                            <p>Chuỗi nhiều dòng có thể được tạo ra bằng cách sử dụng dấu nháy ba hoặc bằng cách sử dụng
+                                dấu gạch chéo ngược (\) để tiếp tục dòng.</p>
+                            <p>Ví dụ sử dụng dấu nháy ba:</p>
+                            <pre class="line-numbers"><code class="language-python">multiline_string = """This is a
+multiline string.
+It spans multiple lines."""
+print(multiline_string)</code></pre>
+
+                            <p>Ví dụ sử dụng dấu gạch chéo ngược:</p>
+                            <pre class="line-numbers"><code class="language-python">multiline_string = "This is a\n" \
+                   "multiline string.\n" \
+                   "It spans multiple lines."
+print(multiline_string)</code></pre>
+
+                            <h3>Toán tử số học với Strings</h3>
+                            <p>Toán tử số học như cộng (+) và nhân (*) có thể được sử dụng với strings để kết hợp và lặp
+                                lại chuỗi.</p>
+                            <pre class="line-numbers"><code class="language-python">string1 = "Hello"
+string2 = "Python"
+
+# Kết hợp hai strings
+combined_string = string1 + ", " + string2 + "!"
+print(combined_string)
+
+# Lặp lại một string nhiều lần
+repeated_string = string1 * 3
+print(repeated_string)</code></pre>
+
+                            <h3>Kiểm tra kiểu của Strings trong Python</h3>
+                            <pre class="line-numbers"><code class="language-python">string = "Hello, Python!"
+print(type(string))</code></pre>
+
+                            <h3>Các phương thức tích hợp của Strings</h3>
+                            <p>Python cung cấp nhiều phương thức tích hợp để làm việc với strings. Dưới đây là một số
+                                phương thức phổ biến:</p>
+                            <ul>
+                                <li><code>upper()</code>: Chuyển đổi tất cả các ký tự trong chuỗi thành chữ hoa</li>
+                                <li><code>lower()</code>: Chuyển đổi tất cả các ký tự trong chuỗi thành chữ thường</li>
+                                <li><code>strip()</code>: Loại bỏ khoảng trắng ở đầu và cuối chuỗi</li>
+                                <li><code>replace()</code>: Thay thế một chuỗi con bằng một chuỗi khác</li>
+                                <li><code>split()</code>: Chia chuỗi thành danh sách các chuỗi con</li>
+                            </ul>
+                            <pre class="line-numbers"><code class="language-python">string = "  Hello, Python!  "
+
+# Chuyển đổi thành chữ hoa
+print(string.upper())
+
+# Chuyển đổi thành chữ thường
+print(string.lower())
+
+# Loại bỏ khoảng trắng
+print(string.strip())
+
+# Thay thế chuỗi con
+print(string.replace("Python", "World"))
+
+# Chia chuỗi
+print(string.split(","))</code></pre>
+
+                            <h3>Kết luận</h3>
+                            <p>Strings là một phần quan trọng của Python và được sử dụng rộng rãi trong nhiều ứng dụng.
+                                Bằng cách nắm vững cách tạo, truy cập, cập nhật, và sử dụng các phương thức tích hợp của
+                                strings, bạn có thể viết mã Python hiệu quả và dễ đọc hơn. Hy vọng bài viết này đã cung
+                                cấp cho bạn một cái nhìn tổng quan và chi tiết về cách làm việc với strings trong
+                                Python.</p>
+
+
+
+                            
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div><!--End wrapper-->
+        <!--Start Back To Top Button-->
+                            <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+                            <!--End Back To Top Button-->
+
+                            <!--Start footer-->
+                            <footer class="footer">
+                                <div class="container">
+                                    <div class="text-center">
+                                        Huỳnh Ngọc Thái
+                                    </div>
+                                </div>
+                            </footer>
+                            <!--End footer-->
+
+                            <!--start color switcher-->
+                            <div class="right-sidebar">
+                                <div class="switcher-icon">
+                                    <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+                                </div>
+                                <div class="right-sidebar-content">
+
+                                    <p class="mb-0">Gaussion Texture</p>
+                                    <hr>
+
+                                    <ul class="switcher">
+                                        <li id="theme1"></li>
+                                        <li id="theme2"></li>
+                                        <li id="theme3"></li>
+                                        <li id="theme4"></li>
+                                        <li id="theme5"></li>
+                                        <li id="theme6"></li>
+                                    </ul>
+
+                                    <p class="mb-0">Gradient Background</p>
+                                    <hr>
+
+                                    <ul class="switcher">
+                                        <li id="theme7"></li>
+                                        <li id="theme8"></li>
+                                        <li id="theme9"></li>
+                                        <li id="theme10"></li>
+                                        <li id="theme11"></li>
+                                        <li id="theme12"></li>
+                                        <li id="theme13"></li>
+                                        <li id="theme14"></li>
+                                        <li id="theme15"></li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                            <!--end color switcher-->
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+
+        <!-- simplebar js -->
+        <script src="../plugins/simplebar/js/simplebar.js"></script>
+        <!-- sidebar-menu js -->
+        <script src="../js/sidebar-menu.js"></script>
+        <!-- loader scripts -->
+        <script src="../js/jquery.loading-indicator.js"></script>
+        <!-- Custom scripts -->
+        <script src="../js/app-script.js"></script>
+        <!-- Chart js -->
+
+        <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+        <!-- Index js -->
+
+        <script>
+            $("#sidebar-placeholder").load("layout.html");
+
+        </script>
+
+
+</body>
+
+</html>

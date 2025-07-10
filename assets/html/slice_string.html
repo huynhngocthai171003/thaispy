@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Học Python với Thầy Thái</title>
+    <!-- loader-->
+
+    <!--favicon-->
+    <link rel="icon" href="../images/logo.png" type="image/x-icon">
+    <!-- Vector CSS -->
+    <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <!-- simplebar CSS-->
+    <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- animate CSS-->
+    <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+    <!-- Icons CSS-->
+    <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+    <!-- Sidebar CSS-->
+    <link href="../css/sidebar-menu.css" rel="stylesheet" />
+    <!-- Custom Style-->
+    <link href="../css/app-style.css" rel="stylesheet" />
+    <!-- Bootstrap 5 CSS -->
+    <!-- Prism.js CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <!-- Prism.js -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Plugin for line numbers + copy -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet" />
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css"
+        rel="stylesheet" />
+
+
+    <!-- Bootstrap 5 JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .card-header {
+            font-size: 18px;
+        }
+
+        .card-body h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #f3f6f9;
+        }
+
+        .card-body ul {
+            padding-left: 1.2rem;
+            list-style-type: disc;
+        }
+
+        .card-body ul li {
+            margin-bottom: 0.5rem;
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <!--Start sidebar-wrapper-->
+        <div id="sidebar-placeholder"></div>
+
+        <!--End sidebar-wrapper-->
+
+        <!--Start topbar header-->
+        <header class="topbar-nav">
+            <nav class="navbar navbar-expand fixed-top">
+                <ul class="navbar-nav mr-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link toggle-menu" href="javascript:void();">
+                            <i class="icon-menu menu-icon"></i>
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </nav>
+        </header>
+        <!--End topbar header-->
+
+        <div class="clearfix"></div>
+
+       <div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Cắt chuỗi (string) trong Python <small class="text-muted">5 phút đọc</small></h3>
+        </div>
+        <div class="card-body">
+          <p>Cắt chuỗi (string slicing) là một kỹ thuật quan trọng trong Python, cho phép bạn trích xuất một phần của chuỗi dựa trên các chỉ số (index) xác định. Kỹ thuật này rất hữu ích khi làm việc với dữ liệu văn bản, giúp bạn dễ dàng thao tác và phân tích các chuỗi ký tự. Trong bài viết này, chúng ta sẽ tìm hiểu chi tiết về cách cắt chuỗi trong Python, bao gồm cú pháp, các phương pháp cắt chuỗi, và các ví dụ minh họa cụ thể.</p>
+
+          <h3>Tổng quan về cắt chuỗi trong Python</h3>
+          <p>Cắt chuỗi trong Python cho phép bạn trích xuất một phần của chuỗi bằng cách chỉ định các chỉ số bắt đầu và kết thúc. Python cung cấp hai phương pháp chính để cắt chuỗi:</p>
+          <ul>
+            <li>Sử dụng hàm <code>slice()</code></li>
+            <li>Sử dụng cú pháp cắt chuỗi (array slicing)</li>
+          </ul>
+
+          <h4>Cú pháp cắt chuỗi</h4>
+          <p>Cú pháp cơ bản để cắt chuỗi trong Python là:</p>
+          <pre class="line-numbers"><code class="language-python">chuoi[start:end:step]</code></pre>
+          <ul>
+            <li><strong>start</strong>: là chỉ số bắt đầu (bao gồm).</li>
+            <li><strong>end</strong>: là chỉ số kết thúc (không bao gồm).</li>
+            <li><strong>step</strong>: là bước nhảy giữa các chỉ số.</li>
+          </ul>
+
+          <h4>Sử dụng hàm <code>slice()</code></h4>
+          <p>Hàm <code>slice()</code> là một hàm tích hợp trong Python, cho phép bạn tạo ra một đối tượng slice có thể được sử dụng để cắt chuỗi. Cú pháp:</p>
+          <pre class="line-numbers"><code class="language-python">slice(start, end, step)</code></pre>
+          <p>Ví dụ:</p>
+          <pre class="line-numbers"><code class="language-python">chuoi = "Hello, Python!"
+slice_obj = slice(7, 13)
+print(chuoi[slice_obj])  # Output: Python</code></pre>
+<i>Trong ví dụ này, chúng ta tạo ra một đối tượng slice từ chỉ số 7 đến chỉ số 13 và sử dụng nó để cắt chuỗi chuoi.</i>
+
+          <h4>Sử dụng cú pháp cắt chuỗi</h4>
+          <p>Cú pháp cắt chuỗi sử dụng dấu ngoặc vuông [] và dấu hai chấm : để chỉ định các chỉ số bắt đầu, kết thúc và bước nhảy.</p>
+          <pre class="line-numbers"><code class="language-python">chuoi = "Hello, Python!"
+print(chuoi[7:13])  # Output: Python</code></pre>
+<i>Trong ví dụ này, chúng ta cắt chuỗi chuoi từ chỉ số 7 đến chỉ số 13.</i>
+
+          <h3>Các ví dụ về cắt chuỗi</h3>
+
+          <h4>Ví dụ 1: Cắt chuỗi từ đầu đến một chỉ số xác định</h4>
+          <p>Bạn có thể cắt chuỗi từ đầu đến một chỉ số xác định bằng cách bỏ qua chỉ số bắt đầu.</p>
+          <pre class="line-numbers"><code class="language-python">chuoi = "Hello, Python!"
+print(chuoi[:5])  # Output: Hello</code></pre>
+<i>Trong ví dụ này, chúng ta cắt chuỗi từ đầu đến chỉ số 5.</i>
+
+          <h4>Ví dụ 2: Cắt chuỗi từ một chỉ số xác định đến cuối</h4>
+          <p>Bạn có thể cắt chuỗi từ một chỉ số xác định đến cuối bằng cách bỏ qua chỉ số kết thúc.</p>
+          <pre class="line-numbers"><code class="language-python">chuoi = "Hello, Python!"
+print(chuoi[7:])  # Output: Python!</code></pre>
+<i>Trong ví dụ này, chúng ta cắt chuỗi từ chỉ số 7 đến cuối.</i>
+
+          <h4>Ví dụ 3: Cắt chuỗi với bước nhảy</h4>
+          <p>Bạn có thể chỉ định bước nhảy để cắt chuỗi một cách đều đặn với một khoảng cách nhất định giữa các ký tự.</p>
+          <pre class="line-numbers"><code class="language-python">chuoi = "Hello, Python!"
+print(chuoi[::2])  # Output: Hlo yhn</code></pre>
+<i>Trong ví dụ này, chúng ta cắt chuỗi với bước nhảy là 2, nghĩa là lấy mỗi ký tự thứ hai.</i>
+
+          <h4>Ví dụ 4: Cắt chuỗi ngược</h4>
+          <p>Bạn có thể cắt chuỗi ngược bằng cách sử dụng chỉ số âm và bước nhảy âm.</p>
+          <pre class="line-numbers"><code class="language-python">chuoi = "Hello, Python!"
+print(chuoi[::-1])  # Output: !nohtyP ,olleH</code></pre>
+<i>Trong ví dụ này, chúng ta cắt chuỗi ngược lại từ cuối đến đầu.</i>
+
+          <h4>Cắt chuỗi với chỉ số âm</h4>
+          <p>Python cho phép bạn sử dụng chỉ số âm để truy cập các ký tự từ cuối chuỗi. Chỉ số -1 đại diện cho ký tự cuối cùng, -2 đại diện cho ký tự thứ hai từ cuối, và cứ tiếp tục như vậy.</p>
+          <pre class="line-numbers"><code class="language-python">chuoi = "Hello, Python!"
+print(chuoi[-6:-1])  # Output: Pytho</code></pre>
+<i>Trong ví dụ này, chúng ta cắt chuỗi từ chỉ số -6 đến chỉ số -1.</i>
+
+          <h4>Cắt chuỗi với các giá trị mặc định</h4>
+          <p>Nếu bạn bỏ qua chỉ số bắt đầu, Python sẽ mặc định là 0. Nếu bạn bỏ qua chỉ số kết thúc, Python sẽ mặc định là độ dài của chuỗi. Nếu bạn bỏ qua bước nhảy, Python sẽ mặc định là 1.</p>
+          <pre class="line-numbers"><code class="language-python">chuoi = "Hello, Python!"
+print(chuoi[:])     # Output: Hello, Python!
+print(chuoi[::])    # Output: Hello, Python!
+print(chuoi[::1])   # Output: Hello, Python!</code></pre>
+<i>Trong các ví dụ này, chúng ta sử dụng các giá trị mặc định để cắt chuỗi.</i>
+
+          <h4>Cắt chuỗi với các biến</h4>
+          <p>Bạn có thể sử dụng các biến để chỉ định các chỉ số bắt đầu, kết thúc và bước nhảy trong cắt chuỗi.</p>
+          <pre class="line-numbers"><code class="language-python">chuoi = "Hello, Python!"
+start = 7
+end = 13
+step = 2
+print(chuoi[start:end:step])  # Output: Pto</code></pre>
+<i>Trong ví dụ này, chúng ta sử dụng các biến start, end, và step để cắt chuỗi.</i>
+
+          <h4>Cắt chuỗi với các chỉ số ngoài phạm vi</h4>
+          <p>Python xử lý các chỉ số ngoài phạm vi một cách linh hoạt. Nếu chỉ số bắt đầu vượt quá độ dài của chuỗi, Python sẽ trả về một chuỗi rỗng. Nếu chỉ số kết thúc vượt quá độ dài của chuỗi, Python sẽ cắt đến cuối chuỗi.</p>
+          <pre class="line-numbers"><code class="language-python">chuoi = "Hello, Python!"
+print(chuoi[20:])   # Output: (chuỗi rỗng)
+print(chuoi[:20])   # Output: Hello, Python!</code></pre>
+<p>Trong ví dụ này, chúng ta thấy rằng Python xử lý các chỉ số ngoài phạm vi một cách linh hoạt.</p>
+
+          <h3>Kết luận</h3>
+          <p>Cắt chuỗi là một kỹ thuật quan trọng và hữu ích trong Python, cho phép bạn trích xuất và thao tác với các phần của chuỗi một cách dễ dàng và hiệu quả. Bằng cách nắm vững cách cắt chuỗi, bạn có thể viết mã Python ngắn gọn, dễ đọc và hiệu quả hơn.</p>
+          <p>Kỹ thuật này không chỉ được sử dụng trong các tác vụ xử lý văn bản cơ bản, mà còn đóng vai trò thiết yếu trong các lĩnh vực như xử lý dữ liệu, phân tích chuỗi, và tự động hóa. Hãy luyện tập thường xuyên với nhiều ví dụ khác nhau để làm quen với cách slicing hoạt động, từ đó phát triển kỹ năng lập trình Python của bạn một cách toàn diện.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <!--Start Back To Top Button-->
+                            <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+                            <!--End Back To Top Button-->
+
+                            <!--Start footer-->
+                            <footer class="footer">
+                                <div class="container">
+                                    <div class="text-center">
+                                        Huỳnh Ngọc Thái
+                                    </div>
+                                </div>
+                            </footer>
+                            <!--End footer-->
+
+                            <!--start color switcher-->
+                            <div class="right-sidebar">
+                                <div class="switcher-icon">
+                                    <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+                                </div>
+                                <div class="right-sidebar-content">
+
+                                    <p class="mb-0">Gaussion Texture</p>
+                                    <hr>
+
+                                    <ul class="switcher">
+                                        <li id="theme1"></li>
+                                        <li id="theme2"></li>
+                                        <li id="theme3"></li>
+                                        <li id="theme4"></li>
+                                        <li id="theme5"></li>
+                                        <li id="theme6"></li>
+                                    </ul>
+
+                                    <p class="mb-0">Gradient Background</p>
+                                    <hr>
+
+                                    <ul class="switcher">
+                                        <li id="theme7"></li>
+                                        <li id="theme8"></li>
+                                        <li id="theme9"></li>
+                                        <li id="theme10"></li>
+                                        <li id="theme11"></li>
+                                        <li id="theme12"></li>
+                                        <li id="theme13"></li>
+                                        <li id="theme14"></li>
+                                        <li id="theme15"></li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                            <!--end color switcher-->
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+
+        <!-- simplebar js -->
+        <script src="../plugins/simplebar/js/simplebar.js"></script>
+        <!-- sidebar-menu js -->
+        <script src="../js/sidebar-menu.js"></script>
+        <!-- loader scripts -->
+        <script src="../js/jquery.loading-indicator.js"></script>
+        <!-- Custom scripts -->
+        <script src="../js/app-script.js"></script>
+        <!-- Chart js -->
+
+        <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+        <!-- Index js -->
+
+        <script>
+            $("#sidebar-placeholder").load("layout.html");
+
+        </script>
+
+
+</body>
+
+</html>

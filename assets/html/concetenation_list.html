@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Học Python với Thầy Thái</title>
+    <!-- loader-->
+
+    <!--favicon-->
+    <link rel="icon" href="../images/logo.png" type="image/x-icon">
+    <!-- Vector CSS -->
+    <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <!-- simplebar CSS-->
+    <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- animate CSS-->
+    <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+    <!-- Icons CSS-->
+    <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+    <!-- Sidebar CSS-->
+    <link href="../css/sidebar-menu.css" rel="stylesheet" />
+    <!-- Custom Style-->
+    <link href="../css/app-style.css" rel="stylesheet" />
+    <!-- Bootstrap 5 CSS -->
+    <!-- Prism.js CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <!-- Prism.js -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Plugin for line numbers + copy -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet" />
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css"
+        rel="stylesheet" />
+
+
+    <!-- Bootstrap 5 JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .card-header {
+            font-size: 18px;
+        }
+
+        .card-body h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #f3f6f9;
+        }
+
+        .card-body ul {
+            padding-left: 1.2rem;
+            list-style-type: disc;
+        }
+
+        .card-body ul li {
+            margin-bottom: 0.5rem;
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <!--Start sidebar-wrapper-->
+        <div id="sidebar-placeholder"></div>
+
+        <!--End sidebar-wrapper-->
+
+        <!--Start topbar header-->
+        <header class="topbar-nav">
+            <nav class="navbar navbar-expand fixed-top">
+                <ul class="navbar-nav mr-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link toggle-menu" href="javascript:void();">
+                            <i class="icon-menu menu-icon"></i>
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </nav>
+        </header>
+        <!--End topbar header-->
+
+        <div class="clearfix"></div>
+
+       <div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Nối chuỗi (string) trong Python <small class="text-muted">7 phút đọc</small></h3>
+        </div>
+        <div class="card-body">
+          <p>Nối chuỗi (string concatenation) là một trong những thao tác cơ bản và quan trọng nhất khi làm việc với chuỗi trong Python. Nó cho phép bạn kết hợp nhiều chuỗi lại với nhau để tạo thành một chuỗi mới. Trong bài viết này, chúng ta sẽ tìm hiểu chi tiết về các phương pháp nối chuỗi trong Python, bao gồm cú pháp, các phương pháp nối chuỗi, và các ví dụ minh hoạ hoạt cụ thể.</p>
+
+          <h3>Tổng quan về nối chuỗi trong Python</h3>
+          <p>Nối chuỗi là quá trình kết hợp hai hoặc nhiều chuỗi lại với nhau để tạo thành một chuỗi mới. Python cung cấp nhiều cách để nối chuỗi, bao gồm sử dụng toán tử <code>+</code>, <code>+=</code>, phương thức <code>join()</code>, và <code>f-strings</code>.</p>
+
+          <h4>Sử dụng toán từ + để nối chuỗi</h4>
+          <p>Toán tử + là cách đơn giản và dễ hiểu nhất để nối hai chuỗi lại với nhau. Khi sử dụng toán tử +, bạn chỉ cần đặt hai chuỗi cần nối ở hai bên của toán tử.</p>
+          <pre class="line-numbers"><code class="language-python">str1 = "Hello"
+str2 = "World"
+result = str1 + " " + str2
+print(result)  # Output: Hello World</code></pre>
+<i>Trong ví dụ này, chúng ta sử dụng toán tử + để nối hai chuỗi str1 và str2 với một khoảng trắng ở giữa.</i>
+
+          <h4>Sử dụng toán từ += để nối chuỗi</h4>
+          <p>Toán tử += là một cách viết tắt để nối chuỗi và gán kết quả cho biến ban đầu. Nó tương đương với việc sử dụng toán tử + và gán lại giá trị cho biến.</p>
+          <pre class="line-numbers"><code class="language-python">str1 = "Hello"
+str1 += " World"
+print(str1)  # Output: Hello World</code></pre>
+<i>Trong ví dụ này, chúng ta sử dụng toán tử += để nối chuỗi " World" vào chuỗi str1.</i>
+          <h4>Sử dụng phương thức join()</h4>
+          <p>Phương thức join() là một cách hiệu quả để nối nhiều chuỗi lại với nhau. Nó đặc biệt hữu ích khi bạn cần nối các phần tử của một danh sách hoặc một iterable khác.</p>
+          <pre class="line-numbers"><code class="language-python">separator.join(iterable)</code></pre>
+          <p>Trong đó:
+            <ul>
+                <li><code>separator</code> là chuỗi được sử dụng để ngăn cách các phần tử</li>
+                <li><code>iterable</code> là một iterable chứa các chuỗi cần nối.</li>
+            </ul>
+          </p>
+          <pre class="line-numbers"><code class="language-python">words = ["Hello", "World", "Python"]
+result = " ".join(words)
+print(result)  # Output: Hello World Python</code></pre>
+<i>Trong ví dụ này, chúng ta sử dụng phương thức join() để nối các phần tử của danh sách words với một khoảng trắng làm dấu phân cách.</i>
+
+
+          <h4>Sử dụng f-strings để nối chuỗi</h4>
+          <p>F-strings (formatted string literals) là một cách mới và tiện lợi để định dạng và nối chuỗi trong Python 3.6 trở lên. F-strings cho phép bạn nhúng các biểu thức Python trực tiếp vào trong chuỗi bằng cách sử dụng dấu ngoặc nhọn {}.</p>
+          <pre class="line-numbers"><code class="language-python">name = "Python"
+version = 3.10
+result = f"Hello, {name} {version}!"
+print(result)  # Output: Hello, Python 3.10!</code></pre>
+<i>Trong ví dụ này, chúng ta sử dụng f-strings để nối các biến name và version vào trong chuỗi.</i>
+
+          <h3>So sánh các phương pháp nối chuỗi</h3>
+          <p>Mỗi phương pháp nối chuỗi có ưu điểm và nhược điểm riêng. Dưới đây là một số so sánh giữa các phương pháp:</p>
+          <ul>
+            <li><code>+ / +=</code>: Dễ hiểu và dễ sử dụng, nhưng không hiệu quả khi nối nhiều chuỗi trong một vòng lặp do tạo ra nhiều đối tượng chuỗi tạm thời.</li>
+            <li><code>join()</code>: Hiệu quả hơn khi nối nhiều chuỗi, đặc biệt là khi làm việc với danh sách hoặc các iterable khác.</li>
+            <li><code>f-strings</code>: Tiện lợi và dễ đọc, đặc biệt hữu ích khi cần định dạng chuỗi cùng với việc nối chuỗi.</li>
+          </ul>
+
+          <h3>Các ví dụ nâng cao về nối chuỗi</h3>
+
+          <h4>Ví dụ 1: Nối chuỗi trong một vòng lặp</h4>
+          <p>Khi cần nối nhiều chuỗi trong một vòng lặp, phương thức join() thường hiệu quả hơn so với toán tử +.</p>
+          <b>Ví dụ sử dụng toán tử +:</b>
+          <pre class="line-numbers"><code class="language-python">words = ["Hello", "World", "Python", "is", "awesome"]
+result = ""
+for word in words:
+    result += word + " "
+print(result.strip())</code></pre>
+
+<b>Ví dụ sử dụng phương thức join():</b>
+          <pre class="line-numbers"><code class="language-python">words = ["Hello", "World", "Python", "is", "awesome"]
+result = " ".join(words)
+print(result)</code></pre>
+<i>Trong ví dụ này, phương thức join() hiệu quả hơn vì nó không tạo ra nhiều đối tượng chuỗi tạm thời.</i>
+
+          <h4>Ví dụ 2: Nối chuỗi với ký tự đặc biệt</h4>
+          <p>Bạn có thể sử dụng các ký tự đặc biệt như dấu xuống dòng (\n) hoặc tab (\t) khi nối chuỗi.</p>
+          <pre class="line-numbers"><code class="language-python">lines = ["Line 1", "Line 2", "Line 3"]
+result = "\n".join(lines)
+print(result)</code></pre>
+<pre class="line-numbers"><code class="language-python">Line 1
+Line 2
+Line 3</code></pre>
+<i>Trong ví dụ này, chúng ta sử dụng ký tự xuống dòng để nối các phần tử của danh sách lines.</i>
+
+          <h4>Ví dụ 3: Nối chuỗi với các biến và biểu thức</h4>
+          <p>F-strings cho phép bạn nhúng các biến và biểu thức trực tiếp vào trong chuỗi</p>
+          <pre class="line-numbers"><code class="language-python">name = "Python"
+version = 3.10
+features = ["dynamic typing", "interpreted", "high-level"]
+result = f"{name} {version} has features like {', '.join(features)}."
+print(result)</code></pre>
+<i>Trong ví dụ này, chúng ta sử dụng f-strings để nối các biến và danh sách features vào trong chuỗi.</i>
+          <h3>Các bài tập thực hành</h3>
+
+          <h4>Bài tập 1: Nối các phần tử của một danh sách thành một chuỗi</h4>
+          <p>Viết một hàm join_list nhận vào một danh sách các chuỗi và trả về một chuỗi được nối từ các phần tử của danh sách.</p>
+          <pre class="line-numbers"><code class="language-python">def join_list(words):
+    return " ".join(words)
+
+words = ["Python", "is", "fun"]
+print(join_list(words))</code></pre>
+
+          <h4>Bài tập 2: Nối với dấu phân cách tuỳ ý</h4>
+          <p>Viết một hàm custom_join nhận vào một danh sách các chuỗi và một chuỗi phân cách, trả về một chuỗi được nối từ các phần tử của danh sách với chuỗi phân cách.</p>
+          <pre class="line-numbers"><code class="language-python">def custom_join(words, separator):
+    return separator.join(words)
+
+words = ["Python", "is", "fun"]
+separator = " - "
+print(custom_join(words, separator))</code></pre>
+
+          <h4>Bài tập 3: Nối chuỗi với định dạng</h4>
+          <p>Viết một hàm format_and_join nhận vào một danh sách các chuỗi và trả về một chuỗi được nối từ các phần tử của danh sách với định dạng "Item: {item}".</p>
+          <pre class="line-numbers"><code class="language-python">def format_and_join(items):
+    formatted_items = [f"Item: {item}" for item in items]
+    return ", ".join(formatted_items)
+
+items = ["apple", "banana", "cherry"]
+print(format_and_join(items))</code></pre>
+
+          <h3>Kết luận</h3>
+          <p>Nối chuỗi là một thao tác cơ bản nhưng rất quan trọng khi làm việc với chuỗi trong Python. Bằng cách nắm vững các phương pháp nối chuỗi như toán từ +, +=, phương thức join(), và f-strings, bạn có thể viết mã Python ngắn gọn, hiệu quả và dễ đọc hơn.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <!--Start Back To Top Button-->
+                            <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+                            <!--End Back To Top Button-->
+
+                            <!--Start footer-->
+                            <footer class="footer">
+                                <div class="container">
+                                    <div class="text-center">
+                                        Huỳnh Ngọc Thái
+                                    </div>
+                                </div>
+                            </footer>
+                            <!--End footer-->
+
+                            <!--start color switcher-->
+                            <div class="right-sidebar">
+                                <div class="switcher-icon">
+                                    <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+                                </div>
+                                <div class="right-sidebar-content">
+
+                                    <p class="mb-0">Gaussion Texture</p>
+                                    <hr>
+
+                                    <ul class="switcher">
+                                        <li id="theme1"></li>
+                                        <li id="theme2"></li>
+                                        <li id="theme3"></li>
+                                        <li id="theme4"></li>
+                                        <li id="theme5"></li>
+                                        <li id="theme6"></li>
+                                    </ul>
+
+                                    <p class="mb-0">Gradient Background</p>
+                                    <hr>
+
+                                    <ul class="switcher">
+                                        <li id="theme7"></li>
+                                        <li id="theme8"></li>
+                                        <li id="theme9"></li>
+                                        <li id="theme10"></li>
+                                        <li id="theme11"></li>
+                                        <li id="theme12"></li>
+                                        <li id="theme13"></li>
+                                        <li id="theme14"></li>
+                                        <li id="theme15"></li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                            <!--end color switcher-->
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+
+        <!-- simplebar js -->
+        <script src="../plugins/simplebar/js/simplebar.js"></script>
+        <!-- sidebar-menu js -->
+        <script src="../js/sidebar-menu.js"></script>
+        <!-- loader scripts -->
+        <script src="../js/jquery.loading-indicator.js"></script>
+        <!-- Custom scripts -->
+        <script src="../js/app-script.js"></script>
+        <!-- Chart js -->
+
+        <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+        <!-- Index js -->
+
+        <script>
+            $("#sidebar-placeholder").load("layout.html");
+
+        </script>
+
+
+</body>
+
+</html>
