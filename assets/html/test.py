@@ -1,10 +1,9 @@
-from guizero import App, TextBox
+from guizero import App, PushButton, Text
 
-def xu_ly(event_data=None):
-    print("Sự kiện xảy ra tại:", event_data.widget)
+def get_file():
+    file_name.value = app.select_file(folder="C:\\Users\\NGOC THAI\\Documents\\Zalo Received Files")
 
 app = App()
-widget = TextBox(app)
-widget.when_double_clicked = xu_ly
+PushButton(app, command=get_file, text="Get file")
+file_name = Text(app)
 app.display()
-    
