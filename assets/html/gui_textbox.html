@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Học Python với Thầy Thái</title>
+    <!-- loader-->
+
+    <!--favicon-->
+    <link rel="icon" href="../images/logo.png" type="image/x-icon">
+    <!-- Vector CSS -->
+    <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <!-- simplebar CSS-->
+    <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- animate CSS-->
+    <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+    <!-- Icons CSS-->
+    <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+    <!-- Sidebar CSS-->
+    <link href="../css/sidebar-menu.css" rel="stylesheet" />
+    <!-- Custom Style-->
+    <link href="../css/app-style.css" rel="stylesheet" />
+    <!-- Bootstrap 5 CSS -->
+    <!-- Prism.js CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <!-- Prism.js -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Plugin for line numbers + copy -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet" />
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css"
+        rel="stylesheet" />
+
+
+    <!-- Bootstrap 5 JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .card-header {
+            font-size: 18px;
+        }
+
+        .card-body h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #f3f6f9;
+        }
+
+        .card-body ul {
+            padding-left: 1.2rem;
+            list-style-type: disc;
+        }
+
+        .card-body ul li {
+            margin-bottom: 0.5rem;
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .example {
+            display: none;
+            margin-top: 5px;
+            padding: 10px;
+
+            border-left: 4px solid #007bff;
+        }
+
+        .param-row:hover {
+            border: solid 2px yellow;
+            cursor: pointer;
+        }
+
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <!--Start sidebar-wrapper-->
+        <div id="sidebar-placeholder"></div>
+
+        <!--End sidebar-wrapper-->
+
+        <!--Start topbar header-->
+        <header class="topbar-nav">
+            <nav class="navbar navbar-expand fixed-top">
+                <ul class="navbar-nav mr-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link toggle-menu" href="javascript:void();">
+                            <i class="icon-menu menu-icon"></i>
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </nav>
+        </header>
+        <!--End topbar header-->
+
+        <div class="clearfix"></div>
+
+<div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Đối tượng TextBox <small class="text-muted">Ô nhập văn bản trong ứng dụng guizero</small></h3>
+        </div>
+        <div class="card-body">
+          <h3>TextBox là gì?</h3>
+          <p>Đối tượng <code>TextBox</code> hiển thị một ô văn bản mà người dùng có thể nhập dữ liệu vào.</p>
+
+          <h3>Cách tạo TextBox</h3>
+          <pre><code class="language-python">from guizero import App, TextBox
+app = App()
+input_box = TextBox(app)
+app.display()</code></pre>
+
+          <p>Tạo TextBox với văn bản mặc định:</p>
+          <pre><code class="language-python">textbox = TextBox(app, text="Nhập nội dung")</code></pre>
+
+          <h3>Tham số khởi tạo</h3>
+          <p>Khi tạo một đối tượng <code>TextBox</code>, bạn <strong>phải</strong> cung cấp <code>master</code> và <strong>có thể</strong> cung cấp các tham số tùy chọn.</p>
+
+          <table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Tham số</th>
+                <th>Kiểu dữ liệu</th>
+                <th>Mặc định</th>
+                <th>Bắt buộc</th>
+                <th>Mô tả</th>
+              </tr>
+            </thead>
+            <tbody>
+<tr class="param-row" onclick="toggleExample('ex-master1')">
+  <td>master</td>
+  <td>App, Window hoặc Box</td>
+  <td>-</td>
+  <td>Có</td>
+  <td>Widget cha chứa TextBox</td>
+</tr>
+<tr id="ex-master1" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Widget cha mà TextBox sẽ được đặt vào.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Box, TextBox
+
+app = App()
+box = Box(app)
+input_box = TextBox(box, text="Nhập ở đây")
+print(input_box.master)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-text2')">
+  <td>text</td>
+  <td>chuỗi</td>
+  <td>""</td>
+  <td>Không</td>
+  <td>Văn bản được hiển thị sẵn trong TextBox</td>
+</tr>
+<tr id="ex-text2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Thiết lập văn bản mặc định khi khởi tạo.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+input_box = TextBox(app, text="Xin chào!")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-width3')">
+  <td>width</td>
+  <td>số nguyên hoặc "fill"</td>
+  <td>10</td>
+  <td>Không</td>
+  <td>Chiều rộng TextBox tính bằng số ký tự</td>
+</tr>
+<tr id="ex-width3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Chiều rộng của TextBox, ví dụ 30 ký tự.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+input_box = TextBox(app, width=30)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-height4')">
+  <td>height</td>
+  <td>số nguyên hoặc "fill"</td>
+  <td>1</td>
+  <td>Không</td>
+  <td>Chiều cao TextBox, chỉ có tác dụng nếu multiline=True</td>
+</tr>
+<tr id="ex-height4" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Thiết lập chiều cao khi tạo TextBox đa dòng.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+input_box = TextBox(app, height=5, multiline=True)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-grid5')">
+  <td>grid</td>
+  <td>danh sách [x, y]</td>
+  <td>None</td>
+  <td>Không</td>
+  <td>Vị trí trong lưới nếu cha dùng layout dạng lưới</td>
+</tr>
+<tr id="ex-grid5" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Xác định vị trí widget trong giao diện dạng lưới.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App(layout="grid")
+input_box = TextBox(app, grid=[0,1])
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-align6')">
+  <td>align</td>
+  <td>chuỗi</td>
+  <td>None</td>
+  <td>Không</td>
+  <td>Căn lề TextBox trong widget cha: "top", "bottom", "left", "right"</td>
+</tr>
+<tr id="ex-align6" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Căn lề của TextBox trong container.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Box, TextBox
+
+app = App()
+box = Box(app)
+input_box = TextBox(box, align="left")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-visible7')">
+  <td>visible</td>
+  <td>boolean</td>
+  <td>True</td>
+  <td>Không</td>
+  <td>Cho biết TextBox có hiển thị hay không</td>
+</tr>
+<tr id="ex-visible7" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Thiết lập ẩn/hiện widget khi khởi tạo.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+input_box = TextBox(app, visible=False)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-enabled8')">
+  <td>enabled</td>
+  <td>boolean</td>
+  <td>None</td>
+  <td>Không</td>
+  <td>Cho phép nhập văn bản hay không</td>
+</tr>
+<tr id="ex-enabled8" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Nếu False, TextBox sẽ bị vô hiệu hóa.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+input_box = TextBox(app, enabled=False)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-multiline9')">
+  <td>multiline</td>
+  <td>boolean</td>
+  <td>False</td>
+  <td>Không</td>
+  <td>Cho phép nhập nhiều dòng</td>
+</tr>
+<tr id="ex-multiline9" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Bật chế độ nhập nhiều dòng văn bản.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+input_box = TextBox(app, multiline=True, height=5)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-scrollbar10')">
+  <td>scrollbar</td>
+  <td>boolean</td>
+  <td>False</td>
+  <td>Không</td>
+  <td>Hiển thị thanh cuộn dọc (chỉ áp dụng nếu multiline=True)</td>
+</tr>
+<tr id="ex-scrollbar10" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Hiển thị thanh cuộn nếu có nhiều nội dung.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+input_box = TextBox(app, multiline=True, height=5, scrollbar=True)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-command11')">
+  <td>command</td>
+  <td>tên hàm</td>
+  <td>None</td>
+  <td>Không</td>
+  <td>Hàm được gọi khi nội dung thay đổi</td>
+</tr>
+<tr id="ex-command11" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Hàm sẽ được gọi khi người dùng thay đổi văn bản.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+def on_text_change():
+    print("Đã thay đổi văn bản!")
+
+app = App()
+input_box = TextBox(app, command=on_text_change)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-hide_text12')">
+  <td>hide_text</td>
+  <td>boolean hoặc ký tự</td>
+  <td>False</td>
+  <td>Không</td>
+  <td>Ẩn văn bản bằng ký tự (mặc định là *)</td>
+</tr>
+<tr id="ex-hide_text12" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Thường dùng cho TextBox dạng mật khẩu.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+input_box = TextBox(app, hide_text=True)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+</tbody>
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+
+          </table>
+<h3>Phương thức của TextBox</h3>
+<table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Phương thức</th>
+      <th>Tham số</th>
+      <th>Trả về</th>
+      <th>Mô tả</th>
+    </tr>
+  </thead>
+<tbody>
+<tr class="param-row" onclick="toggleExample('ex-after2')">
+  <td>after()</td>
+  <td>time (int), command (hàm), args (tuỳ chọn)</td>
+  <td>-</td>
+  <td>Gọi một hàm sau khoảng thời gian (ms)</td>
+</tr>
+<tr id="ex-after2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Gọi một hàm sau khoảng thời gian nhất định tính bằng mili giây.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+def chao():
+    print("Xin chào sau 2 giây!")
+
+app = App()
+box = TextBox(app)
+app.after(2000, chao)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-append2')">
+  <td>append()</td>
+  <td>text (chuỗi)</td>
+  <td>-</td>
+  <td>Thêm văn bản vào cuối nội dung hiện tại</td>
+</tr>
+<tr id="ex-append2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Nối thêm văn bản vào cuối nội dung hiện tại.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox, PushButton
+
+def them_text():
+    textbox.append(" thêm nội dung")
+
+app = App()
+textbox = TextBox(app, text="Nội dung ban đầu")
+PushButton(app, text="Thêm", command=them_text)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-cancel2')">
+  <td>cancel()</td>
+  <td>command (hàm)</td>
+  <td>-</td>
+  <td>Huỷ bỏ một lời gọi hàm đã được lập lịch</td>
+</tr>
+<tr id="ex-cancel2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Dừng một hành động đã được hẹn giờ bằng `after()` hoặc `repeat()`.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox, PushButton
+
+def nhap_lai():
+    textbox.append("...")
+
+app = App()
+textbox = TextBox(app)
+app.repeat(1000, nhap_lai)
+PushButton(app, text="Dừng", command=lambda: app.cancel(nhap_lai))
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-clear2')">
+  <td>clear()</td>
+  <td>-</td>
+  <td>-</td>
+  <td>Xoá toàn bộ nội dung trong TextBox</td>
+</tr>
+<tr id="ex-clear2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Làm rỗng toàn bộ nội dung trong TextBox.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox, PushButton
+
+def xoa_noi_dung():
+    textbox.clear()
+
+app = App()
+textbox = TextBox(app, text="Dữ liệu sẽ bị xoá")
+PushButton(app, text="Xoá", command=xoa_noi_dung)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-destroy2')">
+  <td>destroy()</td>
+  <td>-</td>
+  <td>-</td>
+  <td>Huỷ widget khỏi giao diện và bộ nhớ</td>
+</tr>
+<tr id="ex-destroy2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Loại bỏ hoàn toàn TextBox khỏi giao diện.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox, PushButton
+
+def xoa():
+    textbox.destroy()
+
+app = App()
+textbox = TextBox(app)
+PushButton(app, text="Huỷ TextBox", command=xoa)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-disable2')">
+  <td>disable()</td>
+  <td>-</td>
+  <td>-</td>
+  <td>Vô hiệu hoá TextBox (người dùng không nhập được)</td>
+</tr>
+<tr id="ex-disable2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Làm TextBox trở nên không tương tác được.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox, PushButton
+
+def khoa():
+    textbox.disable()
+
+app = App()
+textbox = TextBox(app)
+PushButton(app, text="Khoá", command=khoa)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-enable2')">
+  <td>enable()</td>
+  <td>-</td>
+  <td>-</td>
+  <td>Kích hoạt lại TextBox nếu bị vô hiệu hoá</td>
+</tr>
+<tr id="ex-enable2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Mở khoá TextBox bị vô hiệu hóa trước đó.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox, PushButton
+
+def mo():
+    textbox.enable()
+
+app = App()
+textbox = TextBox(app, enabled=False)
+PushButton(app, text="Mở", command=mo)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-focus2')">
+  <td>focus()</td>
+  <td>-</td>
+  <td>-</td>
+  <td>Đặt tiêu điểm vào TextBox</td>
+</tr>
+<tr id="ex-focus2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Đưa con trỏ chuột hoặc bàn phím vào TextBox.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox, PushButton
+
+def chon_ho_tro():
+    textbox.focus()
+
+app = App()
+textbox = TextBox(app)
+PushButton(app, text="Tập trung vào ô", command=chon_ho_tro)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-hide2')">
+  <td>hide()</td>
+  <td>-</td>
+  <td>-</td>
+  <td>Ẩn TextBox khỏi giao diện</td>
+</tr>
+<tr id="ex-hide2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Làm cho TextBox biến mất khỏi giao diện.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox, PushButton
+
+def an_di():
+    textbox.hide()
+
+app = App()
+textbox = TextBox(app)
+PushButton(app, text="Ẩn", command=an_di)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-repeat2')">
+  <td>repeat()</td>
+  <td>time (int), command (hàm), args (tuỳ chọn)</td>
+  <td>-</td>
+  <td>Lặp lại việc gọi một hàm theo chu kỳ</td>
+</tr>
+<tr id="ex-repeat2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Gọi lặp lại hàm với chu kỳ nhất định (ms).<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+def them():
+    textbox.append(".")
+
+app = App()
+textbox = TextBox(app)
+app.repeat(1000, them)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-resize2')">
+  <td>resize()</td>
+  <td>width (int), height (int)</td>
+  <td>-</td>
+  <td>Thay đổi kích thước của TextBox</td>
+</tr>
+<tr id="ex-resize2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Thay đổi chiều rộng và chiều cao sau khi khởi tạo.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox, PushButton
+
+def doi_kich_thuoc():
+    textbox.resize(40, 5)
+
+app = App()
+textbox = TextBox(app, multiline=True)
+PushButton(app, text="Đổi kích thước", command=doi_kich_thuoc)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-show2')">
+  <td>show()</td>
+  <td>-</td>
+  <td>-</td>
+  <td>Hiển thị lại TextBox nếu bị ẩn</td>
+</tr>
+<tr id="ex-show2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Dùng để hiện lại widget đã bị ẩn bằng `.hide()`<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox, PushButton
+
+def an():
+    textbox.hide()
+
+def hien():
+    textbox.show()
+
+app = App()
+textbox = TextBox(app)
+PushButton(app, text="Ẩn", command=an)
+PushButton(app, text="Hiện", command=hien)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-update_command2')">
+  <td>update_command()</td>
+  <td>command (hàm)</td>
+  <td>-</td>
+  <td>Cập nhật hàm được gọi khi nội dung thay đổi</td>
+</tr>
+<tr id="ex-update_command2" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Cập nhật lại hàm sẽ được gọi khi người dùng gõ văn bản.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox, PushButton
+
+def in1():
+    print("Đã thay đổi!")
+
+def cap_nhat():
+    textbox.update_command(in1)
+
+app = App()
+textbox = TextBox(app)
+PushButton(app, text="Gán hàm theo dõi", command=cap_nhat)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+</tbody>
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+</table>
+<h3>Thuộc tính của TextBox</h3>
+<table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Tên thuộc tính</th>
+      <th>Kiểu dữ liệu</th>
+      <th>Mô tả</th>
+    </tr>
+  </thead>
+ <tbody>
+<tr class="param-row" onclick="toggleExample('ex-align3')">
+  <td>align</td>
+  <td>chuỗi</td>
+  <td>Căn lề của widget trong container</td>
+</tr>
+<tr id="ex-align3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Căn lề của TextBox trong container.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Box, TextBox
+
+app = App()
+box = Box(app)
+textbox = TextBox(box, align="left")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-bg3')">
+  <td>bg</td>
+  <td>màu sắc</td>
+  <td>Màu nền của TextBox</td>
+</tr>
+<tr id="ex-bg3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Đổi màu nền của TextBox.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+textbox = TextBox(app)
+textbox.bg = "lightblue"
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-cursor_position3')">
+  <td>cursor_position</td>
+  <td>số nguyên</td>
+  <td>Vị trí hiện tại của con trỏ</td>
+</tr>
+<tr id="ex-cursor_position3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Trả về vị trí hiện tại của con trỏ trong TextBox.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox, PushButton
+
+def show_position():
+    print(textbox.cursor_position)
+
+app = App()
+textbox = TextBox(app, text="Xin chào!")
+PushButton(app, text="Xem vị trí con trỏ", command=show_position)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-enabled3')">
+  <td>enabled</td>
+  <td>boolean</td>
+  <td>Cho biết widget có đang hoạt động hay không</td>
+</tr>
+<tr id="ex-enabled3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Kiểm tra hoặc thiết lập trạng thái hoạt động của TextBox.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+textbox = TextBox(app, enabled=False)
+print(textbox.enabled)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-font3')">
+  <td>font</td>
+  <td>chuỗi</td>
+  <td>Font chữ được sử dụng</td>
+</tr>
+<tr id="ex-font3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Thay đổi font chữ hiển thị.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+textbox = TextBox(app)
+textbox.font = "Courier"
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-grid3')">
+  <td>grid</td>
+  <td>danh sách [x, y]</td>
+  <td>Tọa độ widget nếu sử dụng layout dạng lưới</td>
+</tr>
+<tr id="ex-grid3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Đặt vị trí của TextBox nếu dùng layout grid.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App(layout="grid")
+textbox = TextBox(app, grid=[1,0])
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-height3')">
+  <td>height</td>
+  <td>số / "fill"</td>
+  <td>Chiều cao TextBox (chỉ có tác dụng nếu multiline=True)</td>
+</tr>
+<tr id="ex-height3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Thay đổi chiều cao của TextBox nhiều dòng.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+textbox = TextBox(app, multiline=True)
+textbox.height = 6
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-hide_text3')">
+  <td>hide_text</td>
+  <td>boolean hoặc ký tự</td>
+  <td>Ẩn văn bản nhập vào (ví dụ: dạng mật khẩu)</td>
+</tr>
+<tr id="ex-hide_text3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Ẩn văn bản người dùng nhập.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+textbox = TextBox(app)
+textbox.hide_text = True
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-master3')">
+  <td>master</td>
+  <td>App hoặc Box</td>
+  <td>Widget cha chứa TextBox</td>
+</tr>
+<tr id="ex-master3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Xác định widget chứa TextBox.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Box, TextBox
+
+app = App()
+box = Box(app)
+textbox = TextBox(box)
+print(textbox.master)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-value3')">
+  <td>value</td>
+  <td>chuỗi</td>
+  <td>Giá trị hiện tại của TextBox (nội dung văn bản)</td>
+</tr>
+<tr id="ex-value3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Lấy hoặc gán nội dung của TextBox.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox, PushButton
+
+def in_gia_tri():
+    print(textbox.value)
+
+app = App()
+textbox = TextBox(app, text="Tôi là giá trị")
+PushButton(app, text="In giá trị", command=in_gia_tri)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-visible3')">
+  <td>visible</td>
+  <td>boolean</td>
+  <td>Cho biết TextBox có hiển thị hay không</td>
+</tr>
+<tr id="ex-visible3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Kiểm tra hoặc thay đổi khả năng hiển thị của TextBox.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+textbox = TextBox(app, visible=False)
+textbox.visible = True
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-width3')">
+  <td>width</td>
+  <td>số / "fill"</td>
+  <td>Chiều rộng của TextBox</td>
+</tr>
+<tr id="ex-width3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Đặt chiều rộng cho TextBox.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+textbox = TextBox(app)
+textbox.width = 40
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-text_size3')">
+  <td>text_size</td>
+  <td>số nguyên</td>
+  <td>Kích thước chữ</td>
+</tr>
+<tr id="ex-text_size3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Đặt kích thước chữ hiển thị.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+textbox = TextBox(app)
+textbox.text_size = 18
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-text_bold3')">
+  <td>text_bold</td>
+  <td>boolean</td>
+  <td>In đậm văn bản</td>
+</tr>
+<tr id="ex-text_bold3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Đặt văn bản thành in đậm.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+textbox = TextBox(app)
+textbox.text_bold = True
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-text_italic3')">
+  <td>text_italic</td>
+  <td>boolean</td>
+  <td>In nghiêng văn bản</td>
+</tr>
+<tr id="ex-text_italic3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Làm văn bản trong TextBox nghiêng.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+textbox = TextBox(app)
+textbox.text_italic = True
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-text_underline3')">
+  <td>text_underline</td>
+  <td>boolean</td>
+  <td>Gạch dưới văn bản</td>
+</tr>
+<tr id="ex-text_underline3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Thêm gạch dưới cho nội dung TextBox.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+textbox = TextBox(app)
+textbox.text_underline = True
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-text_overstrike3')">
+  <td>text_overstrike</td>
+  <td>boolean</td>
+  <td>Gạch ngang văn bản</td>
+</tr>
+<tr id="ex-text_overstrike3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Gạch ngang nội dung TextBox.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+textbox = TextBox(app)
+textbox.text_overstrike = True
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-tk3')">
+  <td>tk</td>
+  <td>tkinter.Entry</td>
+  <td>Đối tượng tkinter gốc bên trong</td>
+</tr>
+<tr id="ex-tk3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Cho phép truy cập trực tiếp widget tkinter.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+textbox = TextBox(app)
+textbox.tk.config(justify="right")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-wrap3')">
+  <td>wrap</td>
+  <td>boolean</td>
+  <td>Cho biết văn bản có được tự động xuống dòng (multiline only)</td>
+</tr>
+<tr id="ex-wrap3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Bật tắt xuống dòng tự động cho TextBox nhiều dòng.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, TextBox
+
+app = App()
+textbox = TextBox(app, multiline=True)
+textbox.wrap = True
+app.display()
+    </code></pre>
+  </td>
+</tr>
+</tbody>
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+</table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                Huỳnh Ngọc Thái
+            </div>
+        </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+        <div class="switcher-icon">
+            <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+        </div>
+        <div class="right-sidebar-content">
+
+            <p class="mb-0">Gaussion Texture</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme1"></li>
+                <li id="theme2"></li>
+                <li id="theme3"></li>
+                <li id="theme4"></li>
+                <li id="theme5"></li>
+                <li id="theme6"></li>
+            </ul>
+
+            <p class="mb-0">Gradient Background</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme7"></li>
+                <li id="theme8"></li>
+                <li id="theme9"></li>
+                <li id="theme10"></li>
+                <li id="theme11"></li>
+                <li id="theme12"></li>
+                <li id="theme13"></li>
+                <li id="theme14"></li>
+                <li id="theme15"></li>
+            </ul>
+
+        </div>
+    </div>
+    <!--end color switcher-->
+
+    </div><!--End wrapper-->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- simplebar js -->
+    <script src="../plugins/simplebar/js/simplebar.js"></script>
+    <!-- sidebar-menu js -->
+    <script src="../js/sidebar-menu.js"></script>
+    <!-- loader scripts -->
+    <script src="../js/jquery.loading-indicator.js"></script>
+    <!-- Custom scripts -->
+    <script src="../js/app-script.js"></script>
+    <!-- Chart js -->
+
+    <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+    <!-- Index js -->
+
+    <script>
+        $("#sidebar-placeholder").load("layout.html");
+
+    </script>
+
+
+</body>
+
+</html>

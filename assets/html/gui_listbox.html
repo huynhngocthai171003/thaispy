@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Học Python với Thầy Thái</title>
+    <!-- loader-->
+
+    <!--favicon-->
+    <link rel="icon" href="../images/logo.png" type="image/x-icon">
+    <!-- Vector CSS -->
+    <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <!-- simplebar CSS-->
+    <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- animate CSS-->
+    <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+    <!-- Icons CSS-->
+    <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+    <!-- Sidebar CSS-->
+    <link href="../css/sidebar-menu.css" rel="stylesheet" />
+    <!-- Custom Style-->
+    <link href="../css/app-style.css" rel="stylesheet" />
+    <!-- Bootstrap 5 CSS -->
+    <!-- Prism.js CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <!-- Prism.js -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Plugin for line numbers + copy -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet" />
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css"
+        rel="stylesheet" />
+
+
+    <!-- Bootstrap 5 JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .card-header {
+            font-size: 18px;
+        }
+
+        .card-body h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #f3f6f9;
+        }
+
+        .card-body ul {
+            padding-left: 1.2rem;
+            list-style-type: disc;
+        }
+
+        .card-body ul li {
+            margin-bottom: 0.5rem;
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .example {
+            display: none;
+            margin-top: 5px;
+            padding: 10px;
+
+            border-left: 4px solid #007bff;
+        }
+
+        .param-row:hover {
+            border: solid 2px yellow;
+            cursor: pointer;
+        }
+
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <!--Start sidebar-wrapper-->
+        <div id="sidebar-placeholder"></div>
+
+        <!--End sidebar-wrapper-->
+
+        <!--Start topbar header-->
+        <header class="topbar-nav">
+            <nav class="navbar navbar-expand fixed-top">
+                <ul class="navbar-nav mr-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link toggle-menu" href="javascript:void();">
+                            <i class="icon-menu menu-icon"></i>
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </nav>
+        </header>
+        <!--End topbar header-->
+
+        <div class="clearfix"></div>
+
+<div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Đối tượng ListBox <small class="text-muted">Danh sách chọn trong ứng dụng guizero</small></h3>
+        </div>
+        <div class="card-body">
+          <h3>ListBox là gì?</h3>
+          <p>Đối tượng <code>ListBox</code> hiển thị một danh sách các mục, từ đó người dùng có thể chọn một hoặc nhiều mục.</p>
+
+          <h3>Cách tạo ListBox</h3>
+          <pre><code class="language-python">from guizero import App, ListBox
+app = App()
+listbox = ListBox(app, items=["Bò", "Gà", "Cá", "Chay"])
+app.display()</code></pre>
+
+          <h3>Tham số khởi tạo</h3>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Tham số</th>
+                <th>Kiểu dữ liệu</th>
+                <th>Mặc định</th>
+                <th>Bắt buộc</th>
+                <th>Mô tả</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="param-row" onclick="toggleExample('ex-master1')">
+  <td>master</td>
+  <td>App / Box / Window</td>
+  <td>-</td>
+  <td>Có</td>
+  <td>Widget cha chứa ListBox</td>
+</tr>
+<tr id="ex-master1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Đối tượng cha chứa ListBox (App, Box hoặc Window)<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Box, ListBox
+
+app = App()
+box = Box(app)
+listbox = ListBox(box, items=["A", "B", "C"])
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+              <tr class="param-row" onclick="toggleExample('ex-items1')">
+  <td>items</td>
+  <td>List</td>
+  <td>-</td>
+  <td>Có</td>
+  <td>Danh sách mục cần hiển thị</td>
+</tr>
+<tr id="ex-items1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Các mục hiển thị trong ListBox.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ListBox
+
+app = App()
+listbox = ListBox(app, items=["Python", "Java", "C++"])
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+             <tr class="param-row" onclick="toggleExample('ex-selected1')">
+  <td>selected</td>
+  <td>String hoặc List</td>
+  <td>None</td>
+  <td>Không</td>
+  <td>Giá trị hoặc các giá trị được chọn ban đầu</td>
+</tr>
+<tr id="ex-selected1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Mục được chọn khi ListBox được tạo.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ListBox
+
+app = App()
+listbox = ListBox(app, items=["Red", "Green", "Blue"], selected="Green")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+              <tr class="param-row" onclick="toggleExample('ex-command1')">
+  <td>command</td>
+  <td>Hàm</td>
+  <td>None</td>
+  <td>Không</td>
+  <td>Hàm được gọi khi lựa chọn thay đổi</td>
+</tr>
+<tr id="ex-command1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Khi người dùng chọn mục khác, hàm sẽ được gọi.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ListBox
+
+def in_mau(value):
+    print("Màu được chọn:", value)
+
+app = App()
+listbox = ListBox(app, items=["Đỏ", "Xanh", "Vàng"], command=in_mau)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+              <tr class="param-row" onclick="toggleExample('ex-multiselect1')">
+  <td>multiselect</td>
+  <td>Boolean</td>
+  <td>False</td>
+  <td>Không</td>
+  <td>Cho phép chọn nhiều mục</td>
+</tr>
+<tr id="ex-multiselect1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Cho phép chọn nhiều dòng cùng lúc.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ListBox
+
+app = App()
+listbox = ListBox(app, items=["Sách", "Bút", "Tẩy"], multiselect=True)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+              <tr class="param-row" onclick="toggleExample('ex-scrollbar1')">
+  <td>scrollbar</td>
+  <td>Boolean</td>
+  <td>False</td>
+  <td>Không</td>
+  <td>Hiển thị thanh cuộn dọc</td>
+</tr>
+<tr id="ex-scrollbar1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Hiển thị thanh cuộn khi danh sách dài.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ListBox
+
+app = App()
+listbox = ListBox(app, items=[str(i) for i in range(20)], scrollbar=True)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+              <tr class="param-row" onclick="toggleExample('ex-width1')">
+  <td>width</td>
+  <td>Số hoặc "fill"</td>
+  <td>None</td>
+  <td>Không</td>
+  <td>Chiều rộng</td>
+</tr>
+<tr id="ex-width1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Thiết lập chiều rộng tính theo số ký tự hoặc “fill”.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ListBox
+
+app = App()
+listbox = ListBox(app, items=["A", "B", "C"], width=30)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+              <tr class="param-row" onclick="toggleExample('ex-height1')">
+  <td>height</td>
+  <td>Số hoặc "fill"</td>
+  <td>None</td>
+  <td>Không</td>
+  <td>Chiều cao</td>
+</tr>
+<tr id="ex-height1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Số dòng hiển thị trong ListBox.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ListBox
+
+app = App()
+listbox = ListBox(app, items=["Một", "Hai", "Ba", "Bốn"], height=2)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+              <tr class="param-row" onclick="toggleExample('ex-align1')">
+  <td>align</td>
+  <td>String</td>
+  <td>None</td>
+  <td>Không</td>
+  <td>Căn lề: top, bottom, left, right</td>
+</tr>
+<tr id="ex-align1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Căn lề ListBox trong vùng chứa.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Box, ListBox
+
+app = App()
+box = Box(app)
+listbox = ListBox(box, items=["X", "Y", "Z"], align="right")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+              <tr class="param-row" onclick="toggleExample('ex-grid1')">
+  <td>grid</td>
+  <td>List [x,y]</td>
+  <td>None</td>
+  <td>Không</td>
+  <td>Vị trí trong bố cục dạng lưới</td>
+</tr>
+<tr id="ex-grid1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Đặt vị trí ListBox trong bố cục dạng lưới.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ListBox
+
+app = App(layout="grid")
+listbox = ListBox(app, items=["M1", "M2"], grid=[1, 0])
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+              <tr class="param-row" onclick="toggleExample('ex-visible1')">
+  <td>visible</td>
+  <td>Boolean</td>
+  <td>True</td>
+  <td>Không</td>
+  <td>Widget có hiển thị hay không</td>
+</tr>
+<tr id="ex-visible1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Quy định ListBox có hiển thị lúc đầu hay không.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ListBox
+
+app = App()
+listbox = ListBox(app, items=["Ẩn", "Hiện"], visible=False)
+listbox.visible = True  # Hiển thị lại sau
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+              <tr class="param-row" onclick="toggleExample('ex-enabled1')">
+  <td>enabled</td>
+  <td>Boolean</td>
+  <td>None</td>
+  <td>Không</td>
+  <td>Có cho phép tương tác không</td>
+</tr>
+<tr id="ex-enabled1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Vô hiệu hóa tương tác người dùng nếu False.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ListBox
+
+app = App()
+listbox = ListBox(app, items=["Chọn A", "Chọn B"], enabled=False)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+            </tbody>
+          </table>
+
+          <script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+
+          <h3>Phương thức của ListBox</h3>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Phương thức</th>
+                <th>Tham số</th>
+                <th>Trả về</th>
+                <th>Mô tả</th>
+              </tr>
+            </thead>
+            <tr class="param-row" onclick="toggleExample('ex-append2')">
+  <td>append()</td><td>item (string)</td><td>-</td><td>Thêm mục vào cuối</td>
+</tr>
+<tr id="ex-append2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Thêm một mục mới vào cuối danh sách.<br>
+    🧪 <strong>Ví dụ:</strong>
+<pre><code class="language-python">
+from guizero import App, ListBox, PushButton
+
+def them():
+    listbox.append("Mục mới")
+
+app = App()
+listbox = ListBox(app, items=["A", "B"])
+PushButton(app, text="Thêm", command=them)
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-insert2')">
+  <td>insert()</td><td>index (int), item (string)</td><td>-</td><td>Chèn mục tại chỉ số</td>
+</tr>
+<tr id="ex-insert2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Chèn mục vào vị trí cụ thể trong danh sách.<br>
+    🧪 <strong>Ví dụ:</strong>
+<pre><code class="language-python">
+from guizero import App, ListBox, PushButton
+
+def chen():
+    listbox.insert(1, "Chen vào đây")
+
+app = App()
+listbox = ListBox(app, items=["Một", "Ba"])
+PushButton(app, text="Chèn", command=chen)
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-remove2')">
+  <td>remove()</td><td>item (string)</td><td>Boolean</td><td>Xóa một mục</td>
+</tr>
+<tr id="ex-remove2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Xoá một mục nếu tồn tại trong danh sách.<br>
+    🧪 <strong>Ví dụ:</strong>
+<pre><code class="language-python">
+from guizero import App, ListBox, PushButton
+
+def xoa():
+    listbox.remove("B")
+
+app = App()
+listbox = ListBox(app, items=["A", "B", "C"])
+PushButton(app, text="Xoá B", command=xoa)
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-clear2')">
+  <td>clear()</td><td>-</td><td>-</td><td>Xóa tất cả mục</td>
+</tr>
+<tr id="ex-clear2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Xóa toàn bộ nội dung của ListBox.<br>
+    🧪 <strong>Ví dụ:</strong>
+<pre><code class="language-python">
+from guizero import App, ListBox, PushButton
+
+def xoa_tat_ca():
+    listbox.clear()
+
+app = App()
+listbox = ListBox(app, items=["X", "Y", "Z"])
+PushButton(app, text="Xoá tất cả", command=xoa_tat_ca)
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-enable2')">
+  <td>enable()</td><td>-</td><td>-</td><td>Bật tương tác</td>
+</tr>
+<tr id="ex-enable2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Kích hoạt lại ListBox nếu đang bị vô hiệu hoá.<br>
+    🧪 <strong>Ví dụ:</strong>
+<pre><code class="language-python">
+from guizero import App, ListBox, PushButton
+
+def bat():
+    listbox.enable()
+
+app = App()
+listbox = ListBox(app, items=["A", "B"], enabled=False)
+PushButton(app, text="Bật lại", command=bat)
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-disable2')">
+  <td>disable()</td><td>-</td><td>-</td><td>Tắt tương tác</td>
+</tr>
+<tr id="ex-disable2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Vô hiệu hóa ListBox, người dùng không chọn được nữa.<br>
+    🧪 <strong>Ví dụ:</strong>
+<pre><code class="language-python">
+from guizero import App, ListBox, PushButton
+
+def tat():
+    listbox.disable()
+
+app = App()
+listbox = ListBox(app, items=["1", "2", "3"])
+PushButton(app, text="Tắt", command=tat)
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-focus2')">
+  <td>focus()</td><td>-</td><td>-</td><td>Đặt tiêu điểm</td>
+</tr>
+<tr id="ex-focus2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Đưa tiêu điểm (focus) đến ListBox.<br>
+    🧪 <strong>Ví dụ:</strong>
+<pre><code class="language-python">
+from guizero import App, ListBox, PushButton
+
+def focus():
+    listbox.focus()
+
+app = App()
+listbox = ListBox(app, items=["A", "B"])
+PushButton(app, text="Focus", command=focus)
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-hide2')">
+  <td>hide()</td><td>-</td><td>-</td><td>Ẩn widget</td>
+</tr>
+<tr id="ex-hide2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Ẩn ListBox khỏi giao diện.<br>
+    🧪 <strong>Ví dụ:</strong>
+<pre><code class="language-python">
+from guizero import App, ListBox, PushButton
+
+def an():
+    listbox.hide()
+
+app = App()
+listbox = ListBox(app, items=["Ẩn", "Hiện"])
+PushButton(app, text="Ẩn", command=an)
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-show2')">
+  <td>show()</td><td>-</td><td>-</td><td>Hiện widget</td>
+</tr>
+<tr id="ex-show2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Hiển thị lại ListBox nếu bị ẩn.<br>
+    🧪 <strong>Ví dụ:</strong>
+<pre><code class="language-python">
+from guizero import App, ListBox, PushButton
+
+def hien():
+    listbox.show()
+
+app = App()
+listbox = ListBox(app, items=["Ẩn", "Hiện"], visible=False)
+PushButton(app, text="Hiện", command=hien)
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-resize2')">
+  <td>resize()</td><td>width, height</td><td>-</td><td>Đổi kích thước</td>
+</tr>
+<tr id="ex-resize2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Thay đổi chiều rộng và cao của ListBox.<br>
+    🧪 <strong>Ví dụ:</strong>
+<pre><code class="language-python">
+from guizero import App, ListBox, PushButton
+
+def doi_kich_thuoc():
+    listbox.resize(30, 5)
+
+app = App()
+listbox = ListBox(app, items=["A", "B"])
+PushButton(app, text="Đổi kích thước", command=doi_kich_thuoc)
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-after2')">
+  <td>after()</td><td>time, command, args</td><td>-</td><td>Chạy hàm sau một khoảng thời gian</td>
+</tr>
+<tr id="ex-after2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Chạy hàm sau vài mili giây.<br>
+    🧪 <strong>Ví dụ:</strong>
+<pre><code class="language-python">
+from guizero import App, ListBox
+
+def thong_bao():
+    print("Chạy sau 2 giây!")
+
+app = App()
+listbox = ListBox(app, items=["A"])
+app.after(2000, thong_bao)
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-repeat2')">
+  <td>repeat()</td><td>time, command, args</td><td>-</td><td>Lặp hàm liên tục</td>
+</tr>
+<tr id="ex-repeat2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Gọi hàm liên tục sau mỗi khoảng thời gian.<br>
+    🧪 <strong>Ví dụ:</strong>
+<pre><code class="language-python">
+from guizero import App, ListBox
+
+def them_cham():
+    listbox.append("...")
+
+app = App()
+listbox = ListBox(app, items=["Chờ"])
+app.repeat(1000, them_cham)
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-cancel2')">
+  <td>cancel()</td><td>command</td><td>-</td><td>Hủy hành động đã hẹn giờ</td>
+</tr>
+<tr id="ex-cancel2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Dừng hành động đã lặp hoặc after().<br>
+    🧪 <strong>Ví dụ:</strong>
+<pre><code class="language-python">
+from guizero import App, ListBox, PushButton
+
+def cap_nhat():
+    listbox.append("tick")
+
+app = App()
+listbox = ListBox(app)
+app.repeat(500, cap_nhat)
+PushButton(app, text="Dừng", command=lambda: app.cancel(cap_nhat))
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-destroy2')">
+  <td>destroy()</td><td>-</td><td>-</td><td>Xóa widget khỏi giao diện</td>
+</tr>
+<tr id="ex-destroy2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Xóa hoàn toàn ListBox khỏi giao diện và bộ nhớ.<br>
+    🧪 <strong>Ví dụ:</strong>
+<pre><code class="language-python">
+from guizero import App, ListBox, PushButton
+
+def xoa():
+    listbox.destroy()
+
+app = App()
+listbox = ListBox(app, items=["Xóa tôi đi"])
+PushButton(app, text="Huỷ", command=xoa)
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-update_command2')">
+  <td>update_command()</td><td>command</td><td>-</td><td>Cập nhật hàm xử lý sự kiện chọn</td>
+</tr>
+<tr id="ex-update_command2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Gán lại hàm được gọi khi chọn mục mới.<br>
+    🧪 <strong>Ví dụ:</strong>
+<pre><code class="language-python">
+from guizero import App, ListBox, PushButton
+
+def in_ra():
+    print("Đã chọn gì đó")
+
+def gan_lai():
+    listbox.update_command(in_ra)
+
+app = App()
+listbox = ListBox(app, items=["X", "Y"])
+PushButton(app, text="Gán hàm", command=gan_lai)
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+          </table>
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+          <h3>Thuộc tính của ListBox</h3>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Thuộc tính</th>
+                <th>Kiểu dữ liệu</th>
+                <th>Mô tả</th>
+              </tr>
+            </thead>
+            <tbody>
+  <tr class="param-row" onclick="toggleExample('ex-value3')">
+    <td>value</td><td>String hoặc List</td><td>Mục được chọn</td>
+  </tr>
+  <tr id="ex-value3" class="example" style="display: none;">
+    <td colspan="3">
+      🧪 <strong>Ví dụ:</strong>
+      <pre><code class="language-python">
+print(listbox.value)
+listbox.value = ["Fish", "Chicken"]
+      </code></pre>
+    </td>
+  </tr>
+
+  <tr class="param-row" onclick="toggleExample('ex-items3')">
+    <td>items</td><td>List</td><td>Danh sách các mục</td>
+  </tr>
+  <tr id="ex-items3" class="example" style="display: none;">
+    <td colspan="3">
+      🧪 <strong>Ví dụ:</strong>
+      <pre><code class="language-python">
+print(listbox.items)
+listbox.items = ["Apple", "Banana", "Pear"]
+      </code></pre>
+    </td>
+  </tr>
+
+  <tr class="param-row" onclick="toggleExample('ex-enabled3')">
+    <td>enabled</td><td>Boolean</td><td>Trạng thái hoạt động</td>
+  </tr>
+  <tr id="ex-enabled3" class="example" style="display: none;">
+    <td colspan="3">
+      🧪 <strong>Ví dụ:</strong>
+      <pre><code class="language-python">
+listbox.enabled = False
+print(listbox.enabled)
+      </code></pre>
+    </td>
+  </tr>
+
+  <tr class="param-row" onclick="toggleExample('ex-visible3')">
+    <td>visible</td><td>Boolean</td><td>Có hiển thị hay không</td>
+  </tr>
+  <tr id="ex-visible3" class="example" style="display: none;">
+    <td colspan="3">
+      🧪 <strong>Ví dụ:</strong>
+      <pre><code class="language-python">
+listbox.visible = False
+listbox.visible = True
+      </code></pre>
+    </td>
+  </tr>
+
+  <tr class="param-row" onclick="toggleExample('ex-widthheight3')">
+    <td>width / height</td><td>Số hoặc "fill"</td><td>Kích thước</td>
+  </tr>
+  <tr id="ex-widthheight3" class="example" style="display: none;">
+    <td colspan="3">
+      🧪 <strong>Ví dụ:</strong>
+      <pre><code class="language-python">
+listbox.width = "fill"
+listbox.height = 200
+      </code></pre>
+    </td>
+  </tr>
+
+  <tr class="param-row" onclick="toggleExample('ex-align3')">
+    <td>align</td><td>String</td><td>Căn lề trong container</td>
+  </tr>
+  <tr id="ex-align3" class="example" style="display: none;">
+    <td colspan="3">
+      🧪 <strong>Ví dụ:</strong>
+      <pre><code class="language-python">
+listbox.align = "right"
+      </code></pre>
+    </td>
+  </tr>
+
+  <tr class="param-row" onclick="toggleExample('ex-font3')">
+    <td>font</td><td>String</td><td>Font chữ</td>
+  </tr>
+  <tr id="ex-font3" class="example" style="display: none;">
+    <td colspan="3">
+      🧪 <strong>Ví dụ:</strong>
+      <pre><code class="language-python">
+listbox.font = "Helvetica"
+      </code></pre>
+    </td>
+  </tr>
+
+  <tr class="param-row" onclick="toggleExample('ex-text_color3')">
+    <td>text_color</td><td>Color</td><td>Màu chữ</td>
+  </tr>
+  <tr id="ex-text_color3" class="example" style="display: none;">
+    <td colspan="3">
+      🧪 <strong>Ví dụ:</strong>
+      <pre><code class="language-python">
+listbox.text_color = "blue"
+      </code></pre>
+    </td>
+  </tr>
+
+  <tr class="param-row" onclick="toggleExample('ex-text_bold3')">
+    <td>text_bold</td><td>Boolean</td><td>Chữ in đậm</td>
+  </tr>
+  <tr id="ex-text_bold3" class="example" style="display: none;">
+    <td colspan="3">
+      🧪 <strong>Ví dụ:</strong>
+      <pre><code class="language-python">
+listbox.text_bold = True
+      </code></pre>
+    </td>
+  </tr>
+
+  <tr class="param-row" onclick="toggleExample('ex-text_italic3')">
+    <td>text_italic</td><td>Boolean</td><td>Chữ nghiêng</td>
+  </tr>
+  <tr id="ex-text_italic3" class="example" style="display: none;">
+    <td colspan="3">
+      🧪 <strong>Ví dụ:</strong>
+      <pre><code class="language-python">
+listbox.text_italic = True
+      </code></pre>
+    </td>
+  </tr>
+
+  <tr class="param-row" onclick="toggleExample('ex-text_underline3')">
+    <td>text_underline</td><td>Boolean</td><td>Chữ gạch chân</td>
+  </tr>
+  <tr id="ex-text_underline3" class="example" style="display: none;">
+    <td colspan="3">
+      🧪 <strong>Ví dụ:</strong>
+      <pre><code class="language-python">
+listbox.text_underline = True
+      </code></pre>
+    </td>
+  </tr>
+
+  <tr class="param-row" onclick="toggleExample('ex-text_overstrike3')">
+    <td>text_overstrike</td><td>Boolean</td><td>Chữ gạch ngang</td>
+  </tr>
+  <tr id="ex-text_overstrike3" class="example" style="display: none;">
+    <td colspan="3">
+      🧪 <strong>Ví dụ:</strong>
+      <pre><code class="language-python">
+listbox.text_overstrike = True
+      </code></pre>
+    </td>
+  </tr>
+
+  <tr class="param-row" onclick="toggleExample('ex-text_size3')">
+    <td>text_size</td><td>Số nguyên</td><td>Kích thước văn bản</td>
+  </tr>
+  <tr id="ex-text_size3" class="example" style="display: none;">
+    <td colspan="3">
+      🧪 <strong>Ví dụ:</strong>
+      <pre><code class="language-python">
+listbox.text_size = 18
+      </code></pre>
+    </td>
+  </tr>
+
+  <tr class="param-row" onclick="toggleExample('ex-bg3')">
+    <td>bg</td><td>Màu sắc</td><td>Màu nền của ListBox</td>
+  </tr>
+  <tr id="ex-bg3" class="example" style="display: none;">
+    <td colspan="3">
+      🧪 <strong>Ví dụ:</strong>
+      <pre><code class="language-python">
+listbox.bg = "lightgray"
+      </code></pre>
+    </td>
+  </tr>
+
+  <tr class="param-row" onclick="toggleExample('ex-children3')">
+    <td>children</td><td>List</td><td>Danh sách các widget con</td>
+  </tr>
+  <tr id="ex-children3" class="example" style="display: none;">
+    <td colspan="3">
+      🧪 <strong>Ví dụ:</strong>
+      <pre><code class="language-python">
+print(listbox.children)  # Truy cập các widget con như ListBoxWidget, Scrollbar
+      </code></pre>
+    </td>
+  </tr>
+
+  <tr class="param-row" onclick="toggleExample('ex-grid3')">
+    <td>grid</td><td>List [x, y]</td><td>Vị trí trong bố cục lưới</td>
+  </tr>
+  <tr id="ex-grid3" class="example" style="display: none;">
+    <td colspan="3">
+      🧪 <strong>Ví dụ:</strong>
+      <pre><code class="language-python">
+listbox.grid = [0, 1]
+      </code></pre>
+    </td>
+  </tr>
+
+  <tr class="param-row" onclick="toggleExample('ex-master3')">
+    <td>master</td><td>App / Box</td><td>Widget cha</td>
+  </tr>
+  <tr id="ex-master3" class="example" style="display: none;">
+    <td colspan="3">
+      🧪 <strong>Ví dụ:</strong>
+      <pre><code class="language-python">
+print(listbox.master)
+      </code></pre>
+    </td>
+  </tr>
+
+  <tr class="param-row" onclick="toggleExample('ex-tk3')">
+    <td>tk</td><td>tkinter.Frame</td><td>Truy cập đối tượng tkinter gốc</td>
+  </tr>
+  <tr id="ex-tk3" class="example" style="display: none;">
+    <td colspan="3">
+      🧪 <strong>Ví dụ:</strong>
+      <pre><code class="language-python">
+frame = listbox.tk
+print(type(frame))
+      </code></pre>
+    </td>
+  </tr>
+</tbody>
+
+          </table>
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+          <h3>Ví dụ: Thay đổi màu văn bản theo lựa chọn</h3>
+          <pre><code class="language-python">from guizero import App, ListBox, Text
+
+def change_color(value):
+    t.text_color = value
+
+app = App()
+t = Text(app, text="Its a ListBox", color="black")
+listbox = ListBox(
+    app,
+    items=["red", "green", "blue", "yellow", "purple", "turquoise", "pink", "orange", "black", "brown", "cyan"],
+    selected="black",
+    command=change_color,
+    scrollbar=True
+)
+app.display()</code></pre>
+
+          <h3>Sử dụng với tkinter nâng cao</h3>
+          <p>Truy cập trực tiếp các widget tkinter bên trong ListBox:</p>
+          <pre><code class="language-python">tk_listbox = listbox.children[0].tk
+tk_scrollbar = listbox.children[1].tk  # nếu scrollbar=True</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                Huỳnh Ngọc Thái
+            </div>
+        </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+        <div class="switcher-icon">
+            <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+        </div>
+        <div class="right-sidebar-content">
+
+            <p class="mb-0">Gaussion Texture</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme1"></li>
+                <li id="theme2"></li>
+                <li id="theme3"></li>
+                <li id="theme4"></li>
+                <li id="theme5"></li>
+                <li id="theme6"></li>
+            </ul>
+
+            <p class="mb-0">Gradient Background</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme7"></li>
+                <li id="theme8"></li>
+                <li id="theme9"></li>
+                <li id="theme10"></li>
+                <li id="theme11"></li>
+                <li id="theme12"></li>
+                <li id="theme13"></li>
+                <li id="theme14"></li>
+                <li id="theme15"></li>
+            </ul>
+
+        </div>
+    </div>
+    <!--end color switcher-->
+
+    </div><!--End wrapper-->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- simplebar js -->
+    <script src="../plugins/simplebar/js/simplebar.js"></script>
+    <!-- sidebar-menu js -->
+    <script src="../js/sidebar-menu.js"></script>
+    <!-- loader scripts -->
+    <script src="../js/jquery.loading-indicator.js"></script>
+    <!-- Custom scripts -->
+    <script src="../js/app-script.js"></script>
+    <!-- Chart js -->
+
+    <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+    <!-- Index js -->
+
+    <script>
+        $("#sidebar-placeholder").load("layout.html");
+
+    </script>
+
+
+</body>
+
+</html>
