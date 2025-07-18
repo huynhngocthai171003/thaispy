@@ -1,9 +1,11 @@
-from guizero import App, PushButton, Text
+from guizero import App, TextBox, PushButton
 
-def get_file():
-    file_name.value = app.select_file(folder="C:\\Users\\NGOC THAI\\Documents\\Zalo Received Files")
+def write_lines():
+    lines = textbox.value.split("\n")
+    with open("file.txt", "w", encoding="utf-8") as f:
+        f.writelines(line.upper() + "\n" for line in lines)
 
-app = App()
-PushButton(app, command=get_file, text="Get file")
-file_name = Text(app)
+app = App("Ghi nhiều dòng")
+textbox = TextBox(app, multiline=True, width=40, height=5)
+PushButton(app, text="Ghi danh sách dòng", command=write_lines)
 app.display()
