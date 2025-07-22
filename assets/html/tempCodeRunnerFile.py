@@ -1,16 +1,10 @@
-from guizero import App, Text, PushButton, error
-
-def read_lines():
-    try:
-        with open("data.txt", "r", encoding="utf-8") as f:
-            lines = f.readlines()
-            for i in lines:
-                i.strip()
-            result.value = ' '.join(lines)
-    except FileNotFoundError:
-        error("Lỗi", "Không tìm thấy file")
-
-app = App("Đọc tất cả dòng")
-PushButton(app, text="Đọc file", command=read_lines)
-result = Text(app, text="")
-app.display()
+tbc_3môn = 7.95
+print(tbc_3môn)
+if tbc_3môn >= 8.0:
+    print("Học sinh giỏi")
+elif tbc_3môn >= 6.6 or tbc_3môn == 7.9:
+    print("Học sinh khá")
+elif tbc_3môn >= 4.6 or tbc_3môn == 6.5:
+    print("Học sinh trung bình")
+else:
+    print("Học sinh yếu")
