@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Học Python với Thầy Thái</title>
+  <!-- loader-->
+
+  <!--favicon-->
+  <link rel="icon" href="../images/logo.png" type="image/x-icon">
+  <!-- Vector CSS -->
+  <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+  <!-- simplebar CSS-->
+  <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+  <!-- Bootstrap core CSS-->
+  <link href="../css/bootstrap.min.css" rel="stylesheet" />
+  <!-- animate CSS-->
+  <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+  <!-- Icons CSS-->
+  <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+  <!-- Sidebar CSS-->
+  <link href="../css/sidebar-menu.css" rel="stylesheet" />
+  <!-- Custom Style-->
+  <link href="../css/app-style.css" rel="stylesheet" />
+  <!-- Bootstrap 5 CSS -->
+<!-- Prism.js CSS -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+<!-- Prism.js -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+<!-- Plugin for line numbers + copy -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet"/>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css" rel="stylesheet"/>
+
+
+  <!-- Bootstrap 5 JS + Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+  .card-header{
+    font-size: 18px;
+  }
+  .card-body h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #f3f6f9;
+}
+
+.card-body ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+.card-body ul li {
+  margin-bottom: 0.5rem;
+  font-size: 18px;
+}
+
+p{
+  font-size: 18px;
+}
+
+
+
+</style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+  <!-- Start wrapper-->
+  <div id="wrapper">
+
+    <!--Start sidebar-wrapper-->
+    <div id="sidebar-placeholder"></div>
+
+    <!--End sidebar-wrapper-->
+
+    <!--Start topbar header-->
+    <header class="topbar-nav">
+      <nav class="navbar navbar-expand fixed-top">
+        <ul class="navbar-nav mr-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link toggle-menu" href="javascript:void();">
+              <i class="icon-menu menu-icon"></i>
+            </a>
+          </li>
+
+        </ul>
+
+
+      </nav>
+    </header>
+    <!--End topbar header-->
+
+    <div class="clearfix"></div>
+
+  <div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Đối số từ khóa của hàm trong Python <small class="text-muted">6 phút đọc</small></h3>
+        </div>
+        <div class="card-body">
+          <p>Trong lập trình Python, đối số từ khóa (keyword arguments) là một tính năng mạnh mẽ cho phép bạn gọi hàm bằng cách sử dụng tên của các tham số. Điều này giúp mã nguồn trở nên rõ ràng và dễ đọc hơn, đặc biệt khi hàm có nhiều tham số. Bài viết này sẽ hướng dẫn chi tiết về đối số từ khóa của hàm trong Python, bao gồm các chủ đề như định nghĩa đối số từ khóa, cách sử dụng đối số từ khóa, sự khác biệt giữa đối số vị trí và đối số từ khóa, các ví dụ minh họa, và các lưu ý khi sử dụng đối số từ khóa.</p>
+
+          <h3>Định nghĩa đối số từ khóa</h3>
+          <p>Đối số từ khóa là các đối số được truyền cho hàm bằng cách sử dụng tên của chúng. Khi gọi hàm, bạn có thể chỉ định giá trị cho các tham số bằng cách sử dụng cú pháp <code>parameter=value</code>.</p>
+
+          <h4>Cú pháp định nghĩa đối số từ khóa</h4>
+          <pre><code class="language-python">def function_name(parameter1=value1, parameter2=value2, ...):
+    # Khối mã của hàm
+    pass</code></pre>
+
+          <h4>Ví dụ về định nghĩa đối số từ khóa</h4>
+          <pre><code class="language-python">def greet(name, message="Hello"):
+    print(f"{message}, {name}!")
+
+# Gọi hàm với đối số từ khóa
+greet(name="Alice", message="Good morning")</code></pre>
+
+          <h3>Cách sử dụng đối số từ khóa</h3>
+          <p>Khi gọi hàm, bạn có thể sử dụng đối số từ khóa để chỉ định giá trị cho các tham số. Điều này giúp mã nguồn trở nên rõ ràng và dễ đọc hơn, đặc biệt khi hàm có nhiều tham số.</p>
+
+          <h4>Ví dụ về cách sử dụng đối số từ khóa</h4>
+          <pre><code class="language-python">def greet(name, message="Hello"):
+    print(f"{message}, {name}!")
+
+# Gọi hàm với đối số từ khóa
+greet(name="Alice", message="Good morning")
+
+# Gọi hàm với đối số từ khóa và đối số vị trí
+greet("Bob", message="Good evening")</code></pre>
+
+          <h3>Sự khác biệt giữa đối số vị trí và đối số từ khóa</h3>
+          <p>Đối số vị trí (positional arguments) được truyền cho hàm theo thứ tự mà chúng được định nghĩa, trong khi đối số từ khóa (keyword arguments) được truyền bằng cách sử dụng tên của chúng. Đối số từ khóa giúp mã nguồn trở nên rõ ràng hơn và cho phép bạn bỏ qua thứ tự của các tham số.</p>
+
+          <h4>Ví dụ về đối số vị trí và đối số từ khóa</h4>
+          <pre><code class="language-python">def greet(name, message="Hello"):
+    print(f"{message}, {name}!")
+
+# Gọi hàm với đối số vị trí
+greet("Alice", "Good morning")
+
+# Gọi hàm với đối số từ khóa
+greet(name="Bob", message="Good evening")
+
+# Gọi hàm với đối số vị trí và đối số từ khóa
+greet("Charlie", message="Hi")</code></pre>
+
+          <h3>Kết hợp đối số vị trí và đối số từ khóa</h3>
+          <p>Bạn có thể kết hợp đối số vị trí và đối số từ khóa khi gọi hàm. Tuy nhiên, đối số vị trí phải được truyền trước đối số từ khóa.</p>
+
+          <h4>Ví dụ về kết hợp đối số vị trí và đối số từ khóa</h4>
+          <pre><code class="language-python">def greet(name, message="Hello"):
+    print(f"{message}, {name}!")
+
+# Gọi hàm với đối số vị trí và đối số từ khóa
+greet("Alice", message="Good morning")
+
+# Gọi hàm với đối số từ khóa và đối số vị trí (sẽ gây lỗi)
+# greet(name="Bob", "Good evening")  # SyntaxError</code></pre>
+
+          <h3>Đối số từ khóa chỉ định</h3>
+          <p>Đối số từ khóa chỉ định là các đối số phải được truyền bằng từ khóa. Chúng được định nghĩa sau dấu <code>*</code> trong danh sách tham số.</p>
+
+          <h4>Cú pháp định nghĩa đối số từ khóa chỉ định</h4>
+          <pre><code class="language-python">def function_name(*, parameter1, parameter2):
+    # Khối mã của hàm
+    pass</code></pre>
+
+          <h4>Ví dụ về đối số từ khóa chỉ định</h4>
+          <pre><code class="language-python">def greet(*, name, message="Hello"):
+    print(f"{message}, {name}!")
+
+# Gọi hàm với đối số từ khóa chỉ định
+greet(name="Alice")
+greet(name="Bob", message="Good evening")</code></pre>
+
+          <h3>Đối số từ khóa với giá trị mặc định</h3>
+          <p>Bạn có thể kết hợp đối số từ khóa với giá trị mặc định để tạo ra các hàm linh hoạt hơn. Nếu giá trị cho tham số không được cung cấp khi gọi hàm, giá trị mặc định sẽ được sử dụng.</p>
+
+          <h4>Ví dụ về đối số từ khóa với giá trị mặc định</h4>
+          <pre><code class="language-python">def greet(name, message="Hello"):
+    print(f"{message}, {name}!")
+
+# Gọi hàm với đối số từ khóa và giá trị mặc định
+greet(name="Alice")
+greet(name="Bob", message="Good evening")</code></pre>
+
+          <h3>Lưu ý khi sử dụng đối số từ khóa</h3>
+
+          <h4>Đối số từ khóa phải đứng sau đối số vị trí</h4>
+          <p>Khi gọi hàm, đối số từ khóa phải được truyền sau đối số vị trí. Nếu không, Python sẽ báo lỗi <code>SyntaxError</code>.</p>
+
+          <h4>Ví dụ về lỗi khi đối số từ khóa đứng trước đối số vị trí</h4>
+          <pre><code class="language-python">def greet(name, message="Hello"):
+    print(f"{message}, {name}!")
+
+# Sai: Đối số từ khóa đứng trước đối số vị trí
+# greet(message="Good morning", "Alice")  # SyntaxError
+
+# Đúng: Đối số từ khóa đứng sau đối số vị trí
+greet("Alice", message="Good morning")</code></pre>
+
+          <h4>Đối số từ khóa phải có tên hợp lệ</h4>
+          <p>Tên của đối số từ khóa phải tuân theo các quy tắc đặt tên biến trong Python. Nếu không, Python sẽ báo lỗi <code>SyntaxError</code>.</p>
+
+          <h4>Ví dụ về lỗi khi tên đối số từ khóa không hợp lệ</h4>
+          <pre><code class="language-python">def greet(name, message="Hello"):
+    print(f"{message}, {name}!")
+
+# Sai: Tên đối số từ khóa không hợp lệ
+# greet(name="Alice", 123message="Good morning")  # SyntaxError
+
+# Đúng: Tên đối số từ khóa hợp lệ
+greet(name="Alice", message="Good morning")</code></pre>
+
+          <h3>Kết hợp đối số từ khóa với các loại đối số khác</h3>
+          <p>Bạn có thể kết hợp đối số từ khóa với các loại đối số khác như đối số vị trí, đối số mặc định, và đối số tùy ý.</p>
+
+          <h4>Ví dụ về kết hợp đối số từ khóa với các loại đối số khác</h4>
+          <pre><code class="language-python">def greet(name, message="Hello", *args, **kwargs):
+    print(f"{message}, {name}!")
+    for arg in args:
+        print(arg)
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+# Gọi hàm với đối số từ khóa và các loại đối số khác
+greet("Alice", "Good morning", "How are you?", "Have a nice day!", age=25, location="New York")</code></pre>
+
+          <h3>Kết luận</h3>
+          <p>Đối số từ khóa là một tính năng mạnh mẽ trong Python, giúp mã nguồn trở nên rõ ràng và dễ đọc hơn. Bài viết này đã giới thiệu chi tiết về cách định nghĩa và sử dụng đối số từ khóa, sự khác biệt giữa đối số vị trí và đối số từ khóa, các ví dụ minh họa, và các lưu ý khi sử dụng đối số từ khóa. Hy vọng rằng bạn đã có thể hiểu rõ hơn về đối số từ khóa trong Python và sẵn sàng viết mã Python của riêng mình.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+      <div class="container">
+        <div class="text-center">
+          Huỳnh Ngọc Thái
+        </div>
+      </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+      <div class="switcher-icon">
+        <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+      </div>
+      <div class="right-sidebar-content">
+
+        <p class="mb-0">Gaussion Texture</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme1"></li>
+          <li id="theme2"></li>
+          <li id="theme3"></li>
+          <li id="theme4"></li>
+          <li id="theme5"></li>
+          <li id="theme6"></li>
+        </ul>
+
+        <p class="mb-0">Gradient Background</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme7"></li>
+          <li id="theme8"></li>
+          <li id="theme9"></li>
+          <li id="theme10"></li>
+          <li id="theme11"></li>
+          <li id="theme12"></li>
+          <li id="theme13"></li>
+          <li id="theme14"></li>
+          <li id="theme15"></li>
+        </ul>
+
+      </div>
+    </div>
+    <!--end color switcher-->
+
+  </div><!--End wrapper-->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+
+  <!-- simplebar js -->
+  <script src="../plugins/simplebar/js/simplebar.js"></script>
+  <!-- sidebar-menu js -->
+  <script src="../js/sidebar-menu.js"></script>
+  <!-- loader scripts -->
+  <script src="../js/jquery.loading-indicator.js"></script>
+  <!-- Custom scripts -->
+  <script src="../js/app-script.js"></script>
+  <!-- Chart js -->
+
+  <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+  <!-- Index js -->
+
+  <script>
+    $("#sidebar-placeholder").load("layout.html");
+
+  </script>
+
+
+</body>
+
+</html>
