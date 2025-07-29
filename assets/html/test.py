@@ -1,4 +1,6 @@
-def greet(*, name, message="Hello"):
-    print(f"{message}, {name}!")
+from guizero import App, Combo
 
-greet("Bob", "Good evening")
+app = App()
+Combo(app, options=["1", "2"])
+app.display()
+    

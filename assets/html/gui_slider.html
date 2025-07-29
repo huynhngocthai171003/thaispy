@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Học Python với Thầy Thái</title>
+    <!-- loader-->
+
+    <!--favicon-->
+    <link rel="icon" href="../images/logo.png" type="image/x-icon">
+    <!-- Vector CSS -->
+    <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <!-- simplebar CSS-->
+    <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- animate CSS-->
+    <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+    <!-- Icons CSS-->
+    <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+    <!-- Sidebar CSS-->
+    <link href="../css/sidebar-menu.css" rel="stylesheet" />
+    <!-- Custom Style-->
+    <link href="../css/app-style.css" rel="stylesheet" />
+    <!-- Bootstrap 5 CSS -->
+    <!-- Prism.js CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <!-- Prism.js -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Plugin for line numbers + copy -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet" />
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css"
+        rel="stylesheet" />
+
+
+    <!-- Bootstrap 5 JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .card-header {
+            font-size: 18px;
+        }
+
+        .card-body h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #f3f6f9;
+        }
+
+        .card-body ul {
+            padding-left: 1.2rem;
+            list-style-type: disc;
+        }
+
+        .card-body ul li {
+            margin-bottom: 0.5rem;
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .example {
+            display: none;
+            margin-top: 5px;
+            padding: 10px;
+
+            border-left: 4px solid #007bff;
+        }
+
+        .param-row:hover {
+            border: solid 2px yellow;
+            cursor: pointer;
+        }
+
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <!--Start sidebar-wrapper-->
+        <div id="sidebar-placeholder"></div>
+
+        <!--End sidebar-wrapper-->
+
+        <!--Start topbar header-->
+        <header class="topbar-nav">
+            <nav class="navbar navbar-expand fixed-top">
+                <ul class="navbar-nav mr-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link toggle-menu" href="javascript:void();">
+                            <i class="icon-menu menu-icon"></i>
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </nav>
+        </header>
+        <!--End topbar header-->
+
+        <div class="clearfix"></div>
+
+    <div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Đối tượng Slider <small class="text-muted">Thanh trượt trong guizero</small></h3>
+        </div>
+        <div class="card-body">
+          <h3>Slider là gì?</h3>
+          <p>Đối tượng <code>Slider</code> hiển thị một thanh và nút chọn có thể kéo để chọn một giá trị trong khoảng xác định.</p>
+
+          <h3>Hiển thị trên Windows:</h3>
+          <p>Slider trên Windows hiển thị dạng thanh ngang mặc định.</p>
+
+          <h3>Làm thế nào để tạo một Slider?</h3>
+          <pre><code class="language-python">from guizero import App, Slider
+app = App()
+slider = Slider(app)
+app.display()</code></pre>
+
+          <h3>Tham số khởi tạo</h3>
+          <p>Khi tạo một đối tượng <code>Slider</code>, bạn <strong>phải</strong> chỉ định <code>master</code>, và <strong>có thể</strong> thêm các tham số tùy chọn.</p>
+          <pre><code class="language-python">slider = Slider(app, horizontal=False)</code></pre>
+<table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Tham số</th>
+      <th>Giá trị hợp lệ</th>
+      <th>Mặc định</th>
+      <th>Bắt buộc</th>
+      <th>Mô tả</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<!-- master -->
+<tr class="param-row" onclick="toggleExample('ex-master-sld1')">
+  <td>master</td><td>App, Window hoặc Box</td><td>-</td><td>Có</td><td>Widget cha chứa slider</td>
+</tr>
+<tr id="ex-master-sld1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Container mà slider thuộc về.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Slider
+
+app = App()
+slider = Slider(app)
+print(slider.master)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- align -->
+<tr class="param-row" onclick="toggleExample('ex-align-sld1')">
+  <td>align</td><td>chuỗi</td><td>None</td><td>-</td><td>Căn lề trong container</td>
+</tr>
+<tr id="ex-align-sld1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Các giá trị hợp lệ: "top", "bottom", "left", "right".<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Slider
+
+app = App()
+Slider(app, align="top")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- command -->
+<tr class="param-row" onclick="toggleExample('ex-command-sld1')">
+  <td>command</td><td>tên hàm</td><td>None</td><td>-</td><td>Hàm gọi khi thay đổi giá trị</td>
+</tr>
+<tr id="ex-command-sld1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Hàm này được gọi mỗi khi người dùng thay đổi slider.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Slider
+
+def thay_doi():
+    print("Giá trị thay đổi")
+
+app = App()
+Slider(app, command=thay_doi)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- end -->
+<tr class="param-row" onclick="toggleExample('ex-end-sld1')">
+  <td>end</td><td>int</td><td>100</td><td>-</td><td>Giá trị lớn nhất</td>
+</tr>
+<tr id="ex-end-sld1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Định giới hạn tối đa của slider.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Slider
+
+app = App()
+Slider(app, end=50)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- grid -->
+<tr class="param-row" onclick="toggleExample('ex-grid-sld1')">
+  <td>grid</td><td>List [int, int]</td><td>None</td><td>-</td><td>Tọa độ trong lưới</td>
+</tr>
+<tr id="ex-grid-sld1" class="example" style="display: none;">
+  <td colspan="5">
+    <pre><code class="language-python">
+from guizero import App, Slider
+
+app = App(layout="grid")
+Slider(app, grid=[0, 1])
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- horizontal -->
+<tr class="param-row" onclick="toggleExample('ex-horizontal-sld1')">
+  <td>horizontal</td><td>boolean</td><td>True</td><td>-</td><td>Slider nằm ngang hay dọc</td>
+</tr>
+<tr id="ex-horizontal-sld1" class="example" style="display: none;">
+  <td colspan="5">
+    <pre><code class="language-python">
+from guizero import App, Slider
+
+app = App()
+Slider(app, horizontal=False)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- start -->
+<tr class="param-row" onclick="toggleExample('ex-start-sld1')">
+  <td>start</td><td>int</td><td>0</td><td>-</td><td>Giá trị nhỏ nhất</td>
+</tr>
+<tr id="ex-start-sld1" class="example" style="display: none;">
+  <td colspan="5">
+    <pre><code class="language-python">
+from guizero import App, Slider
+
+app = App()
+Slider(app, start=10, end=50)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- visible -->
+<tr class="param-row" onclick="toggleExample('ex-visible-sld1')">
+  <td>visible</td><td>boolean</td><td>True</td><td>Không</td><td>Hiển thị widget hay không</td>
+</tr>
+<tr id="ex-visible-sld1" class="example" style="display: none;">
+  <td colspan="5">
+    <pre><code class="language-python">
+from guizero import App, Slider
+
+app = App()
+s = Slider(app)
+s.visible = False
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- enabled -->
+<tr class="param-row" onclick="toggleExample('ex-enabled-sld1')">
+  <td>enabled</td><td>boolean</td><td>None</td><td>Không</td><td>Cho phép tương tác hay không</td>
+</tr>
+<tr id="ex-enabled-sld1" class="example" style="display: none;">
+  <td colspan="5">
+    <pre><code class="language-python">
+from guizero import App, Slider
+
+app = App()
+s = Slider(app)
+s.enabled = False
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- width -->
+<tr class="param-row" onclick="toggleExample('ex-width-sld1')">
+  <td>width</td><td>kích thước</td><td>None</td><td>Không</td><td>Chiều rộng</td>
+</tr>
+<tr id="ex-width-sld1" class="example" style="display: none;">
+  <td colspan="5">
+    <pre><code class="language-python">
+from guizero import App, Slider
+
+app = App()
+Slider(app, width=300)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- height -->
+<tr class="param-row" onclick="toggleExample('ex-height-sld1')">
+  <td>height</td><td>kích thước</td><td>None</td><td>Không</td><td>Chiều cao</td>
+</tr>
+<tr id="ex-height-sld1" class="example" style="display: none;">
+  <td colspan="5">
+    <pre><code class="language-python">
+from guizero import App, Slider
+
+app = App()
+Slider(app, height=30)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- step -->
+<tr class="param-row" onclick="toggleExample('ex-step-sld1')">
+  <td>step</td><td>int</td><td>1</td><td>Không</td><td>Bước nhảy giá trị</td>
+</tr>
+<tr id="ex-step-sld1" class="example" style="display: none;">
+  <td colspan="5">
+    <pre><code class="language-python">
+from guizero import App, Slider
+
+app = App()
+Slider(app, start=0, end=10, step=2)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+
+</tbody>
+</table>
+
+
+          <h3>Phương thức</h3>
+         <table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Phương thức</th>
+      <th>Tham số</th>
+      <th>Trả về</th>
+      <th>Mô tả</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<!-- after -->
+<tr class="param-row" onclick="toggleExample('ex-after-sld2')">
+  <td>after()</td><td>time, command, args</td><td>-</td><td>Gọi hàm sau khoảng thời gian</td>
+</tr>
+<tr id="ex-after-sld2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Slider
+
+def chao(name):
+    print(f"Xin chào, {name}!")
+
+app = App()
+slider = Slider(app)
+slider.after(2000, chao, args=["bạn"])
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- cancel -->
+<tr class="param-row" onclick="toggleExample('ex-cancel-sld2')">
+  <td>cancel()</td><td>command</td><td>-</td><td>Hủy gọi hàm đã lên lịch</td>
+</tr>
+<tr id="ex-cancel-sld2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Slider, PushButton
+
+def test():
+    print("Đã gọi")
+
+app = App()
+slider = Slider(app)
+slider.after(3000, test)
+PushButton(app, text="Hủy gọi test()", command=lambda: slider.cancel(test))
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- destroy -->
+<tr class="param-row" onclick="toggleExample('ex-destroy-sld2')">
+  <td>destroy()</td><td>-</td><td>-</td><td>Xóa widget</td>
+</tr>
+<tr id="ex-destroy-sld2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Slider, PushButton
+
+def xoa():
+    slider.destroy()
+
+app = App()
+slider = Slider(app)
+PushButton(app, text="Xóa Slider", command=xoa)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- disable -->
+<tr class="param-row" onclick="toggleExample('ex-disable-sld2')">
+  <td>disable()</td><td>-</td><td>-</td><td>Vô hiệu hóa widget</td>
+</tr>
+<tr id="ex-disable-sld2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Slider, PushButton
+
+def vo_hieu():
+    slider.disable()
+
+app = App()
+slider = Slider(app)
+PushButton(app, text="Vô hiệu hóa", command=vo_hieu)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- enable -->
+<tr class="param-row" onclick="toggleExample('ex-enable-sld2')">
+  <td>enable()</td><td>-</td><td>-</td><td>Kích hoạt lại widget</td>
+</tr>
+<tr id="ex-enable-sld2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Slider, PushButton
+
+def kich_hoat():
+    slider.enable()
+
+app = App()
+slider = Slider(app)
+slider.disable()
+PushButton(app, text="Bật lại", command=kich_hoat)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- focus -->
+<tr class="param-row" onclick="toggleExample('ex-focus-sld2')">
+  <td>focus()</td><td>-</td><td>-</td><td>Đưa tiêu điểm tới widget</td>
+</tr>
+<tr id="ex-focus-sld2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Slider, PushButton
+
+def focus_slider():
+    slider.focus()
+
+app = App()
+slider = Slider(app)
+PushButton(app, text="Đưa tiêu điểm", command=focus_slider)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- hide -->
+<tr class="param-row" onclick="toggleExample('ex-hide-sld2')">
+  <td>hide()</td><td>-</td><td>-</td><td>Ẩn widget khỏi giao diện</td>
+</tr>
+<tr id="ex-hide-sld2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Slider, PushButton
+
+def an():
+    slider.hide()
+
+app = App()
+slider = Slider(app)
+PushButton(app, text="Ẩn Slider", command=an)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- repeat -->
+<tr class="param-row" onclick="toggleExample('ex-repeat-sld2')">
+  <td>repeat()</td><td>time, command, args</td><td>-</td><td>Lặp gọi hàm theo chu kỳ</td>
+</tr>
+<tr id="ex-repeat-sld2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Slider
+
+def in_gia_tri(name):
+    print(f"{name}: {slider.value}")
+
+app = App()
+slider = Slider(app)
+slider.repeat(2000, in_gia_tri, args=["Giá trị hiện tại"])
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- resize -->
+<tr class="param-row" onclick="toggleExample('ex-resize-sld2')">
+  <td>resize()</td><td>width, height</td><td>-</td><td>Thay đổi kích thước</td>
+</tr>
+<tr id="ex-resize-sld2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Slider, PushButton
+
+def đổi_kích_thước():
+    slider.resize(400, 50)
+
+app = App()
+slider = Slider(app)
+PushButton(app, text="Đổi kích thước", command=đổi_kích_thước)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- show -->
+<tr class="param-row" onclick="toggleExample('ex-show-sld2')">
+  <td>show()</td><td>-</td><td>-</td><td>Hiển thị lại widget</td>
+</tr>
+<tr id="ex-show-sld2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Slider, PushButton
+
+def hien():
+    slider.show()
+
+app = App()
+slider = Slider(app)
+slider.hide()
+PushButton(app, text="Hiện lại", command=hien)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- update_command -->
+<tr class="param-row" onclick="toggleExample('ex-updatecmd-sld2')">
+  <td>update_command()</td><td>command</td><td>-</td><td>Cập nhật hàm gọi khi thay đổi</td>
+</tr>
+<tr id="ex-updatecmd-sld2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Slider, PushButton
+
+def lần_1():
+    print("Lần đầu")
+
+def lần_2():
+    print("Đã cập nhật")
+
+app = App()
+slider = Slider(app, command=lần_1)
+PushButton(app, text="Cập nhật command", command=lambda: slider.update_command(lần_2))
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+
+</tbody>
+</table>
+
+
+          <h3>Thuộc tính</h3>
+         <table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Thuộc tính</th>
+      <th>Kiểu dữ liệu</th>
+      <th>Mô tả</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<!-- align -->
+<tr class="param-row" onclick="toggleExample('ex-align-sld3')">
+  <td>align</td><td>string</td><td>Căn chỉnh widget trong container</td>
+</tr>
+<tr id="ex-align-sld3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Slider
+app = App()
+s = Slider(app)
+s.align = "top"
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- bg -->
+<tr class="param-row" onclick="toggleExample('ex-bg-sld3')">
+  <td>bg</td><td>màu sắc</td><td>Màu nền</td>
+</tr>
+<tr id="ex-bg-sld3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Slider
+app = App()
+s = Slider(app)
+s.bg = "lightblue"
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- enabled -->
+<tr class="param-row" onclick="toggleExample('ex-enabled-sld3')">
+  <td>enabled</td><td>boolean</td><td>Trạng thái kích hoạt</td>
+</tr>
+<tr id="ex-enabled-sld3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Slider
+app = App()
+s = Slider(app)
+s.enabled = False
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- end -->
+<tr class="param-row" onclick="toggleExample('ex-end-sld3')">
+  <td>end</td><td>int</td><td>Giá trị lớn nhất</td>
+</tr>
+<tr id="ex-end-sld3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Slider
+app = App()
+s = Slider(app)
+s.end = 200
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- font -->
+<tr class="param-row" onclick="toggleExample('ex-font-sld3')">
+  <td>font</td><td>string</td><td>Font chữ</td>
+</tr>
+<tr id="ex-font-sld3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Slider
+app = App()
+s = Slider(app)
+s.font = "Courier"
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- grid -->
+<tr class="param-row" onclick="toggleExample('ex-grid-sld3')">
+  <td>grid</td><td>list</td><td>Vị trí trong lưới</td>
+</tr>
+<tr id="ex-grid-sld3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Slider
+app = App(layout="grid")
+s = Slider(app)
+s.grid = [0, 1]
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- height -->
+<tr class="param-row" onclick="toggleExample('ex-height-sld3')">
+  <td>height</td><td>kích thước</td><td>Chiều cao</td>
+</tr>
+<tr id="ex-height-sld3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Slider
+app = App()
+s = Slider(app)
+s.height = 50
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- master -->
+<tr class="param-row" onclick="toggleExample('ex-master-sld3')">
+  <td>master</td><td>App hoặc Box</td><td>Widget cha</td>
+</tr>
+<tr id="ex-master-sld3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Box, Slider
+app = App()
+box = Box(app)
+s = Slider(box)
+print(s.master)
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- start -->
+<tr class="param-row" onclick="toggleExample('ex-start-sld3')">
+  <td>start</td><td>int</td><td>Giá trị nhỏ nhất</td>
+</tr>
+<tr id="ex-start-sld3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Slider
+app = App()
+s = Slider(app)
+s.start = 10
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- text_size -->
+<tr class="param-row" onclick="toggleExample('ex-textsize-sld3')">
+  <td>text_size</td><td>int</td><td>Kích thước chữ</td>
+</tr>
+<tr id="ex-textsize-sld3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Slider
+app = App()
+s = Slider(app)
+s.text_size = 16
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- text_bold -->
+<tr class="param-row" onclick="toggleExample('ex-textbold-sld3')">
+  <td>text_bold</td><td>boolean</td><td>Chữ đậm</td>
+</tr>
+<tr id="ex-textbold-sld3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Slider
+app = App()
+s = Slider(app)
+s.text_bold = True
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- text_color -->
+<tr class="param-row" onclick="toggleExample('ex-textcolor-sld3')">
+  <td>text_color</td><td>màu sắc</td><td>Màu chữ</td>
+</tr>
+<tr id="ex-textcolor-sld3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Slider
+app = App()
+s = Slider(app)
+s.text_color = "red"
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- text_italic -->
+<tr class="param-row" onclick="toggleExample('ex-textitalic-sld3')">
+  <td>text_italic</td><td>boolean</td><td>Chữ nghiêng</td>
+</tr>
+<tr id="ex-textitalic-sld3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Slider
+app = App()
+s = Slider(app)
+s.text_italic = True
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- text_overstrike -->
+<tr class="param-row" onclick="toggleExample('ex-textoverstrike-sld3')">
+  <td>text_overstrike</td><td>boolean</td><td>Gạch ngang chữ</td>
+</tr>
+<tr id="ex-textoverstrike-sld3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Slider
+app = App()
+s = Slider(app)
+s.text_overstrike = True
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- text_underline -->
+<tr class="param-row" onclick="toggleExample('ex-textunderline-sld3')">
+  <td>text_underline</td><td>boolean</td><td>Gạch dưới chữ</td>
+</tr>
+<tr id="ex-textunderline-sld3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Slider
+app = App()
+s = Slider(app)
+s.text_underline = True
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- tk -->
+<tr class="param-row" onclick="toggleExample('ex-tk-sld3')">
+  <td>tk</td><td>tkinter.Scale</td><td>Đối tượng nội bộ</td>
+</tr>
+<tr id="ex-tk-sld3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Slider
+app = App()
+s = Slider(app)
+print(s.tk)
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- value -->
+<tr class="param-row" onclick="toggleExample('ex-value-sld3')">
+  <td>value</td><td>string</td><td>Giá trị hiện tại</td>
+</tr>
+<tr id="ex-value-sld3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Slider
+app = App()
+s = Slider(app)
+s.value = 30
+print(s.value)
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- visible -->
+<tr class="param-row" onclick="toggleExample('ex-visible-sld3')">
+  <td>visible</td><td>boolean</td><td>Hiển thị hay không</td>
+</tr>
+<tr id="ex-visible-sld3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Slider
+app = App()
+s = Slider(app)
+s.visible = False
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- width -->
+<tr class="param-row" onclick="toggleExample('ex-width-sld3')">
+  <td>width</td><td>kích thước</td><td>Chiều rộng</td>
+</tr>
+<tr id="ex-width-sld3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Slider
+app = App()
+s = Slider(app)
+s.width = 300
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- step -->
+<tr class="param-row" onclick="toggleExample('ex-step-sld3')">
+  <td>step</td><td>int</td><td>Bước nhảy</td>
+</tr>
+<tr id="ex-step-sld3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Slider
+app = App()
+s = Slider(app)
+s.step = 5
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+
+<!-- step -->
+<tr class="param-row" onclick="toggleExample('ex-step-sld3')">
+  <td>step</td><td>int</td><td>Bước nhảy</td>
+</tr>
+<tr id="ex-step-sld3" class="example" style="display: none;">
+  <td colspan="3">
+    <pre><code class="language-python">
+from guizero import App, Slider
+app = App()
+Slider(app, step=5)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+
+</tbody>
+</table>
+
+
+          <h3>Ví dụ: Gọi hàm khi thay đổi giá trị</h3>
+          <p>Hàm nhận giá trị mới từ slider và cập nhật nội dung cho một TextBox:</p>
+          <pre><code class="language-python">from guizero import App, Slider, TextBox
+
+def slider_changed(slider_value):
+    textbox.value = slider_value
+
+app = App()
+slider = Slider(app, command=slider_changed)
+textbox = TextBox(app)
+app.display()</code></pre>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                Huỳnh Ngọc Thái
+            </div>
+        </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+        <div class="switcher-icon">
+            <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+        </div>
+        <div class="right-sidebar-content">
+
+            <p class="mb-0">Gaussion Texture</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme1"></li>
+                <li id="theme2"></li>
+                <li id="theme3"></li>
+                <li id="theme4"></li>
+                <li id="theme5"></li>
+                <li id="theme6"></li>
+            </ul>
+
+            <p class="mb-0">Gradient Background</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme7"></li>
+                <li id="theme8"></li>
+                <li id="theme9"></li>
+                <li id="theme10"></li>
+                <li id="theme11"></li>
+                <li id="theme12"></li>
+                <li id="theme13"></li>
+                <li id="theme14"></li>
+                <li id="theme15"></li>
+            </ul>
+
+        </div>
+    </div>
+    <!--end color switcher-->
+
+    </div><!--End wrapper-->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- simplebar js -->
+    <script src="../plugins/simplebar/js/simplebar.js"></script>
+    <!-- sidebar-menu js -->
+    <script src="../js/sidebar-menu.js"></script>
+    <!-- loader scripts -->
+    <script src="../js/jquery.loading-indicator.js"></script>
+    <!-- Custom scripts -->
+    <script src="../js/app-script.js"></script>
+    <!-- Chart js -->
+
+    <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+    <!-- Index js -->
+
+    <script>
+        $("#sidebar-placeholder").load("layout.html");
+
+    </script>
+
+
+</body>
+
+</html>

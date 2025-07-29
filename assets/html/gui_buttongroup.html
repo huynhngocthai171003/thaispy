@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Học Python với Thầy Thái</title>
+    <!-- loader-->
+
+    <!--favicon-->
+    <link rel="icon" href="../images/logo.png" type="image/x-icon">
+    <!-- Vector CSS -->
+    <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <!-- simplebar CSS-->
+    <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- animate CSS-->
+    <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+    <!-- Icons CSS-->
+    <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+    <!-- Sidebar CSS-->
+    <link href="../css/sidebar-menu.css" rel="stylesheet" />
+    <!-- Custom Style-->
+    <link href="../css/app-style.css" rel="stylesheet" />
+    <!-- Bootstrap 5 CSS -->
+    <!-- Prism.js CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <!-- Prism.js -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Plugin for line numbers + copy -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet" />
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css"
+        rel="stylesheet" />
+
+
+    <!-- Bootstrap 5 JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .card-header {
+            font-size: 18px;
+        }
+
+        .card-body h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #f3f6f9;
+        }
+
+        .card-body ul {
+            padding-left: 1.2rem;
+            list-style-type: disc;
+        }
+
+        .card-body ul li {
+            margin-bottom: 0.5rem;
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .example {
+            display: none;
+            margin-top: 5px;
+            padding: 10px;
+
+            border-left: 4px solid #007bff;
+        }
+
+        .param-row:hover {
+            border: solid 2px yellow;
+            cursor: pointer;
+        }
+
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <!--Start sidebar-wrapper-->
+        <div id="sidebar-placeholder"></div>
+
+        <!--End sidebar-wrapper-->
+
+        <!--Start topbar header-->
+        <header class="topbar-nav">
+            <nav class="navbar navbar-expand fixed-top">
+                <ul class="navbar-nav mr-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link toggle-menu" href="javascript:void();">
+                            <i class="icon-menu menu-icon"></i>
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </nav>
+        </header>
+        <!--End topbar header-->
+
+        <div class="clearfix"></div>
+
+    <div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Đối tượng ButtonGroup <small class="text-muted">Nhóm nút chọn trong guizero</small></h3>
+        </div>
+        <div class="card-body">
+          <h3>ButtonGroup là gì?</h3>
+          <p>Đối tượng <code>ButtonGroup</code> hiển thị một nhóm các nút radio, cho phép người dùng chọn một trong số các tùy chọn.</p>
+
+          <h3>Làm thế nào để tạo một ButtonGroup?</h3>
+          <pre><code class="language-python">from guizero import App, ButtonGroup
+app = App()
+choice = ButtonGroup(app, options=["cheese", "ham", "salad"], selected="cheese")
+app.display()</code></pre>
+
+          <h3>Tham số khởi tạo</h3>
+          <pre><code class="language-python">choice = ButtonGroup(app, options=["cheese", "ham", "salad"], selected=1)</code></pre>
+        <!-- BEGIN ButtonGroup Param Table With Examples -->
+<table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr><th>Tham số</th><th>Giá trị hợp lệ</th><th>Mặc định</th><th>Bắt buộc</th><th>Mô tả</th></tr>
+  </thead>
+  <tbody>
+
+<!-- master -->
+<tr class="param-row" onclick="toggleExample('ex-master-btn1')">
+  <td>master</td>
+  <td>App, Window hoặc Box</td>
+  <td>-</td>
+  <td>Có</td>
+  <td>Widget cha chứa</td>
+</tr>
+<tr id="ex-master-btn1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Widget cha mà ButtonGroup được đặt vào.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+
+app = App()
+buttons = ButtonGroup(app, options=["A", "B"])
+print(buttons.master)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- options -->
+<tr class="param-row" onclick="toggleExample('ex-options-btn1')">
+  <td>options</td>
+  <td>List hoặc 2D List</td>
+  <td>[]</td>
+  <td>Không</td>
+  <td>Danh sách các tùy chọn hoặc [text, value]</td>
+</tr>
+<tr id="ex-options-btn1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Xác định các tùy chọn hiển thị trong ButtonGroup.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+
+app = App()
+ButtonGroup(app, options=[["Có", "yes"], ["Không", "no"]])
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- selected -->
+<tr class="param-row" onclick="toggleExample('ex-selected-btn1')">
+  <td>selected</td>
+  <td>string</td>
+  <td>-</td>
+  <td>-</td>
+  <td>Giá trị được chọn mặc định</td>
+</tr>
+<tr id="ex-selected-btn1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Tùy chọn nào được chọn mặc định khi tạo.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+
+app = App()
+ButtonGroup(app, options=["Nam", "Nữ"], selected="Nữ")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- align -->
+<tr class="param-row" onclick="toggleExample('ex-align-btn1')">
+  <td>align</td>
+  <td>string</td>
+  <td>None</td>
+  <td>-</td>
+  <td>Căn chỉnh trong container</td>
+</tr>
+<tr id="ex-align-btn1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> "top", "bottom", "left", "right".<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Box, ButtonGroup
+
+app = App()
+box = Box(app, align="top")
+ButtonGroup(box, options=["Trái", "Phải"], align="left")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- command -->
+<tr class="param-row" onclick="toggleExample('ex-command-btn1')">
+  <td>command</td>
+  <td>function</td>
+  <td>None</td>
+  <td>-</td>
+  <td>Hàm được gọi khi thay đổi lựa chọn</td>
+</tr>
+<tr id="ex-command-btn1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Hàm được gọi khi người dùng chọn tùy chọn khác.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+
+def on_change():
+    print("Đã chọn mới")
+
+app = App()
+ButtonGroup(app, options=["1", "2"], command=on_change)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- args -->
+<tr class="param-row" onclick="toggleExample('ex-args-btn1')">
+  <td>args</td>
+  <td>list</td>
+  <td>None</td>
+  <td>-</td>
+  <td>Danh sách đối số truyền vào hàm command</td>
+</tr>
+<tr id="ex-args-btn1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Truyền giá trị vào hàm thông qua args.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+
+def chọn(value):
+    print("Bạn đã chọn:", value)
+
+app = App()
+ButtonGroup(app, options=["Trà", "Cà phê"], command=chọn, args=["Cà phê"])
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- grid -->
+<tr class="param-row" onclick="toggleExample('ex-grid-btn1')">
+  <td>grid</td>
+  <td>List [int, int]</td>
+  <td>None</td>
+  <td>-</td>
+  <td>Vị trí trong layout dạng lưới</td>
+</tr>
+<tr id="ex-grid-btn1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Chỉ sử dụng nếu App hoặc Box dùng layout="grid".<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+
+app = App(layout="grid")
+ButtonGroup(app, options=["1", "2"], grid=[1, 0])
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- horizontal -->
+<tr class="param-row" onclick="toggleExample('ex-horizontal-btn1')">
+  <td>horizontal</td>
+  <td>boolean</td>
+  <td>False</td>
+  <td>-</td>
+  <td>Các nút xếp ngang nếu True, mặc định dọc</td>
+</tr>
+<tr id="ex-horizontal-btn1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Sắp xếp radio button theo chiều ngang hoặc dọc.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+
+app = App()
+ButtonGroup(app, options=["A", "B"], horizontal=True)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- visible -->
+<tr class="param-row" onclick="toggleExample('ex-visible-btn1')">
+  <td>visible</td>
+  <td>boolean</td>
+  <td>True</td>
+  <td>Không</td>
+  <td>Hiển thị hay không</td>
+</tr>
+<tr id="ex-visible-btn1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Cho phép ẩn hoặc hiện ButtonGroup.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup, PushButton
+
+def an():
+    group.visible = False
+
+app = App()
+group = ButtonGroup(app, options=["Ẩn", "Hiện"])
+PushButton(app, text="Ẩn nhóm", command=an)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- enabled -->
+<tr class="param-row" onclick="toggleExample('ex-enabled-btn1')">
+  <td>enabled</td>
+  <td>boolean</td>
+  <td>None</td>
+  <td>Không</td>
+  <td>Cho phép tương tác</td>
+</tr>
+<tr id="ex-enabled-btn1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Nếu False thì nhóm nút không thể thao tác được.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+
+app = App()
+ButtonGroup(app, options=["1", "2"], enabled=False)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- width -->
+<tr class="param-row" onclick="toggleExample('ex-width-btn1')">
+  <td>width</td>
+  <td>kích thước</td>
+  <td>None</td>
+  <td>Không</td>
+  <td>Chiều rộng (ký tự hoặc "fill")</td>
+</tr>
+<tr id="ex-width-btn1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Xác định chiều rộng theo ký tự hoặc "fill".<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+
+app = App()
+ButtonGroup(app, options=["X", "Y"], width=30)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- height -->
+<tr class="param-row" onclick="toggleExample('ex-height-btn1')">
+  <td>height</td>
+  <td>kích thước</td>
+  <td>None</td>
+  <td>Không</td>
+  <td>Chiều cao (ký tự hoặc "fill")</td>
+</tr>
+<tr id="ex-height-btn1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Xác định chiều cao theo ký tự hoặc "fill".<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+
+app = App()
+ButtonGroup(app, options=["1", "2"], height=4)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+
+</tbody>
+</table>
+<!-- END ButtonGroup Param Table With Examples -->
+
+
+          <h3>Phương thức</h3>
+         <table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr><th>Phương thức</th><th>Tham số</th><th>Trả về</th><th>Mô tả</th></tr>
+  </thead>
+  <tbody>
+
+<tr class="param-row" onclick="toggleExample('ex-append2')">
+  <td>append()</td>
+  <td>option (string)</td>
+  <td>-</td>
+  <td>Thêm tùy chọn vào cuối nhóm</td>
+</tr>
+<tr id="ex-append2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Thêm một tùy chọn mới vào cuối danh sách hiện tại.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ListBox
+app = App()
+buttons = ListBox(app, items=["A", "B"])
+buttons.append("Mới")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-after2')">
+  <td>after()</td>
+  <td>time, command, args</td>
+  <td>-</td>
+  <td>Lên lịch gọi hàm sau khoảng thời gian</td>
+</tr>
+<tr id="ex-after2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Gọi hàm sau `time` mili giây.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App
+
+def in_ra(msg):
+    print(msg)
+
+app = App()
+app.after(1000, in_ra, ["Hello"])
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-cancel2')">
+  <td>cancel()</td>
+  <td>command</td>
+  <td>-</td>
+  <td>Hủy lời gọi hàm đã đặt</td>
+</tr>
+<tr id="ex-cancel2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Hủy lời gọi đã lập với `after()` hoặc `repeat()`.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App
+
+def lặp_lại():
+    print("Lặp lại")
+
+app = App()
+app.repeat(1000, lặp_lại)
+app.cancel(lặp_lại)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-destroy2')">
+  <td>destroy()</td>
+  <td>-</td>
+  <td>-</td>
+  <td>Xóa widget</td>
+</tr>
+<tr id="ex-destroy2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Loại bỏ widget khỏi ứng dụng.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, PushButton
+app = App()
+buttons = PushButton(app, text="Xóa")
+buttons.destroy()
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-disable2')">
+  <td>disable()</td>
+  <td>-</td>
+  <td>-</td>
+  <td>Vô hiệu hóa</td>
+</tr>
+<tr id="ex-disable2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Không cho phép tương tác.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+app = App()
+buttons = ButtonGroup(app, options=[("A", "a"), ("B", "b")])
+buttons.disable()
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-enable2')">
+  <td>enable()</td>
+  <td>-</td>
+  <td>-</td>
+  <td>Kích hoạt lại</td>
+</tr>
+<tr id="ex-enable2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Cho phép tương tác trở lại.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+buttons.enable()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-focus2')">
+  <td>focus()</td>
+  <td>-</td>
+  <td>-</td>
+  <td>Đặt tiêu điểm</td>
+</tr>
+<tr id="ex-focus2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Đặt tiêu điểm vào widget.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+buttons.focus()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-getgroup2')">
+  <td>get_group_as_list()</td>
+  <td>-</td>
+  <td>list</td>
+  <td>Lấy danh sách [text, value]</td>
+</tr>
+<tr id="ex-getgroup2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Trả về danh sách các tùy chọn dưới dạng `[text, value]`.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+print(buttons.options)
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-hide2')">
+  <td>hide()</td>
+  <td>-</td>
+  <td>-</td>
+  <td>Ẩn khỏi giao diện</td>
+</tr>
+<tr id="ex-hide2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Làm widget biến mất khỏi giao diện.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+buttons.hide()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-insert2')">
+  <td>insert()</td>
+  <td>index, option</td>
+  <td>-</td>
+  <td>Chèn tùy chọn tại vị trí</td>
+</tr>
+<tr id="ex-insert2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Chèn tùy chọn vào vị trí cụ thể trong danh sách.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+buttons.insert(0, ("Mở đầu", "start"))
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-remove2')">
+  <td>remove()</td>
+  <td>option</td>
+  <td>boolean</td>
+  <td>Xóa tùy chọn đầu tiên trùng khớp</td>
+</tr>
+<tr id="ex-remove2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Xóa tùy chọn đầu tiên khớp với nội dung.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+buttons.remove("Không")
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-repeat2')">
+  <td>repeat()</td>
+  <td>time, command, args</td>
+  <td>-</td>
+  <td>Lặp gọi hàm theo chu kỳ</td>
+</tr>
+<tr id="ex-repeat2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Gọi hàm sau mỗi `time` mili giây.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+def cập_nhật(state):
+    print(f"Cập nhật {state}")
+
+app.repeat(2000, cập_nhật, ["trạng thái"])
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-resize2')">
+  <td>resize()</td>
+  <td>width, height</td>
+  <td>-</td>
+  <td>Thay đổi kích thước</td>
+</tr>
+<tr id="ex-resize2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Đặt lại chiều rộng và chiều cao.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+buttons.resize(200, 100)
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-show2')">
+  <td>show()</td>
+  <td>-</td>
+  <td>-</td>
+  <td>Hiển thị lại</td>
+</tr>
+<tr id="ex-show2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Hiển thị widget đã bị ẩn.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+buttons.show()
+    </code></pre>
+  </td>
+</tr>
+
+<tr class="param-row" onclick="toggleExample('ex-updatecmd2')">
+  <td>update_command()</td>
+  <td>command, args</td>
+  <td>-</td>
+  <td>Cập nhật hàm khi thay đổi lựa chọn</td>
+</tr>
+<tr id="ex-updatecmd2" class="example" style="display: none;">
+  <td colspan="4">
+    💬 <strong>Giải thích:</strong> Thay đổi callback khi người dùng chọn khác đi.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+def moi_ham(v):
+    print(f"Chọn: {v}")
+
+buttons.update_command(moi_ham)
+    </code></pre>
+  </td>
+</tr>
+
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+
+</tbody>
+</table>
+
+
+          <h3>Thuộc tính</h3>
+          <table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr><th>Thuộc tính</th><th>Kiểu dữ liệu</th><th>Mô tả</th></tr>
+  </thead>
+  <tbody>
+    <tr class="param-row" onclick="toggleExample('ex-align3')">
+      <td>align</td><td>string</td><td>Căn chỉnh</td>
+    </tr>
+    <tr id="ex-align3" class="example" style="display: none;">
+      <td colspan="3">
+        💬 <strong>Giải thích:</strong> Căn lề widget bên trong widget cha (left, right, top, bottom).<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, ButtonGroup
+app = App()
+bg = ButtonGroup(app, options=[("A", "a"), ("B", "b")])
+from guizero import App, ButtonGroup
+app = App()
+bg = ButtonGroup(app, options=[("A", "a"), ("B", "b")], align="left")
+app.display()
+app.display()
+</code></pre>
+      </td>
+    </tr>
+    <tr class="param-row" onclick="toggleExample('ex-bg3')">
+      <td>bg</td><td>màu</td><td>Màu nền</td>
+    </tr>
+    <tr id="ex-bg3" class="example" style="display: none;">
+      <td colspan="3">
+        💬 <strong>Giải thích:</strong> Thay đổi màu nền widget.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, ButtonGroup
+app = App()
+bg = ButtonGroup(app, options=[("A", "a"), ("B", "b")])
+bg.bg = "lightblue"
+app.display()
+</code></pre>
+      </td>
+    </tr>
+    <tr class="param-row" onclick="toggleExample('ex-children3')">
+      <td>children</td><td>list</td><td>Danh sách các RadioButton</td>
+    </tr>
+    <tr id="ex-children3" class="example" style="display: none;">
+      <td colspan="3">
+        💬 <strong>Giải thích:</strong> Truy cập các widget con (nút radio).<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, ButtonGroup
+app = App()
+bg = ButtonGroup(app, options=[("A", "a"), ("B", "b")])
+for child in bg.children:
+    print(child.text)
+app.display()
+</code></pre>
+      </td>
+    </tr>
+    <tr class="param-row" onclick="toggleExample('ex-enabled3')">
+      <td>enabled</td><td>boolean</td><td>Trạng thái kích hoạt</td>
+    </tr>
+    <tr id="ex-enabled3" class="example" style="display: none;">
+      <td colspan="3">
+        💬 <strong>Giải thích:</strong> Kiểm tra widget có đang được bật hay không.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, ButtonGroup
+app = App()
+bg = ButtonGroup(app, options=[("A", "a"), ("B", "b")])
+print(bg.enabled)  # True hoặc False
+app.display()
+</code></pre>
+      </td>
+    </tr>
+    <tr class="param-row" onclick="toggleExample('ex-font3')">
+      <td>font</td><td>string</td><td>Phông chữ</td>
+    </tr>
+    <tr id="ex-font3" class="example" style="display: none;">
+      <td colspan="3">
+        💬 <strong>Giải thích:</strong> Đặt phông chữ hiển thị.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, ButtonGroup
+app = App()
+bg = ButtonGroup(app, options=[("A", "a"), ("B", "b")])
+bg.font = "Courier New"
+app.display()
+</code></pre>
+      </td>
+    </tr>
+    <tr class="param-row" onclick="toggleExample('ex-grid3')">
+      <td>grid</td><td>list</td><td>Vị trí trong lưới</td>
+    </tr>
+    <tr id="ex-grid3" class="example" style="display: none;">
+      <td colspan="3">
+        💬 <strong>Giải thích:</strong> Sử dụng khi đặt widget trong layout dạng lưới.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, ButtonGroup
+app = App()
+bg = ButtonGroup(app, options=[("A", "a"), ("B", "b")])
+bg = ButtonGroup(app, grid=[0, 1])
+app.display()
+</code></pre>
+      </td>
+    </tr>
+    <tr class="param-row" onclick="toggleExample('ex-height3')">
+      <td>height</td><td>kích thước</td><td>Chiều cao</td>
+    </tr>
+    <tr id="ex-height3" class="example" style="display: none;">
+      <td colspan="3">
+        💬 <strong>Giải thích:</strong> Thay đổi chiều cao widget.<br>
+        🧪 <strong>Ví dụ:</strong>
+        <pre><code class="language-python">
+from guizero import App, ButtonGroup
+app = App()
+bg = ButtonGroup(app, options=[("A", "a"), ("B", "b")])
+bg.height = 100
+app.display()
+</code></pre>
+      </td>
+    </tr>
+    <tr class="param-row" onclick="toggleExample('ex-master3')">
+  <td>master</td><td>App hoặc Box</td><td>Widget cha</td>
+</tr>
+<tr id="ex-master3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Truy cập đối tượng cha chứa widget này.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+app = App()
+bg = ButtonGroup(app, options=[("A", "a"), ("B", "b")])
+print(bg.master)
+app.display()
+</code></pre>
+  </td>
+</tr>
+<tr class="param-row" onclick="toggleExample('ex-value3')">
+  <td>value</td><td>string</td><td>Giá trị đã chọn</td>
+</tr>
+<tr id="ex-value3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Trả về value của tùy chọn đang được chọn.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+app = App()
+bg = ButtonGroup(app, options=[("A", "a"), ("B", "b")])
+print(bg.value)
+app.display()
+</code></pre>
+  </td>
+</tr>
+<tr class="param-row" onclick="toggleExample('ex-value_text3')">
+  <td>value_text</td><td>string</td><td>Văn bản đã chọn</td>
+</tr>
+<tr id="ex-value_text3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Lấy văn bản hiển thị của tùy chọn đang được chọn.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+app = App()
+bg = ButtonGroup(app, options=[("A", "a"), ("B", "b")])
+print(bg.value_text)
+app.display()
+</code></pre>
+  </td>
+</tr>
+<tr class="param-row" onclick="toggleExample('ex-visible3')">
+  <td>visible</td><td>boolean</td><td>Hiển thị hay không</td>
+</tr>
+<tr id="ex-visible3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Kiểm tra hoặc thay đổi trạng thái hiển thị.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+app = App()
+bg = ButtonGroup(app, options=[("A", "a"), ("B", "b")])
+print(bg.visible)
+app.display()
+</code></pre>
+  </td>
+</tr>
+<tr class="param-row" onclick="toggleExample('ex-width3')">
+  <td>width</td><td>kích thước</td><td>Chiều rộng</td>
+</tr>
+<tr id="ex-width3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Thay đổi chiều rộng widget.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+app = App()
+bg = ButtonGroup(app, options=[("A", "a"), ("B", "b")])
+bg.width = 250
+app.display()
+</code></pre>
+  </td>
+</tr>
+<tr class="param-row" onclick="toggleExample('ex-text_size3')">
+  <td>text_size</td><td>int</td><td>Cỡ chữ</td>
+</tr>
+<tr id="ex-text_size3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Điều chỉnh kích thước văn bản.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+app = App()
+bg = ButtonGroup(app, options=[("A", "a"), ("B", "b")])
+bg.text_size = 14
+app.display()
+</code></pre>
+  </td>
+</tr>
+<tr class="param-row" onclick="toggleExample('ex-text_color3')">
+  <td>text_color</td><td>màu</td><td>Màu chữ</td>
+</tr>
+<tr id="ex-text_color3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Đặt màu chữ của widget.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+app = App()
+bg = ButtonGroup(app, options=[("A", "a"), ("B", "b")])
+bg.text_color = "red"
+app.display()
+</code></pre>
+  </td>
+</tr>
+<tr class="param-row" onclick="toggleExample('ex-text_bold3')">
+  <td>text_bold</td><td>boolean</td><td>Chữ đậm</td>
+</tr>
+<tr id="ex-text_bold3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> In đậm văn bản của widget.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+app = App()
+bg = ButtonGroup(app, options=[("A", "a"), ("B", "b")])
+bg.text_bold = True
+app.display()
+</code></pre>
+  </td>
+</tr>
+<tr class="param-row" onclick="toggleExample('ex-text_italic3')">
+  <td>text_italic</td><td>boolean</td><td>Chữ nghiêng</td>
+</tr>
+<tr id="ex-text_italic3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Làm chữ nghiêng.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+app = App()
+bg = ButtonGroup(app, options=[("A", "a"), ("B", "b")])
+bg.text_italic = True
+app.display()
+</code></pre>
+  </td>
+</tr>
+<tr class="param-row" onclick="toggleExample('ex-text_underline3')">
+  <td>text_underline</td><td>boolean</td><td>Gạch dưới</td>
+</tr>
+<tr id="ex-text_underline3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Gạch chân văn bản.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+app = App()
+bg = ButtonGroup(app, options=[("A", "a"), ("B", "b")])
+bg.text_underline = True
+app.display()
+</code></pre>
+  </td>
+</tr>
+<tr class="param-row" onclick="toggleExample('ex-text_overstrike3')">
+  <td>text_overstrike</td><td>boolean</td><td>Gạch ngang</td>
+</tr>
+<tr id="ex-text_overstrike3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Gạch ngang văn bản.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+app = App()
+bg = ButtonGroup(app, options=[("A", "a"), ("B", "b")])
+bg.text_overstrike = True
+app.display()
+</code></pre>
+  </td>
+</tr>
+<tr class="param-row" onclick="toggleExample('ex-tk3')">
+  <td>tk</td><td>tkinter.Frame</td><td>Đối tượng tkinter nội bộ</td>
+</tr>
+<tr id="ex-tk3" class="example" style="display: none;">
+  <td colspan="3">
+    💬 <strong>Giải thích:</strong> Truy cập trực tiếp đến thành phần gốc tkinter.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, ButtonGroup
+app = App()
+bg = ButtonGroup(app, options=[("A", "a"), ("B", "b")])
+print(bg.tk)
+app.display()
+</code></pre>
+  </td>
+</tr>
+  </tbody>
+</table>
+
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+
+
+          <h3>Ví dụ: Tạo ButtonGroup với danh sách 2 chiều</h3>
+          <pre><code class="language-python">from guizero import App, ButtonGroup, Text
+
+def update_text():
+    what_is_selected.value = activities.value
+
+app = App()
+activities = ButtonGroup(app, options=[
+                            ["Roller Skating", "skate"],
+                            ["White water rafting", "WWR"],
+                            ["Mountain climbing", "climb"]
+                          ],
+                          selected="skate", command=update_text)
+
+what_is_selected = Text(app, text="skate")
+app.display()</code></pre>
+
+          <h3>Sử dụng widget tk trong ButtonGroup</h3>
+          <p>Thuộc tính <code>children</code> chứa danh sách các widget <code>RadioButton</code>. Bạn có thể truy cập nội bộ đối tượng <code>tk</code> như sau:</p>
+          <pre><code class="language-python">button_group = ButtonGroup(app)
+
+for radio_button in button_group.children:
+    tk_radio_button = radio_button.tk</code></pre>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                Huỳnh Ngọc Thái
+            </div>
+        </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+        <div class="switcher-icon">
+            <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+        </div>
+        <div class="right-sidebar-content">
+
+            <p class="mb-0">Gaussion Texture</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme1"></li>
+                <li id="theme2"></li>
+                <li id="theme3"></li>
+                <li id="theme4"></li>
+                <li id="theme5"></li>
+                <li id="theme6"></li>
+            </ul>
+
+            <p class="mb-0">Gradient Background</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme7"></li>
+                <li id="theme8"></li>
+                <li id="theme9"></li>
+                <li id="theme10"></li>
+                <li id="theme11"></li>
+                <li id="theme12"></li>
+                <li id="theme13"></li>
+                <li id="theme14"></li>
+                <li id="theme15"></li>
+            </ul>
+
+        </div>
+    </div>
+    <!--end color switcher-->
+
+    </div><!--End wrapper-->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- simplebar js -->
+    <script src="../plugins/simplebar/js/simplebar.js"></script>
+    <!-- sidebar-menu js -->
+    <script src="../js/sidebar-menu.js"></script>
+    <!-- loader scripts -->
+    <script src="../js/jquery.loading-indicator.js"></script>
+    <!-- Custom scripts -->
+    <script src="../js/app-script.js"></script>
+    <!-- Chart js -->
+
+    <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+    <!-- Index js -->
+
+    <script>
+        $("#sidebar-placeholder").load("layout.html");
+
+    </script>
+
+
+</body>
+
+</html>

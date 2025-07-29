@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Học Python với Thầy Thái</title>
+    <!-- loader-->
+
+    <!--favicon-->
+    <link rel="icon" href="../images/logo.png" type="image/x-icon">
+    <!-- Vector CSS -->
+    <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <!-- simplebar CSS-->
+    <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- animate CSS-->
+    <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+    <!-- Icons CSS-->
+    <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+    <!-- Sidebar CSS-->
+    <link href="../css/sidebar-menu.css" rel="stylesheet" />
+    <!-- Custom Style-->
+    <link href="../css/app-style.css" rel="stylesheet" />
+    <!-- Bootstrap 5 CSS -->
+    <!-- Prism.js CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <!-- Prism.js -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Plugin for line numbers + copy -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet" />
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css"
+        rel="stylesheet" />
+
+
+    <!-- Bootstrap 5 JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .card-header {
+            font-size: 18px;
+        }
+
+        .card-body h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #f3f6f9;
+        }
+
+        .card-body ul {
+            padding-left: 1.2rem;
+            list-style-type: disc;
+        }
+
+        .card-body ul li {
+            margin-bottom: 0.5rem;
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .example {
+            display: none;
+            margin-top: 5px;
+            padding: 10px;
+
+            border-left: 4px solid #007bff;
+        }
+
+        .param-row:hover {
+            border: solid 2px yellow;
+            cursor: pointer;
+        }
+
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <!--Start sidebar-wrapper-->
+        <div id="sidebar-placeholder"></div>
+
+        <!--End sidebar-wrapper-->
+
+        <!--Start topbar header-->
+        <header class="topbar-nav">
+            <nav class="navbar navbar-expand fixed-top">
+                <ul class="navbar-nav mr-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link toggle-menu" href="javascript:void();">
+                            <i class="icon-menu menu-icon"></i>
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </nav>
+        </header>
+        <!--End topbar header-->
+
+        <div class="clearfix"></div>
+
+     <div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Đối tượng Combo <small class="text-muted">Hộp chọn trong ứng dụng guizero</small></h3>
+        </div>
+        <div class="card-body">
+          <h3>Combo là gì?</h3>
+          <p>Đối tượng <code>Combo</code> hiển thị một hộp thả xuống (drop down box) cho phép chọn một tùy chọn từ một danh sách các tùy chọn.</p>
+
+          <h3>Combo trên Windows</h3>
+
+          <h3>Làm thế nào để tạo một Combo?</h3>
+          <pre><code class="language-python">from guizero import App, Combo
+app = App()
+combo = Combo(app, options=["Beef", "Chicken", "Fish", "Vegetarian"])
+app.display()</code></pre>
+
+          <h3>Tham số khởi tạo</h3>
+          <p>Khi tạo một đối tượng <code>Combo</code>, bạn <strong>phải</strong> chỉ định <code>master</code>, và có thể chỉ định các tham số tùy chọn khác.</p>
+          <pre><code class="language-python">combo = Combo(app, options=["Beef", "Chicken", "Fish", "Vegetarian"])</code></pre>
+
+          <table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr><th>Tham số</th><th>Giá trị hợp lệ</th><th>Mặc định</th><th>Bắt buộc</th><th>Mô tả</th></tr>
+  </thead>
+  <tbody>
+
+<!-- master -->
+<tr class="param-row" onclick="toggleExample('ex-master-cmb1')">
+  <td>master</td>
+  <td>App, Window hoặc Box</td>
+  <td>-</td>
+  <td>Có</td>
+  <td>Container mà widget này thuộc về</td>
+</tr>
+<tr id="ex-master-cmb1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Widget cha chứa Combo.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Combo
+
+app = App()
+combo = Combo(app, options=["A", "B"])
+print(combo.master)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- options -->
+<tr class="param-row" onclick="toggleExample('ex-options-cmb1')">
+  <td>options</td>
+  <td>List</td>
+  <td>[]</td>
+  <td>Không</td>
+  <td>Danh sách các tùy chọn để hiển thị</td>
+</tr>
+<tr id="ex-options-cmb1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Các giá trị người dùng có thể chọn.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Combo
+
+app = App()
+Combo(app, options=["Chó", "Mèo", "Cá"])
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- selected -->
+<tr class="param-row" onclick="toggleExample('ex-selected-cmb1')">
+  <td>selected</td>
+  <td>String</td>
+  <td>None</td>
+  <td>Không</td>
+  <td>Giá trị được chọn mặc định</td>
+</tr>
+<tr id="ex-selected-cmb1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Giá trị ban đầu được chọn.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Combo
+
+app = App()
+Combo(app, options=["Đỏ", "Xanh"], selected="Xanh")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- align -->
+<tr class="param-row" onclick="toggleExample('ex-align-cmb1')">
+  <td>align</td>
+  <td>String</td>
+  <td>None</td>
+  <td>-</td>
+  <td>Căn chỉnh widget trong container</td>
+</tr>
+<tr id="ex-align-cmb1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> "top", "bottom", "left", "right".<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Combo
+
+app = App()
+Combo(app, options=["1", "2"], align="top")
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- command -->
+<tr class="param-row" onclick="toggleExample('ex-command-cmb1')">
+  <td>command</td>
+  <td>Tên hàm</td>
+  <td>None</td>
+  <td>-</td>
+  <td>Hàm được gọi khi lựa chọn thay đổi</td>
+</tr>
+<tr id="ex-command-cmb1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Gọi hàm mỗi khi người dùng chọn giá trị mới.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Combo
+
+def chọn_màu():
+    print("Màu đã chọn")
+
+app = App()
+Combo(app, options=["Đỏ", "Vàng"], command=chọn_màu)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- grid -->
+<tr class="param-row" onclick="toggleExample('ex-grid-cmb1')">
+  <td>grid</td>
+  <td>List [int, int]</td>
+  <td>None</td>
+  <td>-</td>
+  <td>Tọa độ nếu container có layout dạng lưới</td>
+</tr>
+<tr id="ex-grid-cmb1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Vị trí khi dùng layout="grid".<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Combo
+
+app = App(layout="grid")
+Combo(app, options=["A", "B"], grid=[0, 1])
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- visible -->
+<tr class="param-row" onclick="toggleExample('ex-visible-cmb1')">
+  <td>visible</td>
+  <td>Boolean</td>
+  <td>True</td>
+  <td>Không</td>
+  <td>Có hiển thị widget hay không</td>
+</tr>
+<tr id="ex-visible-cmb1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Ẩn hoặc hiển thị combo box.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Combo, PushButton
+
+def ẩn():
+    combo.visible = False
+
+app = App()
+combo = Combo(app, options=["Ẩn", "Hiện"])
+PushButton(app, text="Ẩn Combo", command=ẩn)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- enabled -->
+<tr class="param-row" onclick="toggleExample('ex-enabled-cmb1')">
+  <td>enabled</td>
+  <td>Boolean</td>
+  <td>None</td>
+  <td>Không</td>
+  <td>Có cho phép tương tác không</td>
+</tr>
+<tr id="ex-enabled-cmb1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Nếu False thì combo không thể dùng.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Combo
+
+app = App()
+Combo(app, options=["1", "2"], enabled=False)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- width -->
+<tr class="param-row" onclick="toggleExample('ex-width-cmb1')">
+  <td>width</td>
+  <td>Kích thước</td>
+  <td>None</td>
+  <td>Không</td>
+  <td>Chiều rộng (ký tự hoặc "fill")</td>
+</tr>
+<tr id="ex-width-cmb1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Chiều rộng của combo box.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Combo
+
+app = App()
+Combo(app, options=["A", "B"], width=20)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- height -->
+<tr class="param-row" onclick="toggleExample('ex-height-cmb1')">
+  <td>height</td>
+  <td>Kích thước</td>
+  <td>None</td>
+  <td>Không</td>
+  <td>Chiều cao (ký tự hoặc "fill")</td>
+</tr>
+<tr id="ex-height-cmb1" class="example" style="display: none;">
+  <td colspan="5">
+    💬 <strong>Giải thích:</strong> Chiều cao của combo box.<br>
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Combo
+
+app = App()
+Combo(app, options=["X", "Y"], height=2)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+
+</tbody>
+</table>
+
+
+          <h3>Phương thức</h3>
+          <table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Phương thức</th>
+      <th>Tham số</th>
+      <th>Giá trị trả về</th>
+      <th>Mô tả</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<!-- append -->
+<tr class="param-row" onclick="toggleExample('ex-append-cmb2')">
+  <td>append()</td><td>option (string)</td><td>-</td><td>Thêm một tùy chọn</td>
+</tr>
+<tr id="ex-append-cmb2" class="example" style="display: none;">
+  <td colspan="4">
+    🧪 <strong>Ví dụ:</strong>
+    <pre><code class="language-python">
+from guizero import App, Combo, PushButton
+
+def thêm():
+    combo.append("Mới")
+
+app = App()
+combo = Combo(app, options=["A", "B"])
+PushButton(app, text="Thêm tùy chọn", command=thêm)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- after -->
+<tr class="param-row" onclick="toggleExample('ex-after-cmb2')">
+  <td>after()</td><td>time (ms), command</td><td>-</td><td>Gọi hàm sau thời gian</td>
+</tr>
+<tr id="ex-after-cmb2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Combo
+
+def nói_chào():
+    print("Xin chào!")
+
+app = App()
+combo = Combo(app, options=["1", "2"])
+combo.after(2000, nói_chào)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- cancel -->
+<tr class="param-row" onclick="toggleExample('ex-cancel-cmb2')">
+  <td>cancel()</td><td>command</td><td>-</td><td>Hủy hàm đã lên lịch</td>
+</tr>
+<tr id="ex-cancel-cmb2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Combo, PushButton
+
+def thông_báo():
+    print("Chạy sau 3 giây")
+
+def hủy():
+    combo.cancel(thông_báo)
+
+app = App()
+combo = Combo(app, options=["A", "B"])
+combo.after(3000, thông_báo)
+PushButton(app, text="Hủy hành động", command=hủy)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- clear -->
+<tr class="param-row" onclick="toggleExample('ex-clear-cmb2')">
+  <td>clear()</td><td>-</td><td>-</td><td>Xóa tất cả các tùy chọn</td>
+</tr>
+<tr id="ex-clear-cmb2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Combo, PushButton
+
+def xoa():
+    combo.clear()
+
+app = App()
+combo = Combo(app, options=["X", "Y"])
+PushButton(app, text="Xóa tất cả", command=xoa)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- destroy -->
+<tr class="param-row" onclick="toggleExample('ex-destroy-cmb2')">
+  <td>destroy()</td><td>-</td><td>-</td><td>Hủy widget</td>
+</tr>
+<tr id="ex-destroy-cmb2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Combo, PushButton
+
+def xoa_widget():
+    combo.destroy()
+
+app = App()
+combo = Combo(app, options=["1", "2"])
+PushButton(app, text="Hủy Combo", command=xoa_widget)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- disable -->
+<tr class="param-row" onclick="toggleExample('ex-disable-cmb2')">
+  <td>disable()</td><td>-</td><td>-</td><td>Vô hiệu hóa</td>
+</tr>
+<tr id="ex-disable-cmb2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Combo, PushButton
+
+def vo_hieu():
+    combo.disable()
+
+app = App()
+combo = Combo(app, options=["1", "2"])
+PushButton(app, text="Vô hiệu hóa", command=vo_hieu)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- enable -->
+<tr class="param-row" onclick="toggleExample('ex-enable-cmb2')">
+  <td>enable()</td><td>-</td><td>-</td><td>Kích hoạt lại</td>
+</tr>
+<tr id="ex-enable-cmb2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Combo, PushButton
+
+def kich_hoat():
+    combo.enable()
+
+app = App()
+combo = Combo(app, options=["A", "B"], enabled=False)
+PushButton(app, text="Kích hoạt", command=kich_hoat)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- focus -->
+<tr class="param-row" onclick="toggleExample('ex-focus-cmb2')">
+  <td>focus()</td><td>-</td><td>-</td><td>Đưa tiêu điểm</td>
+</tr>
+<tr id="ex-focus-cmb2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Combo, PushButton
+
+def lấy_tiêu_điểm():
+    combo.focus()
+
+app = App()
+combo = Combo(app, options=["1", "2"])
+PushButton(app, text="Focus", command=lấy_tiêu_điểm)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- hide -->
+<tr class="param-row" onclick="toggleExample('ex-hide-cmb2')">
+  <td>hide()</td><td>-</td><td>-</td><td>Ẩn widget</td>
+</tr>
+<tr id="ex-hide-cmb2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Combo, PushButton
+
+def ẩn():
+    combo.hide()
+
+app = App()
+combo = Combo(app, options=["Ẩn", "Hiện"])
+PushButton(app, text="Ẩn", command=ẩn)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- insert -->
+<tr class="param-row" onclick="toggleExample('ex-insert-cmb2')">
+  <td>insert()</td><td>index (int), option (string)</td><td>-</td><td>Chèn tùy chọn</td>
+</tr>
+<tr id="ex-insert-cmb2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Combo, PushButton
+
+def chen():
+    combo.insert(1, "Chen giữa")
+
+app = App()
+combo = Combo(app, options=["Đầu", "Cuối"])
+PushButton(app, text="Chèn vào", command=chen)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- remove -->
+<tr class="param-row" onclick="toggleExample('ex-remove-cmb2')">
+  <td>remove()</td><td>option (string)</td><td>Boolean</td><td>Xóa tùy chọn đầu tiên khớp</td>
+</tr>
+<tr id="ex-remove-cmb2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Combo, PushButton
+
+def xoa():
+    combo.remove("B")
+
+app = App()
+combo = Combo(app, options=["A", "B", "C"])
+PushButton(app, text="Xóa B", command=xoa)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- repeat -->
+<tr class="param-row" onclick="toggleExample('ex-repeat-cmb2')">
+  <td>repeat()</td><td>time, command</td><td>-</td><td>Lặp lại hành động</td>
+</tr>
+<tr id="ex-repeat-cmb2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Combo
+
+def lặp():
+    print("Tự động gọi")
+
+app = App()
+combo = Combo(app, options=["1", "2"])
+combo.repeat(2000, lặp)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- resize -->
+<tr class="param-row" onclick="toggleExample('ex-resize-cmb2')">
+  <td>resize()</td><td>width, height</td><td>-</td><td>Đổi kích thước</td>
+</tr>
+<tr id="ex-resize-cmb2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Combo, PushButton
+
+def đổi_kích_thước():
+    combo.resize(30, 3)
+
+app = App()
+combo = Combo(app, options=["A", "B"])
+PushButton(app, text="Đổi kích thước", command=đổi_kích_thước)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- select_default -->
+<tr class="param-row" onclick="toggleExample('ex-selectdefault-cmb2')">
+  <td>select_default()</td><td>-</td><td>-</td><td>Chọn lại mặc định</td>
+</tr>
+<tr id="ex-selectdefault-cmb2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Combo, PushButton
+
+def chọn_lại():
+    combo.select_default()
+
+app = App()
+combo = Combo(app, options=["1", "2", "3"], selected="2")
+PushButton(app, text="Chọn mặc định", command=chọn_lại)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- show -->
+<tr class="param-row" onclick="toggleExample('ex-show-cmb2')">
+  <td>show()</td><td>-</td><td>-</td><td>Hiển thị lại widget</td>
+</tr>
+<tr id="ex-show-cmb2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Combo, PushButton
+
+def hiện():
+    combo.show()
+
+app = App()
+combo = Combo(app, options=["Ẩn", "Hiện"])
+combo.hide()
+PushButton(app, text="Hiện lại", command=hiện)
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<!-- update_command -->
+<tr class="param-row" onclick="toggleExample('ex-updatecmd-cmb2')">
+  <td>update_command()</td><td>command</td><td>-</td><td>Cập nhật hàm xử lý</td>
+</tr>
+<tr id="ex-updatecmd-cmb2" class="example" style="display: none;">
+  <td colspan="4">
+    <pre><code class="language-python">
+from guizero import App, Combo, PushButton
+
+def ban_dau():
+    print("Đầu tiên")
+
+def sau():
+    print("Cập nhật rồi")
+
+app = App()
+combo = Combo(app, options=["1", "2"], command=ban_dau)
+PushButton(app, text="Cập nhật command", command=lambda: combo.update_command(sau))
+app.display()
+    </code></pre>
+  </td>
+</tr>
+
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+
+</tbody>
+</table>
+
+          <h3>Thuộc tính</h3>
+         <table class="table table-bordered" border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Thuộc tính</th>
+      <th>Kiểu dữ liệu</th>
+      <th>Mô tả</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<!-- align -->
+<tr class="param-row" onclick="toggleExample('ex-align-cmb3')">
+  <td>align</td><td>string</td><td>Căn chỉnh trong container</td>
+</tr>
+<tr id="ex-align-cmb3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Combo
+app = App()
+c = Combo(app, options=["A", "B"])
+c.align = "top"
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- bg -->
+<tr class="param-row" onclick="toggleExample('ex-bg-cmb3')">
+  <td>bg</td><td>color</td><td>Màu nền</td>
+</tr>
+<tr id="ex-bg-cmb3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Combo
+app = App()
+c = Combo(app, options=["Xanh", "Đỏ"])
+c.bg = "lightblue"
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- enabled -->
+<tr class="param-row" onclick="toggleExample('ex-enabled-cmb3')">
+  <td>enabled</td><td>boolean</td><td>Trạng thái kích hoạt</td>
+</tr>
+<tr id="ex-enabled-cmb3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Combo
+app = App()
+c = Combo(app, options=["1", "2"])
+c.enabled = False
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- font -->
+<tr class="param-row" onclick="toggleExample('ex-font-cmb3')">
+  <td>font</td><td>string</td><td>Phông chữ</td>
+</tr>
+<tr id="ex-font-cmb3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Combo
+app = App()
+c = Combo(app, options=["Arial", "Courier"])
+c.font = "Courier"
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- grid -->
+<tr class="param-row" onclick="toggleExample('ex-grid-cmb3')">
+  <td>grid</td><td>list</td><td>Vị trí trong layout lưới</td>
+</tr>
+<tr id="ex-grid-cmb3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Combo
+app = App(layout="grid")
+c = Combo(app, options=["1", "2"])
+c.grid = [1, 1]
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- height -->
+<tr class="param-row" onclick="toggleExample('ex-height-cmb3')">
+  <td>height</td><td>size</td><td>Chiều cao</td>
+</tr>
+<tr id="ex-height-cmb3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Combo
+app = App()
+c = Combo(app, options=["A", "B"])
+c.height = 3
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- master -->
+<tr class="param-row" onclick="toggleExample('ex-master-cmb3')">
+  <td>master</td><td>App hoặc Box</td><td>Container chứa</td>
+</tr>
+<tr id="ex-master-cmb3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Box, Combo
+app = App()
+box = Box(app)
+combo = Combo(box, options=["X", "Y"])
+print(combo.master)
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- value -->
+<tr class="param-row" onclick="toggleExample('ex-value-cmb3')">
+  <td>value</td><td>string</td><td>Giá trị đang chọn</td>
+</tr>
+<tr id="ex-value-cmb3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Combo
+app = App()
+combo = Combo(app, options=["1", "2"])
+combo.value = "2"
+print(combo.value)
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- visible -->
+<tr class="param-row" onclick="toggleExample('ex-visible-cmb3')">
+  <td>visible</td><td>boolean</td><td>Hiển thị hay không</td>
+</tr>
+<tr id="ex-visible-cmb3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Combo
+app = App()
+combo = Combo(app, options=["Ẩn", "Hiện"])
+combo.visible = False
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- width -->
+<tr class="param-row" onclick="toggleExample('ex-width-cmb3')">
+  <td>width</td><td>size</td><td>Chiều rộng</td>
+</tr>
+<tr id="ex-width-cmb3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Combo
+app = App()
+c = Combo(app, options=["1", "2"])
+c.width = 25
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- text_size -->
+<tr class="param-row" onclick="toggleExample('ex-textsize-cmb3')">
+  <td>text_size</td><td>int</td><td>Kích thước chữ</td>
+</tr>
+<tr id="ex-textsize-cmb3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Combo
+app = App()
+c = Combo(app, options=["A", "B"])
+c.text_size = 18
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- text_color -->
+<tr class="param-row" onclick="toggleExample('ex-textcolor-cmb3')">
+  <td>text_color</td><td>color</td><td>Màu chữ</td>
+</tr>
+<tr id="ex-textcolor-cmb3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Combo
+app = App()
+c = Combo(app, options=["Đỏ", "Xanh"])
+c.text_color = "red"
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- text_bold -->
+<tr class="param-row" onclick="toggleExample('ex-textbold-cmb3')">
+  <td>text_bold</td><td>boolean</td><td>Chữ đậm</td>
+</tr>
+<tr id="ex-textbold-cmb3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Combo
+app = App()
+c = Combo(app, options=["Đậm", "Thường"])
+c.text_bold = True
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- text_italic -->
+<tr class="param-row" onclick="toggleExample('ex-textitalic-cmb3')">
+  <td>text_italic</td><td>boolean</td><td>Chữ nghiêng</td>
+</tr>
+<tr id="ex-textitalic-cmb3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Combo
+app = App()
+c = Combo(app, options=["Nghiêng", "Thẳng"])
+c.text_italic = True
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- text_underline -->
+<tr class="param-row" onclick="toggleExample('ex-textunderline-cmb3')">
+  <td>text_underline</td><td>boolean</td><td>Gạch chân</td>
+</tr>
+<tr id="ex-textunderline-cmb3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Combo
+app = App()
+c = Combo(app, options=["Gạch chân", "Không"])
+c.text_underline = True
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- text_overstrike -->
+<tr class="param-row" onclick="toggleExample('ex-textoverstrike-cmb3')">
+  <td>text_overstrike</td><td>boolean</td><td>Gạch ngang</td>
+</tr>
+<tr id="ex-textoverstrike-cmb3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Combo
+app = App()
+c = Combo(app, options=["Gạch", "Không"])
+c.text_overstrike = True
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+<!-- tk -->
+<tr class="param-row" onclick="toggleExample('ex-tk-cmb3')">
+  <td>tk</td><td>OptionMenu</td><td>Đối tượng nội bộ tkinter</td>
+</tr>
+<tr id="ex-tk-cmb3" class="example" style="display: none;">
+  <td colspan="3">
+<pre><code class="language-python">
+from guizero import App, Combo
+app = App()
+c = Combo(app, options=["1", "2"])
+print(c.tk)
+app.display()
+</code></pre>
+  </td>
+</tr>
+
+
+<script>
+function toggleExample(id) {
+  const ex = document.getElementById(id);
+  ex.style.display = ex.style.display === 'table-row' ? 'none' : 'table-row';
+}
+</script>
+
+</tbody>
+</table>
+
+
+          <p><strong>Ví dụ: Gọi hàm khi thay đổi lựa chọn</strong></p>
+          <pre><code class="language-python">from guizero import App, Text, Combo
+
+def you_chose(selected_value):
+    if selected_value == "Tiny goblet":
+        result.value = "You chose...wisely"
+    else:
+        result.value = "You chose...poorly"
+
+app = App()
+instructions = Text(app, text="Choose a goblet")
+combo = Combo(app, options=["", "Huge golden goblet", "Jewel encrusted goblet", "Tiny goblet"], command=you_chose)
+result = Text(app)
+app.display()</code></pre>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                Huỳnh Ngọc Thái
+            </div>
+        </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+        <div class="switcher-icon">
+            <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+        </div>
+        <div class="right-sidebar-content">
+
+            <p class="mb-0">Gaussion Texture</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme1"></li>
+                <li id="theme2"></li>
+                <li id="theme3"></li>
+                <li id="theme4"></li>
+                <li id="theme5"></li>
+                <li id="theme6"></li>
+            </ul>
+
+            <p class="mb-0">Gradient Background</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme7"></li>
+                <li id="theme8"></li>
+                <li id="theme9"></li>
+                <li id="theme10"></li>
+                <li id="theme11"></li>
+                <li id="theme12"></li>
+                <li id="theme13"></li>
+                <li id="theme14"></li>
+                <li id="theme15"></li>
+            </ul>
+
+        </div>
+    </div>
+    <!--end color switcher-->
+
+    </div><!--End wrapper-->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- simplebar js -->
+    <script src="../plugins/simplebar/js/simplebar.js"></script>
+    <!-- sidebar-menu js -->
+    <script src="../js/sidebar-menu.js"></script>
+    <!-- loader scripts -->
+    <script src="../js/jquery.loading-indicator.js"></script>
+    <!-- Custom scripts -->
+    <script src="../js/app-script.js"></script>
+    <!-- Chart js -->
+
+    <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+    <!-- Index js -->
+
+    <script>
+        $("#sidebar-placeholder").load("layout.html");
+
+    </script>
+
+
+</body>
+
+</html>
