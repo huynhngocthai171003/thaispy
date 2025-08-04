@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Học Python với Thầy Thái</title>
+  <!-- loader-->
+
+  <!--favicon-->
+  <link rel="icon" href="../images/logo.png" type="image/x-icon">
+  <!-- Vector CSS -->
+  <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+  <!-- simplebar CSS-->
+  <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+  <!-- Bootstrap core CSS-->
+  <link href="../css/bootstrap.min.css" rel="stylesheet" />
+  <!-- animate CSS-->
+  <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+  <!-- Icons CSS-->
+  <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+  <!-- Sidebar CSS-->
+  <link href="../css/sidebar-menu.css" rel="stylesheet" />
+  <!-- Custom Style-->
+  <link href="../css/app-style.css" rel="stylesheet" />
+  <!-- Bootstrap 5 CSS -->
+<!-- Prism.js CSS -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+<!-- Prism.js -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+<!-- Plugin for line numbers + copy -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet"/>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css" rel="stylesheet"/>
+
+
+  <!-- Bootstrap 5 JS + Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+  .card-header{
+    font-size: 18px;
+  }
+  .card-body h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #f3f6f9;
+}
+
+.card-body ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+.card-body ul li {
+  margin-bottom: 0.5rem;
+  font-size: 18px;
+}
+
+p{
+  font-size: 18px;
+}
+
+
+
+</style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+  <!-- Start wrapper-->
+  <div id="wrapper">
+
+    <!--Start sidebar-wrapper-->
+    <div id="sidebar-placeholder"></div>
+
+    <!--End sidebar-wrapper-->
+
+    <!--Start topbar header-->
+    <header class="topbar-nav">
+      <nav class="navbar navbar-expand fixed-top">
+        <ul class="navbar-nav mr-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link toggle-menu" href="javascript:void();">
+              <i class="icon-menu menu-icon"></i>
+            </a>
+          </li>
+
+        </ul>
+
+
+      </nav>
+    </header>
+    <!--End topbar header-->
+
+    <div class="clearfix"></div>
+
+<div class="content-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Phân chia mã trong Python <small class="text-muted">15 phút đọc</small></h3>
+        </div>
+        <div class="card-body">
+          <p>Trong Python, việc tổ chức và phân chia mã nguồn giúp chương trình dễ quản lý, bảo trì, mở rộng và tái sử dụng. Python cung cấp nhiều cách để phân chia mã: <strong>module</strong>, <strong>package</strong>, <strong>library</strong> và <strong>framework</strong>.</p>
+
+          <h4>1. Khái niệm cơ bản</h4>
+          <ul>
+            <li><strong>Module</strong>: Một file <code>.py</code> chứa hàm, biến, lớp có thể tái sử dụng.</li>
+            <li><strong>Package</strong>: Một thư mục chứa nhiều module, có file <code>__init__.py</code>.</li>
+            <li><strong>Library</strong>: Tập hợp các module/package hỗ trợ một chức năng cụ thể.</li>
+            <li><strong>Framework</strong>: Bộ khung phần mềm toàn diện giúp xây dựng ứng dụng nhanh và chuẩn hóa hơn.</li>
+          </ul>
+
+          <h4>2. Module – Định nghĩa, Ví dụ và Giải thích</h4>
+          <p><strong>Module</strong> là cách phân chia mã đơn giản nhất – một tệp Python chứa các hàm, biến hoặc lớp có thể tái sử dụng.</p>
+
+<pre><code class="language-python"># mymath.py
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+</code></pre>
+
+<pre><code class="language-python"># main.py
+import mymath
+
+print(mymath.add(3, 4))        # Output: 7
+print(mymath.subtract(10, 2))  # Output: 8
+</code></pre>
+
+<p><strong>Giải thích:</strong> Bạn có thể tái sử dụng các hàm từ <code>mymath.py</code> bằng cách import nó vào file khác.</p>
+
+          <h4>3. Sử dụng từ khóa <code>as</code> để đổi tên module</h4>
+<pre><code class="language-python">import mymath as mm
+
+print(mm.add(5, 6))  # Output: 11
+</code></pre>
+<p>Giúp tên module ngắn gọn hơn, đặc biệt khi module có tên dài.</p>
+
+        <h4>4. Built-in Modules – Các module có sẵn trong Python</h4>
+
+<p>Python cung cấp rất nhiều module tích hợp sẵn (built-in) mà bạn có thể sử dụng trực tiếp mà không cần cài đặt thêm bằng <code>pip</code>. Những module này giúp bạn xử lý nhiều tác vụ phổ biến như tính toán, làm việc với ngày giờ, ngẫu nhiên, và tương tác với hệ thống.</p>
+
+<p>Dưới đây là một số ví dụ về các built-in module thường dùng:</p>
+
+<pre><code class="language-python">import math, random, datetime, sys
+
+# Sử dụng module math để tính toán
+print(math.sqrt(25))              # 5.0 - căn bậc hai của 25
+
+# Sử dụng module random để chọn ngẫu nhiên
+print(random.choice([1, 2, 3]))   # Trả về một phần tử ngẫu nhiên từ danh sách
+
+# Sử dụng module datetime để lấy thời gian hiện tại
+print(datetime.datetime.now())    # Ví dụ: 2025-08-03 09:25:00
+
+# Sử dụng module sys để lấy thông tin phiên bản Python
+print(sys.version)                # Ví dụ: 3.10.12 (main, Jun 5 2025)
+</code></pre>
+
+<p><strong>Giải thích chi tiết:</strong></p>
+<p><code>math</code>: Cung cấp các hàm toán học như căn bậc hai (<code>sqrt</code>), lũy thừa, lượng giác, v.v.</p>
+<p><code>random</code>: Tạo ra số ngẫu nhiên hoặc chọn ngẫu nhiên phần tử từ danh sách.</p>
+<p><code>datetime</code>: Làm việc với ngày và giờ, hỗ trợ xử lý thời gian hiện tại, ngày tháng, định dạng thời gian.</p>
+<p><code>sys</code>: Giao tiếp với hệ thống – ví dụ như truy cập thông tin phiên bản Python, đường dẫn module, và các tham số dòng lệnh.</p>
+
+<p>Những module này được cài đặt sẵn khi bạn cài Python, vì vậy bạn chỉ cần <code>import</code> để sử dụng mà không phải cài thêm gì cả.</p>
+
+
+        <h4>5. Vị trí và Thứ tự Ưu tiên khi tìm Module</h4>
+
+<p>Khi bạn sử dụng lệnh <code>import ten_module</code>, Python sẽ tìm module đó theo một thứ tự được xác định trong biến <code>sys.path</code>. Đây là danh sách các thư mục mà Python sẽ kiểm tra khi cần nạp một module.</p>
+
+<p><strong>Cụ thể, thứ tự tìm kiếm như sau:</strong></p>
+
+<p><strong>Thư mục hiện tại (Current Working Directory):</strong><br>
+Đây là thư mục chứa file Python bạn đang chạy. Nếu trong thư mục này có file <code>mymodule.py</code>, Python sẽ ưu tiên import file đó trước.</p>
+
+<p><strong>Ví dụ:</strong></p>
+<pre><code class="language-plaintext">/home/user/project/
+├── main.py
+└── mymodule.py</code></pre>
+
+<pre><code class="language-python"># main.py
+import mymodule  # Tìm thấy mymodule.py trong thư mục hiện tại
+</code></pre>
+
+<p><strong>Các thư viện đã cài bằng pip (Site-packages):</strong><br>
+Nếu không tìm thấy module trong thư mục hiện tại, Python tiếp tục tìm trong thư mục chứa các thư viện bạn đã cài bằng pip.</p>
+
+<p>Đường dẫn thường giống như:</p>
+<pre><code class="language-plaintext">/usr/local/lib/python3.x/site-packages/</code></pre>
+
+<p><strong>Ví dụ:</strong></p>
+<pre><code class="language-python">import requests  # Python tìm thấy trong thư mục site-packages
+</code></pre>
+
+<p><strong>Thư viện chuẩn (Standard Library):</strong><br>
+Nếu vẫn chưa tìm thấy, Python tiếp tục kiểm tra các module tích hợp sẵn như <code>math</code>, <code>datetime</code>, <code>sys</code>, v.v.</p>
+
+<p><strong>Ví dụ:</strong></p>
+<pre><code class="language-python">import math  # Python tìm thấy trong thư viện chuẩn
+</code></pre>
+
+<p><strong>Kiểm tra toàn bộ đường dẫn tìm kiếm:</strong></p>
+<pre><code class="language-python">import sys
+for p in sys.path:
+    print(p)
+</code></pre>
+
+<p>Lệnh trên sẽ in ra danh sách thư mục theo đúng thứ tự mà Python sẽ kiểm tra khi tìm module.</p>
+
+<p><strong>Lưu ý quan trọng:</strong></p>
+<p>Giả sử bạn vô tình đặt tên một file trùng với module chuẩn của Python, ví dụ <code>random.py</code>:</p>
+
+<pre><code class="language-python"># random.py
+import random
+print(random.randint(1, 10))
+</code></pre>
+
+<p>Python sẽ cố gắng import chính file <code>random.py</code> của bạn, không phải module chuẩn. Điều này dẫn đến lỗi:</p>
+<pre><code class="language-plaintext">AttributeError: module 'random' has no attribute 'randint'</code></pre>
+
+<p><strong>Thêm thư mục tùy chỉnh vào đường dẫn tìm kiếm:</strong></p>
+<pre><code class="language-python">import sys
+sys.path.append('/duong_dan/module_cua_ban')
+</code></pre>
+
+<p>Cách này hữu ích khi bạn muốn dùng module nằm ở nơi khác, không nằm trong các thư mục mặc định.</p>
+
+<p><strong>Tóm tắt:</strong> Thứ tự tìm module là:</p>
+<p>1. Thư mục hiện tại</p>
+<p>2. Thư viện đã cài bằng pip</p>
+<p>3. Thư viện chuẩn (built-in)</p>
+
+<p>Bạn có thể hiểu đơn giản: Python sẽ tìm trong "nhà mình" trước, rồi đến "kho hàng đã mua thêm", sau đó mới đến "hàng chuẩn nhà sản xuất".</p>
+
+          <h4>6. Package – Định nghĩa, Ví dụ và Giải thích</h4>
+<p>Package là thư mục chứa nhiều module, có file <code>__init__.py</code> để Python nhận diện là package.</p>
+<pre><code  class="language-python">
+calculator/
+├── __init__.py
+├── basic.py
+└── advanced.py
+</code></pre>
+
+<pre><code class="language-python"># calculator/basic.py
+def add(a, b):
+    return a + b
+</code></pre>
+
+<pre><code class="language-python"># main.py
+from calculator import basic
+print(basic.add(2, 3))  # Output: 5
+</code></pre>
+
+<p><strong>Giải thích:</strong> Package giúp nhóm các module có chức năng liên quan lại với nhau.</p>
+
+          <h4>7. External Module – Thư viện bên ngoài và Cộng đồng Python</h4>
+<p>Ngoài các module sẵn có, Python có cộng đồng lớn chia sẻ hàng trăm nghìn thư viện mã nguồn mở. Cài đặt bằng <code>pip</code>:</p>
+
+<pre><code class="language-bash">pip install requests</code></pre>
+
+<pre><code class="language-python">import requests
+
+res = requests.get("https://httpbin.org/get")
+print(res.status_code)
+</code></pre>
+
+<p><strong>Giải thích:</strong> <code>requests</code> là một thư viện giúp gửi HTTP request dễ dàng.</p>
+
+         <h4>8. Library vs Framework – Sự khác biệt</h4>
+<p><strong>Library</strong> (thư viện) và <strong>Framework</strong> (khung phần mềm) đều là các thành phần hỗ trợ lập trình viên, nhưng có cách hoạt động và mức độ kiểm soát hoàn toàn khác nhau.</p>
+
+<ul>
+  <li><strong>Library:</strong> Bạn chủ động gọi các hàm, lớp, hoặc đối tượng trong thư viện để sử dụng. Luồng điều khiển do bạn quyết định. Ví dụ: gọi hàm từ requests, pandas, numpy khi cần.</li>
+  <li><strong>Framework:</strong> Framework đưa ra cấu trúc và gọi ngược lại mã của bạn theo quy tắc định sẵn. Bạn phải viết mã phù hợp với luồng và cấu trúc mà framework cung cấp. Đây là nguyên lý gọi là <em>Inversion of Control</em> (đảo ngược quyền điều khiển).</li>
+</ul>
+
+<p><strong>Ví dụ:</strong></p>
+
+<p><em>Library – Bạn gọi hàm thư viện khi cần:</em></p>
+<pre><code class="language-python">import requests
+
+response = requests.get('https://httpbin.org/get')
+print(response.status_code)</code></pre>
+
+<p>Trong ví dụ này, bạn chủ động gọi requests.get(). Bạn điều khiển quá trình xử lý.</p>
+
+<p><em>Framework – Framework gọi hàm bạn khi phù hợp:</em></p>
+<pre><code class="language-python">from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Hello, world!"
+
+app.run()</code></pre>
+
+<p>Ở đây, bạn không tự gọi hàm <code>home()</code>. Flask tự động gọi nó khi có yêu cầu HTTP đến <code>/</code>.</p>
+
+<h5>So sánh nhanh:</h5>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Tiêu chí</th>
+      <th>Library</th>
+      <th>Framework</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Điều khiển chương trình</td>
+      <td>Bạn điều khiển</td>
+      <td>Framework điều khiển</td>
+    </tr>
+    <tr>
+      <td>Luồng thực thi</td>
+      <td>Do lập trình viên quyết định</td>
+      <td>Định nghĩa sẵn bởi framework</td>
+    </tr>
+    <tr>
+      <td>Cấu trúc bắt buộc</td>
+      <td>Không</td>
+      <td>Có</td>
+    </tr>
+    <tr>
+      <td>Ví dụ</td>
+      <td>NumPy, Pandas, Requests</td>
+      <td>Django, Flask, FastAPI</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Tóm tắt dễ nhớ:</strong> "Thư viện là công cụ bạn gọi. Framework là công cụ gọi bạn!"</p>
+
+
+          <h4>9. Một số thư viện nổi bật trong Python</h4>
+<table class="table">
+  <thead>
+    <tr><th>Lĩnh vực</th><th>Thư viện</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Web</td><td>Flask, Django</td></tr>
+    <tr><td>Phân tích dữ liệu</td><td>Pandas, NumPy</td></tr>
+    <tr><td>Machine Learning</td><td>Scikit-learn, TensorFlow</td></tr>
+    <tr><td>Web Scraping</td><td>BeautifulSoup, Scrapy</td></tr>
+  </tbody>
+</table>
+
+          <h4>10. Tổng kết</h4>
+<ul>
+  <li><strong>Module</strong>: Tệp .py chứa mã tái sử dụng.</li>
+  <li><strong>Package</strong>: Thư mục gồm nhiều module.</li>
+  <li><strong>Library</strong>: Nhóm module theo chức năng chuyên biệt.</li>
+  <li><strong>Framework</strong>: Hệ thống xây dựng ứng dụng hoàn chỉnh.</li>
+  <li>Dùng <code>import</code>, <code>from</code>, <code>as</code> để nạp module.</li>
+  <li>Có thể sử dụng <code>pip</code> để mở rộng với hàng ngàn thư viện ngoài.</li>
+</ul>
+
+<p>Hiểu rõ cách phân chia mã trong Python sẽ giúp bạn xây dựng các chương trình có tổ chức, dễ mở rộng và dễ bảo trì.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+      <div class="container">
+        <div class="text-center">
+          Huỳnh Ngọc Thái
+        </div>
+      </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+      <div class="switcher-icon">
+        <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+      </div>
+      <div class="right-sidebar-content">
+
+        <p class="mb-0">Gaussion Texture</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme1"></li>
+          <li id="theme2"></li>
+          <li id="theme3"></li>
+          <li id="theme4"></li>
+          <li id="theme5"></li>
+          <li id="theme6"></li>
+        </ul>
+
+        <p class="mb-0">Gradient Background</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme7"></li>
+          <li id="theme8"></li>
+          <li id="theme9"></li>
+          <li id="theme10"></li>
+          <li id="theme11"></li>
+          <li id="theme12"></li>
+          <li id="theme13"></li>
+          <li id="theme14"></li>
+          <li id="theme15"></li>
+        </ul>
+
+      </div>
+    </div>
+    <!--end color switcher-->
+
+  </div><!--End wrapper-->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+
+  <!-- simplebar js -->
+  <script src="../plugins/simplebar/js/simplebar.js"></script>
+  <!-- sidebar-menu js -->
+  <script src="../js/sidebar-menu.js"></script>
+  <!-- loader scripts -->
+  <script src="../js/jquery.loading-indicator.js"></script>
+  <!-- Custom scripts -->
+  <script src="../js/app-script.js"></script>
+  <!-- Chart js -->
+
+  <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+  <!-- Index js -->
+
+  <script>
+    $("#sidebar-placeholder").load("layout.html");
+
+  </script>
+
+
+</body>
+
+</html>
