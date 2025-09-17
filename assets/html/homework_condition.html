@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Học Python với Thầy Thái</title>
+  <!-- loader-->
+
+  <!--favicon-->
+  <link rel="icon" href="../images/logo.png" type="image/x-icon">
+  <!-- Vector CSS -->
+  <link href="../plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+  <!-- simplebar CSS-->
+  <link href="../plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+  <!-- Bootstrap core CSS-->
+  <link href="../css/bootstrap.min.css" rel="stylesheet" />
+  <!-- animate CSS-->
+  <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+  <!-- Icons CSS-->
+  <link href="../css/icons.css" rel="stylesheet" type="text/css" />
+  <!-- Sidebar CSS-->
+  <link href="../css/sidebar-menu.css" rel="stylesheet" />
+  <!-- Custom Style-->
+  <link href="../css/app-style.css" rel="stylesheet" />
+  <!-- Bootstrap 5 CSS -->
+<!-- Prism.js CSS -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+<!-- Prism.js -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+<!-- Plugin for line numbers + copy -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet"/>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css" rel="stylesheet"/>
+
+
+  <!-- Bootstrap 5 JS + Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+  .card-header{
+    font-size: 18px;
+  }
+  .card-body h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #f3f6f9;
+}
+
+.card-body ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+.card-body ul li {
+  margin-bottom: 0.5rem;
+  font-size: 18px;
+}
+
+p{
+  font-size: 18px;
+}
+
+
+
+</style>
+</head>
+
+<body class="bg-theme bg-theme1">
+
+  <!-- Start wrapper-->
+  <div id="wrapper">
+
+    <!--Start sidebar-wrapper-->
+    <div id="sidebar-placeholder"></div>
+
+    <!--End sidebar-wrapper-->
+
+    <!--Start topbar header-->
+    <header class="topbar-nav">
+      <nav class="navbar navbar-expand fixed-top">
+        <ul class="navbar-nav mr-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link toggle-menu" href="javascript:void();">
+              <i class="icon-menu menu-icon"></i>
+            </a>
+          </li>
+
+        </ul>
+
+
+      </nav>
+    </header>
+    <!--End topbar header-->
+
+    <div class="clearfix"></div>
+<div class="content-wrapper">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="mt-4">🧠 Bài tập: Câu điều kiện <code>if / elif / else</code> trong Python</h3>
+            </div>
+            <div class="card-body">
+
+              <h4>🟡 Bài 1: Kiểm tra số lớn nhỏ</h4>
+              <ul>
+                <li>Nhập một số nguyên</li>
+                <li>Nếu &gt; 100 → in “Số lớn hơn 100”</li>
+                <li>Nếu = 100 → in “Bằng 100”</li>
+                <li>Nếu &lt; 100 → in “Nhỏ hơn 100”</li>
+              </ul>
+
+              <h4>🔵 Bài 2: Xếp loại học lực</h4>
+              <ul>
+                <li>Nhập điểm trung bình (0–10)</li>
+                <li>Dùng <code>if elif else</code> để in ra: “Giỏi”, “Khá”, “Trung bình”, hoặc “Yếu”</li>
+              </ul>
+
+              <h4>🟢 Bài 3: Số chia hết cho 3 và 5?</h4>
+              <ul>
+                <li>Nhập một số nguyên</li>
+                <li>Nếu chia hết cho 3 và 5 → “FizzBuzz”</li>
+                <li>Nếu chỉ chia hết cho 3 → “Fizz”</li>
+                <li>Nếu chỉ chia hết cho 5 → “Buzz”</li>
+                <li>Ngược lại in chính số đó</li>
+              </ul>
+
+              <h4>🟣 Bài 4: Tính tiền taxi</h4>
+              <ul>
+                <li>Nhập số km đi được</li>
+                <li>≤ 1 km → 20.000đ</li>
+                <li>1–5 km → 13.000đ/km</li>
+                <li>&gt; 5 km → 11.000đ/km</li>
+                <li>In tổng tiền phải trả</li>
+              </ul>
+
+              <h4>🔶 Bài 5: Kiểm tra năm nhuận</h4>
+              <ul>
+                <li>Nhập một năm</li>
+                <li>Nếu chia hết cho 400 hoặc (chia hết cho 4 nhưng không chia hết cho 100) → “Năm nhuận”</li>
+                <li>Ngược lại → “Không nhuận”</li>
+              </ul>
+
+              <h4>🔷 Bài 6: Máy tính mini</h4>
+              <ul>
+                <li>Nhập 2 số và 1 phép toán (+, -, *, /)</li>
+                <li>Dùng <code>if elif else</code> để tính và in kết quả</li>
+              </ul>
+
+              <h4>🟤 Bài 7: Kiểm tra nhiệt độ nước</h4>
+              <ul>
+                <li>Nhập nhiệt độ (°C)</li>
+                <li>Nếu &lt; 0 → “Nước đóng băng”</li>
+                <li>Nếu từ 0–99 → “Nước ở thể lỏng”</li>
+                <li>Nếu ≥ 100 → “Nước sôi”</li>
+              </ul>
+
+              <h4>⚪ Bài 8: Giờ trong ngày</h4>
+              <ul>
+                <li>Nhập số giờ (0–23)</li>
+                <li>0–11 → “Buổi sáng”</li>
+                <li>12–17 → “Buổi chiều”</li>
+                <li>18–23 → “Buổi tối”</li>
+              </ul>
+
+              <h4>🟥 Bài 9: Cân nặng chuẩn</h4>
+              <ul>
+                <li>Nhập chiều cao (m) và cân nặng (kg)</li>
+                <li>Tính BMI = cân nặng / (chiều cao²)</li>
+                <li>BMI &lt; 18.5 → “Gầy”</li>
+                <li>18.5–24.9 → “Bình thường”</li>
+                <li>25–29.9 → “Thừa cân”</li>
+                <li>≥ 30 → “Béo phì”</li>
+              </ul>
+
+              <h4>🟩 Bài 10: Đăng nhập</h4>
+              <ul>
+                <li>Nhập tên người dùng và mật khẩu</li>
+                <li>Nếu username = <code>admin</code> và password = <code>12345</code> → “Đăng nhập thành công”</li>
+                <li>Ngược lại → “Sai thông tin”</li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="footer">
+      <div class="container">
+        <div class="text-center">
+          Huỳnh Ngọc Thái
+        </div>
+      </div>
+    </footer>
+    <!--End footer-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+      <div class="switcher-icon">
+        <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+      </div>
+      <div class="right-sidebar-content">
+
+        <p class="mb-0">Gaussion Texture</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme1"></li>
+          <li id="theme2"></li>
+          <li id="theme3"></li>
+          <li id="theme4"></li>
+          <li id="theme5"></li>
+          <li id="theme6"></li>
+        </ul>
+
+        <p class="mb-0">Gradient Background</p>
+        <hr>
+
+        <ul class="switcher">
+          <li id="theme7"></li>
+          <li id="theme8"></li>
+          <li id="theme9"></li>
+          <li id="theme10"></li>
+          <li id="theme11"></li>
+          <li id="theme12"></li>
+          <li id="theme13"></li>
+          <li id="theme14"></li>
+          <li id="theme15"></li>
+        </ul>
+
+      </div>
+    </div>
+    <!--end color switcher-->
+
+  </div><!--End wrapper-->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+
+  <!-- simplebar js -->
+  <script src="../plugins/simplebar/js/simplebar.js"></script>
+  <!-- sidebar-menu js -->
+  <script src="../js/sidebar-menu.js"></script>
+  <!-- loader scripts -->
+  <script src="../js/jquery.loading-indicator.js"></script>
+  <!-- Custom scripts -->
+  <script src="../js/app-script.js"></script>
+  <!-- Chart js -->
+
+  <script src="../plugins/Chart.js/Chart.min.js"></script>
+
+  <!-- Index js -->
+
+   <script>
+    $("#sidebar-placeholder").load("layout.html");
+
+  </script>
+
+
+</body>
+
+</html>
